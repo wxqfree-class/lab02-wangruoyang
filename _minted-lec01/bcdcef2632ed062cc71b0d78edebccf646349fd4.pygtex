@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+which cat    \PYG{c}{\PYGZsh{}查看cat可执行文件路径}
+\PYG{n+nb}{type }cat     \PYG{c}{\PYGZsh{}查看命令类型}
+\end{Verbatim}

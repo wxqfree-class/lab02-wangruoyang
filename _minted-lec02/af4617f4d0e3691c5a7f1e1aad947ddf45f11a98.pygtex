@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+cp x/* da                  \PYG{c}{\PYGZsh{}复制目录内所有文件}
+cp -R x db                 \PYG{c}{\PYGZsh{}递归复制整个目录}
+cp -a x dc                 \PYG{c}{\PYGZsh{}同上并保留文件属性不变}
+\end{Verbatim}

@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+shutdown -h now   \PYG{c}{\PYGZsh{}立即关机}
+shutdown +10 \PYG{l+s+s2}{"System will shutdown in 10 minutes."}
+shutdown -c \PYG{l+s+s2}{"Shutdown has been canceled."}
+\end{Verbatim}

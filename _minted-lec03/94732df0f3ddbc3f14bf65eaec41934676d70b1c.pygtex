@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+chage -l mike  \PYG{c}{\PYGZsh{}查看用户帐号密码有效期信息}
+\PYG{c}{\PYGZsh{}注意：普通用户只能查看自己的帐号密码有效期信息}
+chage -m 3 mike  \PYG{c}{\PYGZsh{}设置设定密码后至少经过几天才能修改密码}
+chage -M 30 mike \PYG{c}{\PYGZsh{}设置设定密码后最长多少天后必须修改密码}
+chage -d 2016-01-01 mike \PYG{c}{\PYGZsh{}设置密码最后修改时间}
+chage -E 2020-12-31 mike \PYG{c}{\PYGZsh{}设置密码过期时间}
+chage -W 7 mike  \PYG{c}{\PYGZsh{}设置密码过期前几天提醒}
+chage -I 3 mike  \PYG{c}{\PYGZsh{}设置密码过期后多少天被锁定}
+\end{Verbatim}

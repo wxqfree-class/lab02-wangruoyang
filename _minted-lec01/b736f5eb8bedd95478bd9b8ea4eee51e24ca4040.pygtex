@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+head /etc/passwd
+head -n 3 /etc/passwd
+tail -3 /etc/passwd
+su
+tail -f /var/log/messages  \PYG{c}{\PYGZsh{}跟踪文件结尾追加的行}
+                           \PYG{c}{\PYGZsh{}按Ctrl-c结束}
+systemctrl restart network.service
+\end{Verbatim}

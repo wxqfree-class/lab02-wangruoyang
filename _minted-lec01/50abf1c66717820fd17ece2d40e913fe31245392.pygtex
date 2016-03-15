@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+which \PYG{n+nb}{exit}          \PYG{c}{\PYGZsh{}找不到，因为exit是内部命令}
+\PYG{n+nb}{type exit}
+\end{Verbatim}

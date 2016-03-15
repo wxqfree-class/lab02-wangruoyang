@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+ls
+ls -a
+ls -l
+ls -la
+ls -R
+ls /
+ls
+\end{Verbatim}

@@ -1,0 +1,15 @@
+digraph stdio {
+	rankdir=LR;
+	stdin[label="0: stdin"];
+	procedure[label="进程",shape=record];
+	stdout[label="1: stdout"];
+	stderr[label="2: stderr"];
+	keyboard[label="键盘",shape=record];
+	screen[label="显示屏",shape=record];
+	keyboard -> stdin[style=dashed];
+	stdin -> procedure;
+	procedure -> stdout;
+	procedure -> stderr;
+	stdout -> screen[style=dashed];
+	stderr -> screen[style=dashed];
+}

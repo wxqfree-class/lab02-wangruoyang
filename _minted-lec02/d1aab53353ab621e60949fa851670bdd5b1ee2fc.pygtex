@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+diff file1 file2    \PYG{c}{\PYGZsh{}比较文件}
+diff -r dir1 dir2   \PYG{c}{\PYGZsh{}比较目录}
+\end{Verbatim}

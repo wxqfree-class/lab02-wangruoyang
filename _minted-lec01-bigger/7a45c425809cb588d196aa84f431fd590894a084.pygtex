@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{cd} /home/bob
+cat .bashrc
+cat note/linux.txt
+\PYG{n+nb}{cd }project/proj1
+cat main.c
+cat ../proj2/proj2.h
+cat /etc/fstab
+\PYG{n+nb}{pwd}
+\PYG{n+nb}{cd}
+\end{Verbatim}

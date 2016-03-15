@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+chown root file
+chown root:users file
+chown root: file
+chown :users file
+chown -R root:users dir
+chgrp users file
+chgrp -R users dir
+\end{Verbatim}

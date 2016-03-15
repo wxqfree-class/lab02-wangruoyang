@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{echo }hello
+\PYG{n+nb}{echo }nice to meet you!
+\PYG{n+nb}{echo} \PYG{l+s+s2}{"nice to meet you!"}
+\PYG{n+nb}{echo} \PYG{l+s+s1}{'nice to meet you!'}
+\PYG{n+nb}{echo }nice to meet you\PYG{l+s+se}{\PYGZbs{}!}
+\PYG{n+nb}{echo} \PYG{l+s+s2}{"nice to meet you\PYGZbs{}!"}
+\PYG{n+nb}{echo} \PYG{l+s+s1}{'nice to meet you\PYGZbs{}!'}
+\PYG{n+nb}{echo }It\PYG{err}{'}s \PYG{n+nb}{time }to learn linux!
+\PYG{n+nb}{echo}
+\end{Verbatim}

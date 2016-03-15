@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+tar -cf boot.tar /boot \PYG{c}{\PYGZsh{}cf的顺序不能调换！}
+\end{Verbatim}

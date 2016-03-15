@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+sha1sum file1 file2 >filesum.sha1 \PYG{c}{\PYGZsh{}生成散列值}
+sha1sum -c filesum.sha1           \PYG{c}{\PYGZsh{}检查完整性}
+\end{Verbatim}

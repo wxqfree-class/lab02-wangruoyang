@@ -1,0 +1,576 @@
+#+STARTUP: indent
+#+TITLE:     Linux操作系统
+#+AUTHOR:    wxq
+#+EMAIL:     wxq@centos7.wxqfree.net
+#+DATE:      2016-02-22 一
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:t toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME: 
+#+XSLT:
+#+startup: beamer
+#+LaTeX_CLASS: beamer
+#+LaTeX_CLASS_OPTIONS: [bigger]
+#+BEAMER_FRAME_LEVEL: 2
+#+COLUMNS: %40ITEM %10BEAMER_env(Env) %9BEAMER_envargs(Env Args) %4BEAMER_col(Col) %10BEAMER_extra(Extra)
+#+LaTeX_HEADER: \usepackage{xeCJK}
+
+* 第1周
+** 1. 课程简介
+*** 1.1 为什么要学Linux？
+- Linux与IT行业
+  1) 免费、开源、全球参与开发
+  2) 被业界广泛采用，成为全球IT基础设施（尤其是因特网）核心
+  3) 在移动和物联网时代发展愈加迅猛
+  4) 是各种新技术产生的温床
+- Linux与我们
+  1) 可是我们平时都只用Windows，从来没用过Linux呀？
+     - 不上网：Windows
+     - 上网：新浪网易看新闻、天猫京东购物、网上购买回家火车票、QQ微信、收发邮件、炒股、玩手机、看有线电视、看视觉大片
+  2) 与Unix一脉相承，承载了丰富而历久弥新的知识和软件财富
+  3) 通过学习命令行和脚本编程，可以实现高效且自动化地处理各种任务
+  4) 通过学习系统配置管理，可以深入掌控系统的方方面面
+  5) 学到的知识可以保值并随着积累不断增值
+  6) 可以第一时间接触和了解业界最新技术
+*** 1.2 主要学什么？
+- shell命令行
+  1) GUI(图形用户界面)
+     - 拟物化：人操作物
+       - 例：双击图标运行程序（人亲自执行）
+     - 适合视觉型活动：图形图像设计、音视频制作、上网、看视频、玩游戏
+     - 面向内容消费：多媒体相关工作者、普通大众
+     - 例：制作网页logo图片
+  2) CLI(命令行界面)
+     - 拟人化：人机对话
+       - 例：命令机器执行程序（让机器执行）
+     - 适合语言型活动：编程、写文档、记笔记
+     - 面向内容生产：计算机专业人士
+     - 例：
+       - 创建3个文件夹memo、book、note，memo文件夹内创建12个文件夹（用于分别存放12个月的备忘）、book文件夹内创建3个文件夹（cs、math、en）、note文件夹内创建3个文件夹（os、net、db），每个文件夹内再创建16个子文件夹（用于分别存放每周的课程笔记）
+         #+BEGIN_SRC sh
+         mkdir -p memo/month{01..12} book/{cs,math,en} note/{os,net,db}/week{01..16}
+         #+END_SRC
+- shell脚本编程
+- 系统配置管理
+- 网络服务配置管理
+*** 1.3 怎么考核？
+- 考勤：20%
+  - 随机考勤，每次旷课扣3分（早退按旷课处理），每次迟到扣1分，扣完为止。
+- 实践：30%
+  1) 平时：14%
+     - 选项1：根据每周上机实验情况打分
+     - 选项2：根据完成课程项目情况打分
+     - 说明：为在规定时间完成实验或上交课程项目，分数乘0.7进行折扣
+  2) 期末：16%
+     - 未在规定时间内完成，分数乘0.8进行折扣
+- 期末笔试：50%
+  - 闭卷考试，卷面分数不得低于50分，否则总评分会被系统自动定为不及格！
+** 2. 从Unix到Linux
+*** 2.1 Unix简史
+****** Unix诞生
+******* 1969年，Ken Thompson[[file:img/thompson01.jpg]] 在一台PDP-7机器上完成了Unix的雏形。
+******* 1973年，Dennis Ritchie[[file:img/ritchie01.jpg]] 设计出C语言，并和Thompson一起将Unix重写为C语言版本。
+******* 二人因为Unix和C语言的工作共同获得1983年度图灵奖。
+*** 2.2 自由软件和开源软件
+*** 2.3 Linux简介
+*** 2.4 Linux vs. Windows
+** 3. Linux安装
+*** 3.1 通过虚拟机安装Linux
+*** 3.2 Linux分区
+- 分区与目录
+  1) 硬盘分区规则
+  2) Linux分区与Windos分区
+     - 单根目录与多根目录
+  3) Linux分区与目录（挂载点）
+- 分区方案
+  1) /+Swap
+  2) /+/boot+Swap
+  3) /+/boot+/home+Swap
+  4) ......
+- 分区名称
+  1) IDE接口设备及其分区
+  2) SCSI接口设备及其分区
+  3) 设备文件名 vs. 挂载点
+*** 3.3 虚拟机网络设置
+- NAT
+- Bridged
+- Host-only
+- Internel
+*** 3.4 通过putty远程登录Linux
+- 设置NAT端口转发
+*** 3.5 虚拟机管理
+- 虚拟机快照保存与恢复
+- 利用虚拟硬盘快速创建虚拟机
+- 虚拟机复制
+** 4. Linux入门
+*** 4.1 终端与多用户
+- 本地终端
+  1) 字符终端
+  2) 图形终端
+- 远程终端
+*** 4.2 入门使用
+- 登录
+- 了解系统
+  - 时间
+    #+BEGIN_SRC sh
+      date    #现在什么时间？
+      date +%H:%M  #现在几点几分？
+      date "+%B %d"  #今天是几月几号呀？
+      date +%s     #打印纪元时（秒）：Linux认为UTC 1970年1月1日0点整是纪元时间
+      echo `date +%s`/265/24/3600 | bc  #现在是纪元多少年呀？
+      date --date "Oct 1 2016" +%A      #今年国庆节是星期几呀？
+      date -s "10 March 2016 10:01:23"  #帮我把时间调成2016年3月10日10点01分23秒吧！
+    #+END_SRC
+  - 日历
+    #+BEGIN_SRC sh
+      cal #给我看看这个月的月历吧
+      cal 2017 #我想看看2017年的年历
+      cal 9 1752  #我想看看1752年9月份的月历:-)
+    #+END_SRC
+  - 用户名
+    #+BEGIN_SRC sh
+      whoami  #我是谁？
+      who am i #我究竟是谁？
+      who     #都有谁在呀？
+    #+END_SRC
+  - 系统版本
+    #+BEGIN_SRC sh
+      uname  #这是什么操作系统呀？
+      uname -r #这是什么版本呀？
+      uname -a #把操作系统相关信息都告诉我好了！
+    #+END_SRC
+  - 主机名
+    #+BEGIN_SRC sh
+      hostname #主机名是什么呀？
+      hostname NiuBi #不好听，改个牛逼的名字吧！
+    #+END_SRC
+  - 系统状态
+    #+BEGIN_SRC sh
+      uptime  #开机多久了呀？
+      uptime -p  #拜托，友好点行吗？
+    #+END_SRC
+  - 计算器
+    #+BEGIN_SRC sh
+      bc    #我想算点东西
+      bc -q #我只想安静地算点东西!
+      echo "scale=16;x=4;y=7;3*(x+2)/y" | bc #帮我算一下这个吧！
+      echo "obase=2;192" | bc  #192的二进制表示是什么呀？
+      echo "obase=10;ibase=2;11000011" | bc #11000011代表几呀？
+      echo "ibase=2;obase=10;11000011" | bc #:-(
+      echo "ibase=2;obase=1010;11000011" | bc #:-)
+    #+END_SRC
+- 浏览文件系统
+  1) ls
+  2) cd
+  3) pwd
+  4) cat
+  5) Linux目录架构（与Windows对比）
+  6) 绝对路径和相对路径
+- 切换终端
+- 切换用户身份
+- 与其他用户交互
+  1) who
+  2) write和mesg
+  3) mail
+- 注销
+- 关机
+*** 4.3 命令行
+- 命令格式：命令 [选项]... [参数]...
+  1) 选项（指示命令以什么方式执行）
+     - Unix简洁风：-a
+       - 选项a-z巡礼
+         | 选项   | 含义                                   |
+         |--------+----------------------------------------|
+         | -a     | all, append                            |
+         | -b     | buffer, block, batch                   |
+         | -c     | command, check                         |
+         | -d     | debug, delete, directory               |
+         | -D     | define                                 |
+         | -e     | excute, edit, exclude, expression      |
+         | -f     | file, force                            |
+         | -h     | header, help                           |
+         | -i     | initialize, interactive                |
+         | -I     | include                                |
+         | -k     | keep, kill                             |
+         | -l     | list, long, load, login                |
+         | -m     | message, mail, mode, modification-time |
+         | -n     | number, not                            |
+         | -o     | output                                 |
+         | -p     | port, protocol                         |
+         | -q     | quite                                  |
+         | -r(-R) | recurse, reverse                       |
+         | -s     | silent, subject, size                  |
+         | -t     | tag                                    |
+         | -u     | user                                   |
+         | -v     | verbose, version                       |
+         | -V     | version                                |
+         | -w     | width, warning                         |
+         | -x     | debug, extract                         |
+         | -y     | yes                                    |
+         | -z     | zip                                    |
+     - GNU友好风：--all
+  2) 参数（指示命令作用的对象，选项也可以有参数）
+  3) 注意：命令、选项和参数之间要有空格（选项及其参数之间有时可以没有空格）
+- 命令编辑：Tab键自动完成
+- 命令历史：history
+- 中止命令：Ctrl+c
+*** 4.4 获取帮助
+- 外部命令与内部命令
+- man
+- help
+- info
+- doc
+- Internet
+* 第2周
+** 1. Linux文件管理
+- 文件
+  1) 创建文件
+     - 文件名规范
+     - touch
+       #+BEGIN_SRC sh
+         touch file1
+       #+END_SRC
+  2) 复制文件q
+     - cp
+       #+BEGIN_SRC sh
+         cp file1 file2  #把file1复制一份并命名为file2
+         cp file file2 dir1  #把file1、file2复制到目录dir1内
+         cp file dir1/file3  #把file1复制到目录dir1内并命名为file3
+       #+END_SRC
+  3) 移动文件
+     - mv
+       #+BEGIN_SRC sh
+         mv file1 file2 #将file1移动为file2（即重命名）
+         mv file2 file3 file4 dir1  #将file2、file3、file4移动到目录dir1内
+         mv file5 dir1/file1 #将file5移动到目录dir1内，并重命名为file1
+       #+END_SRC
+  4) 删除文件
+     - rm
+       #+BEGIN_SRC sh
+         rm file1 file2 file3 #删除文件file1、file2、file3
+         rm -f file4 #强行删除文件file4
+       #+END_SRC
+- 目录
+  1) 创建目录
+  2) 复制目录
+  3) 移动目录
+  4) 删除目录
+- 链接
+  1) 硬链接
+  2) 符号链接（软链接）
+** 2. vi编辑器
+- vi入门
+  1) 三种基本模式
+  2) 带参数启动与不带参数启动
+  3) 存盘退出与不存盘退出
+- vi常用操作
+  1) 移动光标
+  2) 删除、复制、粘贴
+  3) 撤销与重做
+- vi快速移动
+  1) 行首行尾
+  2) 上下翻页
+  3) 跳至第n行
+  4) 按语义单位移动（单词、句子、段落）
+  5) 次数前缀
+- vi高效编辑
+  1) 行操作
+  2) 段操作
+  3) 块操作
+  4) 重复上次操作
+  5) 重复宏操作
+  6) 简写
+  7) 文件加密
+- vi与多文件处理
+  1) 多文件
+  2) 多窗口
+  3) 多标签
+- vi环境配置
+  1) 临时配置
+  2) 长期配置
+** 3. 文本处理工具
+- 查看文件内容
+  - cat、pr、more、less
+- 查看部分行
+  - head、tail、grep
+- 查看部分列
+  - cut
+- 消除相邻重复行
+  - uniq
+- 排序
+  - sort
+- 字符转换
+  - tr
+** 4. shell特性
+- 命令组
+- 文件名通配符
+- 字符串扩展
+- I/O重定向
+- 管道
+* 第3周
+** 1. 用户管理
+- 用户帐号
+- 用户数据文件
+** 2. 权限管理
+** 3. 进程管理
+** 4. shell环境
+* 第4周
+** 1. 正则表达式1
+** 2. 正则表达式2
+** 3. sed1
+** 4. sed2
+* 第5周
+** 1. awk1
+*** 引言
+**** 计算机用户总是花大量时间用于处理简单的、机械性的数据处理工作，例如转换数据格式、查找包含特定属性的项目、汇总数据、打印报表等等。这些事情都应该机械化，但是，每当有这样的任务，就要用C或者Pascal语言写一个特殊任务的程序真是一件令人讨厌的事。AWK是一种编程语言，它使得利用很短的，常常是一两行的程序来完成这些任务成为可能。一段AWK程序就是一系列的模式和操作，它说明在输入数据中寻找什么以及找到之后干什么。AWK在文件中搜寻与任一模式匹配的行，当一个匹配的行被发现之后，对应的操作即被执行。一个模式可以通过联合正则表达式和比较运算对字符串，数字，字段，变量和数组元素做行选择。操作可以对选定的行进行任意的处理。操作语言看起来像C但是没有声明，而且字符串和数字是内建的数据类型。AWK扫描输入文件并且把每一输入行自动地分成字段。因为这么多事情是自动的--输入，字段分割，存储管理，和初始化--AWK程序通常都比它们在更常规的语言中短的多。因此AWK的一项通常的应用就是上述建议的数据操作。一两行的程序，由键盘键入，运行一次，然后丢掉。但事实上，AWK是一种普通的编程工具，它可以取代很多特殊的工具和程序。
+*** 入门指导
+**** 开始
+***** 引例：假设有一个文件emp.data，它包含了员工的姓名、以美元计的时薪以及工作小时数，每个员工记录占一行：
+#+BEGIN_SRC sh 
+  cat >emp.data <<EOF
+  Beth   4.00    0
+  Dan    3.75    0
+  Kathy  4.00    10
+  Mark   5.00    20
+  Mary   5.50    22
+  Susie  4.25    18
+  EOF  
+#+END_SRC
+
+#+RESULTS:
+
+现在需要打印每个工作时间大于0小时员工的姓名和应得薪酬（时薪x工作小时数）
+#+BEGIN_SRC sh
+awk '$3 > 0 { print $1, $2*$3 }' emp.data
+#+END_SRC
+
+#+RESULTS:
+| Kathy |   40 |
+| Mark  |  100 |
+| Mary  |  121 |
+| Susie | 76.5 |
+***** 如果要打印出从不工作的员工名单
+#+BEGIN_SRC sh
+awk '$3 == 0 { print $1 }' emp.data
+#+END_SRC
+
+#+RESULTS:
+| Beth |
+| Dan  |
+***** awk程序的结构
+****** 引例中写在引号内的部分是用awk语言写的程序。
+****** 每个awk程序都是一系列模式-动作语句：
+**** 简单输出
+**** 格式化输出
+**** 选择
+**** 用awk计算
+**** 流程控制语句
+**** 数组
+**** 单行awk
+*** awk语言
+**** 模式
+**** 动作
+**** 用户定义函数
+**** 输出
+**** 输入
+**** 与其他程序交互
+*** 数据处理
+**** 数据转换与压缩
+**** 数据可视化
+**** bundle和unbundle
+**** 多行记录
+*** 报表和数据库
+**** 生成报表
+**** 包装查询和报表
+**** 一个关系型数据库系统
+*** 处理文本
+**** 随机文本生成
+**** 交互式文本操作
+**** 文本处理
+*** 微型语言
+**** 一个汇编器和解释器
+**** 一个画图语言
+**** 一个排序生成器
+**** 一个逆波兰计算器
+**** 一个前缀计算机
+**** 递归下降分析器
+*** 算法实验
+**** 排序
+**** profiling
+**** 拓扑排序
+**** Make：一个文件更新程序
+*** 后记
+**** AWK作为一种语言
+**** 性能
+**** 结论
+** 2. awk2
+** 3. shell编程1
+*** 3.1 创建新命令
+*** 3.2 命令参数
+*** 3.3 shell变量
+*** 3.4 test
+*** 3.5 流程控制语句
+*** 3.6 数据重定向
+*** 3.7 管道输入读
+*** 3.8 命令行选项
+*** 3.9 计算
+*** 3.10 函数
+*** 3.11 中断处理
+*** 3.12 调试
+- set命令
+  + 在脚本中添加命令set -x，在该命令之后执行的每条命令及其参数和参数的值都会显示出来。
+  + set -v，只显示正在运行的脚本的代码。
+  + set +x/+v，关闭x/v选项。
+- echo/print命令
+- 根据调试层次控制输出
+  - 在脚本开始处设置一个调试变量，脚本运行时测试该变量，然后根据该变量的值决定是否启用调试指令。
+    #+BEGIN_SRC sh
+      debug=1
+      test debug -gt 0 && echo "debug is on"
+    #+END_SRC
+- 用函数简化错误检查
+  #+BEGIN_SRC sh
+    alert(){
+      # usage: alert <$?> <object>
+      if [ "$1" -ne 0 ]; then
+        echo "WARNING: $2 did not complete successfully." >&2
+        exit $1
+      else
+        echo "INFO: $2 complete successfully" >&2
+      fi
+    }
+  #+END_SRC
+  #+BEGIN_SRC sh
+    alert(){
+      local RET_CODE=$?
+      if [ -z "$DEBUG" ] || [ "$DEBUG" -eq 0 ]; then
+        return
+      fi
+      if [ "$RET_CODE" -ne 0 ]; then
+        echo "Warn: $* failed with a return code of $RET_CODE." >&2
+        [ "$DEBUG" -gt 9 ] && exit "$RET_CODE"
+        [ "$STEP_THROUGH" = 1 ] && {
+          echo "Press [Enter] to continue" >&2; read x
+        }
+      fi
+      [ "$STEP_THROUGH" = 2 ] && {
+        echo "Press [Enter] to continue" >&2; read x
+      }
+    }
+  #+END_SRC
+*** 3.13 函数库
+- 库：包含在单个文件中的一个函数集。
+- 例：
+  #+BEGIN_SRC sh
+    evenodd(){
+      # 根据最后一位数字确定奇偶性
+      LAST_DIGIT=`echo $1 | sed 's/\(.*\)\(.\)$/\2/'`
+      case $LAST_DIGIT in
+      0|2|4|6|8 )
+        return 1
+      ;;
+      ,*)
+        return 0
+      ;;
+      esac
+    }
+  #+END_SRC
+  #+BEGIN_SRC sh
+    isalive(){
+      #判断一台远程机器是否能ping通
+      NODE=$1
+      $PING -c 3 $NODE >/dev/null 2>&1
+      if [ $? -eq 0 ]; then
+        return 1
+      else
+        return 0
+      fi
+    }
+  #+END_SRC
+- 使用库
+  #+BEGIN_SRC sh
+  source std_lib
+  #+END_SRC
+  #+BEGIN_SRC sh
+  . std_lib
+  #+END_SRC
+** 4. shell编程2
+* 第6周
+** 1. shell编程3
+** 2. shell编程4
+** 3. 磁盘与文件系统管理1
+** 4. 磁盘与文件系统管理2
+* 第7周
+** 1. 磁盘阵列管理1
+** 2. 磁盘阵列管理2
+** 3. 磁盘配额管理
+** 4. 逻辑卷管理
+* 第8周
+** 1. Linux软件包管理1
+** 2. Linux软件包管理2
+** 3. Linux内核管理与硬件管理
+** 4. Linux启动管理1
+* 第9周
+** 1. Linux启动管理2
+** 2. Linux启动管理3
+** 3. Linux服务管理
+** 4. Linux故障诊断与恢复
+* 第10周
+** 1. Linux性能检测
+** 2. Linux日志管理
+** 3. Linux网络基本配置
+** 4. PAM认证、TCP wrapper、Xinetd访问控制与主机防火墙
+* 第11周
+** 1. DNS服务配置1
+** 2. DNS服务配置2
+** 3. DHCP服务配置1
+** 4. DHCP服务配置2
+* 第12周
+** 1. NFS服务配置1
+** 2. NFS服务配置2
+** 3. samba服务配置1
+** 4. samba服务配置2
+* 第13周
+** 1. ftp服务配置1
+** 2. ftp服务配置2
+** 3. apache服务配置1
+** 4. apache服务配置2
+* 第14周
+** 1. 远程访问配置1
+** 2. 远程访问配置2
+** 3. 防火墙1
+** 4. 防火墙2
+* 第15周
+** 1. squid代理服务配置1
+** 2. squid代理服务配置2
+** 3. Linux安全1
+*** ACL：访问控制列表
+**** ACL概述
+***** 传统权限只能针对3类用户进行粗粒度的权限控制，而ACL则可以针对每个用户单独设置文件访问权限。
+***** ACL会降低系统性能，在传统权限能够胜任时不要启动ACL。
+***** 移动、复制或归档文件时要小心，不是所有工具都保留ACL，也不能将ACL复制到不支持ACL的文件系统上。
+**** 启用ACL
+***** 必须先安装acl软件包，才可以使用ACL
+***** 要在ext2/ext3/ext4文件系统上使用ACL，必须使用acl选项挂载设备
+****** vim /etc/fstab
+LABEL=/home /home ext4 defaults,acl 1 2
+mount -v -o remount /home
+**** 使用访问规则
+***** getfacl：显示文件的ACL
+****** getfacl report
+***** setfacl：设置文件的ACL
+****** setfacl -m u:sam:rw- report
+****** setfacl -m u:sam:6 report
+****** 
+** 4. Linux安全2
+* 第16周
+** 1. 复习1
+** 2. 复习2
+** 3. 期末上机考试1
+** 4. 期末上机考试2

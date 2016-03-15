@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{echo} \PYG{l+s+s2}{"WHAT are you DOING?"} | tr \PYG{l+s+s1}{'A-Z'} \PYG{l+s+s1}{'a-z'}   \PYG{c}{\PYGZsh{}大小写转换}
+\PYG{n+nb}{echo} \PYG{l+s+s2}{"ButterFly"} | tr \PYG{l+s+s1}{'a-zA-Z'} \PYG{l+s+s1}{'n-za-mN-ZA-M'} \PYG{c}{\PYGZsh{}加密}
+tr \PYG{l+s+s1}{'\PYGZbs{}t'} \PYG{l+s+s1}{' '} <file.txt                    \PYG{c}{\PYGZsh{}将tab替换成空格}
+\PYG{n+nb}{echo} \PYG{l+s+s2}{"1a22bb333ccc"} | tr -d \PYG{l+s+s1}{'0-9'}        \PYG{c}{\PYGZsh{}删除所有数字}
+\PYG{n+nb}{echo} \PYG{l+s+s2}{"1a22bb333ccc"} | tr -c -d \PYG{l+s+s1}{'0-9\PYGZbs{}n'}   \PYG{c}{\PYGZsh{}删除非数字换行字符}
+\PYG{n+nb}{echo} \PYG{l+s+s2}{"GNU   is  not   UNIX."} | tr -s \PYG{l+s+s1}{' '} \PYG{c}{\PYGZsh{}压缩重复空格}
+tr -s \PYG{l+s+s1}{'\PYGZbs{}n'} <file.txt                     \PYG{c}{\PYGZsh{}删除多余的换行符}
+\end{Verbatim}

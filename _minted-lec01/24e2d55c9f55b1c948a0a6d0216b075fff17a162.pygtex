@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{cd} /usr
+\PYG{n+nb}{cd}
+\PYG{n+nb}{cd} \PYGZti{}
+\PYG{n+nb}{cd} \PYGZti{}xiaobai
+\PYG{n+nb}{cd} -
+\end{Verbatim}

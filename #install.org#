@@ -1,0 +1,254 @@
+#+STARTUP: indent
+#+TITLE:     安装CentOS
+#+AUTHOR:    王晓庆
+#+EMAIL:     wangxaoqing@outlook.com
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:t toc:1 \n:nil ':t @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME: 
+#+XSLT:
+#+startup: beamer
+#+LATEX_CLASS: beamer
+#+BEAMER_FRAME_LEVEL: 2
+#+BEAMER_HEADER_EXTRA: \institute{wangxiaoqing@outlook.com}
+#+LaTeX_CLASS_OPTIONS: [xcolor=svgnames,presentation]
+#+LaTeX_CLASS_OPTIONS: [t]
+#+LATEX_HEADER:\usecolortheme[named=FireBrick]{structure}\setbeamercovered{transparent}\setbeamertemplate{caption}[numbered]\setbeamertemplate{blocks}[rounded][shadow=true] \usetheme{Darmstadt}\date{\today} \usepackage{tikz}\usepackage{xeCJK}\usepackage{amsmath}\setmainfont{Times New Roman}\setCJKmainfont[BoldFont={Adobe Heiti Std},ItalicFont={Adobe Fangsong Std}]{Adobe Heiti Std}\setCJKsansfont{Adobe Heiti Std}\setCJKmonofont{Adobe Fangsong Std}\usepackage{verbatim}\graphicspath{{figures/}} \definecolor{lstbgcolor}{rgb}{0.9,0.9,0.9} \usepackage{listings}\usepackage{minted} \usepackage{fancyvrb}\usepackage{xcolor}\lstset{escapeinside=`',frameround=ftft,language=C,breaklines=true,keywordstyle=\color{blue!70},commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox,backgroundcolor=\color{yellow!20},rulesepcolor=\color{red!20!green!20!blue!20}}
+#+LaTeX_HEADER: \usemintedstyle{default}
+
+* 创建虚拟机
+** step 1
+#+BEGIN_CENTER
+file:img/vb02.png
+#END_CENTER
+** step 2
+#+BEGIN_CENTER
+file:img/vb04.png
+#END_CENTER
+** step 3
+#+BEGIN_CENTER
+file:img/vb05.png
+#END_CENTER
+** step 4
+#+BEGIN_CENTER
+file:img/vb06.png
+#END_CENTER
+** step 5
+#+BEGIN_CENTER
+file:img/vb07.png
+#END_CENTER
+** step 6
+#+BEGIN_CENTER
+file:img/vb08.png
+#END_CENTER
+** step 7
+#+BEGIN_CENTER
+file:img/vb09.png
+#END_CENTER
+** step 8
+#+BEGIN_CENTER
+file:img/vb10.png
+#END_CENTER
+** step 9
+#+BEGIN_CENTER
+file:img/vb11.png
+#END_CENTER
+** step 10
+#+BEGIN_CENTER
+file:img/vb12.png
+#END_CENTER
+** step 11
+#+BEGIN_CENTER
+file:img/vb13.png
+#END_CENTER
+** step 12
+#+BEGIN_CENTER
+file:img/vb14.png
+#END_CENTER
+** step 13
+#+BEGIN_CENTER
+file:img/vb15.png
+#END_CENTER
+* 安装CentOS
+** step 01
+#+BEGIN_CENTER
+[[file:img/img01.png]]
+#END_CENTER
+** step 02
+#+BEGIN_CENTER
+[[file:img/img04.png]]
+#END_CENTER
+** step 03
+#+BEGIN_CENTER
+[[file:img/img08.png]]
+#END_CENTER
+** step 04
+#+BEGIN_CENTER
+[[file:img/img09.png]]
+#END_CENTER
+** step 05
+#+BEGIN_CENTER
+[[file:img/img10.png]]
+#END_CENTER
+** step 06
+#+BEGIN_CENTER
+[[file:img/img11.png]]
+#END_CENTER
+** step 07
+#+BEGIN_CENTER
+[[file:img/img13.png]]
+#END_CENTER
+** step 08
+#+BEGIN_CENTER
+[[file:img/img14.png]]
+#END_CENTER
+** step 09
+#+BEGIN_CENTER
+[[file:img/img15.png]]
+#END_CENTER
+** step 10
+#+BEGIN_CENTER
+[[file:img/img16.png]]
+#END_CENTER
+** step 11
+#+BEGIN_CENTER
+[[file:img/img17.png]]
+#END_CENTER
+** step 12
+#+BEGIN_CENTER
+[[file:img/img18.png]]
+#END_CENTER
+** step 13
+#+BEGIN_CENTER
+[[file:img/img20.png]]
+#END_CENTER
+** step 14
+#+BEGIN_CENTER
+[[file:img/img22.png]]
+#END_CENTER
+** step 15
+#+BEGIN_CENTER
+[[file:img/img23.png]]
+#END_CENTER
+** step 16
+#+BEGIN_CENTER
+[[file:img/img24.png]]
+#END_CENTER
+** step 17
+#+BEGIN_CENTER
+[[file:img/img25.png]]
+#END_CENTER
+** step 18
+#+BEGIN_CENTER
+[[file:img/img27.png]]
+#END_CENTER
+** step 19
+#+BEGIN_CENTER
+[[file:img/img28.png]]
+#END_CENTER
+** step 20
+#+BEGIN_CENTER
+[[file:img/img29.png]]
+#END_CENTER
+** step 21
+#+BEGIN_CENTER
+[[file:img/img30.png]]
+#END_CENTER
+** step 22
+#+BEGIN_CENTER
+[[file:img/img31.png]]
+#END_CENTER
+** step 23
+#+BEGIN_CENTER
+[[file:img/img33.png]]
+#END_CENTER
+** step 24
+#+BEGIN_CENTER
+[[file:img/img34.png]]
+#END_CENTER
+** step 25
+#+BEGIN_CENTER
+[[file:img/img35.png]]
+#END_CENTER
+** step 26
+#+BEGIN_CENTER
+[[file:img/img36.png]]
+#END_CENTER
+** step 27
+#+BEGIN_CENTER
+[[file:img/img41.png]]
+#END_CENTER
+** step 28
+#+BEGIN_CENTER
+[[file:img/img42.png]]
+#END_CENTER
+** step 29
+#+BEGIN_CENTER
+[[file:img/img44.png]]
+#END_CENTER
+** step 30
+#+BEGIN_CENTER
+[[file:img/img52.png]]
+#END_CENTER
+** step 31
+#+BEGIN_CENTER
+[[file:img/img53.png]]
+#END_CENTER
+** step 32
+#+BEGIN_CENTER
+[[file:img/img54.png]]
+#END_CENTER
+** step 33
+#+BEGIN_CENTER
+[[file:img/img55.png]]
+#END_CENTER
+** step 34
+#+BEGIN_CENTER
+[[file:img/img56.png]]
+#END_CENTER
+** step 35
+#+BEGIN_CENTER
+[[file:img/img57.png]]
+#END_CENTER
+** step 36
+#+BEGIN_CENTER
+[[file:img/img58.png]]
+#END_CENTER
+** step 37
+#+BEGIN_CENTER
+[[file:img/img59.png]]
+#END_CENTER
+** step 38
+#+BEGIN_CENTER
+[[file:img/img60.png]]
+#END_CENTER
+** step 39
+#+BEGIN_CENTER
+[[file:img/img61.png]]
+#END_CENTER
+** step 40
+#+BEGIN_CENTER
+[[file:img/img63.png]]
+#END_CENTER
+** step 41
+#+BEGIN_CENTER
+[[file:img/img64.png]]
+#END_CENTER
+** step 42
+#+BEGIN_CENTER
+[[file:img/img71.png]]
+#END_CENTER
+** step 43
+#+BEGIN_CENTER
+[[file:img/img73.png]]
+#END_CENTER
+** step 44
+#+BEGIN_CENTER
+[[file:img/img74.png]]
+#END_CENTER

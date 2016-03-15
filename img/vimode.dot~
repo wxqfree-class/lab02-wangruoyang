@@ -1,0 +1,11 @@
+digraph vimode {
+	rankdir=LR;
+	nodesep=1.5;
+	normal[label="normal\nmode"];
+	insert[label="insert\nmode"];
+	command[label="command-line\nmode"];
+	normal -> insert[label="a,i,o,O,R,s,S"];
+	normal -> command[label="ESC"];
+	insert -> normal[label=":"];
+	command -> normal[label="ENTER"];
+}

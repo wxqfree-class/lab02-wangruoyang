@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+cut -c3 students.db
+cut -c3-7 students.db
+cut -d\PYG{l+s+s1}{' '} -f2,5 students.db
+\end{Verbatim}

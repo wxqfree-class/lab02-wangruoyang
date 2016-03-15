@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}HISTSIZE}  \PYG{c}{\PYGZsh{}查看历史命令最大保留数}
+\PYG{n+nb}{history}     \PYG{c}{\PYGZsh{}列出所有历史命令}
+!20         \PYG{c}{\PYGZsh{}执行第20条命令}
+!!          \PYG{c}{\PYGZsh{}执行上一条命令}
+!-1         \PYG{c}{\PYGZsh{}同上}
+!ls         \PYG{c}{\PYGZsh{}执行最近一条以ls开头的命令}
+Ctrl-r
+doc         \PYG{c}{\PYGZsh{}搜索最近一条包含doc的命令}
+            \PYG{c}{\PYGZsh{}按回车执行，按左右键编辑}
+\PYG{n+nb}{history} -c  \PYG{c}{\PYGZsh{}清除命令历史}
+\end{Verbatim}

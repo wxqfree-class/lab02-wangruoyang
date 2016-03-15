@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+gzip file1 file2             \PYG{c}{\PYGZsh{}压缩}
+gzip -d file1.gz file2.gz    \PYG{c}{\PYGZsh{}解压缩}
+gunzip file1.gz file2.gz     \PYG{c}{\PYGZsh{}解压缩}
+\end{Verbatim}

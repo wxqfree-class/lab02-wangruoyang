@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+ls
+ls >ls.out
+cat file1 file2
+cat file1 file2 >allfiles
+cat file3 >>allfiles
+who >temp
+wc -l <temp
+cat <file1 >file2
+\end{Verbatim}

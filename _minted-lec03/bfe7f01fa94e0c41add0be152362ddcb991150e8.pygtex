@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+renice 15 12707     \PYG{c}{\PYGZsh{}将进程12707的nice值调整为15}
+renice -5 12675     \PYG{c}{\PYGZsh{}将进程12675的nice值调整为-5}
+renice 8 -u mike    \PYG{c}{\PYGZsh{}将用户mike的进程nice值调整为8}
+renice 0 -g users   \PYG{c}{\PYGZsh{}将用户组users的进程nice值调整为0}
+\end{Verbatim}

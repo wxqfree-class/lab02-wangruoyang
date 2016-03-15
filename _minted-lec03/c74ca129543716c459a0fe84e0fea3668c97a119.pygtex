@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+userdel jack
+userdel -r jack
+\end{Verbatim}

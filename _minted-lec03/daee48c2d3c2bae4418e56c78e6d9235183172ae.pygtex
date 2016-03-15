@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+top     \PYG{c}{\PYGZsh{}实时系统状态监控}
+h/?     \PYG{c}{\PYGZsh{}帮助}
+d 5     \PYG{c}{\PYGZsh{}设置刷新周期为5秒}
+k 1234  \PYG{c}{\PYGZsh{}杀死进程号为1234的进程}
+P       \PYG{c}{\PYGZsh{}按cpu使用率排序}
+M       \PYG{c}{\PYGZsh{}按memory使用率排序}
+T       \PYG{c}{\PYGZsh{}按cpu使用时间排序}
+u tom   \PYG{c}{\PYGZsh{}仅显示用户tom的进程}
+q       \PYG{c}{\PYGZsh{}退出top}
+man top
+\end{Verbatim}

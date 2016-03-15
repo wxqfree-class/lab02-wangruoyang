@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{kill} -l              \PYG{c}{\PYGZsh{}打印信号值列表}
+Ctrl-c               \PYG{c}{\PYGZsh{}发送信号2给前台进程}
+Ctrl-z               \PYG{c}{\PYGZsh{}发送信号20给前台进程}
+\PYG{n+nb}{kill} -19 12121       \PYG{c}{\PYGZsh{}暂停}
+\PYG{n+nb}{kill} -18 12121       \PYG{c}{\PYGZsh{}恢复}
+\PYG{n+nb}{kill} -15 12345       \PYG{c}{\PYGZsh{}发送信号15给进程12345}
+\PYG{n+nb}{kill }12345           \PYG{c}{\PYGZsh{}同上}
+man 7 signal         \PYG{c}{\PYGZsh{}查看信号相关帮助}
+\PYG{n+nb}{kill} -9 11111        \PYG{c}{\PYGZsh{}强行杀死进程11111}
+\PYG{n+nb}{kill} -s
+\end{Verbatim}

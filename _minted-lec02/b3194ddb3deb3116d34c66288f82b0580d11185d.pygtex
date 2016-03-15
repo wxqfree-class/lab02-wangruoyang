@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+sort -k 2 file1 -o file1.s
+sort file2 -o file2.s
+join -12 -21 file1.s file2.s
+\end{Verbatim}

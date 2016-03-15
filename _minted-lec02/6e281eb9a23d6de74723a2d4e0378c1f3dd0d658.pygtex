@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+rm fa fb          \PYG{c}{\PYGZsh{}删除文件file1、file2}
+rm -i fe          \PYG{c}{\PYGZsh{}删除前确认}
+rm -f ff          \PYG{c}{\PYGZsh{}强行删除}
+\end{Verbatim}

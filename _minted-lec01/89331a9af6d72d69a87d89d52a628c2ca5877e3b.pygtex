@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+hostname \PYG{c}{\PYGZsh{}主机名是什么呀？}
+hostname NiuBi \PYG{c}{\PYGZsh{}不好听，改个牛逼的名字吧！}
+\end{Verbatim}

@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+cat desert.jpg secret >desert2.jpg
+tail desert2.jpg
+\end{Verbatim}

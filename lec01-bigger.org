@@ -1,0 +1,715 @@
+#+STARTUP: indent
+#+TITLE:     第1讲　概述
+#+AUTHOR:    王晓庆
+#+EMAIL:     wangxaoqing@jxnu.edu.cn
+#+DATE:      2016-02-22
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:t toc:1 \n:nil ':t @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME: 
+#+XSLT:
+#+startup: beamer
+#+LATEX_CLASS: beamer
+#+BEAMER_FRAME_LEVEL: 3
+#+BEAMER_HEADER_EXTRA:  \institute{wangxiaoqing@outlook.com}
+#+LaTeX_CLASS_OPTIONS: [xcolor=svgnames,bigger,presentation]
+#+LaTeX_CLASS_OPTIONS: [t]
+#+LATEX_HEADER:\usecolortheme[named=FireBrick]{structure}\setbeamercovered{transparent}\setbeamertemplate{caption}[numbered]\setbeamertemplate{blocks}[rounded][shadow=true] \usetheme{Darmstadt} \usepackage{tikz}\usepackage{xeCJK}\usepackage{amsmath}\setmainfont{Times New Roman}\setCJKmainfont[BoldFont={Adobe Heiti Std},ItalicFont={Adobe Fangsong Std}]{Adobe Heiti Std}\setCJKsansfont{Adobe Heiti Std}\setCJKmonofont{Adobe Fangsong Std}\usepackage{verbatim}\institute{江西师范大学} \graphicspath{{figures/}} \definecolor{lstbgcolor}{rgb}{0.9,0.9,0.9} \usepackage{listings}\usepackage{minted} \usepackage{fancyvrb}\usepackage{xcolor}\lstset{escapeinside=`',frameround=ftft,language=C,breaklines=true,keywordstyle=\color{blue!70},commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox,backgroundcolor=\color{yellow!20},rulesepcolor=\color{red!20!green!20!blue!20}}
+#+LaTeX_HEADER: \usemintedstyle{default}
+
+* 课程简介
+** 1.1 为什么要学Linux？
+*** Linux与IT行业
+**** 免费、开源、全球参与开发
+**** 被业界广泛采用，成为全球IT基础设施核心
+**** 在移动和物联网时代发展愈加迅猛
+**** 是各种新技术产生的温床
+*** Linux与我们
+**** 我们平时都只用Windows，从来没用过Linux呀？
+***** 看新闻、购物、抢票、QQ微信、收发邮件、炒股、……
+**** 与Unix一脉相承，继承了Unix丰富的知识和软件宝库
+**** 通过学习命令行和脚本编程，可以实现高效且自动化地处理各种任务
+**** 通过学习系统配置管理，可以深入掌控系统的方方面面
+**** 学到的知识可以保值并随着积累不断增值
+**** 可以第一时间接触和了解业界最新技术
+** 1.2 主要学什么？
+*** shell命令行
+**** GUI(图形用户界面)
+***** 拟物化（人操作物）：人亲自执行
+***** 适合视觉型活动：图形图像设计、音视频制作、上网、看视频、玩游戏
+***** 例：制作平面广告
+**** CLI(命令行界面)
+***** 拟人化（人机对话）：让机器执行
+***** 适合语言型活动：编程开发、系统管理、文档处理
+***** 例：在data文件夹内创建12个文件夹分别存放12个月的数据、每个文件夹内再创建30个子文件夹存放每天的数据
+#+BEGIN_SRC sh
+mkdir -p data/month{01..12}/day{01..30}
+#+END_SRC
+*** shell脚本编程
+**** shell变量
+**** shell参数
+**** shell控制语句
+**** shell数组
+**** shell函数
+**** shell计算
+**** shell中断处理
+**** sed
+**** awk
+*** 系统配置管理
+**** 磁盘和文件系统管理
+**** 用户和组管理
+**** 系统启动管理
+**** 系统服务管理
+**** 内核管理
+**** 硬件管理
+**** 进程管理
+**** 性能监测
+**** 日志管理
+*** 网络服务配置管理
+**** 网络基础配置
+**** 网络访问控制
+**** DNS服务
+**** DHCP服务
+**** NFS服务
+**** Samba服务
+**** Web服务
+**** 远程登录配置
+**** 防火墙配置
+**** 代理服务
+** 1.3 怎么考核？
+*** 考核方式
+**** 考勤：20%
+***** 随机考勤，每次旷课扣3分（早退按旷课处理），每次迟到扣1分，扣完为止。
+**** 实践：30%
+***** 平时：14%
+****** 根据每周上机实验情况打分
+****** 说明：未在规定时间完成和提交实验，分数乘0.7进行折扣
+***** 期末：16%
+****** 未在规定时间内完成，分数乘0.8进行折扣
+**** 期末笔试：50%
+***** 闭卷考试，卷面分数不得低于50分，否则总评分会被系统自动定为不及格！
+* 从Unix到Linux
+** 2.1 Unix简史
+*** 创世纪(1969-1971)
+**** Unix诞生                                         :BMCOL:B_ignoreheading:
+:PROPERTIES:
+:BEAMER_col: 0.5
+:BEAMER_env: ignoreheading
+:END:
+**** 出师不利的Multics
+**** Ken的space travel游戏
+**** 废弃的DPD-7
+**** Thompson and Ritchie                            :BMCOL:B_exampleblock:
+:PROPERTIES:
+:BEAMER_col: 0.5
+:BEAMER_env: exampleblock
+:END:
+#+ATTR_LATEX: width=.5\textwidth
+[[file:img/thompson02.jpg]]
+#+ATTR_LATEX: width=.5\textwidth
+[[file:img/ritchie02.jpg]]
+*** 出埃及记(1971-1983)
+**** Unix的发展演变                                :BMCOL:B_ignoreheading:
+:PROPERTIES:
+:BEAMER_col: 0.6
+:BEAMER_env: ignoreheading
+:END:
+**** 1971年：C语言诞生
+**** 1973年：Unix完全用C重写
+**** 1975年：Unix V6版发布
+**** 1977年：Bill Joy发布BSD v1版
+**** 1983年：BSD 4.2上首次实现TCP/IP
+**** Unix history                                    :BMCOL:B_exampleblock:
+:PROPERTIES:
+:BEAMER_col: 0.4
+:BEAMER_env: exampleblock
+:END:
+#+ATTR_LATEX: width=1\textwidth
+[[file:img/unix-history.jpg]]
+** 2.2 Linux诞生的基础
+*** Minix系统
+**** minix                                         :BMCOL:B_ignoreheading:
+:PROPERTIES:
+:BEAMER_col: 0.6
+:BEAMER_env: ignoreheading
+:END:
+**** Unix商业化，源代码封闭
+**** 荷兰教授Andrew S. Tanenbaum开发Minix
+**** 类Unix、小巧、免费、教学
+**** Tanenbaum                                      :BMCOL:B_exampleblock:
+:PROPERTIES:
+:BEAMER_col: 0.4
+:BEAMER_env: exampleblock
+:END:
+#+ATTR_LATEX: width=1\textwidth
+[[file:img/ast.jpg]]
+*** Internet
+**** 80年代，Internet逐渐形成
+**** 早期以技术用户为主
+**** 通过网络切磋技术、协同工作、发布和获取软件代码
+**** 形成植根于Internet的“黑客”文化
+*** GNU
+**** 自由软件运动                                  :BMCOL:B_ignoreheading:
+:PROPERTIES:
+:BEAMER_col: 0.5
+:BEAMER_env: ignoreheading
+:END:
+**** 1983年，MIT的Richard Stallman开创GNU计划
+**** GNU致力于开发一个自由的类Unix系统
+**** 1988年，发布GPL许可协议用以保护自由软件
+**** 1991年，GNU完成除内核外几乎所有必备软件的开发
+**** Richard Stallman and GNU                     :BMCOL:B_exampleblock:
+:PROPERTIES:
+:BEAMER_col: 0.5
+:BEAMER_env: exampleblock
+:END:
+#+ATTR_LATEX: width=.5\textwidth
+[[file:img/stallman.jpg]]
+#+ATTR_LATEX: width=.5\textwidth
+[[file:img/gnu.jpg]]
+*** 自由软件
+**** 自由软件赋予软件使用者四种自由：
+***** (freedom 0)为任何目的自由运行该软件的自由；
+***** (freedom 1)有研究该软件如何运行，以及按需修改该软件的自由；
+***** (freedom 2)有重新发布该软件拷贝的自由；
+***** (freedom 3)有改进该软件，以及向公众发布改进的自由，这样整个社群都可受惠。
+**** 源代码开放是获得自由1和自由3的前提条件！
+*** GPL
+**** GPL                                           :BMCOL:B_ignoreheading:
+:PROPERTIES:
+:BEAMER_col: 0.6
+:BEAMER_env: ignoreheading
+:END:
+**** 当开发者以GNU GPL作为软件许可证发布其软件时，该软件就成为自由软件并能保持自由软件的性质。
+**** GPL规定的版权为Copyleft, 它允许任何人修改并重新分发自由软件，但要求保证该软件是仍然是自由软件。
+**** Copyright(商业版权)是为了限制用户
+**** Copyleft(自由版权)是为了维护用户自由的权力
+**** Left or Right?                                 :BMCOL:B_exampleblock:
+:PROPERTIES:
+:BEAMER_col: 0.4
+:BEAMER_env: exampleblock
+:END:
+#+ATTR_LATEX: width=1\textwidth
+[[file:img/copy.jpg]]
+** 2.3 Linux简介
+*** Linux的诞生
+**** Linux诞生                                     :BMCOL:B_ignoreheading:
+:PROPERTIES:
+:BEAMER_col: 0.5
+:BEAMER_env: ignoreheading
+:END:
+**** 1991年8月25日，21岁的芬兰赫尔辛基大学计算机科学系二年级学生Linus Torvalds在comp.os.minix新闻组中宣告了Linux的诞生。
+**** Linux和Tux                                        :BMCOL:B_exampleblock:
+:PROPERTIES:
+:BEAMER_col: 0.5
+:BEAMER_env: exampleblock
+:END:
+#+ATTR_LATEX: width=.5\textwidth
+[[file:img/linus.jpg]]
+#+ATTR_LATEX: width=.5\textwidth
+[[file:img/tux.jpg]]
+*** Linux的快速发展
+**** Linux的成功基础                               :BMCOL:B_ignoreheading:
+:PROPERTIES:
+:BEAMER_col: 0.6
+:BEAMER_env: ignoreheading
+:END:
+**** Linux为什么会成功？
+***** 站在GNU的肩膀上
+***** 采用GPL许可协议发布
+***** 通过Internet协作开发
+**** 今天，Linux已经成长为业界最重要的操作系统，得到几乎所有业界大公司的支持，也是目前运行硬件平台最多的操作系统。
+**** GNU/Linux                                 :BMCOL:B_exampleblock:
+:PROPERTIES:
+:BEAMER_col: 0.4
+:BEAMER_env: exampleblock
+:END:
+#+ATTR_LATEX: width=1\textwidth
+[[file:img/gnu-linux.jpg]]
+*** Linux的快速发展
+#+BEGIN_CENTER
+file:img/20year.jpg
+#+END_CENTER
+*** Linux的特点
+**** 基于UNIX设计，性能出色
+**** 遵照GPL许可，自由软件
+**** 符合POSIX标准，兼容性好
+**** 可移植性好
+**** 网络功能强大
+**** 安全性好
+*** Linux的内核版本
+**** Linux版本号由3个数字组成：r.x.y
+***** r：目前发布的Kernel主版本
+***** x：偶数是稳定版本，奇数是开发版本
+***** y：错误修补次数
+**** 查看系统的内核版本号
+#+BEGIN_SRC sh
+uname -r
+#+END_SRC
+**** 内核官网
+***** [[https://www.kernel.org][www.kernel.org]]
+*** Linux发行版
+**** 各IT厂商和组织把Linux内核与大量应用软件按各自的方式打包成便于安装的形式，就称为Linux发行版
+**** 发行版本号随发布者的不同而不同，与系统内核版本号相对独立
+**** 目前世界上已经有超过百种不同的Linux发行版
+***** http://distrowatch.com
+*** Linux发行版
+#+BEGIN_CENTER
+file:img/distri.jpg
+#+END_CENTER
+** 2.4 Linux vs. Windows
+*** Windows和Linux
+**** Windows和Linux各有特点
+***** Windows是商业软件，Linux是自由软件
+***** Windows图形界面友好，Linux命令行界面高效
+***** Windows易用性好，Linux定制性强
+***** Windows像傻瓜相机，Linux像单反相机
+**** 在学习Linux时注意和Windows进行对比
+*** 无处不在的Linux
+**** Android基于Linux，每天有超过550,000部Android设备被激活。
+#+BEGIN_CENTER
+file:img/android.jpg
+#+END_CENTER
+*** 无处不在的Linux
+**** 当前全球top 500超级计算机中有469台运行Linux。
+#+BEGIN_CENTER
+file:img/tianhe.jpg
+#+END_CENTER
+*** 无处不在的Linux
+**** 高铁运行管理
+#+BEGIN_CENTER
+file:img/train.jpg
+#+END_CENTER
+*** 无处不在的Linux
+**** 交通控制系统
+#+BEGIN_CENTER
+file:img/traffic2.jpg
+#+END_CENTER
+*** 无处不在的Linux
+**** 工业制造
+#+BEGIN_CENTER
+file:img/industry.jpg
+#+END_CENTER
+*** 无处不在的Linux
+**** 智能农牧业
+#+BEGIN_CENTER
+file:img/nongye.jpg
+#+END_CENTER
+*** 无处不在的Linux
+**** 金融证券
+#+BEGIN_CENTER
+file:img/jinrong.jpg
+#+END_CENTER
+*** 无处不在的Linux
+**** 高能粒子加速器
+#+BEGIN_CENTER
+file:img/jiasuqi.jpg
+#+END_CENTER
+*** 无处不在的Linux
+**** 核潜艇
+#+BEGIN_CENTER
+file:img/nuclear.jpg
+#+END_CENTER
+*** 无处不在的Linux
+**** 影视娱乐
+#+BEGIN_CENTER
+file:img/jingang.jpg
+#+END_CENTER
+*** You are here
+#+BEGIN_CENTER
+file:img/here.jpg
+#+END_CENTER
+* Linux安装
+** 3.1 通过虚拟机安装Linux
+*** 虚拟机软件
+**** 常用虚拟机软件
+***** vmware
+***** virtualbox
+***** kvm
+**** 利用虚拟机软件安装操作系统
+***** 创建虚拟机(指定虚拟机硬件参数)
+***** 为虚拟机挂载操作系统安装光盘
+***** 在虚拟机上安装操作系统
+** 3.2 Linux分区
+*** 分区与目录
+**** 硬盘分区规则
+***** 一块普通硬盘最少要分1个主分区，最多能分4个主分区
+***** 也可以分1-3个主分区，外加一个扩展分区
+***** 扩展分区内可以划分更多的逻辑分区
+**** Windos分区与Linux分区
+***** Windows
+****** 单根目录：每个分区都有一个根目录
+***** Linux
+****** 多根目录：整个系统只有一个根目录
+****** 所有分区都挂载在目录树上的某个目录(称为挂载点)下面
+****** 根分区挂载于/目录，其他分区挂载于根目录下的子目录
+****** 对分区的文件访问，通过相应的挂载点进行
+*** Linux目录结构
+file:img/dirtree.pdf
+*** 分区方案
+**** /分区+Swap交换分区
+***** swap分区：物理内存不够时进行内存交换，无挂载点
+***** 一般设为物理内存的1-2倍大小
+**** /分区+/boot分区+Swap交换分区
+***** /boot 用于存放系统引导程序、系统内核等
+***** 一般不超过500MB
+**** 其他常用来挂载分区的目录
+***** /home 用于存放用户个人的数据
+***** /usr 用于存放不太变化的内容，如应用程序和文档
+***** /tmp 用于存放临时文件
+***** /var 用于存放经常变化的内容，如日志、邮件等
+***** /opt 用于存放系统附加软件包
+*** 分区名称
+**** IDE接口设备及其分区
+***** 硬盘：/dev/hda /dev/hdb ...
+***** 分区：/dev/hda1 /dev/hda2 ...
+**** SCSI接口设备及其分区
+***** 硬盘：/dev/sda /dev/sdb ...
+***** 分区：/dev/sdb1 /dev/sdb3 ...
+**** 注意
+***** 逻辑分区的编号从5开始
+***** SATA接口和USB接口也被认作SCSI接口
+**** 设备文件名 vs. 挂载点
+***** 设备文件名：是一个文件，代表设备本身
+***** 挂载点：是一个目录，可用于访问设备内容
+***** 例：将/dev/cdrom挂载到/media/cdrom
+** 3.3 虚拟机网络设置
+*** NAT
+**** 虚拟机通过虚拟NAT设备连接到主机，并可通过主机连接外部网络
+#+BEGIN_CENTER
+file:img/nat.jpg
+#+END_CENTER
+*** Bridged
+**** 虚拟机通过虚拟交换机连接到主机所在局域网
+#+BEGIN_CENTER
+file:img/bridged.jpg
+#+END_CENTER
+*** Host-only
+**** 虚拟机通过虚拟交换机连接到主机虚拟网卡所连的局域网
+#+BEGIN_CENTER
+file:img/host-only.jpg
+#+END_CENTER
+*** Internel
+**** 虚拟机通过虚拟交换机连接到虚拟机内部的虚拟局域网
+#+BEGIN_CENTER
+file:img/internal.jpg
+#+END_CENTER
+** 3.4 通过ssh远程登录Linux
+*** ssh客户端
+**** Linux客户端
+#+BEGIN_SRC sh
+ssh -l username 192.168.56.102
+ssh username@192.168.56.102
+ssh -p 22 -l username 192.168.56.102
+#+END_SRC
+**** Windows客户端
+***** putty
+***** SecureCRT
+**** 主机访问NAT后的虚拟机
+***** 虚拟机上设置端口转发:假设设置127.0.0.1:2222-->10.0.2.15:22
+#+BEGIN_SRC sh
+ssh -p 2222 -l username 127.0.0.1
+#+END_SRC
+** 3.5 虚拟机管理
+*** 虚拟机常用操作
+**** 快照备份与恢复
+***** 可备份某一时刻的系统状态，将来虚拟机由于误操作出现问题时可以恢复到备份时的状态。
+***** 可以对虚拟机状态进行多次备份，并随时切换到某个备份状态。
+**** 利用虚拟硬盘快速创建虚拟机
+***** 利用已经安装好了虚拟机的虚拟硬盘快速创建新的虚拟机。
+**** 虚拟机复制
+***** 利用现有虚拟机快速克隆出新的虚拟机。
+* Linux入门
+** 4.1 终端与多用户
+*** 终端与控制台
+**** 终端和控制台都不是个人电脑的概念,而是多人共用的小型中型大型计算机上的概念。
+***** 终端
+****** 字符终端
+****** 图形终端
+***** 控制台
+****** 通过显示器和键盘接口与主机相连的键盘和显示器
+****** 个人计算机只有控制台，没有终端
+***** 本地虚拟终端：在控制台上用软件虚拟出来的终端
+****** 图形终端：Ctrl-Alt-F1
+****** 字符终端：Ctrl-Alt-F2~Ctrl-Alt-F6
+******* 在字符终端上切换时，可以不按Ctrl键
+******* 图形终端里面也有自己的虚拟字符终端
+***** 远程虚拟终端
+****** 通过网络连接到计算机的虚拟终端。
+*** 终端与多用户
+**** 多个终端可以供不同用户同时登录使用系统
+**** 单个用户可以同时使用多个终端
+***** 用户可同时打开多个终端，每个终端上做不同的事情。
+**** 用户在终端登录后还可以切换为其他用户身份
+***** 系统管理员root可以随时切换为其他用户身份
+***** 普通用户tom在知道其他用户的登录名和登录密码时，也可以切换为其他用户身份
+#+BEGIN_EXAMPLE
+# su - mary # root切换为mary
+$ su - root # tom切换为root，会提示输入root密码
+$ su -      # 同上
+$ exit      # 返回原先用户身份，快捷键为Ctrl-d
+#+END_EXAMPLE
+** 4.2 入门使用
+*** 登录和注销
+**** 登录
+***** 系统提示login：
+***** 输入用户名
+***** 输入用户密码
+****** 注意：字符终端下输入密码时，系统会关闭屏幕回显。
+**** 注销
+***** 注销代表用户离开，不等于关机
+***** 注销命令
+#+BEGIN_EXAMPLE
+exit         # 快捷键为Ctrl-d
+logout
+#+END_EXAMPLE
+*** 打个招呼吧
+**** echo
+#+BEGIN_SRC sh
+echo hello
+echo nice to meet you!
+echo "nice to meet you!"
+echo 'nice to meet you!'
+echo nice to meet you\!
+echo "nice to meet you\!"
+echo 'nice to meet you\!'
+#+END_SRC
+**** 试一试                                                      :B_block:
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+请打印字符串It's time to learn linux!
+**** 答案                                                         :B_note:
+:PROPERTIES:
+:BEAMER_env: note
+:END:
+echo It\'s time to learn linux!
+echo "It's time to learn linux"!
+echo 'It'\'' time to learn linux!'
+*** 打个招呼吧
+**** echo
+#+BEGIN_SRC sh
+echo hello \
+nice to meet you!
+echo 'hello
+nice to meet you!'
+echo "hello
+nice to meet you."
+echo -e 'hello\nnice to meet you!'
+echo -e hello\nnice to meet you!
+#+END_SRC
+**** 试一试                                                      :B_block:
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+请打印所有天干(甲乙丙丁戊己庚辛壬癸)地支(子丑寅卯辰巳午未申酉戌亥)的组合
+**** 答案                                                         :B_note:
+:PROPERTIES:
+:BEAMER_env: note
+:END:
+echo {甲,乙,丙,丁,戊,己,庚,辛,壬,癸}{子,丑,寅,卯,辰,巳,午,未, 酉,戌,亥}
+*** 看个时间
+**** 时间
+#+BEGIN_SRC sh
+  date           #现在什么时间？
+  date +%H:%M    #现在几点几分？
+  date "+%B %d"  #今天几月几号？
+  date +%s       #打印纪元时（秒）
+  
+  date --date "Oct 1 2016" +%A      #国庆节星期几呀？
+  date -s "10 March 2016 10:01:23"  #把时间调一下吧！
+#+END_SRC
+**** 备忘                                                         :B_note:
+:PROPERTIES:
+:BEAMER_env: note
+:END:
+echo `date +%s`/265/24/3600 | bc  #现在是纪元多少年呀？
+*** 查查日历
+**** 日历
+  #+BEGIN_SRC sh
+    cal         #给我看看这个月的月历吧
+    cal 2017    #我想看看2017年的年历
+    cal 9 1752  #我想看看1752年9月份的月历:-)
+  #+END_SRC
+*** 查看用户
+**** 查看用户
+  #+BEGIN_SRC sh
+    whoami      #我是谁？
+    who am i    #我究竟是谁？
+    who         #都有谁在呀？
+    w           #都有谁在呀？
+  #+END_SRC
+*** 了解系统
+**** 系统版本
+  #+BEGIN_SRC sh
+    uname      #什么操作系统？
+    uname -r   #什么内核版本？
+    uname -a   #所有版本信息？
+  #+END_SRC
+**** 主机名
+  #+BEGIN_SRC sh
+    hostname       #主机名是什么？
+    hostname NiuBi #改个牛逼的名字吧！
+  #+END_SRC
+**** 系统状态
+  #+BEGIN_SRC sh
+    uptime     #开机多久了呀？
+    uptime -p  #能友好点吗？
+  #+END_SRC
+*** 计算器
+**** bc
+  #+BEGIN_SRC sh
+    bc        #我想算点东西
+    bc -q     #安静点!
+    3+4
+    5*last                      # 计算5*7
+    last/9
+    scale=16;x=4;y=7;3*(x+2)/y
+    obase=2;192                 # 192的二进制表示？
+    obase=10;ibase=2;11000011   # 11000011等于几？
+    ibase=2;obase=10;11000011   # :-(
+    obase=1010;11000011         # :-)
+    quit                        # 退出
+  #+END_SRC
+*** 计算器
+**** bc
+***** 常用bc内置函数
+****** s(x) 正弦函数，x为弧度值
+****** c(x) 余弦函数
+****** a(x) 反正切函数
+****** l(x) 对数函数（以2为底）
+****** e(x) e的指数函数
+#+BEGIN_SRC sh
+bc -l                 # 必须加-l参数才能调用内置函数
+scale=10;l(3)         # 计算log(3)
+#+END_SRC
+****** 试一试                                                  :B_block:
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+1. 将16进制数FFEEFF转换为10进制数
+2. 计算圆周率至小数点后1000位
+****** 答案                                                     :B_note:
+:PROPERTIES:
+:BEAMER_env: note
+:END:
+#+BEGIN_SRC sh
+bc -l                
+ibase=16;FFEEFF
+ibase=A
+scale=1000;a(1)*4     # 计算圆周率至小数点后1000位
+#+END_SRC
+*** 查看文件列表
+**** ls命令
+#+BEGIN_SRC sh
+ls	#查看当前目录的文件列表
+ls -a	#查看当前目录所有文件列表
+ls -l	#查看当前目录的文件详细信息
+ls -la	#查看当前目录所有文件详细信息
+ls -ld
+ls -R
+ls /
+ls 
+#+END_SRC
+*** 到处逛逛
+**** cd命令
+#+BEGIN_SRC sh
+cd /usr
+cd
+cd ~
+cd ~xiaobai
+cd -
+#+END_SRC
+**** pwd命令：我到哪儿了？
+#+BEGIN_SRC sh
+pwd
+#+END_SRC
+*** 查看文件内容
+**** cat命令
+*** Linux目录结构
+*** 绝对路径与相对路径
+**** 例                                            :BMCOL:B_block:
+:PROPERTIES:
+:BEAMER_col: 0.4
+:BEAMER_env: block
+:END:
+#+BEGIN_SRC sh
+cd /home/bob
+cat .bashrc
+cat note/linux.txt
+cd project/proj1
+cat main.c
+cat ../proj2/proj2.h
+cat /etc/fstab
+pwd
+cd
+#+END_SRC
+**** 目录图                                        :BMCOL:B_ignoreheading:
+:PROPERTIES:
+:BEAMER_col: 0.6
+:BEAMER_env: ignoreheading
+:END:
+#+ATTR_LATEX: width=1\textwidth
+file:img/dirtree2.pdf
+*** 聊聊天吧
+**** write
+*** 收发邮件
+**** mail
+*** 关机/重启
+**** shutdown
+**** halt
+**** poweroff
+**** reboot
+** 4.3 命令行
+- 命令格式：命令 [选项]... [参数]...
+  1) 选项（指示命令以什么方式执行）
+     - Unix简洁风：-a
+       - 选项a-z巡礼
+         | 选项   | 含义                                   |
+         |--------+----------------------------------------|
+         | -a     | all, append                            |
+         | -b     | buffer, block, batch                   |
+         | -c     | command, check                         |
+         | -d     | debug, delete, directory               |
+         | -D     | define                                 |
+         | -e     | excute, edit, exclude, expression      |
+         | -f     | file, force                            |
+         | -h     | header, help                           |
+         | -i     | initialize, interactive                |
+         | -I     | include                                |
+         | -k     | keep, kill                             |
+         | -l     | list, long, load, login                |
+         | -m     | message, mail, mode, modification-time |
+         | -n     | number, not                            |
+         | -o     | output                                 |
+         | -p     | port, protocol                         |
+         | -q     | quite                                  |
+         | -r(-R) | recurse, reverse                       |
+         | -s     | silent, subject, size                  |
+         | -t     | tag                                    |
+         | -u     | user                                   |
+         | -v     | verbose, version                       |
+         | -V     | version                                |
+         | -w     | width, warning                         |
+         | -x     | debug, extract                         |
+         | -y     | yes                                    |
+         | -z     | zip                                    |
+     - GNU友好风：--all
+  2) 参数（指示命令作用的对象，选项也可以有参数）
+  3) 注意：命令、选项和参数之间要有空格（选项及其参数之间有时可以没有空格）
+- 命令编辑：Tab键自动完成
+- 命令历史：history
+- 中止命令：Ctrl+c
+** 4.4 获取帮助
+- 外部命令与内部命令
+- man
+- help
+- info
+- doc
+- Internet

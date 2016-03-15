@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+mv file1 file4       \PYG{c}{\PYGZsh{}将file1移动为file2}
+mv file2 file3  dir1 \PYG{c}{\PYGZsh{}将文件移动到目录}
+mv file5 dir1/file1  \PYG{c}{\PYGZsh{}将文件移动到目录并改名}
+\end{Verbatim}

@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+locate hosts
+touch newfile
+locate newfile
+\end{Verbatim}

@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}生成用户加密口令}
+openssl passwd -1 -salt salt\PYGZus{}string passwd
+\end{Verbatim}

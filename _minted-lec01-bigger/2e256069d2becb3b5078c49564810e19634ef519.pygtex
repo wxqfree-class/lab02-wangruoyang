@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+cal         \PYG{c}{\PYGZsh{}给我看看这个月的月历吧}
+cal 2017    \PYG{c}{\PYGZsh{}我想看看2017年的年历}
+cal 9 1752  \PYG{c}{\PYGZsh{}我想看看1752年9月份的月历:-)}
+\end{Verbatim}

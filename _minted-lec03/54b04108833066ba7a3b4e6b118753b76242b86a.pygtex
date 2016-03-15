@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+usermod -u 1001 bob
+usermod -g 1001 bob
+usermod -s /bin/csh bob
+usermod -d /home/bobie
+usermod -l bobie bob
+usermod -L alice    \PYG{c}{\PYGZsh{}锁定帐号}
+usermod -U alice    \PYG{c}{\PYGZsh{}解锁帐号}
+\end{Verbatim}

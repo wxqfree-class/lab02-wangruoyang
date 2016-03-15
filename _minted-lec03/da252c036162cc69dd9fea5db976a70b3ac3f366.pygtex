@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+newgrp students  \PYG{c}{\PYGZsh{}切换至students组身份}
+\PYG{n+nb}{exit}             \PYG{c}{\PYGZsh{}返回原先组身份}
+\end{Verbatim}

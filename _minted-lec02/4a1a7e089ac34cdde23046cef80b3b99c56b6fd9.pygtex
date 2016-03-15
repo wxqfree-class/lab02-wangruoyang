@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+paste file1 file3
+paste -d\PYG{l+s+s1}{' '} file1 file3
+\end{Verbatim}

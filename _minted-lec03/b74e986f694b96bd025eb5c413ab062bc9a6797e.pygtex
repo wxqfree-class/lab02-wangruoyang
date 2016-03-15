@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+passwd         \PYG{c}{\PYGZsh{}修改当前用户密码}
+passwd jack    \PYG{c}{\PYGZsh{}为指定用户设置密码(仅root)}
+passwd -l jack \PYG{c}{\PYGZsh{}锁定用户(仅root)}
+passwd -u jack \PYG{c}{\PYGZsh{}解锁用户(仅root)}
+passwd -d jack \PYG{c}{\PYGZsh{}清除用户密码(本地免密码登录)}
+\end{Verbatim}

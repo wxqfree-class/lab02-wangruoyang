@@ -1,0 +1,85 @@
+
+\makeatletter
+\def\PYGautumn@reset{\let\PYGautumn@it=\relax \let\PYGautumn@bf=\relax%
+    \let\PYGautumn@ul=\relax \let\PYGautumn@tc=\relax%
+    \let\PYGautumn@bc=\relax \let\PYGautumn@ff=\relax}
+\def\PYGautumn@tok#1{\csname PYGautumn@tok@#1\endcsname}
+\def\PYGautumn@toks#1+{\ifx\relax#1\empty\else%
+    \PYGautumn@tok{#1}\expandafter\PYGautumn@toks\fi}
+\def\PYGautumn@do#1{\PYGautumn@bc{\PYGautumn@tc{\PYGautumn@ul{%
+    \PYGautumn@it{\PYGautumn@bf{\PYGautumn@ff{#1}}}}}}}
+\def\PYGautumn#1#2{\PYGautumn@reset\PYGautumn@toks#1+\relax+\PYGautumn@do{#2}}
+
+\def\PYGautumn@tok@gd{\def\PYGautumn@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+\def\PYGautumn@tok@gu{\let\PYGautumn@bf=\textbf\def\PYGautumn@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\def\PYGautumn@tok@gt{\def\PYGautumn@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+\def\PYGautumn@tok@gs{\let\PYGautumn@bf=\textbf}
+\def\PYGautumn@tok@gr{\def\PYGautumn@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+\def\PYGautumn@tok@cm{\let\PYGautumn@it=\textit\def\PYGautumn@tc##1{\textcolor[rgb]{0.67,0.67,0.67}{##1}}}
+\def\PYGautumn@tok@vg{\def\PYGautumn@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+\def\PYGautumn@tok@m{\def\PYGautumn@tc##1{\textcolor[rgb]{0.00,0.60,0.60}{##1}}}
+\def\PYGautumn@tok@mh{\def\PYGautumn@tc##1{\textcolor[rgb]{0.00,0.60,0.60}{##1}}}
+\def\PYGautumn@tok@cs{\let\PYGautumn@it=\textit\def\PYGautumn@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PYGautumn@tok@ge{\let\PYGautumn@it=\textit}
+\def\PYGautumn@tok@vc{\def\PYGautumn@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+\def\PYGautumn@tok@il{\def\PYGautumn@tc##1{\textcolor[rgb]{0.00,0.60,0.60}{##1}}}
+\def\PYGautumn@tok@go{\def\PYGautumn@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\def\PYGautumn@tok@cp{\def\PYGautumn@tc##1{\textcolor[rgb]{0.30,0.51,0.09}{##1}}}
+\def\PYGautumn@tok@gi{\def\PYGautumn@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+\def\PYGautumn@tok@gh{\let\PYGautumn@bf=\textbf\def\PYGautumn@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\def\PYGautumn@tok@ni{\let\PYGautumn@bf=\textbf\def\PYGautumn@tc##1{\textcolor[rgb]{0.50,0.00,0.00}{##1}}}
+\def\PYGautumn@tok@nn{\let\PYGautumn@ul=\underline\def\PYGautumn@tc##1{\textcolor[rgb]{0.00,0.67,0.67}{##1}}}
+\def\PYGautumn@tok@no{\def\PYGautumn@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+\def\PYGautumn@tok@na{\def\PYGautumn@tc##1{\textcolor[rgb]{0.12,0.56,1.00}{##1}}}
+\def\PYGautumn@tok@nb{\def\PYGautumn@tc##1{\textcolor[rgb]{0.00,0.67,0.67}{##1}}}
+\def\PYGautumn@tok@nc{\let\PYGautumn@ul=\underline\def\PYGautumn@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+\def\PYGautumn@tok@nd{\def\PYGautumn@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\def\PYGautumn@tok@si{\def\PYGautumn@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PYGautumn@tok@nf{\def\PYGautumn@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+\def\PYGautumn@tok@s2{\def\PYGautumn@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PYGautumn@tok@vi{\def\PYGautumn@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+\def\PYGautumn@tok@nt{\let\PYGautumn@bf=\textbf\def\PYGautumn@tc##1{\textcolor[rgb]{0.12,0.56,1.00}{##1}}}
+\def\PYGautumn@tok@nv{\def\PYGautumn@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+\def\PYGautumn@tok@s1{\def\PYGautumn@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PYGautumn@tok@gp{\def\PYGautumn@tc##1{\textcolor[rgb]{0.33,0.33,0.33}{##1}}}
+\def\PYGautumn@tok@sh{\def\PYGautumn@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PYGautumn@tok@ow{\def\PYGautumn@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PYGautumn@tok@sx{\def\PYGautumn@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PYGautumn@tok@bp{\def\PYGautumn@tc##1{\textcolor[rgb]{0.00,0.67,0.67}{##1}}}
+\def\PYGautumn@tok@c1{\let\PYGautumn@it=\textit\def\PYGautumn@tc##1{\textcolor[rgb]{0.67,0.67,0.67}{##1}}}
+\def\PYGautumn@tok@kc{\def\PYGautumn@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PYGautumn@tok@c{\let\PYGautumn@it=\textit\def\PYGautumn@tc##1{\textcolor[rgb]{0.67,0.67,0.67}{##1}}}
+\def\PYGautumn@tok@mf{\def\PYGautumn@tc##1{\textcolor[rgb]{0.00,0.60,0.60}{##1}}}
+\def\PYGautumn@tok@err{\def\PYGautumn@tc##1{\textcolor[rgb]{0.94,0.00,0.00}{##1}}\def\PYGautumn@bc##1{\colorbox[rgb]{0.94,0.63,0.63}{##1}}}
+\def\PYGautumn@tok@kd{\def\PYGautumn@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PYGautumn@tok@ss{\def\PYGautumn@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PYGautumn@tok@sr{\def\PYGautumn@tc##1{\textcolor[rgb]{0.00,0.60,0.60}{##1}}}
+\def\PYGautumn@tok@mo{\def\PYGautumn@tc##1{\textcolor[rgb]{0.00,0.60,0.60}{##1}}}
+\def\PYGautumn@tok@mi{\def\PYGautumn@tc##1{\textcolor[rgb]{0.00,0.60,0.60}{##1}}}
+\def\PYGautumn@tok@kn{\def\PYGautumn@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PYGautumn@tok@kr{\def\PYGautumn@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PYGautumn@tok@s{\def\PYGautumn@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PYGautumn@tok@kp{\def\PYGautumn@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PYGautumn@tok@w{\def\PYGautumn@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\def\PYGautumn@tok@kt{\def\PYGautumn@tc##1{\textcolor[rgb]{0.00,0.67,0.67}{##1}}}
+\def\PYGautumn@tok@sc{\def\PYGautumn@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PYGautumn@tok@sb{\def\PYGautumn@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PYGautumn@tok@k{\def\PYGautumn@tc##1{\textcolor[rgb]{0.00,0.00,0.67}{##1}}}
+\def\PYGautumn@tok@se{\def\PYGautumn@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+\def\PYGautumn@tok@sd{\def\PYGautumn@tc##1{\textcolor[rgb]{0.67,0.33,0.00}{##1}}}
+
+\def\PYGautumnZbs{\char`\\}
+\def\PYGautumnZus{\char`\_}
+\def\PYGautumnZob{\char`\{}
+\def\PYGautumnZcb{\char`\}}
+\def\PYGautumnZca{\char`\^}
+\def\PYGautumnZsh{\char`\#}
+\def\PYGautumnZpc{\char`\%}
+\def\PYGautumnZdl{\char`\$}
+\def\PYGautumnZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYGautumnZat{@}
+\def\PYGautumnZlb{[}
+\def\PYGautumnZrb{]}
+\makeatother
+

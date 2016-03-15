@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+userdel jack     \PYG{c}{\PYGZsh{}删除用户}
+userdel -r jack  \PYG{c}{\PYGZsh{}删除用户及其主目录和邮箱}
+\end{Verbatim}

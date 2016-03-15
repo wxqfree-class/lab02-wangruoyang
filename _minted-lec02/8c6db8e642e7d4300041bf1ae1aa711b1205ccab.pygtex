@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+uniq numbers
+sort numbers >numbers.sort
+uniq numbers.sort
+uniq -c numbers.sort
+\end{Verbatim}

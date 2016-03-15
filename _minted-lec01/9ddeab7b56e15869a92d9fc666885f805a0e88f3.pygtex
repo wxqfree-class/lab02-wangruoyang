@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+ls           \PYG{c}{\PYGZsh{}查看当前目录的文件列表}
+ls -a        \PYG{c}{\PYGZsh{}查看当前目录所有文件列表}
+ls -l        \PYG{c}{\PYGZsh{}查看当前目录的文件详细信息}
+ls -la       \PYG{c}{\PYGZsh{}查看当前目录所有文件详细信息}
+ls -ld       \PYG{c}{\PYGZsh{}查看当前目录本身的详细信息}
+ls -Rm /boot \PYG{c}{\PYGZsh{}以第归紧凑方式查看/boot目录}
+ls -lt       \PYG{c}{\PYGZsh{}按时间排序(从新到旧)}
+ls -ltr      \PYG{c}{\PYGZsh{}按时间反向排序(从就到新)}
+ls -lS       \PYG{c}{\PYGZsh{}按文件大小排序(从大到小)}
+\end{Verbatim}

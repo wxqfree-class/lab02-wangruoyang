@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+more /etc/services
+less /etc/services
+\end{Verbatim}

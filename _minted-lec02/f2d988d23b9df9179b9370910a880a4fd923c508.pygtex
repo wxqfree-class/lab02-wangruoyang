@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+ed file1           \PYG{c}{\PYGZsh{}用编辑器创建file1}
+a        \PYG{c}{\PYGZsh{}添加append}
+Ed is a line-oriented text editor of Unix.
+It is old, simple and fun.
+.        \PYG{c}{\PYGZsh{}结束输入}
+w        \PYG{c}{\PYGZsh{}存盘}
+q        \PYG{c}{\PYGZsh{}退出}
+touch file1 file2  \PYG{c}{\PYGZsh{}更新file1，创建空文件file2}
+\end{Verbatim}

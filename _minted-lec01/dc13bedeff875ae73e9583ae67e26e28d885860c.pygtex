@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{cd} /usr      \PYG{c}{\PYGZsh{}进入/usr目录}
+\PYG{n+nb}{cd}           \PYG{c}{\PYGZsh{}返回我的主目录}
+\PYG{n+nb}{cd} \PYGZti{}         \PYG{c}{\PYGZsh{}返回我的主目录}
+\PYG{n+nb}{cd} \PYGZti{}xiaobai  \PYG{c}{\PYGZsh{}进入xiaobai的主目录}
+\PYG{n+nb}{cd} -         \PYG{c}{\PYGZsh{}回到上次去的目录}
+\end{Verbatim}

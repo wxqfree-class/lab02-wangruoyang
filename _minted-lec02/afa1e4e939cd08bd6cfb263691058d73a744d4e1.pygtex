@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+sort books.db                \PYG{c}{\PYGZsh{}按字典序排序}
+sort -t\PYGZca{} -k3 books.db        \PYG{c}{\PYGZsh{}按出版年份排序}
+sort -t\PYGZca{} -k4.2 books.db      \PYG{c}{\PYGZsh{}根据价格排序:-(}
+sort -t\PYGZca{} -k4.2 -n books.db   \PYG{c}{\PYGZsh{}根据价格排序:-)}
+sort -t\PYGZca{} -k4.2 -nr books.db  \PYG{c}{\PYGZsh{}按价格逆序排序}
+\end{Verbatim}

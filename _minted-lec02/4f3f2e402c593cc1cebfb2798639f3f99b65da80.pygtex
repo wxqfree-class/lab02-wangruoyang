@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+vim file1
+touch file2
+\end{Verbatim}

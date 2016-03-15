@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+ps             \PYG{c}{\PYGZsh{}查看当前shell执行的进程}
+ps aux         \PYG{c}{\PYGZsh{}查看所有进程(BSD风格)}
+ps -ef         \PYG{c}{\PYGZsh{}查看所有进程(System V风格)}
+ps -ft /dev/pts/0 \PYG{c}{\PYGZsh{}查看与指定终端关联的进程}
+ps -fp 1234    \PYG{c}{\PYGZsh{}查看进程号为1234的进程的详细信息}
+ps -fu xiaobai \PYG{c}{\PYGZsh{}查看用户xiaobai运行的进程信息}
+ps -fC evince  \PYG{c}{\PYGZsh{}查看名称为enince的所有进程信息}
+\end{Verbatim}

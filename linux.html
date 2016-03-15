@@ -1,0 +1,2256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>linux</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<meta name="title" content="linux"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2016-02-18T11:20+0800"/>
+<meta name="author" content="wxq"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
+  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
+  .center {margin-left:auto; margin-right:auto; text-align:center;}
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top;  }
+  th.right  { text-align:center;  }
+  th.left   { text-align:center;   }
+  th.center { text-align:center; }
+  td.right  { text-align:right;  }
+  td.left   { text-align:left;   }
+  td.center { text-align:center; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  div.inlinetask {
+    padding:10px;
+    border:2px solid gray;
+    margin:10px;
+    background: #ffffcc;
+  }
+  textarea { overflow-x: auto; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+
+</head>
+<body>
+
+<div id="preamble">
+
+</div>
+
+<div id="content">
+<h1 class="title">linux</h1>
+
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1 第1周</a>
+<ul>
+<li><a href="#sec-1-1">1.1 1. 课程简介</a>
+<ul>
+<li><a href="#sec-1-1-1">1.1.1 1.1 为什么要学Linux？</a></li>
+<li><a href="#sec-1-1-2">1.1.2 1.2 主要学什么？</a></li>
+<li><a href="#sec-1-1-3">1.1.3 1.3 怎么考核？</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-2">1.2 2. 从Unix到Linux</a>
+<ul>
+<li><a href="#sec-1-2-1">1.2.1 2.1 Unix简史</a></li>
+<li><a href="#sec-1-2-2">1.2.2 2.2 自由软件和开源软件</a></li>
+<li><a href="#sec-1-2-3">1.2.3 2.3 Linux简介</a></li>
+<li><a href="#sec-1-2-4">1.2.4 2.4 Linux vs. Windows</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-3">1.3 3. Linux安装</a>
+<ul>
+<li><a href="#sec-1-3-1">1.3.1 3.1 通过虚拟机安装Linux</a></li>
+<li><a href="#sec-1-3-2">1.3.2 3.2 Linux分区</a></li>
+<li><a href="#sec-1-3-3">1.3.3 3.3 虚拟机网络设置</a></li>
+<li><a href="#sec-1-3-4">1.3.4 3.4 通过putty远程登录Linux</a></li>
+<li><a href="#sec-1-3-5">1.3.5 3.5 虚拟机管理</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-4">1.4 4. Linux入门</a>
+<ul>
+<li><a href="#sec-1-4-1">1.4.1 4.1 终端与多用户</a></li>
+<li><a href="#sec-1-4-2">1.4.2 4.2 入门使用</a></li>
+<li><a href="#sec-1-4-3">1.4.3 4.3 命令行</a></li>
+<li><a href="#sec-1-4-4">1.4.4 4.4 获取帮助</a></li>
+</ul></li>
+</ul>
+</li>
+<li><a href="#sec-2">2 第2周</a>
+<ul>
+<li><a href="#sec-2-1">2.1 1. Linux文件管理</a></li>
+<li><a href="#sec-2-2">2.2 2. vi编辑器</a></li>
+<li><a href="#sec-2-3">2.3 3. 文本处理工具</a></li>
+<li><a href="#sec-2-4">2.4 4. shell特性</a></li>
+</ul>
+</li>
+<li><a href="#sec-3">3 第3周</a>
+<ul>
+<li><a href="#sec-3-1">3.1 1. 用户管理</a></li>
+<li><a href="#sec-3-2">3.2 2. 权限管理</a></li>
+<li><a href="#sec-3-3">3.3 3. 进程管理</a></li>
+<li><a href="#sec-3-4">3.4 4. shell环境</a></li>
+</ul>
+</li>
+<li><a href="#sec-4">4 第4周</a>
+<ul>
+<li><a href="#sec-4-1">4.1 1. 正则表达式1</a></li>
+<li><a href="#sec-4-2">4.2 2. 正则表达式2</a></li>
+<li><a href="#sec-4-3">4.3 3. sed1</a></li>
+<li><a href="#sec-4-4">4.4 4. sed2</a></li>
+</ul>
+</li>
+<li><a href="#sec-5">5 第5周</a>
+<ul>
+<li><a href="#sec-5-1">5.1 1. awk1</a>
+<ul>
+<li><a href="#sec-5-1-1">5.1.1 引言</a></li>
+<li><a href="#sec-5-1-2">5.1.2 入门指导</a></li>
+<li><a href="#sec-5-1-3">5.1.3 awk语言</a></li>
+<li><a href="#sec-5-1-4">5.1.4 数据处理</a></li>
+<li><a href="#sec-5-1-5">5.1.5 报表和数据库</a></li>
+<li><a href="#sec-5-1-6">5.1.6 处理文本</a></li>
+<li><a href="#sec-5-1-7">5.1.7 微型语言</a></li>
+<li><a href="#sec-5-1-8">5.1.8 算法实验</a></li>
+<li><a href="#sec-5-1-9">5.1.9 后记</a></li>
+</ul>
+</li>
+<li><a href="#sec-5-2">5.2 2. awk2</a></li>
+<li><a href="#sec-5-3">5.3 3. shell编程1</a>
+<ul>
+<li><a href="#sec-5-3-1">5.3.1 3.1 创建新命令</a></li>
+<li><a href="#sec-5-3-2">5.3.2 3.2 命令参数</a></li>
+<li><a href="#sec-5-3-3">5.3.3 3.3 shell变量</a></li>
+<li><a href="#sec-5-3-4">5.3.4 3.4 test</a></li>
+<li><a href="#sec-5-3-5">5.3.5 3.5 流程控制语句</a></li>
+<li><a href="#sec-5-3-6">5.3.6 3.6 数据重定向</a></li>
+<li><a href="#sec-5-3-7">5.3.7 3.7 管道输入读</a></li>
+<li><a href="#sec-5-3-8">5.3.8 3.8 命令行选项</a></li>
+<li><a href="#sec-5-3-9">5.3.9 3.9 计算</a></li>
+<li><a href="#sec-5-3-10">5.3.10 3.10 函数</a></li>
+<li><a href="#sec-5-3-11">5.3.11 3.11 中断处理</a></li>
+<li><a href="#sec-5-3-12">5.3.12 3.12 调试</a></li>
+<li><a href="#sec-5-3-13">5.3.13 3.13 函数库</a></li>
+</ul>
+</li>
+<li><a href="#sec-5-4">5.4 4. shell编程2</a></li>
+</ul>
+</li>
+<li><a href="#sec-6">6 第6周</a>
+<ul>
+<li><a href="#sec-6-1">6.1 1. shell编程3</a></li>
+<li><a href="#sec-6-2">6.2 2. shell编程4</a></li>
+<li><a href="#sec-6-3">6.3 3. 磁盘与文件系统管理1</a></li>
+<li><a href="#sec-6-4">6.4 4. 磁盘与文件系统管理2</a></li>
+</ul>
+</li>
+<li><a href="#sec-7">7 第7周</a>
+<ul>
+<li><a href="#sec-7-1">7.1 1. 磁盘阵列管理1</a></li>
+<li><a href="#sec-7-2">7.2 2. 磁盘阵列管理2</a></li>
+<li><a href="#sec-7-3">7.3 3. 磁盘配额管理</a></li>
+<li><a href="#sec-7-4">7.4 4. 逻辑卷管理</a></li>
+</ul>
+</li>
+<li><a href="#sec-8">8 第8周</a>
+<ul>
+<li><a href="#sec-8-1">8.1 1. Linux软件包管理1</a></li>
+<li><a href="#sec-8-2">8.2 2. Linux软件包管理2</a></li>
+<li><a href="#sec-8-3">8.3 3. Linux内核管理与硬件管理</a></li>
+<li><a href="#sec-8-4">8.4 4. Linux启动管理1</a></li>
+</ul>
+</li>
+<li><a href="#sec-9">9 第9周</a>
+<ul>
+<li><a href="#sec-9-1">9.1 1. Linux启动管理2</a></li>
+<li><a href="#sec-9-2">9.2 2. Linux启动管理3</a></li>
+<li><a href="#sec-9-3">9.3 3. Linux服务管理</a></li>
+<li><a href="#sec-9-4">9.4 4. Linux故障诊断与恢复</a></li>
+</ul>
+</li>
+<li><a href="#sec-10">10 第10周</a>
+<ul>
+<li><a href="#sec-10-1">10.1 1. Linux性能检测</a></li>
+<li><a href="#sec-10-2">10.2 2. Linux日志管理</a></li>
+<li><a href="#sec-10-3">10.3 3. Linux网络基本配置</a></li>
+<li><a href="#sec-10-4">10.4 4. PAM认证、TCP wrapper、Xinetd访问控制与主机防火墙</a></li>
+</ul>
+</li>
+<li><a href="#sec-11">11 第11周</a>
+<ul>
+<li><a href="#sec-11-1">11.1 1. DNS服务配置1</a></li>
+<li><a href="#sec-11-2">11.2 2. DNS服务配置2</a></li>
+<li><a href="#sec-11-3">11.3 3. DHCP服务配置1</a></li>
+<li><a href="#sec-11-4">11.4 4. DHCP服务配置2</a></li>
+</ul>
+</li>
+<li><a href="#sec-12">12 第12周</a>
+<ul>
+<li><a href="#sec-12-1">12.1 1. NFS服务配置1</a></li>
+<li><a href="#sec-12-2">12.2 2. NFS服务配置2</a></li>
+<li><a href="#sec-12-3">12.3 3. samba服务配置1</a></li>
+<li><a href="#sec-12-4">12.4 4. samba服务配置2</a></li>
+</ul>
+</li>
+<li><a href="#sec-13">13 第13周</a>
+<ul>
+<li><a href="#sec-13-1">13.1 1. ftp服务配置1</a></li>
+<li><a href="#sec-13-2">13.2 2. ftp服务配置2</a></li>
+<li><a href="#sec-13-3">13.3 3. apache服务配置1</a></li>
+<li><a href="#sec-13-4">13.4 4. apache服务配置2</a></li>
+</ul>
+</li>
+<li><a href="#sec-14">14 第14周</a>
+<ul>
+<li><a href="#sec-14-1">14.1 1. 远程访问配置1</a></li>
+<li><a href="#sec-14-2">14.2 2. 远程访问配置2</a></li>
+<li><a href="#sec-14-3">14.3 3. 防火墙1</a></li>
+<li><a href="#sec-14-4">14.4 4. 防火墙2</a></li>
+</ul>
+</li>
+<li><a href="#sec-15">15 第15周</a>
+<ul>
+<li><a href="#sec-15-1">15.1 1. squid代理服务配置1</a></li>
+<li><a href="#sec-15-2">15.2 2. squid代理服务配置2</a></li>
+<li><a href="#sec-15-3">15.3 3. Linux安全1</a></li>
+<li><a href="#sec-15-4">15.4 4. Linux安全2</a></li>
+</ul>
+</li>
+<li><a href="#sec-16">16 第16周</a>
+<ul>
+<li><a href="#sec-16-1">16.1 1. 复习1</a></li>
+<li><a href="#sec-16-2">16.2 2. 复习2</a></li>
+<li><a href="#sec-16-3">16.3 3. 期末上机考试1</a></li>
+<li><a href="#sec-16-4">16.4 4. 期末上机考试2</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> 第1周</h2>
+<div class="outline-text-2" id="text-1">
+
+
+</div>
+
+<div id="outline-container-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> 1. 课程简介</h3>
+<div class="outline-text-3" id="text-1-1">
+
+
+</div>
+
+<div id="outline-container-1-1-1" class="outline-4">
+<h4 id="sec-1-1-1"><span class="section-number-4">1.1.1</span> 1.1 为什么要学Linux？</h4>
+<div class="outline-text-4" id="text-1-1-1">
+
+<ul>
+<li>Linux与IT行业
+<ol>
+<li>免费、开源、全球参与开发
+</li>
+<li>被业界广泛采用，成为全球IT基础设施（尤其是因特网）核心
+</li>
+<li>在移动和物联网时代发展愈加迅猛
+</li>
+<li>是各种新技术产生的温床
+</li>
+</ol>
+
+</li>
+<li>Linux与我们
+<ol>
+<li>可是我们平时都只用Windows，从来没用过Linux呀？
+<ul>
+<li>不上网：Windows
+</li>
+<li>上网：新浪网易看新闻、天猫京东购物、网上购买回家火车票、QQ微信、收发邮件、炒股、玩手机、看有线电视、看视觉大片
+</li>
+</ul>
+
+</li>
+<li>与Unix一脉相承，承载了丰富而历久弥新的知识和软件财富
+</li>
+<li>通过学习命令行和脚本编程，可以实现高效且自动化地处理各种任务
+</li>
+<li>通过学习系统配置管理，可以深入掌控系统的方方面面
+</li>
+<li>学到的知识可以保值并随着积累不断增值
+</li>
+<li>可以第一时间接触和了解业界最新技术
+</li>
+</ol>
+
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-1-2" class="outline-4">
+<h4 id="sec-1-1-2"><span class="section-number-4">1.1.2</span> 1.2 主要学什么？</h4>
+<div class="outline-text-4" id="text-1-1-2">
+
+<ul>
+<li>shell命令行
+<ol>
+<li>GUI(图形用户界面)
+<ul>
+<li>拟物化：人操作物
+<ul>
+<li>例：双击图标运行程序（人亲自执行）
+</li>
+</ul>
+
+</li>
+<li>适合视觉型活动：图形图像设计、音视频制作、上网、看视频、玩游戏
+</li>
+<li>面向内容消费：多媒体相关工作者、普通大众
+</li>
+<li>例：制作网页logo图片
+</li>
+</ul>
+
+</li>
+<li>CLI(命令行界面)
+<ul>
+<li>拟人化：人机对话
+<ul>
+<li>例：命令机器执行程序（让机器执行）
+</li>
+</ul>
+
+</li>
+<li>适合语言型活动：编程、写文档、记笔记
+</li>
+<li>面向内容生产：计算机专业人士
+</li>
+<li>例：
+<ul>
+<li>创建3个文件夹memo、book、note，memo文件夹内创建12个文件夹（用于分别存放12个月的备忘）、book文件夹内创建3个文件夹（cs、math、en）、note文件夹内创建3个文件夹（os、net、db），每个文件夹内再创建16个子文件夹（用于分别存放每周的课程笔记）
+
+
+
+<pre class="example">mkdir -p memo/month{01..12} book/{cs,math,en} note/{os,net,db}/week{01..16}
+</pre>
+
+</li>
+</ul>
+
+</li>
+</ul>
+
+</li>
+</ol>
+
+</li>
+<li>shell脚本编程
+</li>
+<li>系统配置管理
+</li>
+<li>网络服务配置管理
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-1-3" class="outline-4">
+<h4 id="sec-1-1-3"><span class="section-number-4">1.1.3</span> 1.3 怎么考核？</h4>
+<div class="outline-text-4" id="text-1-1-3">
+
+<ul>
+<li>考勤：20%
+<ul>
+<li>随机考勤，每次旷课扣3分（早退按旷课处理），每次迟到扣1分，扣完为止。
+</li>
+</ul>
+
+</li>
+<li>实践：30%
+<ol>
+<li>平时：14%
+<ul>
+<li>选项1：根据每周上机实验情况打分
+</li>
+<li>选项2：根据完成课程项目情况打分
+</li>
+<li>说明：为在规定时间完成实验或上交课程项目，分数乘0.7进行折扣
+</li>
+</ul>
+
+</li>
+<li>期末：16%
+<ul>
+<li>未在规定时间内完成，分数乘0.8进行折扣
+</li>
+</ul>
+
+</li>
+</ol>
+
+</li>
+<li>期末笔试：50%
+<ul>
+<li>闭卷考试，卷面分数不得低于50分，否则总评分会被系统自动定为不及格！
+</li>
+</ul>
+
+</li>
+</ul>
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> 2. 从Unix到Linux</h3>
+<div class="outline-text-3" id="text-1-2">
+
+
+</div>
+
+<div id="outline-container-1-2-1" class="outline-4">
+<h4 id="sec-1-2-1"><span class="section-number-4">1.2.1</span> 2.1 Unix简史</h4>
+<div class="outline-text-4" id="text-1-2-1">
+
+<ul>
+<li id="sec-1-2-1-1">Unix诞生<br/>
+<ul>
+<li id="sec-1-2-1-1-1">1969年，Ken Thompson<img src="img/thompson01.jpg"  alt="img/thompson01.jpg" /> 在一台PDP-7机器上完成了Unix的雏形。<br/>
+</li>
+</ul>
+<ul>
+<li id="sec-1-2-1-1-2">1973年，Dennis Ritchie<img src="img/ritchie01.jpg"  alt="img/ritchie01.jpg" /> 设计出C语言，并和Thompson一起将Unix重写为C语言版本。<br/>
+</li>
+</ul>
+<ul>
+<li id="sec-1-2-1-1-3">二人因为Unix和C语言的工作共同获得1983年度图灵奖。<br/>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-1-2-2" class="outline-4">
+<h4 id="sec-1-2-2"><span class="section-number-4">1.2.2</span> 2.2 自由软件和开源软件</h4>
+<div class="outline-text-4" id="text-1-2-2">
+
+</div>
+
+</div>
+
+<div id="outline-container-1-2-3" class="outline-4">
+<h4 id="sec-1-2-3"><span class="section-number-4">1.2.3</span> 2.3 Linux简介</h4>
+<div class="outline-text-4" id="text-1-2-3">
+
+</div>
+
+</div>
+
+<div id="outline-container-1-2-4" class="outline-4">
+<h4 id="sec-1-2-4"><span class="section-number-4">1.2.4</span> 2.4 Linux vs. Windows</h4>
+<div class="outline-text-4" id="text-1-2-4">
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> 3. Linux安装</h3>
+<div class="outline-text-3" id="text-1-3">
+
+
+</div>
+
+<div id="outline-container-1-3-1" class="outline-4">
+<h4 id="sec-1-3-1"><span class="section-number-4">1.3.1</span> 3.1 通过虚拟机安装Linux</h4>
+<div class="outline-text-4" id="text-1-3-1">
+
+</div>
+
+</div>
+
+<div id="outline-container-1-3-2" class="outline-4">
+<h4 id="sec-1-3-2"><span class="section-number-4">1.3.2</span> 3.2 Linux分区</h4>
+<div class="outline-text-4" id="text-1-3-2">
+
+<ul>
+<li>分区与目录
+<ol>
+<li>硬盘分区规则
+</li>
+<li>Linux分区与Windos分区
+<ul>
+<li>单根目录与多根目录
+</li>
+</ul>
+
+</li>
+<li>Linux分区与目录（挂载点）
+</li>
+</ol>
+
+</li>
+<li>分区方案
+<ol>
+<li>/+Swap
+</li>
+<li>/+/boot+Swap
+</li>
+<li>/+/boot+/home+Swap
+</li>
+<li>&hellip;&hellip;
+</li>
+</ol>
+
+</li>
+<li>分区名称
+<ol>
+<li>IDE接口设备及其分区
+</li>
+<li>SCSI接口设备及其分区
+</li>
+<li>设备文件名 vs. 挂载点
+</li>
+</ol>
+
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-3-3" class="outline-4">
+<h4 id="sec-1-3-3"><span class="section-number-4">1.3.3</span> 3.3 虚拟机网络设置</h4>
+<div class="outline-text-4" id="text-1-3-3">
+
+<ul>
+<li>NAT
+</li>
+<li>Bridged
+</li>
+<li>Host-only
+</li>
+<li>Internel
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-3-4" class="outline-4">
+<h4 id="sec-1-3-4"><span class="section-number-4">1.3.4</span> 3.4 通过putty远程登录Linux</h4>
+<div class="outline-text-4" id="text-1-3-4">
+
+<ul>
+<li>设置NAT端口转发
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-3-5" class="outline-4">
+<h4 id="sec-1-3-5"><span class="section-number-4">1.3.5</span> 3.5 虚拟机管理</h4>
+<div class="outline-text-4" id="text-1-3-5">
+
+<ul>
+<li>虚拟机快照保存与恢复
+</li>
+<li>利用虚拟硬盘快速创建虚拟机
+</li>
+<li>虚拟机复制
+</li>
+</ul>
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-1-4" class="outline-3">
+<h3 id="sec-1-4"><span class="section-number-3">1.4</span> 4. Linux入门</h3>
+<div class="outline-text-3" id="text-1-4">
+
+
+</div>
+
+<div id="outline-container-1-4-1" class="outline-4">
+<h4 id="sec-1-4-1"><span class="section-number-4">1.4.1</span> 4.1 终端与多用户</h4>
+<div class="outline-text-4" id="text-1-4-1">
+
+<ul>
+<li>本地终端
+<ol>
+<li>字符终端
+</li>
+<li>图形终端
+</li>
+</ol>
+
+</li>
+<li>远程终端
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-4-2" class="outline-4">
+<h4 id="sec-1-4-2"><span class="section-number-4">1.4.2</span> 4.2 入门使用</h4>
+<div class="outline-text-4" id="text-1-4-2">
+
+<ul>
+<li>登录
+</li>
+<li>了解系统
+<ul>
+<li>时间
+
+
+
+<pre class="example">date    #现在什么时间？
+date +%H:%M  #现在几点几分？
+date "+%B %d"  #今天是几月几号呀？
+date +%s     #打印纪元时（秒）：Linux认为UTC 1970年1月1日0点整是纪元时间
+echo `date +%s`/265/24/3600 | bc  #现在是纪元多少年呀？
+date --date "Oct 1 2016" +%A      #今年国庆节是星期几呀？
+date -s "10 March 2016 10:01:23"  #帮我把时间调成2016年3月10日10点01分23秒吧！
+</pre>
+
+</li>
+<li>日历
+
+
+
+<pre class="example">cal #给我看看这个月的月历吧
+cal 2017 #我想看看2017年的年历
+cal 9 1752  #我想看看1752年9月份的月历:-)
+</pre>
+
+</li>
+<li>用户名
+
+
+
+<pre class="example">whoami  #我是谁？
+who am i #我究竟是谁？
+who     #都有谁在呀？
+</pre>
+
+</li>
+<li>系统版本
+
+
+
+<pre class="example">uname  #这是什么操作系统呀？
+uname -r #这是什么版本呀？
+uname -a #把操作系统相关信息都告诉我好了！
+</pre>
+
+</li>
+<li>主机名
+
+
+
+<pre class="example">hostname #主机名是什么呀？
+hostname NiuBi #不好听，改个牛逼的名字吧！
+</pre>
+
+</li>
+<li>系统状态
+
+
+
+<pre class="example">uptime  #开机多久了呀？
+uptime -p  #拜托，友好点行吗？
+</pre>
+
+</li>
+<li>计算器
+
+
+
+<pre class="example">bc    #我想算点东西
+bc -q #我只想安静地算点东西!
+echo "scale=16;x=4;y=7;3*(x+2)/y" | bc #帮我算一下这个吧！
+echo "obase=2;192" | bc  #192的二进制表示是什么呀？
+echo "obase=10;ibase=2;11000011" | bc #11000011代表几呀？
+echo "ibase=2;obase=10;11000011" | bc #:-(
+echo "ibase=2;obase=1010;11000011" | bc #:-)
+</pre>
+
+</li>
+</ul>
+
+</li>
+<li>浏览文件系统
+<ol>
+<li>ls
+</li>
+<li>cd
+</li>
+<li>pwd
+</li>
+<li>cat
+</li>
+<li>Linux目录架构（与Windows对比）
+</li>
+<li>绝对路径和相对路径
+</li>
+</ol>
+
+</li>
+<li>切换终端
+</li>
+<li>切换用户身份
+</li>
+<li>与其他用户交互
+<ol>
+<li>who
+</li>
+<li>write和mesg
+</li>
+<li>mail
+</li>
+</ol>
+
+</li>
+<li>注销
+</li>
+<li>关机
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-4-3" class="outline-4">
+<h4 id="sec-1-4-3"><span class="section-number-4">1.4.3</span> 4.3 命令行</h4>
+<div class="outline-text-4" id="text-1-4-3">
+
+<ul>
+<li>命令格式：命令 [选项]&hellip; [参数]&hellip;
+<ol>
+<li>选项（指示命令以什么方式执行）
+<ul>
+<li>Unix简洁风：-a
+<ul>
+<li>选项a-z巡礼
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup><col class="left" /><col class="left" />
+</colgroup>
+<thead>
+<tr><th scope="col" class="left">选项</th><th scope="col" class="left">含义</th></tr>
+</thead>
+<tbody>
+<tr><td class="left">-a</td><td class="left">all, append</td></tr>
+<tr><td class="left">-b</td><td class="left">buffer, block, batch</td></tr>
+<tr><td class="left">-c</td><td class="left">command, check</td></tr>
+<tr><td class="left">-d</td><td class="left">debug, delete, directory</td></tr>
+<tr><td class="left">-D</td><td class="left">define</td></tr>
+<tr><td class="left">-e</td><td class="left">excute, edit, exclude, expression</td></tr>
+<tr><td class="left">-f</td><td class="left">file, force</td></tr>
+<tr><td class="left">-h</td><td class="left">header, help</td></tr>
+<tr><td class="left">-i</td><td class="left">initialize, interactive</td></tr>
+<tr><td class="left">-I</td><td class="left">include</td></tr>
+<tr><td class="left">-k</td><td class="left">keep, kill</td></tr>
+<tr><td class="left">-l</td><td class="left">list, long, load, login</td></tr>
+<tr><td class="left">-m</td><td class="left">message, mail, mode, modification-time</td></tr>
+<tr><td class="left">-n</td><td class="left">number, not</td></tr>
+<tr><td class="left">-o</td><td class="left">output</td></tr>
+<tr><td class="left">-p</td><td class="left">port, protocol</td></tr>
+<tr><td class="left">-q</td><td class="left">quite</td></tr>
+<tr><td class="left">-r(-R)</td><td class="left">recurse, reverse</td></tr>
+<tr><td class="left">-s</td><td class="left">silent, subject, size</td></tr>
+<tr><td class="left">-t</td><td class="left">tag</td></tr>
+<tr><td class="left">-u</td><td class="left">user</td></tr>
+<tr><td class="left">-v</td><td class="left">verbose, version</td></tr>
+<tr><td class="left">-V</td><td class="left">version</td></tr>
+<tr><td class="left">-w</td><td class="left">width, warning</td></tr>
+<tr><td class="left">-x</td><td class="left">debug, extract</td></tr>
+<tr><td class="left">-y</td><td class="left">yes</td></tr>
+<tr><td class="left">-z</td><td class="left">zip</td></tr>
+</tbody>
+</table>
+
+</li>
+</ul>
+
+</li>
+<li>GNU友好风：&ndash;all
+</li>
+</ul>
+
+</li>
+<li>参数（指示命令作用的对象，选项也可以有参数）
+</li>
+<li>注意：命令、选项和参数之间要有空格（选项及其参数之间有时可以没有空格）
+</li>
+</ol>
+
+</li>
+<li>命令编辑：Tab键自动完成
+</li>
+<li>命令历史：history
+</li>
+<li>中止命令：Ctrl+c
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-4-4" class="outline-4">
+<h4 id="sec-1-4-4"><span class="section-number-4">1.4.4</span> 4.4 获取帮助</h4>
+<div class="outline-text-4" id="text-1-4-4">
+
+<ul>
+<li>外部命令与内部命令
+</li>
+<li>man
+</li>
+<li>help
+</li>
+<li>info
+</li>
+<li>doc
+</li>
+<li>Internet
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> 第2周</h2>
+<div class="outline-text-2" id="text-2">
+
+
+</div>
+
+<div id="outline-container-2-1" class="outline-3">
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> 1. Linux文件管理</h3>
+<div class="outline-text-3" id="text-2-1">
+
+<ul>
+<li>文件
+<ol>
+<li>创建文件
+<ul>
+<li>文件名规范
+</li>
+<li>touch
+
+
+
+<pre class="example">touch file1
+</pre>
+
+</li>
+</ul>
+
+</li>
+<li>复制文件
+<ul>
+<li>cp
+
+
+
+<pre class="example">cp file1 file2  #把file1复制一份并命名为file2
+cp file file2 dir1  #把file1、file2复制到目录dir1内
+cp file dir1/file3  #把file1复制到目录dir1内并命名为file3
+</pre>
+
+</li>
+</ul>
+
+</li>
+<li>移动文件
+<ul>
+<li>mv
+
+
+
+<pre class="example">mv file1 file2 #将file1移动为file2（即重命名）
+mv file2 file3 file4 dir1  #将file2、file3、file4移动到目录dir1内
+mv file5 dir1/file1 #将file5移动到目录dir1内，并重命名为file1
+</pre>
+
+</li>
+</ul>
+
+</li>
+<li>删除文件
+<ul>
+<li>rm
+
+
+
+<pre class="example">rm file1 file2 file3 #删除文件file1、file2、file3
+rm -f file4 #强行删除文件file4
+</pre>
+
+</li>
+</ul>
+
+</li>
+</ol>
+
+</li>
+<li>目录
+<ol>
+<li>创建目录
+</li>
+<li>复制目录
+</li>
+<li>移动目录
+</li>
+<li>删除目录
+</li>
+</ol>
+
+</li>
+<li>链接
+<ol>
+<li>硬链接
+</li>
+<li>符号链接（软链接）
+</li>
+</ol>
+
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-2-2" class="outline-3">
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> 2. vi编辑器</h3>
+<div class="outline-text-3" id="text-2-2">
+
+<ul>
+<li>vi入门
+<ol>
+<li>三种基本模式
+</li>
+<li>带参数启动与不带参数启动
+</li>
+<li>存盘退出与不存盘退出
+</li>
+</ol>
+
+</li>
+<li>vi常用操作
+<ol>
+<li>移动光标
+</li>
+<li>删除、复制、粘贴
+</li>
+<li>撤销与重做
+</li>
+</ol>
+
+</li>
+<li>vi快速移动
+<ol>
+<li>行首行尾
+</li>
+<li>上下翻页
+</li>
+<li>跳至第n行
+</li>
+<li>按语义单位移动（单词、句子、段落）
+</li>
+<li>次数前缀
+</li>
+</ol>
+
+</li>
+<li>vi高效编辑
+<ol>
+<li>行操作
+</li>
+<li>段操作
+</li>
+<li>块操作
+</li>
+<li>重复上次操作
+</li>
+<li>重复宏操作
+</li>
+<li>简写
+</li>
+<li>文件加密
+</li>
+</ol>
+
+</li>
+<li>vi与多文件处理
+<ol>
+<li>多文件
+</li>
+<li>多窗口
+</li>
+<li>多标签
+</li>
+</ol>
+
+</li>
+<li>vi环境配置
+<ol>
+<li>临时配置
+</li>
+<li>长期配置
+</li>
+</ol>
+
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-2-3" class="outline-3">
+<h3 id="sec-2-3"><span class="section-number-3">2.3</span> 3. 文本处理工具</h3>
+<div class="outline-text-3" id="text-2-3">
+
+<ul>
+<li>查看文件内容
+<ul>
+<li>cat、pr、more、less
+</li>
+</ul>
+
+</li>
+<li>查看部分行
+<ul>
+<li>head、tail、grep
+</li>
+</ul>
+
+</li>
+<li>查看部分列
+<ul>
+<li>cut
+</li>
+</ul>
+
+</li>
+<li>消除相邻重复行
+<ul>
+<li>uniq
+</li>
+</ul>
+
+</li>
+<li>排序
+<ul>
+<li>sort
+</li>
+</ul>
+
+</li>
+<li>字符转换
+<ul>
+<li>tr
+</li>
+</ul>
+
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-2-4" class="outline-3">
+<h3 id="sec-2-4"><span class="section-number-3">2.4</span> 4. shell特性</h3>
+<div class="outline-text-3" id="text-2-4">
+
+<ul>
+<li>命令组
+</li>
+<li>文件名通配符
+</li>
+<li>字符串扩展
+</li>
+<li>I/O重定向
+</li>
+<li>管道
+</li>
+</ul>
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> 第3周</h2>
+<div class="outline-text-2" id="text-3">
+
+
+</div>
+
+<div id="outline-container-3-1" class="outline-3">
+<h3 id="sec-3-1"><span class="section-number-3">3.1</span> 1. 用户管理</h3>
+<div class="outline-text-3" id="text-3-1">
+
+<ul>
+<li>用户帐号
+</li>
+<li>用户数据文件
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-3-2" class="outline-3">
+<h3 id="sec-3-2"><span class="section-number-3">3.2</span> 2. 权限管理</h3>
+<div class="outline-text-3" id="text-3-2">
+
+</div>
+
+</div>
+
+<div id="outline-container-3-3" class="outline-3">
+<h3 id="sec-3-3"><span class="section-number-3">3.3</span> 3. 进程管理</h3>
+<div class="outline-text-3" id="text-3-3">
+
+</div>
+
+</div>
+
+<div id="outline-container-3-4" class="outline-3">
+<h3 id="sec-3-4"><span class="section-number-3">3.4</span> 4. shell环境</h3>
+<div class="outline-text-3" id="text-3-4">
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> 第4周</h2>
+<div class="outline-text-2" id="text-4">
+
+
+</div>
+
+<div id="outline-container-4-1" class="outline-3">
+<h3 id="sec-4-1"><span class="section-number-3">4.1</span> 1. 正则表达式1</h3>
+<div class="outline-text-3" id="text-4-1">
+
+</div>
+
+</div>
+
+<div id="outline-container-4-2" class="outline-3">
+<h3 id="sec-4-2"><span class="section-number-3">4.2</span> 2. 正则表达式2</h3>
+<div class="outline-text-3" id="text-4-2">
+
+</div>
+
+</div>
+
+<div id="outline-container-4-3" class="outline-3">
+<h3 id="sec-4-3"><span class="section-number-3">4.3</span> 3. sed1</h3>
+<div class="outline-text-3" id="text-4-3">
+
+</div>
+
+</div>
+
+<div id="outline-container-4-4" class="outline-3">
+<h3 id="sec-4-4"><span class="section-number-3">4.4</span> 4. sed2</h3>
+<div class="outline-text-3" id="text-4-4">
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> 第5周</h2>
+<div class="outline-text-2" id="text-5">
+
+
+</div>
+
+<div id="outline-container-5-1" class="outline-3">
+<h3 id="sec-5-1"><span class="section-number-3">5.1</span> 1. awk1</h3>
+<div class="outline-text-3" id="text-5-1">
+
+
+</div>
+
+<div id="outline-container-5-1-1" class="outline-4">
+<h4 id="sec-5-1-1"><span class="section-number-4">5.1.1</span> 引言</h4>
+<div class="outline-text-4" id="text-5-1-1">
+
+<ul>
+<li id="sec-5-1-1-1">计算机用户总是花大量时间用于处理简单的、机械性的数据处理工作，例如转换数据格式、查找包含特定属性的项目、汇总数据、打印报表等等。这些事情都应该机械化，但是，每当有这样的任务，就要用C或者Pascal语言写一个特殊任务的程序真是一件令人讨厌的事。AWK是一种编程语言，它使得利用很短的，常常是一两行的程序来完成这些任务成为可能。一段AWK程序就是一系列的模式和操作，它说明在输入数据中寻找什么以及找到之后干什么。AWK在文件中搜寻与任一模式匹配的行，当一个匹配的行被发现之后，对应的操作即被执行。一个模式可以通过联合正则表达式和比较运算对字符串，数字，字段，变量和数组元素做行选择。操作可以对选定的行进行任意的处理。操作语言看起来像C但是没有声明，而且字符串和数字是内建的数据类型。AWK扫描输入文件并且把每一输入行自动地分成字段。因为这么多事情是自动的&ndash;输入，字段分割，存储管理，和初始化&ndash;AWK程序通常都比它们在更常规的语言中短的多。因此AWK的一项通常的应用就是上述建议的数据操作。一两行的程序，由键盘键入，运行一次，然后丢掉。但事实上，AWK是一种普通的编程工具，它可以取代很多特殊的工具和程序。<br/>
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-5-1-2" class="outline-4">
+<h4 id="sec-5-1-2"><span class="section-number-4">5.1.2</span> 入门指导</h4>
+<div class="outline-text-4" id="text-5-1-2">
+
+<ul>
+<li id="sec-5-1-2-1">开始<br/>
+<ul>
+<li id="sec-5-1-2-1-1">引例：假设有一个文件emp.data，它包含了员工的姓名、以美元计的时薪以及工作小时数，每个员工记录占一行：<br/>
+
+
+
+<pre class="example">cat &gt;emp.data &lt;&lt;EOF
+Beth   4.00    0
+Dan    3.75    0
+Kathy  4.00    10
+Mark   5.00    20
+Mary   5.50    22
+Susie  4.25    18
+EOF  
+</pre>
+
+
+<p>
+现在需要打印每个工作时间大于0小时员工的姓名和应得薪酬（时薪x工作小时数）
+</p>
+
+
+<pre class="example">awk '$3 &gt; 0 { print $1, $2*$3 }' emp.data
+</pre>
+
+</li>
+</ul>
+<ul>
+<li id="sec-5-1-2-1-2">如果要打印出从不工作的员工名单<br/>
+
+
+
+<pre class="example">awk '$3 == 0 { print $1 }' emp.data
+</pre>
+
+</li>
+</ul>
+<ul>
+<li id="sec-5-1-2-1-3">awk程序的结构<br/>
+<ul>
+<li id="sec-5-1-2-1-3-1">引例中写在引号内的部分是用awk语言写的程序。<br/>
+</li>
+</ul>
+<ul>
+<li id="sec-5-1-2-1-3-2">每个awk程序都是一系列模式-动作语句：<br/>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li id="sec-5-1-2-2">简单输出<br/>
+</li>
+</ul>
+<ul>
+<li id="sec-5-1-2-3">格式化输出<br/>
+</li>
+</ul>
+<ul>
+<li id="sec-5-1-2-4">选择<br/>
+</li>
+</ul>
+<ul>
+<li id="sec-5-1-2-5">用awk计算<br/>
+</li>
+</ul>
+<ul>
+<li id="sec-5-1-2-6">流程控制语句<br/>
+</li>
+</ul>
+<ul>
+<li id="sec-5-1-2-7">数组<br/>
+</li>
+</ul>
+<ul>
+<li id="sec-5-1-2-8">单行awk<br/>
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-5-1-3" class="outline-4">
+<h4 id="sec-5-1-3"><span class="section-number-4">5.1.3</span> awk语言</h4>
+<div class="outline-text-4" id="text-5-1-3">
+
+<ul>
+<li id="sec-5-1-3-1">模式<br/>
+</li>
+</ul>
+<ul>
+<li id="sec-5-1-3-2">动作<br/>
+</li>
+</ul>
+<ul>
+<li id="sec-5-1-3-3">用户定义函数<br/>
+</li>
+</ul>
+<ul>
+<li id="sec-5-1-3-4">输出<br/>
+</li>
+</ul>
+<ul>
+<li id="sec-5-1-3-5">输入<br/>
+</li>
+</ul>
+<ul>
+<li id="sec-5-1-3-6">与其他程序交互<br/>
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-5-1-4" class="outline-4">
+<h4 id="sec-5-1-4"><span class="section-number-4">5.1.4</span> 数据处理</h4>
+<div class="outline-text-4" id="text-5-1-4">
+
+<ul>
+<li id="sec-5-1-4-1">数据转换与压缩<br/>
+</li>
+</ul>
+<ul>
+<li id="sec-5-1-4-2">数据可视化<br/>
+</li>
+</ul>
+<ul>
+<li id="sec-5-1-4-3">bundle和unbundle<br/>
+</li>
+</ul>
+<ul>
+<li id="sec-5-1-4-4">多行记录<br/>
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-5-1-5" class="outline-4">
+<h4 id="sec-5-1-5"><span class="section-number-4">5.1.5</span> 报表和数据库</h4>
+<div class="outline-text-4" id="text-5-1-5">
+
+<ul>
+<li id="sec-5-1-5-1">生成报表<br/>
+</li>
+</ul>
+<ul>
+<li id="sec-5-1-5-2">包装查询和报表<br/>
+</li>
+</ul>
+<ul>
+<li id="sec-5-1-5-3">一个关系型数据库系统<br/>
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-5-1-6" class="outline-4">
+<h4 id="sec-5-1-6"><span class="section-number-4">5.1.6</span> 处理文本</h4>
+<div class="outline-text-4" id="text-5-1-6">
+
+<ul>
+<li id="sec-5-1-6-1">随机文本生成<br/>
+</li>
+</ul>
+<ul>
+<li id="sec-5-1-6-2">交互式文本操作<br/>
+</li>
+</ul>
+<ul>
+<li id="sec-5-1-6-3">文本处理<br/>
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-5-1-7" class="outline-4">
+<h4 id="sec-5-1-7"><span class="section-number-4">5.1.7</span> 微型语言</h4>
+<div class="outline-text-4" id="text-5-1-7">
+
+<ul>
+<li id="sec-5-1-7-1">一个汇编器和解释器<br/>
+</li>
+</ul>
+<ul>
+<li id="sec-5-1-7-2">一个画图语言<br/>
+</li>
+</ul>
+<ul>
+<li id="sec-5-1-7-3">一个排序生成器<br/>
+</li>
+</ul>
+<ul>
+<li id="sec-5-1-7-4">一个逆波兰计算器<br/>
+</li>
+</ul>
+<ul>
+<li id="sec-5-1-7-5">一个前缀计算机<br/>
+</li>
+</ul>
+<ul>
+<li id="sec-5-1-7-6">递归下降分析器<br/>
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-5-1-8" class="outline-4">
+<h4 id="sec-5-1-8"><span class="section-number-4">5.1.8</span> 算法实验</h4>
+<div class="outline-text-4" id="text-5-1-8">
+
+<ul>
+<li id="sec-5-1-8-1">排序<br/>
+</li>
+</ul>
+<ul>
+<li id="sec-5-1-8-2">profiling<br/>
+</li>
+</ul>
+<ul>
+<li id="sec-5-1-8-3">拓扑排序<br/>
+</li>
+</ul>
+<ul>
+<li id="sec-5-1-8-4">Make：一个文件更新程序<br/>
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-5-1-9" class="outline-4">
+<h4 id="sec-5-1-9"><span class="section-number-4">5.1.9</span> 后记</h4>
+<div class="outline-text-4" id="text-5-1-9">
+
+<ul>
+<li id="sec-5-1-9-1">AWK作为一种语言<br/>
+</li>
+</ul>
+<ul>
+<li id="sec-5-1-9-2">性能<br/>
+</li>
+</ul>
+<ul>
+<li id="sec-5-1-9-3">结论<br/>
+</li>
+</ul>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-5-2" class="outline-3">
+<h3 id="sec-5-2"><span class="section-number-3">5.2</span> 2. awk2</h3>
+<div class="outline-text-3" id="text-5-2">
+
+</div>
+
+</div>
+
+<div id="outline-container-5-3" class="outline-3">
+<h3 id="sec-5-3"><span class="section-number-3">5.3</span> 3. shell编程1</h3>
+<div class="outline-text-3" id="text-5-3">
+
+
+</div>
+
+<div id="outline-container-5-3-1" class="outline-4">
+<h4 id="sec-5-3-1"><span class="section-number-4">5.3.1</span> 3.1 创建新命令</h4>
+<div class="outline-text-4" id="text-5-3-1">
+
+</div>
+
+</div>
+
+<div id="outline-container-5-3-2" class="outline-4">
+<h4 id="sec-5-3-2"><span class="section-number-4">5.3.2</span> 3.2 命令参数</h4>
+<div class="outline-text-4" id="text-5-3-2">
+
+</div>
+
+</div>
+
+<div id="outline-container-5-3-3" class="outline-4">
+<h4 id="sec-5-3-3"><span class="section-number-4">5.3.3</span> 3.3 shell变量</h4>
+<div class="outline-text-4" id="text-5-3-3">
+
+</div>
+
+</div>
+
+<div id="outline-container-5-3-4" class="outline-4">
+<h4 id="sec-5-3-4"><span class="section-number-4">5.3.4</span> 3.4 test</h4>
+<div class="outline-text-4" id="text-5-3-4">
+
+</div>
+
+</div>
+
+<div id="outline-container-5-3-5" class="outline-4">
+<h4 id="sec-5-3-5"><span class="section-number-4">5.3.5</span> 3.5 流程控制语句</h4>
+<div class="outline-text-4" id="text-5-3-5">
+
+</div>
+
+</div>
+
+<div id="outline-container-5-3-6" class="outline-4">
+<h4 id="sec-5-3-6"><span class="section-number-4">5.3.6</span> 3.6 数据重定向</h4>
+<div class="outline-text-4" id="text-5-3-6">
+
+</div>
+
+</div>
+
+<div id="outline-container-5-3-7" class="outline-4">
+<h4 id="sec-5-3-7"><span class="section-number-4">5.3.7</span> 3.7 管道输入读</h4>
+<div class="outline-text-4" id="text-5-3-7">
+
+</div>
+
+</div>
+
+<div id="outline-container-5-3-8" class="outline-4">
+<h4 id="sec-5-3-8"><span class="section-number-4">5.3.8</span> 3.8 命令行选项</h4>
+<div class="outline-text-4" id="text-5-3-8">
+
+</div>
+
+</div>
+
+<div id="outline-container-5-3-9" class="outline-4">
+<h4 id="sec-5-3-9"><span class="section-number-4">5.3.9</span> 3.9 计算</h4>
+<div class="outline-text-4" id="text-5-3-9">
+
+</div>
+
+</div>
+
+<div id="outline-container-5-3-10" class="outline-4">
+<h4 id="sec-5-3-10"><span class="section-number-4">5.3.10</span> 3.10 函数</h4>
+<div class="outline-text-4" id="text-5-3-10">
+
+</div>
+
+</div>
+
+<div id="outline-container-5-3-11" class="outline-4">
+<h4 id="sec-5-3-11"><span class="section-number-4">5.3.11</span> 3.11 中断处理</h4>
+<div class="outline-text-4" id="text-5-3-11">
+
+</div>
+
+</div>
+
+<div id="outline-container-5-3-12" class="outline-4">
+<h4 id="sec-5-3-12"><span class="section-number-4">5.3.12</span> 3.12 调试</h4>
+<div class="outline-text-4" id="text-5-3-12">
+
+<ul>
+<li>set命令
+<ul>
+<li>在脚本中添加命令set -x，在该命令之后执行的每条命令及其参数和参数的值都会显示出来。
+</li>
+<li>set -v，只显示正在运行的脚本的代码。
+</li>
+<li>set +x/+v，关闭x/v选项。
+</li>
+</ul>
+
+</li>
+<li>echo/print命令
+</li>
+<li>根据调试层次控制输出
+<ul>
+<li>在脚本开始处设置一个调试变量，脚本运行时测试该变量，然后根据该变量的值决定是否启用调试指令。
+
+
+
+<pre class="example">debug=1
+test debug -gt 0 &amp;&amp; echo "debug is on"
+</pre>
+
+</li>
+</ul>
+
+</li>
+<li>用函数简化错误检查
+
+
+
+<pre class="example">alert(){
+  # usage: alert &lt;$?&gt; &lt;object&gt;
+  if [ "$1" -ne 0 ]; then
+    echo "WARNING: $2 did not complete successfully." &gt;&amp;2
+    exit $1
+  else
+    echo "INFO: $2 complete successfully" &gt;&amp;2
+  fi
+}
+</pre>
+
+
+<pre class="example">alert(){
+  local RET_CODE=$?
+  if [ -z "$DEBUG" ] || [ "$DEBUG" -eq 0 ]; then
+    return
+  fi
+  if [ "$RET_CODE" -ne 0 ]; then
+    echo "Warn: $* failed with a return code of $RET_CODE." &gt;&amp;2
+    [ "$DEBUG" -gt 9 ] &amp;&amp; exit "$RET_CODE"
+    [ "$STEP_THROUGH" = 1 ] &amp;&amp; {
+      echo "Press [Enter] to continue" &gt;&amp;2; read x
+    }
+  fi
+  [ "$STEP_THROUGH" = 2 ] &amp;&amp; {
+    echo "Press [Enter] to continue" &gt;&amp;2; read x
+  }
+}
+</pre>
+
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-5-3-13" class="outline-4">
+<h4 id="sec-5-3-13"><span class="section-number-4">5.3.13</span> 3.13 函数库</h4>
+<div class="outline-text-4" id="text-5-3-13">
+
+<ul>
+<li>库：包含在单个文件中的一个函数集。
+</li>
+<li>例：
+
+
+
+<pre class="example">evenodd(){
+  # 根据最后一位数字确定奇偶性
+  LAST_DIGIT=`echo $1 | sed 's/\(.*\)\(.\)$/\2/'`
+  case $LAST_DIGIT in
+  0|2|4|6|8 )
+    return 1
+  ;;
+  *)
+    return 0
+  ;;
+  esac
+}
+</pre>
+
+
+<pre class="example">isalive(){
+  #判断一台远程机器是否能ping通
+  NODE=$1
+  $PING -c 3 $NODE &gt;/dev/null 2&gt;&amp;1
+  if [ $? -eq 0 ]; then
+    return 1
+  else
+    return 0
+  fi
+}
+</pre>
+
+</li>
+<li>使用库
+
+
+
+<pre class="example">source std_lib
+</pre>
+
+
+<pre class="example">. std_lib
+</pre>
+
+</li>
+</ul>
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-5-4" class="outline-3">
+<h3 id="sec-5-4"><span class="section-number-3">5.4</span> 4. shell编程2</h3>
+<div class="outline-text-3" id="text-5-4">
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> 第6周</h2>
+<div class="outline-text-2" id="text-6">
+
+
+</div>
+
+<div id="outline-container-6-1" class="outline-3">
+<h3 id="sec-6-1"><span class="section-number-3">6.1</span> 1. shell编程3</h3>
+<div class="outline-text-3" id="text-6-1">
+
+</div>
+
+</div>
+
+<div id="outline-container-6-2" class="outline-3">
+<h3 id="sec-6-2"><span class="section-number-3">6.2</span> 2. shell编程4</h3>
+<div class="outline-text-3" id="text-6-2">
+
+</div>
+
+</div>
+
+<div id="outline-container-6-3" class="outline-3">
+<h3 id="sec-6-3"><span class="section-number-3">6.3</span> 3. 磁盘与文件系统管理1</h3>
+<div class="outline-text-3" id="text-6-3">
+
+</div>
+
+</div>
+
+<div id="outline-container-6-4" class="outline-3">
+<h3 id="sec-6-4"><span class="section-number-3">6.4</span> 4. 磁盘与文件系统管理2</h3>
+<div class="outline-text-3" id="text-6-4">
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-7" class="outline-2">
+<h2 id="sec-7"><span class="section-number-2">7</span> 第7周</h2>
+<div class="outline-text-2" id="text-7">
+
+
+</div>
+
+<div id="outline-container-7-1" class="outline-3">
+<h3 id="sec-7-1"><span class="section-number-3">7.1</span> 1. 磁盘阵列管理1</h3>
+<div class="outline-text-3" id="text-7-1">
+
+</div>
+
+</div>
+
+<div id="outline-container-7-2" class="outline-3">
+<h3 id="sec-7-2"><span class="section-number-3">7.2</span> 2. 磁盘阵列管理2</h3>
+<div class="outline-text-3" id="text-7-2">
+
+</div>
+
+</div>
+
+<div id="outline-container-7-3" class="outline-3">
+<h3 id="sec-7-3"><span class="section-number-3">7.3</span> 3. 磁盘配额管理</h3>
+<div class="outline-text-3" id="text-7-3">
+
+</div>
+
+</div>
+
+<div id="outline-container-7-4" class="outline-3">
+<h3 id="sec-7-4"><span class="section-number-3">7.4</span> 4. 逻辑卷管理</h3>
+<div class="outline-text-3" id="text-7-4">
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-8" class="outline-2">
+<h2 id="sec-8"><span class="section-number-2">8</span> 第8周</h2>
+<div class="outline-text-2" id="text-8">
+
+
+</div>
+
+<div id="outline-container-8-1" class="outline-3">
+<h3 id="sec-8-1"><span class="section-number-3">8.1</span> 1. Linux软件包管理1</h3>
+<div class="outline-text-3" id="text-8-1">
+
+</div>
+
+</div>
+
+<div id="outline-container-8-2" class="outline-3">
+<h3 id="sec-8-2"><span class="section-number-3">8.2</span> 2. Linux软件包管理2</h3>
+<div class="outline-text-3" id="text-8-2">
+
+</div>
+
+</div>
+
+<div id="outline-container-8-3" class="outline-3">
+<h3 id="sec-8-3"><span class="section-number-3">8.3</span> 3. Linux内核管理与硬件管理</h3>
+<div class="outline-text-3" id="text-8-3">
+
+</div>
+
+</div>
+
+<div id="outline-container-8-4" class="outline-3">
+<h3 id="sec-8-4"><span class="section-number-3">8.4</span> 4. Linux启动管理1</h3>
+<div class="outline-text-3" id="text-8-4">
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-9" class="outline-2">
+<h2 id="sec-9"><span class="section-number-2">9</span> 第9周</h2>
+<div class="outline-text-2" id="text-9">
+
+
+</div>
+
+<div id="outline-container-9-1" class="outline-3">
+<h3 id="sec-9-1"><span class="section-number-3">9.1</span> 1. Linux启动管理2</h3>
+<div class="outline-text-3" id="text-9-1">
+
+</div>
+
+</div>
+
+<div id="outline-container-9-2" class="outline-3">
+<h3 id="sec-9-2"><span class="section-number-3">9.2</span> 2. Linux启动管理3</h3>
+<div class="outline-text-3" id="text-9-2">
+
+</div>
+
+</div>
+
+<div id="outline-container-9-3" class="outline-3">
+<h3 id="sec-9-3"><span class="section-number-3">9.3</span> 3. Linux服务管理</h3>
+<div class="outline-text-3" id="text-9-3">
+
+</div>
+
+</div>
+
+<div id="outline-container-9-4" class="outline-3">
+<h3 id="sec-9-4"><span class="section-number-3">9.4</span> 4. Linux故障诊断与恢复</h3>
+<div class="outline-text-3" id="text-9-4">
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-10" class="outline-2">
+<h2 id="sec-10"><span class="section-number-2">10</span> 第10周</h2>
+<div class="outline-text-2" id="text-10">
+
+
+</div>
+
+<div id="outline-container-10-1" class="outline-3">
+<h3 id="sec-10-1"><span class="section-number-3">10.1</span> 1. Linux性能检测</h3>
+<div class="outline-text-3" id="text-10-1">
+
+</div>
+
+</div>
+
+<div id="outline-container-10-2" class="outline-3">
+<h3 id="sec-10-2"><span class="section-number-3">10.2</span> 2. Linux日志管理</h3>
+<div class="outline-text-3" id="text-10-2">
+
+</div>
+
+</div>
+
+<div id="outline-container-10-3" class="outline-3">
+<h3 id="sec-10-3"><span class="section-number-3">10.3</span> 3. Linux网络基本配置</h3>
+<div class="outline-text-3" id="text-10-3">
+
+</div>
+
+</div>
+
+<div id="outline-container-10-4" class="outline-3">
+<h3 id="sec-10-4"><span class="section-number-3">10.4</span> 4. PAM认证、TCP wrapper、Xinetd访问控制与主机防火墙</h3>
+<div class="outline-text-3" id="text-10-4">
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-11" class="outline-2">
+<h2 id="sec-11"><span class="section-number-2">11</span> 第11周</h2>
+<div class="outline-text-2" id="text-11">
+
+
+</div>
+
+<div id="outline-container-11-1" class="outline-3">
+<h3 id="sec-11-1"><span class="section-number-3">11.1</span> 1. DNS服务配置1</h3>
+<div class="outline-text-3" id="text-11-1">
+
+</div>
+
+</div>
+
+<div id="outline-container-11-2" class="outline-3">
+<h3 id="sec-11-2"><span class="section-number-3">11.2</span> 2. DNS服务配置2</h3>
+<div class="outline-text-3" id="text-11-2">
+
+</div>
+
+</div>
+
+<div id="outline-container-11-3" class="outline-3">
+<h3 id="sec-11-3"><span class="section-number-3">11.3</span> 3. DHCP服务配置1</h3>
+<div class="outline-text-3" id="text-11-3">
+
+</div>
+
+</div>
+
+<div id="outline-container-11-4" class="outline-3">
+<h3 id="sec-11-4"><span class="section-number-3">11.4</span> 4. DHCP服务配置2</h3>
+<div class="outline-text-3" id="text-11-4">
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-12" class="outline-2">
+<h2 id="sec-12"><span class="section-number-2">12</span> 第12周</h2>
+<div class="outline-text-2" id="text-12">
+
+
+</div>
+
+<div id="outline-container-12-1" class="outline-3">
+<h3 id="sec-12-1"><span class="section-number-3">12.1</span> 1. NFS服务配置1</h3>
+<div class="outline-text-3" id="text-12-1">
+
+</div>
+
+</div>
+
+<div id="outline-container-12-2" class="outline-3">
+<h3 id="sec-12-2"><span class="section-number-3">12.2</span> 2. NFS服务配置2</h3>
+<div class="outline-text-3" id="text-12-2">
+
+</div>
+
+</div>
+
+<div id="outline-container-12-3" class="outline-3">
+<h3 id="sec-12-3"><span class="section-number-3">12.3</span> 3. samba服务配置1</h3>
+<div class="outline-text-3" id="text-12-3">
+
+</div>
+
+</div>
+
+<div id="outline-container-12-4" class="outline-3">
+<h3 id="sec-12-4"><span class="section-number-3">12.4</span> 4. samba服务配置2</h3>
+<div class="outline-text-3" id="text-12-4">
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-13" class="outline-2">
+<h2 id="sec-13"><span class="section-number-2">13</span> 第13周</h2>
+<div class="outline-text-2" id="text-13">
+
+
+</div>
+
+<div id="outline-container-13-1" class="outline-3">
+<h3 id="sec-13-1"><span class="section-number-3">13.1</span> 1. ftp服务配置1</h3>
+<div class="outline-text-3" id="text-13-1">
+
+</div>
+
+</div>
+
+<div id="outline-container-13-2" class="outline-3">
+<h3 id="sec-13-2"><span class="section-number-3">13.2</span> 2. ftp服务配置2</h3>
+<div class="outline-text-3" id="text-13-2">
+
+</div>
+
+</div>
+
+<div id="outline-container-13-3" class="outline-3">
+<h3 id="sec-13-3"><span class="section-number-3">13.3</span> 3. apache服务配置1</h3>
+<div class="outline-text-3" id="text-13-3">
+
+</div>
+
+</div>
+
+<div id="outline-container-13-4" class="outline-3">
+<h3 id="sec-13-4"><span class="section-number-3">13.4</span> 4. apache服务配置2</h3>
+<div class="outline-text-3" id="text-13-4">
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-14" class="outline-2">
+<h2 id="sec-14"><span class="section-number-2">14</span> 第14周</h2>
+<div class="outline-text-2" id="text-14">
+
+
+</div>
+
+<div id="outline-container-14-1" class="outline-3">
+<h3 id="sec-14-1"><span class="section-number-3">14.1</span> 1. 远程访问配置1</h3>
+<div class="outline-text-3" id="text-14-1">
+
+</div>
+
+</div>
+
+<div id="outline-container-14-2" class="outline-3">
+<h3 id="sec-14-2"><span class="section-number-3">14.2</span> 2. 远程访问配置2</h3>
+<div class="outline-text-3" id="text-14-2">
+
+</div>
+
+</div>
+
+<div id="outline-container-14-3" class="outline-3">
+<h3 id="sec-14-3"><span class="section-number-3">14.3</span> 3. 防火墙1</h3>
+<div class="outline-text-3" id="text-14-3">
+
+</div>
+
+</div>
+
+<div id="outline-container-14-4" class="outline-3">
+<h3 id="sec-14-4"><span class="section-number-3">14.4</span> 4. 防火墙2</h3>
+<div class="outline-text-3" id="text-14-4">
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-15" class="outline-2">
+<h2 id="sec-15"><span class="section-number-2">15</span> 第15周</h2>
+<div class="outline-text-2" id="text-15">
+
+
+</div>
+
+<div id="outline-container-15-1" class="outline-3">
+<h3 id="sec-15-1"><span class="section-number-3">15.1</span> 1. squid代理服务配置1</h3>
+<div class="outline-text-3" id="text-15-1">
+
+</div>
+
+</div>
+
+<div id="outline-container-15-2" class="outline-3">
+<h3 id="sec-15-2"><span class="section-number-3">15.2</span> 2. squid代理服务配置2</h3>
+<div class="outline-text-3" id="text-15-2">
+
+</div>
+
+</div>
+
+<div id="outline-container-15-3" class="outline-3">
+<h3 id="sec-15-3"><span class="section-number-3">15.3</span> 3. Linux安全1</h3>
+<div class="outline-text-3" id="text-15-3">
+
+</div>
+
+</div>
+
+<div id="outline-container-15-4" class="outline-3">
+<h3 id="sec-15-4"><span class="section-number-3">15.4</span> 4. Linux安全2</h3>
+<div class="outline-text-3" id="text-15-4">
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-16" class="outline-2">
+<h2 id="sec-16"><span class="section-number-2">16</span> 第16周</h2>
+<div class="outline-text-2" id="text-16">
+
+
+</div>
+
+<div id="outline-container-16-1" class="outline-3">
+<h3 id="sec-16-1"><span class="section-number-3">16.1</span> 1. 复习1</h3>
+<div class="outline-text-3" id="text-16-1">
+
+</div>
+
+</div>
+
+<div id="outline-container-16-2" class="outline-3">
+<h3 id="sec-16-2"><span class="section-number-3">16.2</span> 2. 复习2</h3>
+<div class="outline-text-3" id="text-16-2">
+
+</div>
+
+</div>
+
+<div id="outline-container-16-3" class="outline-3">
+<h3 id="sec-16-3"><span class="section-number-3">16.3</span> 3. 期末上机考试1</h3>
+<div class="outline-text-3" id="text-16-3">
+
+</div>
+
+</div>
+
+<div id="outline-container-16-4" class="outline-3">
+<h3 id="sec-16-4"><span class="section-number-3">16.4</span> 4. 期末上机考试2</h3>
+<div class="outline-text-3" id="text-16-4">
+
+</div>
+</div>
+</div>
+</div>
+
+<div id="postamble">
+<p class="date">Date: 2016-02-18T11:20+0800</p>
+<p class="author">Author: wxq</p>
+<p class="creator"><a href="http://orgmode.org">Org</a> version 7.9.3f with <a href="http://www.gnu.org/software/emacs/">Emacs</a> version 24</p>
+<a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
+
+</div>
+</body>
+</html>

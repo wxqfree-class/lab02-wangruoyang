@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+tar -cvf files.tar file1 file2   \PYG{c}{\PYGZsh{}打包多个文件}
+tar -cvf dir1.tar dir1           \PYG{c}{\PYGZsh{}打包目录}
+tar -tf files.tar                \PYG{c}{\PYGZsh{}查看包内容}
+tar -rf files.tar file3 file4    \PYG{c}{\PYGZsh{}向包内添加文件}
+tar --delete -f files.tar file4  \PYG{c}{\PYGZsh{}删除包内文件}
+tar -Af files.tar dir1.tar       \PYG{c}{\PYGZsh{}合并包文件}
+tar -xvf boot.tar                \PYG{c}{\PYGZsh{}解包}
+tar -czvf boot.tar.gz /boot      \PYG{c}{\PYGZsh{}打包并压缩(gzip)}
+tar -xzvf boot.tar.gz            \PYG{c}{\PYGZsh{}解压缩解包(gzip)}
+tar -cjvf boot.tar.bz2 /boot     \PYG{c}{\PYGZsh{}打包并压缩(bzip2)}
+tar -xjvf boot.tar.bz2           \PYG{c}{\PYGZsh{}解压缩解包(bzip2)}
+\end{Verbatim}

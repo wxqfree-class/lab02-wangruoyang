@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+bc -l                 \PYG{c}{\PYGZsh{} 必须加-l参数才能调用内置函数}
+\PYG{n+nv}{scale}\PYG{o}{=}10;l\PYG{o}{(}3\PYG{o}{)}         \PYG{c}{\PYGZsh{} 计算log(3)}
+\end{Verbatim}

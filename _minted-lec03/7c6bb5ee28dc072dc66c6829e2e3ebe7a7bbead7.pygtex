@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+id          \PYG{c}{\PYGZsh{}查看当前用户信息}
+id jack     \PYG{c}{\PYGZsh{}查看指定用户信息}
+\end{Verbatim}

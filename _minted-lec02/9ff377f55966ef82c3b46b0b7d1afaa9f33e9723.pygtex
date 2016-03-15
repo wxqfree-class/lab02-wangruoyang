@@ -1,0 +1,16 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+find . -type -f -mtime +1 -exec ls -lt \PYG{o}{\PYGZob{}\PYGZcb{}} \PYG{l+s+se}{\PYGZbs{};}
+\PYG{c}{\PYGZsh{}过去48小时之前}
+find . -type -f -mtime 1 -exec ls -lt \PYG{o}{\PYGZob{}\PYGZcb{}} \PYG{l+s+se}{\PYGZbs{};}
+\PYG{c}{\PYGZsh{}过去24小时之前，48小时之内}
+find . -type -f -mtime -1 -exec ls -lt \PYG{o}{\PYGZob{}\PYGZcb{}} \PYG{l+s+se}{\PYGZbs{};}
+\PYG{c}{\PYGZsh{}过去24小时之内}
+find . -type -f -mtime +0 -exec ls -lt \PYG{o}{\PYGZob{}\PYGZcb{}} \PYG{l+s+se}{\PYGZbs{};}
+\PYG{c}{\PYGZsh{}过去24小时之前}
+find . -type -f -mtime 0 -exec ls -l \PYG{o}{\PYGZob{}\PYGZcb{}} \PYG{l+s+se}{\PYGZbs{};}
+\PYG{c}{\PYGZsh{}现在之前，过去24小时内}
+find . -type -f -mtime -0 -exec ls -l \PYG{o}{\PYGZob{}\PYGZcb{}} \PYG{l+s+se}{\PYGZbs{};}
+\PYG{c}{\PYGZsh{}现在之后}
+find . -type -f -mtime +0 -mtime -2 -ok cp -l \PYG{o}{\PYGZob{}\PYGZcb{}}  \PYGZti{}/bak\PYG{l+s+se}{\PYGZbs{};}
+\PYG{c}{\PYGZsh{}过去24小时之前，48小时之内}
+\end{Verbatim}

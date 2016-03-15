@@ -1,0 +1,16 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+find /usr/bin -name chmod -print \PYG{c}{\PYGZsh{}找文件chmod}
+find /usr/bin -name \PYG{l+s+s2}{"ch*"}        \PYG{c}{\PYGZsh{}找ch开头的文件}
+find /usr/bin -size 5M           \PYG{c}{\PYGZsh{}找5MB大小的文件}
+find /usr/bin -size +5M          \PYG{c}{\PYGZsh{}找大于5MB的文件}
+find /usr/bin -size -5M          \PYG{c}{\PYGZsh{}找小于5MB的文件}
+find /usr/bin ！ -size -5M       \PYG{c}{\PYGZsh{}找不小于5MB文件}
+find /usr/bin -size +5M -exec ls -sh \PYG{o}{\PYGZob{}\PYGZcb{}} \PYG{l+s+se}{\PYGZbs{};}
+\PYG{c}{\PYGZsh{}对找到的文件执行相应操作}
+find /usr/bin -size +5M -a -size -10M -exec ls -sh \PYG{o}{\PYGZob{}\PYGZcb{}} \PYG{l+s+se}{\PYGZbs{};}
+\PYG{c}{\PYGZsh{}多条件联合查找}
+find /usr/bin -size +5M -size -10M -exec ls -sh \PYG{o}{\PYGZob{}\PYGZcb{}} \PYG{l+s+se}{\PYGZbs{};}
+\PYG{c}{\PYGZsh{}同上}
+\PYG{c}{\PYGZsh{} -a(-and)表示and(可省略)}
+\PYG{c}{\PYGZsh{} -o(-or)表示or，!(-not)表示not}
+\end{Verbatim}

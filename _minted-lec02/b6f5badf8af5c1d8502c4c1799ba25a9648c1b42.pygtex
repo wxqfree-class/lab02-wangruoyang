@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+ls file\PYG{o}{[}123\PYG{o}{]}
+ls file\PYG{o}{[}0-9\PYG{o}{][}ab\PYG{o}{]}
+ls file\PYG{o}{[}\PYGZca{}0-9\PYG{o}{]}
+ls file\PYG{o}{[}!23\PYG{o}{]}
+\end{Verbatim}

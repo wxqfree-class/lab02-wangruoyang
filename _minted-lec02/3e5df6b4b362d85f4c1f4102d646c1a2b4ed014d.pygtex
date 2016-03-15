@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+cp f1 f1.1                 \PYG{c}{\PYGZsh{}把f1复制为f1.1}
+cp -i f1 f2                \PYG{c}{\PYGZsh{}覆盖时提示}
+cp -p f1 f1.2              \PYG{c}{\PYGZsh{}保留文件属性不变}
+cp f3 f4 dir1              \PYG{c}{\PYGZsh{}把文件复制到目录}
+cp -p f3 dir1/dir22/f3.1   \PYG{c}{\PYGZsh{}把文件复制到目录并改名}
+\end{Verbatim}

@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+who | wc -l
+ls | wc -l
+who | grep xiaobai | wc -l
+\end{Verbatim}

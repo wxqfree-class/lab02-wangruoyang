@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+file /etc/hosts
+file /usr/bin/cat
+file /var
+file /dev/sda1
+\end{Verbatim}

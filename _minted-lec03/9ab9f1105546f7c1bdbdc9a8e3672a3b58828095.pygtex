@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+Ctrl-z              \PYG{c}{\PYGZsh{}挂起(暂停)前台进程的执行}
+\PYG{n+nb}{jobs} \PYG{o}{[}-l\PYG{o}{]}           \PYG{c}{\PYGZsh{}查看作业}
+\PYG{n+nb}{fg} \PYG{o}{[}n\PYG{o}{]}              \PYG{c}{\PYGZsh{}将作业恢复至前台执行}
+\PYG{n+nb}{bg} \PYG{o}{[}n\PYG{o}{]}              \PYG{c}{\PYGZsh{}将作业恢复至后台执行}
+\PYG{n+nb}{kill} \PYGZpc{}n/pid         \PYG{c}{\PYGZsh{}杀死指定的作业/进程}
+killall xeyes       \PYG{c}{\PYGZsh{}杀死所有xeyes进程}
+pkill eye           \PYG{c}{\PYGZsh{}查找包含eye的进程名并杀死}
+xeyes -center red & \PYG{c}{\PYGZsh{}启动后台进程}
+nohup ./longjob &   \PYG{c}{\PYGZsh{}保持后台进程在用户注销后继续运行}
+nohup ./longjob & >longjob.out
+\end{Verbatim}

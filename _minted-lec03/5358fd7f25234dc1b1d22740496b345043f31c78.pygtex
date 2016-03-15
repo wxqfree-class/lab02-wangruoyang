@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+mkdir proj\PYGZus{}dir
+groupadd proj
+chgrp proj proj\PYGZus{}dir
+chmod g+s proj\PYGZus{}dir
+\end{Verbatim}

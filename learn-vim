@@ -1,0 +1,45 @@
+today, we will start to learn using vim editor.
+
+when you firest start into vim, 
+you will find that when you type some letters on your keyborad, 
+the editor seems have no respones to your input, 
+
+what happened? don't panic,
+vim is a mode text editor which is very differnet from other text editors. 
+when you start vim, you will into a special status which is named normal mode, 
+in this mode, whatever you type are interpreted as a command instead of the content. 
+
+then how can we begin to input our text? 
+is is easy, just type letter i, which means the command insert, 
+so you will be bring into the second status called insert mode, 
+in this mode, you can input what you want to the file you are editing.
+
+after adding some content to your file, you want to save your work, 
+but you find that there is no save button avaible, you are in confusion again.
+
+so it is time to tell you the final basic mode: the command-line mode.
+first, you must press the <ESC> key on the left top of your keyboard.
+the <ESC> key can bring you back to the normal mode from any mode immediately.
+then you should type the letter : now.
+
+you can see the : display on the bottom of the editor, 
+which means you have got into the command-line mode.
+
+in this mode, we can input some command and then press enter key to excute it.
+for now, we want to save our file, 
+
+so we can input w followed by a file name you want, for example, myfile.
+then press the enter key, 
+the content you just input in the insert mode will be saved to the file.
+at the same time, you have gont back to the normal mode again.
+
+you can repeat switching among these three modes,
+modify your content and save your modifications again and again.
+
+but if you have finished all your edit work, how to quit vim?
+it is simple as well, 
+
+you can return to the normal mode, 
+and input : to go into the command-line mode,
+then type wq to save and quit your work, 
+or type q! to quit vim without saving your last modifications.

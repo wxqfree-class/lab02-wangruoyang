@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+rmdir f g         \PYG{c}{\PYGZsh{}删除空目录}
+rmdir -p u/v/w    \PYG{c}{\PYGZsh{}删除多层空目录}
+rm -r q           \PYG{c}{\PYGZsh{}删除目录}
+rm -rf /          \PYG{c}{\PYGZsh{}删除所有文件!!!}
+\end{Verbatim}

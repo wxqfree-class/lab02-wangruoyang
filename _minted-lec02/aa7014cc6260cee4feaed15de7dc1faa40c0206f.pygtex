@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }vim vim-modes              \PYG{c}{\PYGZsh{}启动vim并打开指定文件}
+  i                          \PYG{c}{\PYGZsh{}进入insert模式}
+  vim have three basic modes.\PYGZsh{}输入文本
+  <ESC>                      \PYG{c}{\PYGZsh{}回到normal模式}
+  :wq                        \PYG{c}{\PYGZsh{}退出}
+\end{Verbatim}

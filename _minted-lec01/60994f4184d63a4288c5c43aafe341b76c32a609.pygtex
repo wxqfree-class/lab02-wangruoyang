@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+date           \PYG{c}{\PYGZsh{}现在什么时间？}
+date +\PYGZpc{}H:\PYGZpc{}M    \PYG{c}{\PYGZsh{}现在几点几分？}
+date \PYG{l+s+s2}{"+\PYGZpc{}B \PYGZpc{}d"}  \PYG{c}{\PYGZsh{}今天几月几号？}
+date +\PYGZpc{}s       \PYG{c}{\PYGZsh{}打印纪元时（秒）}
+
+date --date \PYG{l+s+s2}{"Oct 1 2016"} +\PYGZpc{}A      \PYG{c}{\PYGZsh{}国庆节星期几呀？}
+date -s \PYG{l+s+s2}{"2016-03-10 10:01:23"}  \PYG{c}{\PYGZsh{}把时间调一下吧！}
+\end{Verbatim}

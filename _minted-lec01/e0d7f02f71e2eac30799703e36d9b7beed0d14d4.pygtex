@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+date           \PYG{c}{\PYGZsh{}现在什么时间？}
+date +\PYGZpc{}H:\PYGZpc{}M    \PYG{c}{\PYGZsh{}现在几点几分？}
+date \PYG{l+s+s2}{"+\PYGZpc{}B \PYGZpc{}d"}  \PYG{c}{\PYGZsh{}今天是几月几号呀？}
+date +\PYGZpc{}s       \PYG{c}{\PYGZsh{}打印纪元时（秒）：Linux认为UTC 1970年1月1日0点整是纪元时间}
+\PYG{n+nb}{echo} \PYG{l+s+sb}{`}date +\PYGZpc{}s\PYG{l+s+sb}{`}/265/24/3600 | bc  \PYG{c}{\PYGZsh{}现在是纪元多少年呀？}
+date --date \PYG{l+s+s2}{"Oct 1 2016"} +\PYGZpc{}A      \PYG{c}{\PYGZsh{}今年国庆节是星期几呀？}
+date -s \PYG{l+s+s2}{"10 March 2016 10:01:23"}  \PYG{c}{\PYGZsh{}把时间调一下吧！}
+\end{Verbatim}

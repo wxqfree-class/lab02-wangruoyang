@@ -1,0 +1,12 @@
+digraph pipe {
+	rankdir=LR;
+	p1;
+	pipe1[label="pipe",shape=record];
+	p2;
+	pipe2[label="pipe",shape=record];
+	p3;
+	p1 -> pipe1;
+	pipe1 -> p2;
+	p2 -> pipe2;
+	pipe2 -> p3;
+}

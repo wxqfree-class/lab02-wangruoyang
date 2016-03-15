@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+uptime  \PYG{c}{\PYGZsh{}开机多久了呀？}
+uptime -p  \PYG{c}{\PYGZsh{}拜托，友好点行吗？}
+\end{Verbatim}

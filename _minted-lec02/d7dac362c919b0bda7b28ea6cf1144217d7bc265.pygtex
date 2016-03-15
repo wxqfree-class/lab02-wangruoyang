@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+mkdir \PYG{o}{\PYGZob{}}a..g\PYG{o}{\PYGZcb{}}               \PYG{c}{\PYGZsh{}创建多个目录}
+mkdir -p u/v/w x/y/z       \PYG{c}{\PYGZsh{}按路径创建多层目录}
+\end{Verbatim}

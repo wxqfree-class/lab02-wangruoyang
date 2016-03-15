@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+grep root /etc/passwd
+grep \PYG{l+s+s2}{"insert mode"} learn-vim
+grep -n \PYG{l+s+s2}{"insert mode"} learn-vim
+grep -vn \PYG{l+s+s2}{"nologin"} /etc/passwd
+grep -c \PYG{l+s+s2}{"/bin/bash"} /etc/passwd
+\end{Verbatim}

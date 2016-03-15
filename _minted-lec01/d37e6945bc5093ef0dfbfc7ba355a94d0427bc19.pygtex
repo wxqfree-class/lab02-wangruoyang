@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+man ls         \PYG{c}{\PYGZsh{}查看ls的手册页}
+               \PYG{c}{\PYGZsh{} h(获取帮助)}
+               \PYG{c}{\PYGZsh{} q(退出)}
+man man        \PYG{c}{\PYGZsh{}查看man手册的手册页}
+man passwd
+man 5 passwd   \PYG{c}{\PYGZsh{}查看第5章的passwd手册页}
+whatis cp      \PYG{c}{\PYGZsh{}查看命令简要描述，等同于man -f cp}
+apropos who    \PYG{c}{\PYGZsh{}根据关键字查询，等同于man -k who}
+\end{Verbatim}

@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+which ls          \PYG{c}{\PYGZsh{}是同名外部命令ls的别名}
+\PYG{n+nb}{type }ls
+\PYG{n+nb}{alias}             \PYG{c}{\PYGZsh{}查看所有别名}
+\PYG{n+nb}{alias }see \PYG{l+s+s1}{'cat -n'} \PYG{c}{\PYGZsh{}定义别名}
+\PYG{n+nb}{unalias }see       \PYG{c}{\PYGZsh{}删除别名}
+\end{Verbatim}

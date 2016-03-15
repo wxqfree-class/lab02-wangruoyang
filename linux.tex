@@ -1,0 +1,1123 @@
+% Created 2016-02-22 一 12:08
+\documentclass[bigger]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{soul}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\tolerance=1000
+\usepackage{xeCJK}
+\providecommand{\alert}[1]{\textbf{#1}}
+
+\title{Linux操作系统}
+\author{wxq}
+\date{2016-02-22 一}
+\hypersetup{
+  pdfkeywords={},
+  pdfsubject={},
+  pdfcreator={Emacs Org-mode version 7.9.3f}}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}
+\frametitle{Outline}
+\setcounter{tocdepth}{3}
+\tableofcontents
+\end{frame}
+
+\section{第1周}
+\label{sec-1}
+\begin{frame}[fragile]
+\frametitle{1. 课程简介}
+\label{sec-1-1}
+\begin{itemize}
+
+\item 1.1 为什么要学Linux？
+\label{sec-1-1-1}%
+\begin{itemize}
+\item Linux与IT行业
+\begin{enumerate}
+\item 免费、开源、全球参与开发
+\item 被业界广泛采用，成为全球IT基础设施（尤其是因特网）核心
+\item 在移动和物联网时代发展愈加迅猛
+\item 是各种新技术产生的温床
+\end{enumerate}
+\item Linux与我们
+\begin{enumerate}
+\item 可是我们平时都只用Windows，从来没用过Linux呀？
+\begin{itemize}
+\item 不上网：Windows
+\item 上网：新浪网易看新闻、天猫京东购物、网上购买回家火车票、QQ微信、收发邮件、炒股、玩手机、看有线电视、看视觉大片
+\end{itemize}
+\item 与Unix一脉相承，承载了丰富而历久弥新的知识和软件财富
+\item 通过学习命令行和脚本编程，可以实现高效且自动化地处理各种任务
+\item 通过学习系统配置管理，可以深入掌控系统的方方面面
+\item 学到的知识可以保值并随着积累不断增值
+\item 可以第一时间接触和了解业界最新技术
+\end{enumerate}
+\end{itemize}
+
+\item 1.2 主要学什么？
+\label{sec-1-1-2}%
+\begin{itemize}
+\item shell命令行
+\begin{enumerate}
+\item GUI(图形用户界面)
+\begin{itemize}
+\item 拟物化：人操作物
+\begin{itemize}
+\item 例：双击图标运行程序（人亲自执行）
+\end{itemize}
+\item 适合视觉型活动：图形图像设计、音视频制作、上网、看视频、玩游戏
+\item 面向内容消费：多媒体相关工作者、普通大众
+\item 例：制作网页logo图片
+\end{itemize}
+\item CLI(命令行界面)
+\begin{itemize}
+\item 拟人化：人机对话
+\begin{itemize}
+\item 例：命令机器执行程序（让机器执行）
+\end{itemize}
+\item 适合语言型活动：编程、写文档、记笔记
+\item 面向内容生产：计算机专业人士
+\item 例：
+\begin{itemize}
+\item 创建3个文件夹memo、book、note，memo文件夹内创建12个文件夹（用于分别存放12个月的备忘）、book文件夹内创建3个文件夹（cs、math、en）、note文件夹内创建3个文件夹（os、net、db），每个文件夹内再创建16个子文件夹（用于分别存放每周的课程笔记）
+
+\begin{verbatim}
+mkdir -p memo/month{01..12} book/{cs,math,en} note/{os,net,db}/week{01..16}
+\end{verbatim}
+\end{itemize}
+\end{itemize}
+\end{enumerate}
+\item shell脚本编程
+\item 系统配置管理
+\item 网络服务配置管理
+\end{itemize}
+
+\item 1.3 怎么考核？
+\label{sec-1-1-3}%
+\begin{itemize}
+\item 考勤：20\%
+\begin{itemize}
+\item 随机考勤，每次旷课扣3分（早退按旷课处理），每次迟到扣1分，扣完为止。
+\end{itemize}
+\item 实践：30\%
+\begin{enumerate}
+\item 平时：14\%
+\begin{itemize}
+\item 选项1：根据每周上机实验情况打分
+\item 选项2：根据完成课程项目情况打分
+\item 说明：为在规定时间完成实验或上交课程项目，分数乘0.7进行折扣
+\end{itemize}
+\item 期末：16\%
+\begin{itemize}
+\item 未在规定时间内完成，分数乘0.8进行折扣
+\end{itemize}
+\end{enumerate}
+\item 期末笔试：50\%
+\begin{itemize}
+\item 闭卷考试，卷面分数不得低于50分，否则总评分会被系统自动定为不及格！
+\end{itemize}
+\end{itemize}
+\end{itemize} % ends low level
+\end{frame}
+\begin{frame}
+\frametitle{2. 从Unix到Linux}
+\label{sec-1-2}
+\begin{itemize}
+
+\item 2.1 Unix简史
+\label{sec-1-2-1}%
+
+\item 2.2 自由软件和开源软件
+\label{sec-1-2-2}%
+
+\item 2.3 Linux简介
+\label{sec-1-2-3}%
+
+\item 2.4 Linux vs. Windows
+\label{sec-1-2-4}%
+\end{itemize} % ends low level
+\end{frame}
+\begin{frame}
+\frametitle{3. Linux安装}
+\label{sec-1-3}
+\begin{itemize}
+
+\item 3.1 通过虚拟机安装Linux
+\label{sec-1-3-1}%
+
+\item 3.2 Linux分区
+\label{sec-1-3-2}%
+\begin{itemize}
+\item 分区与目录
+\begin{enumerate}
+\item 硬盘分区规则
+\item Linux分区与Windos分区
+\begin{itemize}
+\item 单根目录与多根目录
+\end{itemize}
+\item Linux分区与目录（挂载点）
+\end{enumerate}
+\item 分区方案
+\begin{enumerate}
+\item /+Swap
+\item /+/boot+Swap
+\item /+/boot+/home+Swap
+\item \ldots{}...
+\end{enumerate}
+\item 分区名称
+\begin{enumerate}
+\item IDE接口设备及其分区
+\item SCSI接口设备及其分区
+\item 设备文件名 vs. 挂载点
+\end{enumerate}
+\end{itemize}
+
+\item 3.3 虚拟机网络设置
+\label{sec-1-3-3}%
+\begin{itemize}
+\item NAT
+\item Bridged
+\item Host-only
+\item Internel
+\end{itemize}
+
+\item 3.4 通过putty远程登录Linux
+\label{sec-1-3-4}%
+\begin{itemize}
+\item 设置NAT端口转发
+\end{itemize}
+
+\item 3.5 虚拟机管理
+\label{sec-1-3-5}%
+\begin{itemize}
+\item 虚拟机快照保存与恢复
+\item 利用虚拟硬盘快速创建虚拟机
+\item 虚拟机复制
+\end{itemize}
+\end{itemize} % ends low level
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{4. Linux入门}
+\label{sec-1-4}
+\begin{itemize}
+
+\item 4.1 终端与多用户
+\label{sec-1-4-1}%
+\begin{itemize}
+\item 本地终端
+\begin{enumerate}
+\item 字符终端
+\item 图形终端
+\end{enumerate}
+\item 远程终端
+\end{itemize}
+
+\item 4.2 入门使用
+\label{sec-1-4-2}%
+\begin{itemize}
+\item 登录
+\item 了解系统
+\begin{itemize}
+\item 时间
+
+\begin{verbatim}
+date    #现在什么时间？
+date +%H:%M  #现在几点几分？
+date "+%B %d"  #今天是几月几号呀？
+date +%s     #打印纪元时（秒）：Linux认为UTC 1970年1月1日0点整是纪元时间
+echo `date +%s`/265/24/3600 | bc  #现在是纪元多少年呀？
+date --date "Oct 1 2016" +%A      #今年国庆节是星期几呀？
+date -s "10 March 2016 10:01:23"  #帮我把时间调成2016年3月10日10点01分23秒吧！
+\end{verbatim}
+\item 日历
+
+\begin{verbatim}
+cal #给我看看这个月的月历吧
+cal 2017 #我想看看2017年的年历
+cal 9 1752  #我想看看1752年9月份的月历:-)
+\end{verbatim}
+\item 用户名
+
+\begin{verbatim}
+whoami  #我是谁？
+who am i #我究竟是谁？
+who     #都有谁在呀？
+\end{verbatim}
+\item 系统版本
+
+\begin{verbatim}
+uname  #这是什么操作系统呀？
+uname -r #这是什么版本呀？
+uname -a #把操作系统相关信息都告诉我好了！
+\end{verbatim}
+\item 主机名
+
+\begin{verbatim}
+hostname #主机名是什么呀？
+hostname NiuBi #不好听，改个牛逼的名字吧！
+\end{verbatim}
+\item 系统状态
+
+\begin{verbatim}
+uptime  #开机多久了呀？
+uptime -p  #拜托，友好点行吗？
+\end{verbatim}
+\item 计算器
+
+\begin{verbatim}
+bc    #我想算点东西
+bc -q #我只想安静地算点东西!
+echo "scale=16;x=4;y=7;3*(x+2)/y" | bc #帮我算一下这个吧！
+echo "obase=2;192" | bc  #192的二进制表示是什么呀？
+echo "obase=10;ibase=2;11000011" | bc #11000011代表几呀？
+echo "ibase=2;obase=10;11000011" | bc #:-(
+echo "ibase=2;obase=1010;11000011" | bc #:-)
+\end{verbatim}
+\end{itemize}
+\item 浏览文件系统
+\begin{enumerate}
+\item ls
+\item cd
+\item pwd
+\item cat
+\item Linux目录架构（与Windows对比）
+\item 绝对路径和相对路径
+\end{enumerate}
+\item 切换终端
+\item 切换用户身份
+\item 与其他用户交互
+\begin{enumerate}
+\item who
+\item write和mesg
+\item mail
+\end{enumerate}
+\item 注销
+\item 关机
+\end{itemize}
+
+\item 4.3 命令行
+\label{sec-1-4-3}%
+\begin{itemize}
+\item 命令格式：命令 [选项]\ldots{} [参数]\ldots{}
+\begin{enumerate}
+\item 选项（指示命令以什么方式执行）
+\begin{itemize}
+\item Unix简洁风：-a
+\begin{itemize}
+\item 选项a-z巡礼
+
+\begin{center}
+\begin{tabular}{ll}
+ 选项    &  含义                                    \\
+\hline
+ -a      &  all, append                             \\
+ -b      &  buffer, block, batch                    \\
+ -c      &  command, check                          \\
+ -d      &  debug, delete, directory                \\
+ -D      &  define                                  \\
+ -e      &  excute, edit, exclude, expression       \\
+ -f      &  file, force                             \\
+ -h      &  header, help                            \\
+ -i      &  initialize, interactive                 \\
+ -I      &  include                                 \\
+ -k      &  keep, kill                              \\
+ -l      &  list, long, load, login                 \\
+ -m      &  message, mail, mode, modification-time  \\
+ -n      &  number, not                             \\
+ -o      &  output                                  \\
+ -p      &  port, protocol                          \\
+ -q      &  quite                                   \\
+ -r(-R)  &  recurse, reverse                        \\
+ -s      &  silent, subject, size                   \\
+ -t      &  tag                                     \\
+ -u      &  user                                    \\
+ -v      &  verbose, version                        \\
+ -V      &  version                                 \\
+ -w      &  width, warning                          \\
+ -x      &  debug, extract                          \\
+ -y      &  yes                                     \\
+ -z      &  zip                                     \\
+\end{tabular}
+\end{center}
+
+
+\end{itemize}
+\item GNU友好风：--all
+\end{itemize}
+\item 参数（指示命令作用的对象，选项也可以有参数）
+\item 注意：命令、选项和参数之间要有空格（选项及其参数之间有时可以没有空格）
+\end{enumerate}
+\item 命令编辑：Tab键自动完成
+\item 命令历史：history
+\item 中止命令：Ctrl+c
+\end{itemize}
+
+\item 4.4 获取帮助
+\label{sec-1-4-4}%
+\begin{itemize}
+\item 外部命令与内部命令
+\item man
+\item help
+\item info
+\item doc
+\item Internet
+\end{itemize}
+\end{itemize} % ends low level
+\end{frame}
+\section{第2周}
+\label{sec-2}
+\begin{frame}[fragile]
+\frametitle{1. Linux文件管理}
+\label{sec-2-1}
+
+\begin{itemize}
+\item 文件
+\begin{enumerate}
+\item 创建文件
+\begin{itemize}
+\item 文件名规范
+\item touch
+
+\begin{verbatim}
+touch file1
+\end{verbatim}
+\end{itemize}
+\item 复制文件q
+\begin{itemize}
+\item cp
+
+\begin{verbatim}
+cp file1 file2  #把file1复制一份并命名为file2
+cp file file2 dir1  #把file1、file2复制到目录dir1内
+cp file dir1/file3  #把file1复制到目录dir1内并命名为file3
+\end{verbatim}
+\end{itemize}
+\item 移动文件
+\begin{itemize}
+\item mv
+
+\begin{verbatim}
+mv file1 file2 #将file1移动为file2（即重命名）
+mv file2 file3 file4 dir1  #将file2、file3、file4移动到目录dir1内
+mv file5 dir1/file1 #将file5移动到目录dir1内，并重命名为file1
+\end{verbatim}
+\end{itemize}
+\item 删除文件
+\begin{itemize}
+\item rm
+
+\begin{verbatim}
+rm file1 file2 file3 #删除文件file1、file2、file3
+rm -f file4 #强行删除文件file4
+\end{verbatim}
+\end{itemize}
+\end{enumerate}
+\item 目录
+\begin{enumerate}
+\item 创建目录
+\item 复制目录
+\item 移动目录
+\item 删除目录
+\end{enumerate}
+\item 链接
+\begin{enumerate}
+\item 硬链接
+\item 符号链接（软链接）
+\end{enumerate}
+\end{itemize}
+\end{frame}
+\begin{frame}
+\frametitle{2. vi编辑器}
+\label{sec-2-2}
+
+\begin{itemize}
+\item vi入门
+\begin{enumerate}
+\item 三种基本模式
+\item 带参数启动与不带参数启动
+\item 存盘退出与不存盘退出
+\end{enumerate}
+\item vi常用操作
+\begin{enumerate}
+\item 移动光标
+\item 删除、复制、粘贴
+\item 撤销与重做
+\end{enumerate}
+\item vi快速移动
+\begin{enumerate}
+\item 行首行尾
+\item 上下翻页
+\item 跳至第n行
+\item 按语义单位移动（单词、句子、段落）
+\item 次数前缀
+\end{enumerate}
+\item vi高效编辑
+\begin{enumerate}
+\item 行操作
+\item 段操作
+\item 块操作
+\item 重复上次操作
+\item 重复宏操作
+\item 简写
+\item 文件加密
+\end{enumerate}
+\item vi与多文件处理
+\begin{enumerate}
+\item 多文件
+\item 多窗口
+\item 多标签
+\end{enumerate}
+\item vi环境配置
+\begin{enumerate}
+\item 临时配置
+\item 长期配置
+\end{enumerate}
+\end{itemize}
+\end{frame}
+\begin{frame}
+\frametitle{3. 文本处理工具}
+\label{sec-2-3}
+
+\begin{itemize}
+\item 查看文件内容
+\begin{itemize}
+\item cat、pr、more、less
+\end{itemize}
+\item 查看部分行
+\begin{itemize}
+\item head、tail、grep
+\end{itemize}
+\item 查看部分列
+\begin{itemize}
+\item cut
+\end{itemize}
+\item 消除相邻重复行
+\begin{itemize}
+\item uniq
+\end{itemize}
+\item 排序
+\begin{itemize}
+\item sort
+\end{itemize}
+\item 字符转换
+\begin{itemize}
+\item tr
+\end{itemize}
+\end{itemize}
+\end{frame}
+\begin{frame}
+\frametitle{4. shell特性}
+\label{sec-2-4}
+
+\begin{itemize}
+\item 命令组
+\item 文件名通配符
+\item 字符串扩展
+\item I/O重定向
+\item 管道
+\end{itemize}
+\end{frame}
+\section{第3周}
+\label{sec-3}
+\begin{frame}
+\frametitle{1. 用户管理}
+\label{sec-3-1}
+
+\begin{itemize}
+\item 用户帐号
+\item 用户数据文件
+\end{itemize}
+\end{frame}
+\begin{frame}
+\frametitle{2. 权限管理}
+\label{sec-3-2}
+\end{frame}
+\begin{frame}
+\frametitle{3. 进程管理}
+\label{sec-3-3}
+\end{frame}
+\begin{frame}
+\frametitle{4. shell环境}
+\label{sec-3-4}
+\end{frame}
+\section{第4周}
+\label{sec-4}
+\begin{frame}
+\frametitle{1. 正则表达式1}
+\label{sec-4-1}
+\end{frame}
+\begin{frame}
+\frametitle{2. 正则表达式2}
+\label{sec-4-2}
+\end{frame}
+\begin{frame}
+\frametitle{3. sed1}
+\label{sec-4-3}
+\end{frame}
+\begin{frame}
+\frametitle{4. sed2}
+\label{sec-4-4}
+\end{frame}
+\section{第5周}
+\label{sec-5}
+\begin{frame}[fragile]
+\frametitle{1. awk1}
+\label{sec-5-1}
+\begin{itemize}
+
+\item 引言
+\label{sec-5-1-1}%
+\begin{itemize}
+
+\item 计算机用户总是花大量时间用于处理简单的、机械性的数据处理工作，例如转换数据格式、查找包含特定属性的项目、汇总数据、打印报表等等。这些事情都应该机械化，但是，每当有这样的任务，就要用C或者Pascal语言写一个特殊任务的程序真是一件令人讨厌的事。AWK是一种编程语言，它使得利用很短的，常常是一两行的程序来完成这些任务成为可能。一段AWK程序就是一系列的模式和操作，它说明在输入数据中寻找什么以及找到之后干什么。AWK在文件中搜寻与任一模式匹配的行，当一个匹配的行被发现之后，对应的操作即被执行。一个模式可以通过联合正则表达式和比较运算对字符串，数字，字段，变量和数组元素做行选择。操作可以对选定的行进行任意的处理。操作语言看起来像C但是没有声明，而且字符串和数字是内建的数据类型。AWK扫描输入文件并且把每一输入行自动地分成字段。因为这么多事情是自动的--输入，字段分割，存储管理，和初始化--AWK程序通常都比它们在更常规的语言中短的多。因此AWK的一项通常的应用就是上述建议的数据操作。一两行的程序，由键盘键入，运行一次，然后丢掉。但事实上，AWK是一种普通的编程工具，它可以取代很多特殊的工具和程序。
+\label{sec-5-1-1-1}%
+\end{itemize} % ends low level
+
+\item 入门指导
+\label{sec-5-1-2}%
+\begin{itemize}
+
+\item 开始
+\label{sec-5-1-2-1}%
+\begin{itemize}
+
+\item 引例：假设有一个文件emp.data，它包含了员工的姓名、以美元计的时薪以及工作小时数，每个员工记录占一行：\\
+\label{sec-5-1-2-1-1}%
+\begin{verbatim}
+cat >emp.data <<EOF
+Beth   4.00    0
+Dan    3.75    0
+Kathy  4.00    10
+Mark   5.00    20
+Mary   5.50    22
+Susie  4.25    18
+EOF
+\end{verbatim}
+
+现在需要打印每个工作时间大于0小时员工的姓名和应得薪酬（时薪x工作小时数）
+
+\begin{verbatim}
+awk '$3 > 0 { print $1, $2*$3 }' emp.data
+\end{verbatim}
+
+\item 如果要打印出从不工作的员工名单\\
+\label{sec-5-1-2-1-2}%
+\begin{verbatim}
+awk '$3 == 0 { print $1 }' emp.data
+\end{verbatim}
+
+\item awk程序的结构
+\label{sec-5-1-2-1-3}%
+\begin{itemize}
+
+\item 引例中写在引号内的部分是用awk语言写的程序。
+\label{sec-5-1-2-1-3-1}%
+
+\item 每个awk程序都是一系列模式-动作语句：
+\label{sec-5-1-2-1-3-2}%
+\end{itemize} % ends low level
+\end{itemize} % ends low level
+
+\item 简单输出
+\label{sec-5-1-2-2}%
+
+\item 格式化输出
+\label{sec-5-1-2-3}%
+
+\item 选择
+\label{sec-5-1-2-4}%
+
+\item 用awk计算
+\label{sec-5-1-2-5}%
+
+\item 流程控制语句
+\label{sec-5-1-2-6}%
+
+\item 数组
+\label{sec-5-1-2-7}%
+
+\item 单行awk
+\label{sec-5-1-2-8}%
+\end{itemize} % ends low level
+
+\item awk语言
+\label{sec-5-1-3}%
+\begin{itemize}
+
+\item 模式
+\label{sec-5-1-3-1}%
+
+\item 动作
+\label{sec-5-1-3-2}%
+
+\item 用户定义函数
+\label{sec-5-1-3-3}%
+
+\item 输出
+\label{sec-5-1-3-4}%
+
+\item 输入
+\label{sec-5-1-3-5}%
+
+\item 与其他程序交互
+\label{sec-5-1-3-6}%
+\end{itemize} % ends low level
+
+\item 数据处理
+\label{sec-5-1-4}%
+\begin{itemize}
+
+\item 数据转换与压缩
+\label{sec-5-1-4-1}%
+
+\item 数据可视化
+\label{sec-5-1-4-2}%
+
+\item bundle和unbundle
+\label{sec-5-1-4-3}%
+
+\item 多行记录
+\label{sec-5-1-4-4}%
+\end{itemize} % ends low level
+
+\item 报表和数据库
+\label{sec-5-1-5}%
+\begin{itemize}
+
+\item 生成报表
+\label{sec-5-1-5-1}%
+
+\item 包装查询和报表
+\label{sec-5-1-5-2}%
+
+\item 一个关系型数据库系统
+\label{sec-5-1-5-3}%
+\end{itemize} % ends low level
+
+\item 处理文本
+\label{sec-5-1-6}%
+\begin{itemize}
+
+\item 随机文本生成
+\label{sec-5-1-6-1}%
+
+\item 交互式文本操作
+\label{sec-5-1-6-2}%
+
+\item 文本处理
+\label{sec-5-1-6-3}%
+\end{itemize} % ends low level
+
+\item 微型语言
+\label{sec-5-1-7}%
+\begin{itemize}
+
+\item 一个汇编器和解释器
+\label{sec-5-1-7-1}%
+
+\item 一个画图语言
+\label{sec-5-1-7-2}%
+
+\item 一个排序生成器
+\label{sec-5-1-7-3}%
+
+\item 一个逆波兰计算器
+\label{sec-5-1-7-4}%
+
+\item 一个前缀计算机
+\label{sec-5-1-7-5}%
+
+\item 递归下降分析器
+\label{sec-5-1-7-6}%
+\end{itemize} % ends low level
+
+\item 算法实验
+\label{sec-5-1-8}%
+\begin{itemize}
+
+\item 排序
+\label{sec-5-1-8-1}%
+
+\item profiling
+\label{sec-5-1-8-2}%
+
+\item 拓扑排序
+\label{sec-5-1-8-3}%
+
+\item Make：一个文件更新程序
+\label{sec-5-1-8-4}%
+\end{itemize} % ends low level
+
+\item 后记
+\label{sec-5-1-9}%
+\begin{itemize}
+
+\item AWK作为一种语言
+\label{sec-5-1-9-1}%
+
+\item 性能
+\label{sec-5-1-9-2}%
+
+\item 结论
+\label{sec-5-1-9-3}%
+\end{itemize} % ends low level
+\end{itemize} % ends low level
+\end{frame}
+\begin{frame}
+\frametitle{2. awk2}
+\label{sec-5-2}
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{3. shell编程1}
+\label{sec-5-3}
+\begin{itemize}
+
+\item 3.1 创建新命令
+\label{sec-5-3-1}%
+
+\item 3.2 命令参数
+\label{sec-5-3-2}%
+
+\item 3.3 shell变量
+\label{sec-5-3-3}%
+
+\item 3.4 test
+\label{sec-5-3-4}%
+
+\item 3.5 流程控制语句
+\label{sec-5-3-5}%
+
+\item 3.6 数据重定向
+\label{sec-5-3-6}%
+
+\item 3.7 管道输入读
+\label{sec-5-3-7}%
+
+\item 3.8 命令行选项
+\label{sec-5-3-8}%
+
+\item 3.9 计算
+\label{sec-5-3-9}%
+
+\item 3.10 函数
+\label{sec-5-3-10}%
+
+\item 3.11 中断处理
+\label{sec-5-3-11}%
+
+\item 3.12 调试
+\label{sec-5-3-12}%
+\begin{itemize}
+\item set命令
+\begin{itemize}
+\item 在脚本中添加命令set -x，在该命令之后执行的每条命令及其参数和参数的值都会显示出来。
+\item set -v，只显示正在运行的脚本的代码。
+\item set +x/+v，关闭x/v选项。
+\end{itemize}
+\item echo/print命令
+\item 根据调试层次控制输出
+\begin{itemize}
+\item 在脚本开始处设置一个调试变量，脚本运行时测试该变量，然后根据该变量的值决定是否启用调试指令。
+
+\begin{verbatim}
+debug=1
+test debug -gt 0 && echo "debug is on"
+\end{verbatim}
+\end{itemize}
+\item 用函数简化错误检查
+
+\begin{verbatim}
+alert(){
+  # usage: alert <$?> <object>
+  if [ "$1" -ne 0 ]; then
+    echo "WARNING: $2 did not complete successfully." >&2
+    exit $1
+  else
+    echo "INFO: $2 complete successfully" >&2
+  fi
+}
+\end{verbatim}
+
+\begin{verbatim}
+alert(){
+  local RET_CODE=$?
+  if [ -z "$DEBUG" ] || [ "$DEBUG" -eq 0 ]; then
+    return
+  fi
+  if [ "$RET_CODE" -ne 0 ]; then
+    echo "Warn: $* failed with a return code of $RET_CODE." >&2
+    [ "$DEBUG" -gt 9 ] && exit "$RET_CODE"
+    [ "$STEP_THROUGH" = 1 ] && {
+      echo "Press [Enter] to continue" >&2; read x
+    }
+  fi
+  [ "$STEP_THROUGH" = 2 ] && {
+    echo "Press [Enter] to continue" >&2; read x
+  }
+}
+\end{verbatim}
+\end{itemize}
+
+\item 3.13 函数库
+\label{sec-5-3-13}%
+\begin{itemize}
+\item 库：包含在单个文件中的一个函数集。
+\item 例：
+
+\begin{verbatim}
+evenodd(){
+  # 根据最后一位数字确定奇偶性
+  LAST_DIGIT=`echo $1 | sed 's/\(.*\)\(.\)$/\2/'`
+  case $LAST_DIGIT in
+  0|2|4|6|8 )
+    return 1
+  ;;
+  *)
+    return 0
+  ;;
+  esac
+}
+\end{verbatim}
+
+\begin{verbatim}
+isalive(){
+  #判断一台远程机器是否能ping通
+  NODE=$1
+  $PING -c 3 $NODE >/dev/null 2>&1
+  if [ $? -eq 0 ]; then
+    return 1
+  else
+    return 0
+  fi
+}
+\end{verbatim}
+\item 使用库
+
+\begin{verbatim}
+source std_lib
+\end{verbatim}
+
+\begin{verbatim}
+. std_lib
+\end{verbatim}
+\end{itemize}
+\end{itemize} % ends low level
+\end{frame}
+\begin{frame}
+\frametitle{4. shell编程2}
+\label{sec-5-4}
+\end{frame}
+\section{第6周}
+\label{sec-6}
+\begin{frame}
+\frametitle{1. shell编程3}
+\label{sec-6-1}
+\end{frame}
+\begin{frame}
+\frametitle{2. shell编程4}
+\label{sec-6-2}
+\end{frame}
+\begin{frame}
+\frametitle{3. 磁盘与文件系统管理1}
+\label{sec-6-3}
+\end{frame}
+\begin{frame}
+\frametitle{4. 磁盘与文件系统管理2}
+\label{sec-6-4}
+\end{frame}
+\section{第7周}
+\label{sec-7}
+\begin{frame}
+\frametitle{1. 磁盘阵列管理1}
+\label{sec-7-1}
+\end{frame}
+\begin{frame}
+\frametitle{2. 磁盘阵列管理2}
+\label{sec-7-2}
+\end{frame}
+\begin{frame}
+\frametitle{3. 磁盘配额管理}
+\label{sec-7-3}
+\end{frame}
+\begin{frame}
+\frametitle{4. 逻辑卷管理}
+\label{sec-7-4}
+\end{frame}
+\section{第8周}
+\label{sec-8}
+\begin{frame}
+\frametitle{1. Linux软件包管理1}
+\label{sec-8-1}
+\end{frame}
+\begin{frame}
+\frametitle{2. Linux软件包管理2}
+\label{sec-8-2}
+\end{frame}
+\begin{frame}
+\frametitle{3. Linux内核管理与硬件管理}
+\label{sec-8-3}
+\end{frame}
+\begin{frame}
+\frametitle{4. Linux启动管理1}
+\label{sec-8-4}
+\end{frame}
+\section{第9周}
+\label{sec-9}
+\begin{frame}
+\frametitle{1. Linux启动管理2}
+\label{sec-9-1}
+\end{frame}
+\begin{frame}
+\frametitle{2. Linux启动管理3}
+\label{sec-9-2}
+\end{frame}
+\begin{frame}
+\frametitle{3. Linux服务管理}
+\label{sec-9-3}
+\end{frame}
+\begin{frame}
+\frametitle{4. Linux故障诊断与恢复}
+\label{sec-9-4}
+\end{frame}
+\section{第10周}
+\label{sec-10}
+\begin{frame}
+\frametitle{1. Linux性能检测}
+\label{sec-10-1}
+\end{frame}
+\begin{frame}
+\frametitle{2. Linux日志管理}
+\label{sec-10-2}
+\end{frame}
+\begin{frame}
+\frametitle{3. Linux网络基本配置}
+\label{sec-10-3}
+\end{frame}
+\begin{frame}
+\frametitle{4. PAM认证、TCP wrapper、Xinetd访问控制与主机防火墙}
+\label{sec-10-4}
+\end{frame}
+\section{第11周}
+\label{sec-11}
+\begin{frame}
+\frametitle{1. DNS服务配置1}
+\label{sec-11-1}
+\end{frame}
+\begin{frame}
+\frametitle{2. DNS服务配置2}
+\label{sec-11-2}
+\end{frame}
+\begin{frame}
+\frametitle{3. DHCP服务配置1}
+\label{sec-11-3}
+\end{frame}
+\begin{frame}
+\frametitle{4. DHCP服务配置2}
+\label{sec-11-4}
+\end{frame}
+\section{第12周}
+\label{sec-12}
+\begin{frame}
+\frametitle{1. NFS服务配置1}
+\label{sec-12-1}
+\end{frame}
+\begin{frame}
+\frametitle{2. NFS服务配置2}
+\label{sec-12-2}
+\end{frame}
+\begin{frame}
+\frametitle{3. samba服务配置1}
+\label{sec-12-3}
+\end{frame}
+\begin{frame}
+\frametitle{4. samba服务配置2}
+\label{sec-12-4}
+\end{frame}
+\section{第13周}
+\label{sec-13}
+\begin{frame}
+\frametitle{1. ftp服务配置1}
+\label{sec-13-1}
+\end{frame}
+\begin{frame}
+\frametitle{2. ftp服务配置2}
+\label{sec-13-2}
+\end{frame}
+\begin{frame}
+\frametitle{3. apache服务配置1}
+\label{sec-13-3}
+\end{frame}
+\begin{frame}
+\frametitle{4. apache服务配置2}
+\label{sec-13-4}
+\end{frame}
+\section{第14周}
+\label{sec-14}
+\begin{frame}
+\frametitle{1. 远程访问配置1}
+\label{sec-14-1}
+\end{frame}
+\begin{frame}
+\frametitle{2. 远程访问配置2}
+\label{sec-14-2}
+\end{frame}
+\begin{frame}
+\frametitle{3. 防火墙1}
+\label{sec-14-3}
+\end{frame}
+\begin{frame}
+\frametitle{4. 防火墙2}
+\label{sec-14-4}
+\end{frame}
+\section{第15周}
+\label{sec-15}
+\begin{frame}
+\frametitle{1. squid代理服务配置1}
+\label{sec-15-1}
+\end{frame}
+\begin{frame}
+\frametitle{2. squid代理服务配置2}
+\label{sec-15-2}
+\end{frame}
+\begin{frame}
+\frametitle{3. Linux安全1}
+\label{sec-15-3}
+\end{frame}
+\begin{frame}
+\frametitle{4. Linux安全2}
+\label{sec-15-4}
+\end{frame}
+\section{第16周}
+\label{sec-16}
+\begin{frame}
+\frametitle{1. 复习1}
+\label{sec-16-1}
+\end{frame}
+\begin{frame}
+\frametitle{2. 复习2}
+\label{sec-16-2}
+\end{frame}
+\begin{frame}
+\frametitle{3. 期末上机考试1}
+\label{sec-16-3}
+\end{frame}
+\begin{frame}
+\frametitle{4. 期末上机考试2}
+\label{sec-16-4}
+\end{frame}
+
+\end{document}

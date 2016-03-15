@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+pgrep evince  \PYG{c}{\PYGZsh{}查找名为evince的进程的进程号}
+\end{Verbatim}

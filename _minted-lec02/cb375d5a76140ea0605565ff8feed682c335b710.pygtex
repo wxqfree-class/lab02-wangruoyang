@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+vim           \PYG{c}{\PYGZsh{}启动vim并进入normal模式}
+:e learn-vim  \PYG{c}{\PYGZsh{}编辑指定文件}
+i             \PYG{c}{\PYGZsh{}进入insert模式}
+hello, vim!   \PYG{c}{\PYGZsh{}输入文本}
+<ESC>         \PYG{c}{\PYGZsh{}回到normal模式}
+:wq           \PYG{c}{\PYGZsh{}进入command-line模式存盘并退出vim}
+:q!           \PYG{c}{\PYGZsh{}进入command-line模式不存盘并退出vim}
+\end{Verbatim}

@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+cat
+sort
+cat <students.db
+\end{Verbatim}

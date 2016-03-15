@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+cp file1 file2      \PYG{c}{\PYGZsh{}把file1复制一份并命名为file2}
+cp file file2 dir1  \PYG{c}{\PYGZsh{}把file1、file2复制到目录dir1内}
+cp file dir1/file3  \PYG{c}{\PYGZsh{}把file1复制到目录dir1内并命名为file3}
+\end{Verbatim}

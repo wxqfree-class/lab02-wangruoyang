@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+cat
+cat <students.db
+mail alice bob tom mary <letter
+\end{Verbatim}

@@ -1,0 +1,35 @@
+digraph dirtree{
+	root[label="/"];
+	somedir1[label="...",shape=plaintext];
+	somedir2[label="...",shape=plaintext]
+	note1[label="linux.txt",shape=record];
+	note2[label="network.txt",shape=record];
+	project1[label="proj1"];
+	project2[label="proj2"];
+	main1[label="main.c",shape=record];
+	head1[label="proj1.h",shape=record];
+	main2[label="main.c",shape=record];
+	head2[label="proj2.h",shape=record];
+	root -> bin;
+	root -> somedir1[style="invis"];
+	root -> dev;
+	root -> etc;
+	root -> home;
+	root -> lib;
+	root -> somedir2[style="invis"];	
+	root -> var;
+	home -> bob;
+	home -> mary;
+	home -> tom;
+	bob -> note;
+	bob -> memo;
+	bob -> project;
+	note -> note1;
+	note -> note2;
+	project -> project1;
+	project -> project2;
+	project1 -> main1;
+	project1 -> head1;
+	project2 -> main2;
+	project2 -> head2;
+}

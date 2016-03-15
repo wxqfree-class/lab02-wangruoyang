@@ -1,0 +1,626 @@
+#+STARTUP: indent
+#+TITLE:     第3讲　Linux基础(2)
+#+AUTHOR:    王晓庆
+#+EMAIL:     wangxaoqing@outlook.com
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:t toc:1 \n:nil ':t @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME: 
+#+XSLT:
+#+startup: beamer
+#+LATEX_CLASS: beamer
+#+BEAMER_FRAME_LEVEL: 3
+#+BEAMER_HEADER_EXTRA: \institute{wangxiaoqing@outlook.com}
+#+LaTeX_CLASS_OPTIONS: [xcolor=svgnames,presentation]
+#+LaTeX_CLASS_OPTIONS: [t]
+#+LATEX_HEADER:\usecolortheme[named=FireBrick]{structure}\setbeamercovered{transparent}\setbeamertemplate{caption}[numbered]\setbeamertemplate{blocks}[rounded][shadow=true] \usetheme{Darmstadt}\date{\today} \usepackage{tikz}\usepackage{xeCJK}\usepackage{amsmath}\setmainfont{Times New Roman}\setCJKmainfont[BoldFont={Adobe Heiti Std},ItalicFont={Adobe Fangsong Std}]{Adobe Heiti Std}\setCJKsansfont{Adobe Heiti Std}\setCJKmonofont{Adobe Fangsong Std}\usepackage{verbatim}\graphicspath{{figures/}} \definecolor{lstbgcolor}{rgb}{0.9,0.9,0.9} \usepackage{listings}\usepackage{minted} \usepackage{fancyvrb}\usepackage{xcolor}\lstset{escapeinside=`',frameround=ftft,language=C,breaklines=true,keywordstyle=\color{blue!70},commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox,backgroundcolor=\color{yellow!20},rulesepcolor=\color{red!20!green!20!blue!20}}
+#+LaTeX_HEADER: \usemintedstyle{default}
+
+* 用户和组管理
+** 帐号分类
+*** 帐号
+**** 帐号(account)是用于记录用户或用户组的数据
+**** Linux中每一个合法用户都必须拥有帐号才能登录使用系统
+**** Linux依靠帐号来验证用户身份并设置用户权限
+*** 用户帐号和组帐号
+**** 用户帐号：每个用户帐号存储某个用户的数据
+**** 组帐号：每个组帐号存储某个用户组的数据
+**** CentOS中最多可以建立2**30个帐号和2**30个组帐号
+*** 根据帐号位置分类
+**** 本机帐号(local account)
+***** 帐号数据存储于本机硬盘内
+***** 帐号有效范围仅限于本机
+***** 优点：简单易用，无需额外设置即可直接创建
+***** 缺点：不具备可扩展性，设想一个数百台设备的环境，要让某个帐号在每台设备上都能登录，则必须在每台设备上建立该帐号
+**** 域帐号(domain account)
+***** 将大量计算机组织成一个域，并在其中一台设备上建立帐号数据，并通过某些通信协议实现帐号数据的远程访问
+***** 优点：具备可扩展性
+***** 缺点：配置域帐号必须要先建立域环境
+*** 根据帐号功能分类
+**** 用户帐号
+***** 超级用户：用户名通常为root，其UID一定为0
+****** 权限不受任何限制
+****** 不要轻易以root用户身份使用Linux系统。
+***** 普通用户：除超级用户外的其他所有帐号
+****** 系统帐号
+******* 仅提供给Linux系统本身使用，某些软件运行时需要一个普通用户身份
+******* 在CentOS 5中，系统用户的UID为1~499之间
+****** 真实用户
+******* 真实用户就是可以用于登录系统的普通帐号
+******* 真实用户的UID在500～4,294,967,295之间
+*** 根据帐号功能分类
+**** 组帐号
+***** 超级用户组
+****** root组，GID为0，但组成员不具备系统管理权力，受系统权限限制
+***** 系统组
+****** 类似于系统帐号，仅提供给系统本身或某个软件使用
+****** 在CentOS 5中，系统组的GID范围为1～499
+***** 用户自定义组
+****** 除root组和系统组之外的组，都可以由管理员自行定义
+****** 用户自定义组的GID在500～4,294,967,295之间
+****** 用户私有组(User Private Group, UPG)
+1. 是指与用户账户名称相同的组，是用户默认的基本组
+2. 当建立新用户时，CentOS会自动建立该用户的私有组
+3. 用户还可以加入多个其他的组，也叫用户的附加组
+** 帐号内容
+*** 用户帐号
+**** 用户帐号数据和密码分别存储于/etc/passwd和/etc/shadow中
+#+BEGIN_SRC sh
+less /etc/passwd
+less /etc/shadow
+man 5 passwd
+man 5 shadow
+#+END_SRC
+**** 说明                                                 :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+1. 如果密码字段为空，则该用户无需密码即可登录系统
+2. 如果密码字段为x，则该用户名密码被存储至他处
+3. 如果默认shell为/sbin/nologin，则不允许该用户登录
+*** 组帐号
+**** 组帐号数据和密码分别存储于/etc/group和/etc/gshadow中
+#+BEGIN_SRC sh
+less /etc/group
+less /etc/gshadow
+man 5 group
+man 5 gshadow
+#+END_SRC
+**** 说明                                                 :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+1. CentOS不支持嵌套组，组成员只能是用户，不能是其他组
+2. 组成员之间以逗号(,)分隔
+** 用户帐号管理
+*** 添加用户帐号
+**** useradd                                                     :B_block:
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+#+BEGIN_SRC sh
+useradd jack
+tail -1 /etc/passwd
+tail -1 /etc/group
+tail -1 /etc/shadow
+ls /home
+ls /var/spool/mail
+man useradd
+#+END_SRC
+**** 说明                                                 :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+用useradd添加新用户时，如果未指定选项，则useradd会根据/etc/login.defs与/etc/default/useradd中的配置添加新用户。
+*** 设置/修改用户密码
+**** 示例                                                 :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+passwd jack    #为指定用户设置密码(仅root)
+passwd         #修改当前用户密码
+passwd -l jack #锁定用户(仅root)
+passwd -u jack #解锁用户(仅root)
+passwd -d jack #清除用户密码(本地免密码登录)
+#+END_SRC
+**** 说明                                                        :B_block:
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+让用户免密码本地登录的两种方法：
+1. 将/etc/passwd文件中的密码字段清空
+2. 将/etc/shadow文件中的密码字段清空
+远程用户必须提供密码才允许登录!
+*** 修改用户帐号
+**** usermod                                                     :B_block:
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+#+BEGIN_SRC sh
+usermod -u 1001 bob
+usermod -g 1001 bob
+usermod -G root,users bob #设置bob的附加组
+usermod -G '' bob         #设置bob不属于任何附加组
+usermod -s /bin/csh bob
+usermod -d /home/bobie
+usermod -l bobie bob
+usermod -L alice          #锁定帐号
+usermod -U alice          #解锁帐号
+#+END_SRC
+**** 说明                                                 :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+usermod与useradd的选项类似，还增加了-U、-L、-l等选项。
+*** 查看和删除用户帐号
+**** id                                                   :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+id          #查看当前用户信息
+id jack     #查看指定用户信息
+#+END_SRC
+**** userdel                                                     :B_block:
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+#+BEGIN_SRC sh
+userdel jack     #删除用户
+userdel -r jack  #删除用户及其主目录和邮箱
+#+END_SRC
+** 组帐号管理
+*** 创建、修改组
+**** groupadd 创建组                                         :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+groupadd proj1
+groupadd -g 1001 proj2
+#+END_SRC
+**** groupmod 修改组                                      :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+groupmod -g 1000 students
+groupmod -n projectA proj1
+#+END_SRC
+*** 查询、删除组
+**** groups 查询组                                        :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+groups
+groups mary
+#+END_SRC
+**** groupdel 删除组                                      :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+groupdel projectA
+#+END_SRC
+**** 注意                                                        :B_block:
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+#+BEGIN_EXAMPLE
+注意：删除某用户的基本组之前，需要先删除该用户！
+#+END_EXAMPLE
+*** 组成员管理
+**** gpasswd
+***** gpasswd本用于设置组密码，但该功能极少使用，实际上更多用于组成员管理
+**** 示例                                                 :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+gpaswd -a mary students   #将mary加入students组
+gpasswd -d mary students  #从students组删除mary
+gpasswd -A mary students  #将mary设置为studens组管理员
+#+END_SRC
+*** 切换组身份
+**** newgrp                                               :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+newgrp students  #切换至students组身份
+exit             #返回原先组身份
+#+END_SRC
+**** 说明                                                        :B_block:
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+#+BEGIN_EXAMPLE
+如果用户不是root，下列情况下将会被提示输入组密码：
+1. 如果用户没有密码而要切换的组有密码
+2. 如果用户不属于要切换的组，而该组有密码
+如果用户不属于要切换的组，且该组未设密码，则拒绝切换
+#+END_EXAMPLE
+**** sg                                                           :B_note:
+:PROPERTIES:
+:BEAMER_env: note
+:END:
+#+BEGIN_EXAMPLE
+man sg   #sg与newgrp类似，但也有些不同
+#+END_EXAMPLE
+** 密码管理
+*** 加密算法
+**** DES
+传统UNIX使用的加密算法，只能支持8个字符以内的密码，如果超过8个字符，则DES会忽略第8个字符以后的密码，其安全性比较差。
+**** MD5
+CentOS默认使用的加密算法，支持255个字符的密码，比DES更安全。
+*** 查看与设置帐号秘密有效期
+**** chage                                                :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+chage -l mike  #查看用户帐号密码有效期信息
+#注意：普通用户只能查看自己的帐号密码有效期信息
+chage -m 3 mike  #设置设定密码后至少经过几天才能修改密码
+chage -M 30 mike #设置设定密码后最长多少天后必须修改密码
+chage -d 2016-01-01 mike #设置密码最后修改时间
+chage -E 2020-12-31 mike #设置密码过期时间
+chage -W 7 mike  #设置密码过期前几天提醒
+chage -I 3 mike  #设置密码过期后多少天被锁定
+#+END_SRC
+* 权限管理
+** 基本权限管理
+*** 文件权限和目录权限
+**** 三种基本权限
+| r--      | -w-      | --x        |
+|----------+----------+------------|
+| 100      | 010      | 001        |
+| 4        | 2        | 1          |
+| 文件可读 | 文件可写 | 文件可执行 |
+| 目录可读 | 目录可写 | 目录可搜索 |
+**** 说明                                                        :B_block:
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+1. 目录可读：可以通过ls查看目录中的文件列表
+2. 目录可写：可以在目录内创建、删除、移动文件
+3. 目录可访问：可以通过cd进入该目录或者搜索其内的文件
+*** 三种用户
+**** 三种用户的权限                                       :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+ls -l ~/students.db
+#+END_SRC
+
+#+RESULTS:
+-rw-rw-r--. 1 wxq wxq 115 3月   8 22:35 /home/wxq/students.db
+
+**** 文件所有者(默认为创建该文件的用户)
+ls -l输出结果第3列，第一组权限(rw-)
+**** 文件所属组
+ls -l输出结果第4列，第二组权限(rw-)
+**** 其他用户
+既不是文件所有者，也不属于文件所属组，第三组权限(r--)
+*** 修改文件和目录权限
+**** chmod
+仅文件所有者和root用户有权修改文件权限
+**** 示例                                                 :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+chmod u=rw-,g=r--,o=r-- file
+chmod g+w,o-r file
+chmod a+x file
+chmod 644 file
+chmod 600 file
+chmod 700 dir
+chmod -R 755 dir
+#+END_SRC
+*** 查看和设置默认权限掩码
+**** umask                                                :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+umask
+umask -S
+umask 0026
+#+END_SRC
+**** 说明                                                        :B_block:
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+1. 新建文件的默认权限等于0666-umask
+2. 新建目录的默认权限等于0777-umask
+3. 0666-0027=0640
+*** 权限设置实例
+**** 问题                                                           :B_block:
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+xiaobai想在自己的主目录内建立一个公共目录pub，希望所有人都可以只读访问该目录内的文件，但不希望其他人能访问其主目录内的其他文件和目录，请问要怎么配置相关文件/目录的权限才能达到目的呢？
+**** 答案                                                         :B_note:
+:PROPERTIES:
+:BEAMER_env: note
+:END:
+#+BEGIN_EXAMPLE
+1. chmod o+x ~xiaobai
+2. mkdir pub
+3. echo hello >pub/hello.txt
+#+END_EXAMPLE
+**** 另一个问题                                                   :B_note:
+:PROPERTIES:
+:BEAMER_env: note
+:END:
+mike想在自己的主目录内建立一个作业上传目录handin，希望所有学生都可以上传作业到该目录内，但不希望学生能访问其主目录内的其他文件和目录，也不希望学生访问/删除handin目录内其他同学的作业，请问要怎么才能做到呢？
+**** 答案                                                         :B_note:
+:PROPERTIES:
+:BEAMER_env: note
+:END:
+#+BEGIN_EXAMPLE
+1. chmod o+x ~mike
+2. mkdir handin
+3. chmod 1707 handin #设置其他用户可写，并设置sticky位
+4. umask 0077        #设置默认权限? 这样不行，估计只能通过ftp的local_mask实现
+#+END_EXAMPLE
+** 文件所有权管理
+*** chown和chgrp
+**** 仅root用户有权更改文件所有者和所属组
+**** 示例                                                 :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+chown root file         #令file为root所有
+chown root:users file   #令file为root所有，属users组
+chown root: file        #令file为root所有，属root组
+chown :users file       #令file属users组
+chown -R root:users dir #递归处理
+chgrp users file        #令file属users组
+chgrp -R users dir      #递归处理
+#+END_SRC
+** 特殊权限(s)管理
+*** 三种基本权限够用吗？
+**** mike用户对文件F具有只读权限，则mike用编辑器vim打开文件F时，vim对文件F也仅具备只读权限。
+**** 结论                                                 :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+一个程序对文件具备何种权限由启动该程序的用户决定
+**** 问题                                                        :B_block:
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+mike用户对/etc/shadow不具备任何权限，那mike如何通过执行passwd程序修改存放在/etc/shadow内的登录密码呢？
+*** setUID权限
+**** setUID权限：可执行程序被设置了setUID权限后，无论被谁执行，该程序都将具备其所有者的权限，而不是执行者的权限。
+**** 示例                                                 :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+ls -l /usr/bin/passwd
+chmod u+s file   #设置setUID权限
+chmod u-s file   #删除setUID权限
+chmod 4751 file  #设置setUID权限
+chmod 0751 file  #删除setUID权限
+#+END_SRC
+*** setGID权限
+**** setGID权限：可执行程序被设置了setGID权限后，无论被谁执行，该程序都将具备其所属组的权限，但没有其所有者的权限。
+**** 示例                                                 :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+ls -l /bin/locate
+chmod g+s file
+chmod g-s file
+chmod 2751 file
+#+END_SRC
+*** setGID权限(2)
+**** setGID权限常针对目录设置：目录设置了setGID权限后，无论谁在该目录内创建的新文件，默认都会属于该目录所属的组，而不是创建者所属的组。
+**** 示例                                                 :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+mkdir proj_dir
+groupadd proj
+chgrp proj proj_dir
+chmod g+s proj_dir
+#+END_SRC
+*** Sticky bit权限
+**** 
+** 
+* 进程管理
+** 进程管理
+*** 查看进程
+**** ps                                                   :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+ps             #查看当前shell执行的进程
+ps aux         #查看所有进程(BSD风格)
+ps -ef         #查看所有进程(System V风格)
+ps -ft /dev/pts/0 #查看与指定终端关联的进程
+ps -fp 1234    #查看进程号为1234的进程的详细信息
+ps -fu xiaobai #查看用户xiaobai运行的进程信息
+ps -fC evince  #查看名称为enince的所有进程信息
+#+END_SRC
+**** pstree                                                      :B_block:
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+#+BEGIN_SRC sh
+pstree         #打印系统进程树
+#+END_SRC
+*** 查看进程
+**** pgrep                                                        :B_block:
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+#+BEGIN_SRC sh
+pgrep evince  #查找名为evince的进程的进程号
+#+END_SRC
+**** top                                                  :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+top     #实时系统状态监控
+h/?     #帮助
+d 5     #设置刷新周期为5秒
+k 1234  #杀死进程号为1234的进程
+P       #按cpu使用率排序
+M       #按memory使用率排序
+T       #按cpu使用时间排序
+u tom   #仅显示用户tom的进程
+q       #退出top
+man top
+#+END_SRC
+*** 进程控制
+**** 前后台进程
+***** 一个终端一次只能运行一个前台进程，但可以并发运行多个后台进程。
+***** 前后台作业控制                                     :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+Ctrl-z              #挂起(暂停)前台进程的执行
+jobs [-l]           #查看作业
+fg [n]              #将作业恢复至前台执行
+bg [n]              #将作业恢复至后台执行
+kill %n/pid         #杀死指定的作业/进程
+killall xeyes       #杀死所有xeyes进程
+pkill eye           #查找包含eye的进程名并杀死
+xeyes -center red & #启动后台进程
+nohup ./longjob &   #保持后台进程在用户注销后继续运行
+nohup ./longjob & >longjob.out
+#+END_SRC
+*** 进程和信号
+**** 信号
+内核用信号通知进程发生的异常事件和实现进程间通信，进程也可以给其他进程。每种信号可以用名称或整数标识。
+1. 硬件异常：进程让硬件执行错误操作，如进程进行除0运算，内核会给它发送SIGFPE(8)
+2. 软件状态：把异常的软件状态通知进程，如进程终止时，内核会向父进程发送SIGCHLD（17），当调整X图形应用程序的窗口大小时，该程序会收到SIGWINCH(28)
+3. 终端中断：用户敲入的终端控制组合键会把信号发送给shell前台进程，如Ctrl-c发送SIGINT(2)，Ctrl-z发送SIGSTP(20)
+4. 其他进程：进程可以通过kill命令给同一用户拥有的其他任何进程发送任何信号
+*** 向进程发信号
+**** 信号：
+**** kill 发送信号给进程                                     :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+kill -l              #打印信号值列表
+man 7 signal         #查看信号相关帮助
+Ctrl-c               #发送信号2给前台进程
+Ctrl-z               #发送信号20给前台进程
+kill -19 12121       #暂停
+kill -18 12121       #恢复
+kill -15 12345       #发送信号15给进程12345
+kill 12345           #同上
+kill -9 11111        #强行杀死进程11111
+kill -s SIGTERM 1234 #发送信号SIGTERM给进程1234
+#+END_SRC
+*** 进程优先级
+**** 优先级(priority)与谦让值(nice)
+top命令的输出中，PR是内核用于进程调度的动态优先级，而NI是用户可以设置的谦让值。NI可以影响PR，PR与NI越小则进程优先级越高。
+nice值可以从-20至19，默认为0。
+**** nice  以指定nice值启动进程                              :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+xeyes -center red &        #默认nice值为0
+nice xeyes -center blue &  #默认设置nice值为10
+nice -n 5 xeyes -center green &
+ps -l   #查看进程的PR与NI值
+#+END_SRC
+**** 注意                                                        :B_block:
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+只有root用户可以在nice命令中为进程指定负nice值
+*** 进程优先级(2)
+**** renice  调整进程nice值                                  :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+renice 15 12707     #将进程12707的nice值调整为15
+renice -5 12675     #将进程12675的nice值调整为-5
+renice 8 -u mike    #将用户mike的进程nice值调整为8
+renice 0 -g users   #将用户组users的进程nice值调整为0
+#+END_SRC
+**** 注意                                                        :B_block:
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+只有root用户可以通过renice减小进程的nice值
+*** 守护进程(Daemon)
+**** 守护进程(daemon)
+***** 守护进程是那些在后台运行的进程，脱离控制终端，守护进程与系统服务像关联，如日志守护进程syslogd、安全shell守护进程sshd等，守护进程名一般以d结尾。
+***** 守护进程通常作为系统启动过程的一部分被启动，或者由root用户启动，有些守护进程以root用户身份运行，有些守护进程则以特定的系统用户身份运行。
+*** at/batch 一次性计划任务
+**** atd守护进程：运行用户提交稍后运行的作业
+**** 用at命令提交作业                                     :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+at 2:00 am
+at> find / -mtime 0 -exec cp -p {} /bak \;
+at> Ctrl-d
+at 22:30 <task1
+at -f task2 now+1h
+atq           #查看作业队列，同at -l
+atrm 2        #删除作业2，同at -d 2
+man at
+#+END_SRC
+*** cron 周期性计划任务
+**** crond守护进程
+* shell环境
+** shell环境变量
+*** 查看和修改shell环境变量
+**** 查看shell环境变量
+#+BEGIN_SRC sh
+env
+echo $SHELL
+#+END_SRC
+**** 修改shell环境变量
+#+BEGIN_SRC sh
+export HISTSIZE=500
+#+END_SRC
+**** 说明                                                        :B_block:
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+上述修改仅对当前会话有效！
+** shell配置文件
+*** bash配置文件
+**** 系统级配置文件                                       :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+1. /etc/profile       用户登录时运行
+2. /etc/bashrc        启动bash时运行
+**** 用户级配置文件                                              :B_block:
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+1. .bash\_profile     用户登录时运行
+2. .bashrc            启动bash时运行
+3. .bash\_logout      用户注销时运行
+4. .bash\_history     保存用户命令历史

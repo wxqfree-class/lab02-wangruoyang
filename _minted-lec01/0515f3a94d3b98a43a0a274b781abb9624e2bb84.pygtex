@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+su - mary  \PYG{c}{\PYGZsh{}切换为mary用户}
+su - root  \PYG{c}{\PYGZsh{}切换为root用户}
+su -       \PYG{c}{\PYGZsh{}切换为root用户}
+\PYG{l+s+se}{\PYGZbs{}e}xit       \PYG{c}{\PYGZsh{}回到原先用户身份}
+\end{Verbatim}

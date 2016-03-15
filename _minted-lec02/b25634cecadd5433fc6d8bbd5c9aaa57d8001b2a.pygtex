@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+vim                         \PYG{c}{\PYGZsh{}启动vim}
+i                           \PYG{c}{\PYGZsh{}进入insert模式}
+vim is a mode text editor.  \PYG{c}{\PYGZsh{}输入文本}
+<ESC>                       \PYG{c}{\PYGZsh{}回到normal模式}
+:w vim-intro                \PYG{c}{\PYGZsh{}保存到指定文件}
+:q                          \PYG{c}{\PYGZsh{}退出}
+\end{Verbatim}

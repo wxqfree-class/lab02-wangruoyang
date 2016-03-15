@@ -1,0 +1,34 @@
+digraph dirtree{
+	nodesep=0.1;
+	root[label="/"];
+	fstab[shape=record];
+	somedir1[label="...",shape=plaintext];
+	somedir2[label="...",shape=plaintext];
+	file[label=".bashrc",shape=record];	
+	note1[label="linux.txt",shape=record];
+	note2[label="network.txt",shape=record];
+	project1[label="proj1"];
+	project2[label="proj2"];
+	main1[label="main.c",shape=record];
+	head1[label="proj1.h",shape=record];
+	main2[label="main.c",shape=record];
+	head2[label="proj2.h",shape=record];
+	root -> somedir1[style="invis"];
+	root -> etc;
+	root -> home;
+	root -> somedir2[style="invis"];
+	etc -> fstab;
+	home -> bob;
+	home -> mary;
+	bob -> file;
+	bob -> note;
+	bob -> project;
+	note -> note1;
+	note -> note2;
+	project -> project1;
+	project -> project2;
+	project1 -> main1;
+	project1 -> head1;
+	project2 -> main2;
+	project2 -> head2;
+}

@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+groupmod -g 1000 students
+groupmod -n projectA proj1
+\end{Verbatim}

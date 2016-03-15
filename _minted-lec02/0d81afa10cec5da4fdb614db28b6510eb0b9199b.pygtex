@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}SHELL}              \PYG{c}{\PYGZsh{}打印当前shell路径}
+chsh -l                  \PYG{c}{\PYGZsh{}列出系统可用shell列表}
+chsh -s /bin/csh         \PYG{c}{\PYGZsh{}指定登录shell，下次登录生效}
+\end{Verbatim}

@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+chown root file         \PYG{c}{\PYGZsh{}令file为root所有}
+chown root:users file   \PYG{c}{\PYGZsh{}令file为root所有，属users组}
+chown root: file        \PYG{c}{\PYGZsh{}令file为root所有，属root组}
+chown :users file       \PYG{c}{\PYGZsh{}令file属users组}
+chown -R root:users dir \PYG{c}{\PYGZsh{}递归处理}
+chgrp users file        \PYG{c}{\PYGZsh{}令file属users组}
+chgrp -R users dir      \PYG{c}{\PYGZsh{}递归处理}
+\end{Verbatim}

@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+man ls      \PYG{c}{\PYGZsh{}查看ls的手册页}
+man man     \PYG{c}{\PYGZsh{}查看man手册的手册页}
+\end{Verbatim}

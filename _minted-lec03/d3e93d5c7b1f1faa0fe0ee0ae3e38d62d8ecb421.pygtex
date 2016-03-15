@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+useradd jack
+tail -1 /etc/passwd
+tail -1 /etc/group
+tail -1 /etc/shadow
+ls /home
+ls /var/spool/mail
+man useradd
+\end{Verbatim}

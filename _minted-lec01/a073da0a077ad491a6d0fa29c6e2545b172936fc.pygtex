@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+bc        \PYG{c}{\PYGZsh{}我想算点东西}
+bc -q     \PYG{c}{\PYGZsh{}安静点!}
+3+4
+5*last                      \PYG{c}{\PYGZsh{} 计算5*7}
+last/9
+\PYG{n+nv}{scale}\PYG{o}{=}
+\PYG{n+nv}{scale}\PYG{o}{=}16;x\PYG{o}{=}4;y\PYG{o}{=}7;3*\PYG{o}{(}x+2\PYG{o}{)}/y
+\PYG{n+nv}{obase}\PYG{o}{=}2;192                 \PYG{c}{\PYGZsh{} 192的二进制表示是什么呀？}
+\PYG{n+nv}{obase}\PYG{o}{=}10;ibase\PYG{o}{=}2;11000011   \PYG{c}{\PYGZsh{} 11000011代表几呀？}
+\PYG{n+nv}{ibase}\PYG{o}{=}2;obase\PYG{o}{=}10;11000011   \PYG{c}{\PYGZsh{} :-( ?!}
+\PYG{n+nv}{obase}\PYG{o}{=}1010;11000011         \PYG{c}{\PYGZsh{} :-)}
+quit                        \PYG{c}{\PYGZsh{} 退出}
+\end{Verbatim}

@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+mv f4 f4.1           \PYG{c}{\PYGZsh{}将f4移动(重命名)为f4.1}
+mv f5 d3             \PYG{c}{\PYGZsh{}将文件移动到目录}
+mv -i f5 f6          \PYG{c}{\PYGZsh{}覆盖时提示}
+mv f6 c/f6.1         \PYG{c}{\PYGZsh{}移动并改名}
+mv  *.1 d4           \PYG{c}{\PYGZsh{}将文件移动到目录}
+\end{Verbatim}

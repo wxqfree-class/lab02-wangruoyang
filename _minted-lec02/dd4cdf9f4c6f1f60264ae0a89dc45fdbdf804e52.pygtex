@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+comm file1 file2
+\PYG{c}{\PYGZsh{}第一列输出仅出现在file1中的行}
+\PYG{c}{\PYGZsh{}第二列输出仅出现在file2中的行}
+\PYG{c}{\PYGZsh{}第三列输出同时出现在file1和file2中的行}
+选项：-1/2/3 禁止输出第1/2/3列
+\end{Verbatim}

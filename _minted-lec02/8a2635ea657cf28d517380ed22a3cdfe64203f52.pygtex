@@ -1,0 +1,16 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+find . -type -f -mtime +1 -exec ls -lt \PYG{o}{\PYGZob{}\PYGZcb{}} \PYG{l+s+se}{\PYGZbs{};}
+\PYG{c}{\PYGZsh{}查找过去48小时之前修改过的文件}
+find . -type -f -mtime 1 -exec ls -lt \PYG{o}{\PYGZob{}\PYGZcb{}} \PYG{l+s+se}{\PYGZbs{};}
+\PYG{c}{\PYGZsh{}查找过去24小时之前，48小时之内修改过的文件}
+find . -type -f -mtime -1 -exec ls -lt \PYG{o}{\PYGZob{}\PYGZcb{}} \PYG{l+s+se}{\PYGZbs{};}
+\PYG{c}{\PYGZsh{}查找过去24小时之内修改过的文件}
+find . -type -f -mtime +0 -exec ls -lt \PYG{o}{\PYGZob{}\PYGZcb{}} \PYG{l+s+se}{\PYGZbs{};}
+\PYG{c}{\PYGZsh{}查找过去24小时之前修改过的文件}
+find . -type -f -mtime 0 -exec ls -l \PYG{o}{\PYGZob{}\PYGZcb{}} \PYG{l+s+se}{\PYGZbs{};}
+\PYG{c}{\PYGZsh{}查找现在之前，过去24小时内修改过的文件}
+find . -type -f -mtime -0 -exec ls -l \PYG{o}{\PYGZob{}\PYGZcb{}} \PYG{l+s+se}{\PYGZbs{};}
+\PYG{c}{\PYGZsh{}查找现在之后修改过的文件}
+find . -type -f -mtime +0 -mtime -2 -ok cp -l \PYG{o}{\PYGZob{}\PYGZcb{}}  \PYGZti{}/bak \PYG{l+s+se}{\PYGZbs{};}
+\PYG{c}{\PYGZsh{}查找过去24小时之前，48小时之内修改过的文件}
+\end{Verbatim}

@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+tar -cvf boot.tar /boot      \PYG{c}{\PYGZsh{}打包}
+tar -tf boot.tar             \PYG{c}{\PYGZsh{}查看}
+tar -xvf boot.tar            \PYG{c}{\PYGZsh{}解包}
+tar -czvf boot.tar.gz /boot  \PYG{c}{\PYGZsh{}打包并压缩}
+tar -xzvf boot.tar.gz        \PYG{c}{\PYGZsh{}解压缩解包}
+tar -cjvf boot.tar.bz2 /boot \PYG{c}{\PYGZsh{}打包并压缩}
+tar -xjvf boot.tar.bz2       \PYG{c}{\PYGZsh{}解压缩解包}
+\end{Verbatim}

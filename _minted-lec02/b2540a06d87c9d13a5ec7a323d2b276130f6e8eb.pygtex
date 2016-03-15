@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+ls .bashrc .profile >ls.out
+ls .bashrc .profile 2>ls.err
+ls .bashrc .profile 2>/dev/null \PYG{c}{\PYGZsh{}抛弃错误输出}
+ls memo.1 memo.2 2>>ls.err
+ls .bashrc .profile >ls.out 2>ls.err
+ls .bashrc .profile >ls.out 2>&1
+ls .bashrc .profile 2>&1 >ls.out
+ls .bashrc .profile &>ls.out \PYG{c}{\PYGZsh{}也可写成>&}
+ls .bash\PYGZus{}profile memo.1 &>>ls.out
+\end{Verbatim}

@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{help}        \PYG{c}{\PYGZsh{}列出所有内部命令}
+\PYG{n+nb}{help cd}     \PYG{c}{\PYGZsh{}显示内部命令cd的帮助}
+cat --help  \PYG{c}{\PYGZsh{}显示外部命令cat的简明帮助}
+\end{Verbatim}

@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+head /etc/passwd
+head -n 3 /etc/passwd
+tail -3 /etc/passwd
+tail -f /var/log/messages
+systemctrl restart network.service
+\end{Verbatim}

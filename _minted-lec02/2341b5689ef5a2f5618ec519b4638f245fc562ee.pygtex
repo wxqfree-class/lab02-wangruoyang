@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+cp fa fa.1                 \PYG{c}{\PYGZsh{}把fa复制为fa.1}
+cp -i fa \PYG{n+nb}{fc}                \PYG{c}{\PYGZsh{}覆盖时提示}
+cp -p fb fb.1              \PYG{c}{\PYGZsh{}保留文件属性不变}
+cp \PYG{n+nb}{fc }fd x                 \PYG{c}{\PYGZsh{}把文件复制到目录}
+cp -p fe x/y/fe.1          \PYG{c}{\PYGZsh{}把文件复制到目录并改名}
+\end{Verbatim}

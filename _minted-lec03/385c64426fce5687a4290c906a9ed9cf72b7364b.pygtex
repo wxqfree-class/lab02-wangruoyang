@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+ls -l /usr/bin/passwd
+chmod u+s file   \PYG{c}{\PYGZsh{}设置setUID权限}
+chmod u-s file   \PYG{c}{\PYGZsh{}删除setUID权限}
+chmod 4751 file  \PYG{c}{\PYGZsh{}设置setUID权限}
+chmod 0751 file  \PYG{c}{\PYGZsh{}删除setUID权限}
+\end{Verbatim}

@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+rm file1 file2       \PYG{c}{\PYGZsh{}删除文件file1、file2}
+rm -f file3          \PYG{c}{\PYGZsh{}强行删除文件file3}
+\end{Verbatim}

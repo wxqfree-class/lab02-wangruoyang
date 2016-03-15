@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+less /etc/group
+less /etc/gshadow
+man 5 group
+man 5 gshadow
+\end{Verbatim}

@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+ed file1           \PYG{c}{\PYGZsh{}用编辑器创建file1}
+\PYG{c}{\PYGZsh{}+BEGIN\PYGZus{}EXAMPLE}
+a
+ed is an old line text editor of Unix.
+It\PYG{err}{'}s is easy to learn.
+you can learn it by info ed.
+.
+w
+q
+\PYG{c}{\PYGZsh{}+END\PYGZus{}EXAMPLE}
+touch file1 file2  \PYG{c}{\PYGZsh{}更新file1，创建file2}
+\end{Verbatim}

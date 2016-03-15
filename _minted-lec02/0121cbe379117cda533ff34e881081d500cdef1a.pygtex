@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+md5sum file1 file2 >filesum.md5 \PYG{c}{\PYGZsh{}生成散列值}
+md5sum -c filesum.md5           \PYG{c}{\PYGZsh{}检查完整性}
+\end{Verbatim}

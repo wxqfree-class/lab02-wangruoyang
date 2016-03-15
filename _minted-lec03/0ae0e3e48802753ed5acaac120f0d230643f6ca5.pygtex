@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+ps            \PYG{c}{\PYGZsh{}查看当前shell执行的进程}
+ps aux        \PYG{c}{\PYGZsh{}查看所有进程}
+ps -ef        \PYG{c}{\PYGZsh{}查看所有进程}
+ps -u xiaobai \PYG{c}{\PYGZsh{}查看用户xiaobai的进程}
+\end{Verbatim}

@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+uname  \PYG{c}{\PYGZsh{}这是什么操作系统呀？}
+uname -r \PYG{c}{\PYGZsh{}这是什么版本呀？}
+uname -a \PYG{c}{\PYGZsh{}把操作系统相关信息都告诉我好了！}
+\end{Verbatim}

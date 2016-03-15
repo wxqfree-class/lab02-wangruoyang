@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+gpaswd -a mary students   \PYG{c}{\PYGZsh{}将mary加入students组}
+gpasswd -d mary students  \PYG{c}{\PYGZsh{}从students组删除mary}
+\end{Verbatim}

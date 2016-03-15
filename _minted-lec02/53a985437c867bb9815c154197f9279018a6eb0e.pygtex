@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+zip zipfile1 file1 file2     \PYG{c}{\PYGZsh{}压缩文件(不要加.zip后缀)}
+zip -r zipdir1 dir1          \PYG{c}{\PYGZsh{}压缩目录}
+unzip zipdir1.zip            \PYG{c}{\PYGZsh{}解压缩}
+\end{Verbatim}

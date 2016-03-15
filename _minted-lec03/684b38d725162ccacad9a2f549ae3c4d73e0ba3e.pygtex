@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+at 2:00 am
+at> find / -mtime 0 -exec cp -p \PYG{o}{\PYGZob{}\PYGZcb{}} /bak \PYG{l+s+se}{\PYGZbs{};}
+at> Ctrl-d
+at 22:30 <task1
+at -f task2 now+1h
+atq           \PYG{c}{\PYGZsh{}查看作业队列，同at -l}
+atrm 2        \PYG{c}{\PYGZsh{}删除作业2，同at -d 2}
+man at
+\end{Verbatim}

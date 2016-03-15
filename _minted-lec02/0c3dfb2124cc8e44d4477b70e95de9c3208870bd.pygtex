@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+zip file1.zip file1          \PYG{c}{\PYGZsh{}压缩文件}
+zip -r boot.zip /boot        \PYG{c}{\PYGZsh{}压缩目录}
+unzip boot.zip               \PYG{c}{\PYGZsh{}解压缩}
+\end{Verbatim}

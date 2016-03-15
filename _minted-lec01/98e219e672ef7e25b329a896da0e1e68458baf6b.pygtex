@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+bc    \PYG{c}{\PYGZsh{}我想算点东西}
+bc -q \PYG{c}{\PYGZsh{}安静点!}
+\PYG{n+nb}{echo} \PYG{l+s+s2}{"scale=16;x=4;y=7;3*(x+2)/y"} | bc  \PYG{c}{\PYGZsh{}帮我算下！}
+\PYG{n+nb}{echo} \PYG{l+s+s2}{"obase=2;192"} | bc  \PYG{c}{\PYGZsh{}192的二进制表示是什么呀？}
+\PYG{n+nb}{echo} \PYG{l+s+s2}{"obase=10;ibase=2;11000011"} | bc   \PYG{c}{\PYGZsh{}11000011代表几呀？}
+\PYG{n+nb}{echo} \PYG{l+s+s2}{"ibase=2;obase=10;11000011"} | bc   \PYG{c}{\PYGZsh{}:-(}
+\PYG{n+nb}{echo} \PYG{l+s+s2}{"ibase=2;obase=1010;11000011"} | bc \PYG{c}{\PYGZsh{}:-)}
+\end{Verbatim}

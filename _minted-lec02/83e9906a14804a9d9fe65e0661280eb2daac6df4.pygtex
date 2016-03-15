@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{echo} \PYG{l+s+s2}{"WHAT are you DOING?"} | tr \PYG{l+s+s1}{'A-Z'} \PYG{l+s+s1}{'a-z'}
+\PYG{n+nb}{echo} \PYG{l+s+s2}{"ButterFly"} | tr \PYG{l+s+s1}{'a-zA-Z'} \PYG{l+s+s1}{'n-za-mN-ZA-M'}
+tr \PYG{l+s+s1}{'\PYGZbs{}t'} \PYG{l+s+s1}{' '} <file.txt
+\PYG{n+nb}{echo} \PYG{l+s+s2}{"1a22bb333ccc"} | tr -d \PYG{l+s+s1}{'0-9'}
+\PYG{n+nb}{echo} \PYG{l+s+s2}{"1a22bb333ccc"} | tr -c -d \PYG{l+s+s1}{'0-9\PYGZbs{}n'}
+\PYG{n+nb}{echo} \PYG{l+s+s2}{"GNU   is  not   UNIX."} | tr -s \PYG{l+s+s1}{' '}
+tr -s \PYG{l+s+s1}{'\PYGZbs{}n'} <file.txt
+\end{Verbatim}

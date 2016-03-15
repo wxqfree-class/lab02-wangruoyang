@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+xeyes -center red &        \PYG{c}{\PYGZsh{}默认nice值为0}
+nice xeyes -center blue &  \PYG{c}{\PYGZsh{}默认设置nice值为10}
+nice -n 5 xeyes -center green &
+ps -l   \PYG{c}{\PYGZsh{}查看进程的PR与NI值}
+\end{Verbatim}

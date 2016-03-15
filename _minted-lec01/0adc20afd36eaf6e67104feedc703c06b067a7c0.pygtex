@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+cat /etc/hosts.allow
+tac /etc/hosts.allow
+cat -n /etc/hosts.allow
+cat /etc/hosts.allow /etc/hosts.deny
+tac /etc/hosts.\PYG{o}{\PYGZob{}}allow, deny\PYG{o}{\PYGZcb{}}
+\end{Verbatim}

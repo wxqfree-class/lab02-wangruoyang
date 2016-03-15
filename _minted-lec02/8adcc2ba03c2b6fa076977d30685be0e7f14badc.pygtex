@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+wc learn-vim
+wc -l learn-vim
+wc -w learn-vim
+wc -c learn-vim
+\end{Verbatim}

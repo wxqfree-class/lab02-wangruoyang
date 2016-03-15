@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+env
+\PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}SHELL}
+\end{Verbatim}

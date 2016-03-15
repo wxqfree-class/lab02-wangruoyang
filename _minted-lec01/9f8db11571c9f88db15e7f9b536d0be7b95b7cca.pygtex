@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+info        \PYG{c}{\PYGZsh{}打开info首页}
+info who    \PYG{c}{\PYGZsh{}打开who的info页}
+            \PYG{c}{\PYGZsh{}h(获取帮助)H(入门指南)}
+            \PYG{c}{\PYGZsh{}q(退出)}
+\end{Verbatim}

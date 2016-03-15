@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{umask}
+\PYG{n+nb}{umask} -S
+\PYG{n+nb}{umask }0026
+\end{Verbatim}

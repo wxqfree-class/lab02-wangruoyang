@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+ls      \PYG{c}{\PYGZsh{}查看当前目录的文件列表}
+ls -a   \PYG{c}{\PYGZsh{}查看当前目录所有文件列表}
+ls -l   \PYG{c}{\PYGZsh{}查看当前目录的文件详细信息}
+ls -la  \PYG{c}{\PYGZsh{}查看当前目录所有文件详细信息}
+ls -ld
+ls -R
+ls /
+ls
+\end{Verbatim}

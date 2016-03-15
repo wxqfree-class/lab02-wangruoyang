@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+mesg n      \PYG{c}{\PYGZsh{} 请勿打扰}
+mesg y      \PYG{c}{\PYGZsh{} 欢迎来访}
+\end{Verbatim}

@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+mv d4 dir1/dir2      \PYG{c}{\PYGZsh{}目录移动}
+mv d5 d05            \PYG{c}{\PYGZsh{}目录改名}
+\end{Verbatim}

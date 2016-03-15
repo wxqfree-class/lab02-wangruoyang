@@ -1,0 +1,1040 @@
+% Created 2016-03-13 日 13:11
+\documentclass[xcolor=svgnames,presentation]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{soul}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\tolerance=1000
+\usepackage{minted}
+\usecolortheme[named=FireBrick]{structure}\setbeamercovered{transparent}\setbeamertemplate{caption}[numbered]\setbeamertemplate{blocks}[rounded][shadow=true] \usetheme{Darmstadt}\date{\today} \usepackage{tikz}\usepackage{xeCJK}\usepackage{amsmath}\setmainfont{Times New Roman}\setCJKmainfont[BoldFont={Adobe Heiti Std},ItalicFont={Adobe Fangsong Std}]{Adobe Heiti Std}\setCJKsansfont{Adobe Heiti Std}\setCJKmonofont{Adobe Fangsong Std}\usepackage{verbatim}\graphicspath{{figures/}} \definecolor{lstbgcolor}{rgb}{0.9,0.9,0.9} \usepackage{listings}\usepackage{minted} \usepackage{fancyvrb}\usepackage{xcolor}\lstset{escapeinside=`',frameround=ftft,language=C,breaklines=true,keywordstyle=\color{blue!70},commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox,backgroundcolor=\color{yellow!20},rulesepcolor=\color{red!20!green!20!blue!20}}
+\usemintedstyle{default}
+\providecommand{\alert}[1]{\textbf{#1}}
+
+\title{第3讲　Linux基础(2)}
+\author{王晓庆}
+\date{\today}
+\hypersetup{
+  pdfkeywords={},
+  pdfsubject={},
+  pdfcreator={Emacs Org-mode version 7.9.3f}}
+
+\institute{wangxiaoqing@outlook.com}
+\begin{document}
+
+\maketitle
+
+\begin{frame}
+\frametitle{Outline}
+\setcounter{tocdepth}{1}
+\tableofcontents
+\end{frame}
+
+\section{用户和组管理}
+\label{sec-1}
+\subsection{帐号分类}
+\label{sec-1-1}
+\begin{frame}
+\frametitle{帐号}
+\label{sec-1-1-1}
+\begin{itemize}
+
+\item 帐号(account)是用于记录用户或用户组的数据
+\label{sec-1-1-1-1}%
+
+\item Linux中每一个合法用户都必须拥有帐号才能登录使用系统
+\label{sec-1-1-1-2}%
+
+\item Linux依靠帐号来验证用户身份并设置用户权限
+\label{sec-1-1-1-3}%
+\end{itemize} % ends low level
+\end{frame}
+\begin{frame}
+\frametitle{用户帐号和组帐号}
+\label{sec-1-1-2}
+\begin{itemize}
+
+\item 用户帐号：每个用户帐号存储某个用户的数据
+\label{sec-1-1-2-1}%
+
+\item 组帐号：每个组帐号存储某个用户组的数据
+\label{sec-1-1-2-2}%
+
+\item CentOS中最多可以建立2**30个帐号和2**30个组帐号
+\label{sec-1-1-2-3}%
+\end{itemize} % ends low level
+\end{frame}
+\begin{frame}
+\frametitle{根据帐号位置分类}
+\label{sec-1-1-3}
+\begin{itemize}
+
+\item 本机帐号(local account)
+\label{sec-1-1-3-1}%
+\begin{itemize}
+
+\item 帐号数据存储于本机硬盘内
+\label{sec-1-1-3-1-1}%
+
+\item 帐号有效范围仅限于本机
+\label{sec-1-1-3-1-2}%
+
+\item 优点：简单易用，无需额外设置即可直接创建
+\label{sec-1-1-3-1-3}%
+
+\item 缺点：不具备可扩展性，设想一个数百台设备的环境，要让某个帐号在每台设备上都能登录，则必须在每台设备上建立该帐号
+\label{sec-1-1-3-1-4}%
+\end{itemize} % ends low level
+
+\item 域帐号(domain account)
+\label{sec-1-1-3-2}%
+\begin{itemize}
+
+\item 将大量计算机组织成一个域，并在其中一台设备上建立帐号数据，并通过某些通信协议实现帐号数据的远程访问
+\label{sec-1-1-3-2-1}%
+
+\item 优点：具备可扩展性
+\label{sec-1-1-3-2-2}%
+
+\item 缺点：配置域帐号必须要先建立域环境
+\label{sec-1-1-3-2-3}%
+\end{itemize} % ends low level
+\end{itemize} % ends low level
+\end{frame}
+\begin{frame}
+\frametitle{根据帐号功能分类}
+\label{sec-1-1-4}
+\begin{itemize}
+
+\item 用户帐号
+\label{sec-1-1-4-1}%
+\begin{itemize}
+
+\item 超级用户：用户名通常为root，其UID一定为0
+\label{sec-1-1-4-1-1}%
+\begin{itemize}
+
+\item 权限不受任何限制
+\label{sec-1-1-4-1-1-1}%
+
+\item 不要轻易以root用户身份使用Linux系统。
+\label{sec-1-1-4-1-1-2}%
+\end{itemize} % ends low level
+
+\item 普通用户：除超级用户外的其他所有帐号
+\label{sec-1-1-4-1-2}%
+\begin{itemize}
+
+\item 系统帐号
+\label{sec-1-1-4-1-2-1}%
+\begin{itemize}
+
+\item 仅提供给Linux系统本身使用，某些软件运行时需要一个普通用户身份
+\label{sec-1-1-4-1-2-1-1}%
+
+\item 在CentOS 5中，系统用户的UID为1\~{}499之间
+\label{sec-1-1-4-1-2-1-2}%
+\end{itemize} % ends low level
+
+\item 真实用户
+\label{sec-1-1-4-1-2-2}%
+\begin{itemize}
+
+\item 真实用户就是可以用于登录系统的普通帐号
+\label{sec-1-1-4-1-2-2-1}%
+
+\item 真实用户的UID在500～4,294,967,295之间
+\label{sec-1-1-4-1-2-2-2}%
+\end{itemize} % ends low level
+\end{itemize} % ends low level
+\end{itemize} % ends low level
+\end{itemize} % ends low level
+\end{frame}
+\begin{frame}
+\frametitle{根据帐号功能分类}
+\label{sec-1-1-5}
+\begin{itemize}
+
+\item 组帐号
+\label{sec-1-1-5-1}%
+\begin{itemize}
+
+\item 超级用户组
+\label{sec-1-1-5-1-1}%
+\begin{itemize}
+
+\item root组，GID为0，但组成员不具备系统管理权力，受系统权限限制
+\label{sec-1-1-5-1-1-1}%
+\end{itemize} % ends low level
+
+\item 系统组
+\label{sec-1-1-5-1-2}%
+\begin{itemize}
+
+\item 类似于系统帐号，仅提供给系统本身或某个软件使用
+\label{sec-1-1-5-1-2-1}%
+
+\item 在CentOS 5中，系统组的GID范围为1～499
+\label{sec-1-1-5-1-2-2}%
+\end{itemize} % ends low level
+
+\item 用户自定义组
+\label{sec-1-1-5-1-3}%
+\begin{itemize}
+
+\item 除root组和系统组之外的组，都可以由管理员自行定义
+\label{sec-1-1-5-1-3-1}%
+
+\item 用户自定义组的GID在500～4,294,967,295之间
+\label{sec-1-1-5-1-3-2}%
+
+\item 用户私有组(User Private Group, UPG)
+\label{sec-1-1-5-1-3-3}%
+\begin{enumerate}
+\item 是指与用户账户名称相同的组，是用户默认的基本组
+\item 当建立新用户时，CentOS会自动建立该用户的私有组
+\item 用户还可以加入多个其他的组，也叫用户的附加组
+\end{enumerate}
+\end{itemize} % ends low level
+\end{itemize} % ends low level
+\end{itemize} % ends low level
+\end{frame}
+\subsection{帐号内容}
+\label{sec-1-2}
+\begin{frame}[fragile]
+\frametitle{用户帐号}
+\label{sec-1-2-1}
+\begin{itemize}
+
+\item 用户帐号数据和密码分别存储于/etc/passwd和/etc/shadow中\\
+\label{sec-1-2-1-1}%
+\begin{minted}[]{bash}
+less /etc/passwd
+less /etc/shadow
+man 5 passwd
+man 5 shadow
+\end{minted}
+\end{itemize} % ends low level
+\begin{exampleblock}{说明}
+\label{sec-1-2-1-2}
+
+\begin{enumerate}
+\item 如果密码字段为空，则该用户无需密码即可登录系统
+\item 如果密码字段为x，则该用户名密码被存储至他处
+\item 如果默认shell为/sbin/nologin，则不允许该用户登录
+\end{enumerate}
+\end{exampleblock}
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{组帐号}
+\label{sec-1-2-2}
+\begin{itemize}
+
+\item 组帐号数据和密码分别存储于/etc/group和/etc/gshadow中\\
+\label{sec-1-2-2-1}%
+\begin{minted}[]{bash}
+less /etc/group
+less /etc/gshadow
+man 5 group
+man 5 gshadow
+\end{minted}
+\end{itemize} % ends low level
+\begin{exampleblock}{说明}
+\label{sec-1-2-2-2}
+
+\begin{enumerate}
+\item CentOS不支持嵌套组，组成员只能是用户，不能是其他组
+\item 组成员之间以逗号(,)分隔
+\end{enumerate}
+\end{exampleblock}
+\end{frame}
+\subsection{用户帐号管理}
+\label{sec-1-3}
+\begin{frame}[fragile]
+\frametitle{添加用户帐号}
+\label{sec-1-3-1}
+\begin{block}{useradd}
+\label{sec-1-3-1-1}
+
+
+\begin{minted}[]{bash}
+useradd jack
+tail -1 /etc/passwd
+tail -1 /etc/group
+tail -1 /etc/shadow
+ls /home
+ls /var/spool/mail
+man useradd
+\end{minted}
+\end{block}
+\begin{exampleblock}{说明}
+\label{sec-1-3-1-2}
+
+用useradd添加新用户时，如果未指定选项，则useradd会根据/etc/login.defs与/etc/default/useradd中的配置添加新用户。
+\end{exampleblock}
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{设置/修改用户密码}
+\label{sec-1-3-2}
+\begin{exampleblock}{示例}
+\label{sec-1-3-2-1}
+
+
+\begin{minted}[]{bash}
+passwd jack    #为指定用户设置密码(仅root)
+passwd         #修改当前用户密码
+passwd -l jack #锁定用户(仅root)
+passwd -u jack #解锁用户(仅root)
+passwd -d jack #清除用户密码(本地免密码登录)
+\end{minted}
+\end{exampleblock}
+\begin{block}{说明}
+\label{sec-1-3-2-2}
+
+让用户免密码本地登录的两种方法：
+\begin{enumerate}
+\item 将/etc/passwd文件中的密码字段清空
+\item 将/etc/shadow文件中的密码字段清空
+\end{enumerate}
+远程用户必须提供密码才允许登录!
+\end{block}
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{修改用户帐号}
+\label{sec-1-3-3}
+\begin{block}{usermod}
+\label{sec-1-3-3-1}
+
+
+\begin{minted}[]{bash}
+usermod -u 1001 bob
+usermod -g 1001 bob
+usermod -G root,users bob #设置bob的附加组
+usermod -G '' bob         #设置bob不属于任何附加组
+usermod -s /bin/csh bob
+usermod -d /home/bobie
+usermod -l bobie bob
+usermod -L alice          #锁定帐号
+usermod -U alice          #解锁帐号
+\end{minted}
+\end{block}
+\begin{exampleblock}{说明}
+\label{sec-1-3-3-2}
+
+usermod与useradd的选项类似，还增加了-U、-L、-l等选项。
+\end{exampleblock}
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{查看和删除用户帐号}
+\label{sec-1-3-4}
+\begin{exampleblock}{id}
+\label{sec-1-3-4-1}
+
+
+\begin{minted}[]{bash}
+id          #查看当前用户信息
+id jack     #查看指定用户信息
+\end{minted}
+\end{exampleblock}
+\begin{block}{userdel}
+\label{sec-1-3-4-2}
+
+
+\begin{minted}[]{bash}
+userdel jack     #删除用户
+userdel -r jack  #删除用户及其主目录和邮箱
+\end{minted}
+\end{block}
+\end{frame}
+\subsection{组帐号管理}
+\label{sec-1-4}
+\begin{frame}[fragile]
+\frametitle{创建、修改组}
+\label{sec-1-4-1}
+\begin{exampleblock}{groupadd 创建组}
+\label{sec-1-4-1-1}
+
+
+\begin{minted}[]{bash}
+groupadd proj1
+groupadd -g 1001 proj2
+\end{minted}
+\end{exampleblock}
+\begin{exampleblock}{groupmod 修改组}
+\label{sec-1-4-1-2}
+
+
+\begin{minted}[]{bash}
+groupmod -g 1000 students
+groupmod -n projectA proj1
+\end{minted}
+\end{exampleblock}
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{查询、删除组}
+\label{sec-1-4-2}
+\begin{exampleblock}{groups 查询组}
+\label{sec-1-4-2-1}
+
+
+\begin{minted}[]{bash}
+groups
+groups mary
+\end{minted}
+\end{exampleblock}
+\begin{exampleblock}{groupdel 删除组}
+\label{sec-1-4-2-2}
+
+
+\begin{minted}[]{bash}
+groupdel projectA
+\end{minted}
+\end{exampleblock}
+\begin{block}{注意}
+\label{sec-1-4-2-3}
+
+
+\begin{verbatim}
+注意：删除某用户的基本组之前，需要先删除该用户！
+\end{verbatim}
+\end{block}
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{组成员管理}
+\label{sec-1-4-3}
+\begin{itemize}
+
+\item gpasswd
+\label{sec-1-4-3-1}%
+\begin{itemize}
+
+\item gpasswd本用于设置组密码，但该功能极少使用，实际上更多用于组成员管理
+\label{sec-1-4-3-1-1}%
+\end{itemize} % ends low level
+\end{itemize} % ends low level
+\begin{exampleblock}{示例}
+\label{sec-1-4-3-2}
+
+
+\begin{minted}[]{bash}
+gpaswd -a mary students   #将mary加入students组
+gpasswd -d mary students  #从students组删除mary
+gpasswd -A mary students  #将mary设置为studens组管理员
+\end{minted}
+\end{exampleblock}
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{切换组身份}
+\label{sec-1-4-4}
+\begin{exampleblock}{newgrp}
+\label{sec-1-4-4-1}
+
+
+\begin{minted}[]{bash}
+newgrp students  #切换至students组身份
+exit             #返回原先组身份
+\end{minted}
+\end{exampleblock}
+\begin{block}{说明}
+\label{sec-1-4-4-2}
+
+
+\begin{verbatim}
+如果用户不是root，下列情况下将会被提示输入组密码：
+1. 如果用户没有密码而要切换的组有密码
+2. 如果用户不属于要切换的组，而该组有密码
+如果用户不属于要切换的组，且该组未设密码，则拒绝切换
+\end{verbatim}
+\end{block}
+\note{sg
+
+
+\begin{verbatim}
+man sg   #sg与newgrp类似，但也有些不同
+\end{verbatim}
+}
+\end{frame}
+\subsection{密码管理}
+\label{sec-1-5}
+\begin{frame}
+\frametitle{加密算法}
+\label{sec-1-5-1}
+\begin{itemize}
+
+\item DES\\
+\label{sec-1-5-1-1}%
+传统UNIX使用的加密算法，只能支持8个字符以内的密码，如果超过8个字符，则DES会忽略第8个字符以后的密码，其安全性比较差。
+
+\item MD5\\
+\label{sec-1-5-1-2}%
+CentOS默认使用的加密算法，支持255个字符的密码，比DES更安全。
+\end{itemize} % ends low level
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{查看与设置帐号秘密有效期}
+\label{sec-1-5-2}
+\begin{exampleblock}{chage}
+\label{sec-1-5-2-1}
+
+
+\begin{minted}[]{bash}
+chage -l mike  #查看用户帐号密码有效期信息
+#注意：普通用户只能查看自己的帐号密码有效期信息
+chage -m 3 mike  #设置设定密码后至少经过几天才能修改密码
+chage -M 30 mike #设置设定密码后最长多少天后必须修改密码
+chage -d 2016-01-01 mike #设置密码最后修改时间
+chage -E 2020-12-31 mike #设置密码过期时间
+chage -W 7 mike  #设置密码过期前几天提醒
+chage -I 3 mike  #设置密码过期后多少天被锁定
+\end{minted}
+\end{exampleblock}
+\end{frame}
+\section{权限管理}
+\label{sec-2}
+\subsection{基本权限管理}
+\label{sec-2-1}
+\begin{frame}
+\frametitle{文件权限和目录权限}
+\label{sec-2-1-1}
+\begin{itemize}
+
+\item 三种基本权限\\
+\label{sec-2-1-1-1}%
+\begin{center}
+\begin{tabular}{lll}
+ r--       &  -w-       &  --x         \\
+\hline
+ 100       &  010       &  001         \\
+ 4         &  2         &  1           \\
+ 文件可读  &  文件可写  &  文件可执行  \\
+ 目录可读  &  目录可写  &  目录可搜索  \\
+\end{tabular}
+\end{center}
+
+
+\end{itemize} % ends low level
+\begin{block}{说明}
+\label{sec-2-1-1-2}
+
+\begin{enumerate}
+\item 目录可读：可以通过ls查看目录中的文件列表
+\item 目录可写：可以在目录内创建、删除、移动文件
+\item 目录可访问：可以通过cd进入该目录或者搜索其内的文件
+\end{enumerate}
+\end{block}
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{三种用户}
+\label{sec-2-1-2}
+\begin{exampleblock}{三种用户的权限}
+\label{sec-2-1-2-1}
+
+
+\begin{minted}[]{bash}
+ls -l ~/students.db
+\end{minted}
+-rw-rw-r--. 1 wxq wxq 115 3月   8 22:35 /home/wxq/students.db
+\end{exampleblock}
+\begin{itemize}
+
+\item 文件所有者(默认为创建该文件的用户)\\
+\label{sec-2-1-2-2}%
+ls -l输出结果第3列，第一组权限(rw-)
+
+\item 文件所属组\\
+\label{sec-2-1-2-3}%
+ls -l输出结果第4列，第二组权限(rw-)
+
+\item 其他用户\\
+\label{sec-2-1-2-4}%
+既不是文件所有者，也不属于文件所属组，第三组权限(r--)
+\end{itemize} % ends low level
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{修改文件和目录权限}
+\label{sec-2-1-3}
+\begin{itemize}
+
+\item chmod\\
+\label{sec-2-1-3-1}%
+仅文件所有者和root用户有权修改文件权限
+\end{itemize} % ends low level
+\begin{exampleblock}{示例}
+\label{sec-2-1-3-2}
+
+
+\begin{minted}[]{bash}
+chmod u=rw-,g=r--,o=r-- file
+chmod g+w,o-r file
+chmod a+x file
+chmod 644 file
+chmod 600 file
+chmod 700 dir
+chmod -R 755 dir
+\end{minted}
+\end{exampleblock}
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{查看和设置默认权限掩码}
+\label{sec-2-1-4}
+\begin{exampleblock}{umask}
+\label{sec-2-1-4-1}
+
+
+\begin{minted}[]{bash}
+umask
+umask -S
+umask 0026
+\end{minted}
+\end{exampleblock}
+\begin{block}{说明}
+\label{sec-2-1-4-2}
+
+\begin{enumerate}
+\item 新建文件的默认权限等于0666-umask
+\item 新建目录的默认权限等于0777-umask
+\item 0666-0027=0640
+\end{enumerate}
+\end{block}
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{权限设置实例}
+\label{sec-2-1-5}
+\begin{block}{问题}
+\label{sec-2-1-5-1}
+
+xiaobai想在自己的主目录内建立一个公共目录pub，希望所有人都可以只读访问该目录内的文件，但不希望其他人能访问其主目录内的其他文件和目录，请问要怎么配置相关文件/目录的权限才能达到目的呢？
+\end{block}
+\note{答案
+
+
+\begin{verbatim}
+1. chmod o+x ~xiaobai
+2. mkdir pub
+3. echo hello >pub/hello.txt
+\end{verbatim}
+}
+\note{另一个问题
+
+mike想在自己的主目录内建立一个作业上传目录handin，希望所有学生都可以上传作业到该目录内，但不希望学生能访问其主目录内的其他文件和目录，也不希望学生访问/删除handin目录内其他同学的作业，请问要怎么才能做到呢？
+}
+\note{答案
+
+
+\begin{verbatim}
+1. chmod o+x ~mike
+2. mkdir handin
+3. chmod 1707 handin #设置其他用户可写，并设置sticky位
+4. umask 0077        #设置默认权限? 这样不行，估计只能通过ftp的local_mask实现
+\end{verbatim}
+}
+\end{frame}
+\subsection{文件所有权管理}
+\label{sec-2-2}
+\begin{frame}[fragile]
+\frametitle{chown和chgrp}
+\label{sec-2-2-1}
+\begin{itemize}
+
+\item 仅root用户有权更改文件所有者和所属组
+\label{sec-2-2-1-1}%
+\end{itemize} % ends low level
+\begin{exampleblock}{示例}
+\label{sec-2-2-1-2}
+
+
+\begin{minted}[]{bash}
+chown root file         #令file为root所有
+chown root:users file   #令file为root所有，属users组
+chown root: file        #令file为root所有，属root组
+chown :users file       #令file属users组
+chown -R root:users dir #递归处理
+chgrp users file        #令file属users组
+chgrp -R users dir      #递归处理
+\end{minted}
+\end{exampleblock}
+\end{frame}
+\subsection{特殊权限(s)管理}
+\label{sec-2-3}
+\begin{frame}
+\frametitle{三种基本权限够用吗？}
+\label{sec-2-3-1}
+\begin{itemize}
+
+\item mike用户对文件F具有只读权限，则mike用编辑器vim打开文件F时，vim对文件F也仅具备只读权限。
+\label{sec-2-3-1-1}%
+\end{itemize} % ends low level
+\begin{exampleblock}{结论}
+\label{sec-2-3-1-2}
+
+一个程序对文件具备何种权限由启动该程序的用户决定
+\end{exampleblock}
+\begin{block}{问题}
+\label{sec-2-3-1-3}
+
+mike用户对/etc/shadow不具备任何权限，那mike如何通过执行passwd程序修改存放在/etc/shadow内的登录密码呢？
+\end{block}
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{setUID权限}
+\label{sec-2-3-2}
+\begin{itemize}
+
+\item setUID权限：可执行程序被设置了setUID权限后，无论被谁执行，该程序都将具备其所有者的权限，而不是执行者的权限。
+\label{sec-2-3-2-1}%
+\end{itemize} % ends low level
+\begin{exampleblock}{示例}
+\label{sec-2-3-2-2}
+
+
+\begin{minted}[]{bash}
+ls -l /usr/bin/passwd
+chmod u+s file   #设置setUID权限
+chmod u-s file   #删除setUID权限
+chmod 4751 file  #设置setUID权限
+chmod 0751 file  #删除setUID权限
+\end{minted}
+\end{exampleblock}
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{setGID权限}
+\label{sec-2-3-3}
+\begin{itemize}
+
+\item setGID权限：可执行程序被设置了setGID权限后，无论被谁执行，该程序都将具备其所属组的权限，但没有其所有者的权限。
+\label{sec-2-3-3-1}%
+\end{itemize} % ends low level
+\begin{exampleblock}{示例}
+\label{sec-2-3-3-2}
+
+
+\begin{minted}[]{bash}
+ls -l /bin/locate
+chmod g+s file
+chmod g-s file
+chmod 2751 file
+\end{minted}
+\end{exampleblock}
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{setGID权限(2)}
+\label{sec-2-3-4}
+\begin{itemize}
+
+\item setGID权限常针对目录设置：目录设置了setGID权限后，无论谁在该目录内创建的新文件，默认都会属于该目录所属的组，而不是创建者所属的组。
+\label{sec-2-3-4-1}%
+\end{itemize} % ends low level
+\begin{exampleblock}{示例}
+\label{sec-2-3-4-2}
+
+
+\begin{minted}[]{bash}
+mkdir proj_dir
+groupadd proj
+chgrp proj proj_dir
+chmod g+s proj_dir
+\end{minted}
+\end{exampleblock}
+\end{frame}
+\begin{frame}
+\frametitle{Sticky bit权限}
+\label{sec-2-3-5}
+\begin{itemize}
+
+\item 
+%
+\end{itemize} % ends low level
+\end{frame}
+\subsection{}
+\section{进程管理}
+\label{sec-3}
+\subsection{进程管理}
+\label{sec-3-1}
+\begin{frame}[fragile]
+\frametitle{查看进程}
+\label{sec-3-1-1}
+\begin{exampleblock}{ps}
+\label{sec-3-1-1-1}
+
+
+\begin{minted}[]{bash}
+ps             #查看当前shell执行的进程
+ps aux         #查看所有进程(BSD风格)
+ps -ef         #查看所有进程(System V风格)
+ps -ft /dev/pts/0 #查看与指定终端关联的进程
+ps -fp 1234    #查看进程号为1234的进程的详细信息
+ps -fu xiaobai #查看用户xiaobai运行的进程信息
+ps -fC evince  #查看名称为enince的所有进程信息
+\end{minted}
+\end{exampleblock}
+\begin{block}{pstree}
+\label{sec-3-1-1-2}
+
+
+\begin{minted}[]{bash}
+pstree         #打印系统进程树
+\end{minted}
+\end{block}
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{查看进程}
+\label{sec-3-1-2}
+\begin{block}{pgrep}
+\label{sec-3-1-2-1}
+
+
+\begin{minted}[]{bash}
+pgrep evince  #查找名为evince的进程的进程号
+\end{minted}
+\end{block}
+\begin{exampleblock}{top}
+\label{sec-3-1-2-2}
+
+
+\begin{minted}[]{bash}
+top     #实时系统状态监控
+h/?     #帮助
+d 5     #设置刷新周期为5秒
+k 1234  #杀死进程号为1234的进程
+P       #按cpu使用率排序
+M       #按memory使用率排序
+T       #按cpu使用时间排序
+u tom   #仅显示用户tom的进程
+q       #退出top
+man top
+\end{minted}
+\end{exampleblock}
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{进程控制}
+\label{sec-3-1-3}
+\begin{itemize}
+
+\item 前后台进程
+\label{sec-3-1-3-1}%
+\begin{itemize}
+
+\item 一个终端一次只能运行一个前台进程，但可以并发运行多个后台进程。
+\label{sec-3-1-3-1-1}%
+\end{itemize} % ends low level
+\begin{exampleblock}{前后台作业控制}
+\label{sec-3-1-3-1-2}
+
+
+\begin{minted}[]{bash}
+Ctrl-z              #挂起(暂停)前台进程的执行
+jobs [-l]           #查看作业
+fg [n]              #将作业恢复至前台执行
+bg [n]              #将作业恢复至后台执行
+kill %n/pid         #杀死指定的作业/进程
+killall xeyes       #杀死所有xeyes进程
+pkill eye           #查找包含eye的进程名并杀死
+xeyes -center red & #启动后台进程
+nohup ./longjob &   #保持后台进程在用户注销后继续运行
+nohup ./longjob & >longjob.out
+\end{minted}
+\end{exampleblock}
+\end{itemize} % ends low level
+\end{frame}
+\begin{frame}
+\frametitle{进程和信号}
+\label{sec-3-1-4}
+\begin{itemize}
+
+\item 信号\\
+\label{sec-3-1-4-1}%
+内核用信号通知进程发生的异常事件和实现进程间通信，进程也可以给其他进程。每种信号可以用名称或整数标识。
+\begin{enumerate}
+\item 硬件异常：进程让硬件执行错误操作，如进程进行除0运算，内核会给它发送SIGFPE(8)
+\item 软件状态：把异常的软件状态通知进程，如进程终止时，内核会向父进程发送SIGCHLD（17），当调整X图形应用程序的窗口大小时，该程序会收到SIGWINCH(28)
+\item 终端中断：用户敲入的终端控制组合键会把信号发送给shell前台进程，如Ctrl-c发送SIGINT(2)，Ctrl-z发送SIGSTP(20)
+\item 其他进程：进程可以通过kill命令给同一用户拥有的其他任何进程发送任何信号
+\end{enumerate}
+\end{itemize} % ends low level
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{向进程发信号}
+\label{sec-3-1-5}
+\begin{itemize}
+
+\item 信号：
+\label{sec-3-1-5-1}%
+\end{itemize} % ends low level
+\begin{exampleblock}{kill 发送信号给进程}
+\label{sec-3-1-5-2}
+
+
+\begin{minted}[]{bash}
+kill -l              #打印信号值列表
+man 7 signal         #查看信号相关帮助
+Ctrl-c               #发送信号2给前台进程
+Ctrl-z               #发送信号20给前台进程
+kill -19 12121       #暂停
+kill -18 12121       #恢复
+kill -15 12345       #发送信号15给进程12345
+kill 12345           #同上
+kill -9 11111        #强行杀死进程11111
+kill -s SIGTERM 1234 #发送信号SIGTERM给进程1234
+\end{minted}
+\end{exampleblock}
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{进程优先级}
+\label{sec-3-1-6}
+\begin{itemize}
+
+\item 优先级(priority)与谦让值(nice)\\
+\label{sec-3-1-6-1}%
+top命令的输出中，PR是内核用于进程调度的动态优先级，而NI是用户可以设置的谦让值。NI可以影响PR，PR与NI越小则进程优先级越高。
+nice值可以从-20至19，默认为0。
+\end{itemize} % ends low level
+\begin{exampleblock}{nice  以指定nice值启动进程}
+\label{sec-3-1-6-2}
+
+
+\begin{minted}[]{bash}
+xeyes -center red &        #默认nice值为0
+nice xeyes -center blue &  #默认设置nice值为10
+nice -n 5 xeyes -center green &
+ps -l   #查看进程的PR与NI值
+\end{minted}
+\end{exampleblock}
+\begin{block}{注意}
+\label{sec-3-1-6-3}
+
+只有root用户可以在nice命令中为进程指定负nice值
+\end{block}
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{进程优先级(2)}
+\label{sec-3-1-7}
+\begin{exampleblock}{renice  调整进程nice值}
+\label{sec-3-1-7-1}
+
+
+\begin{minted}[]{bash}
+renice 15 12707     #将进程12707的nice值调整为15
+renice -5 12675     #将进程12675的nice值调整为-5
+renice 8 -u mike    #将用户mike的进程nice值调整为8
+renice 0 -g users   #将用户组users的进程nice值调整为0
+\end{minted}
+\end{exampleblock}
+\begin{block}{注意}
+\label{sec-3-1-7-2}
+
+只有root用户可以通过renice减小进程的nice值
+\end{block}
+\end{frame}
+\begin{frame}
+\frametitle{守护进程(Daemon)}
+\label{sec-3-1-8}
+\begin{itemize}
+
+\item 守护进程(daemon)
+\label{sec-3-1-8-1}%
+\begin{itemize}
+
+\item 守护进程是那些在后台运行的进程，脱离控制终端，守护进程与系统服务像关联，如日志守护进程syslogd、安全shell守护进程sshd等，守护进程名一般以d结尾。
+\label{sec-3-1-8-1-1}%
+
+\item 守护进程通常作为系统启动过程的一部分被启动，或者由root用户启动，有些守护进程以root用户身份运行，有些守护进程则以特定的系统用户身份运行。
+\label{sec-3-1-8-1-2}%
+\end{itemize} % ends low level
+\end{itemize} % ends low level
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{at/batch 一次性计划任务}
+\label{sec-3-1-9}
+\begin{itemize}
+
+\item atd守护进程：运行用户提交稍后运行的作业
+\label{sec-3-1-9-1}%
+\end{itemize} % ends low level
+\begin{exampleblock}{用at命令提交作业}
+\label{sec-3-1-9-2}
+
+
+\begin{minted}[]{bash}
+at 2:00 am
+at> find / -mtime 0 -exec cp -p {} /bak \;
+at> Ctrl-d
+at 22:30 <task1
+at -f task2 now+1h
+atq           #查看作业队列，同at -l
+atrm 2        #删除作业2，同at -d 2
+man at
+\end{minted}
+\end{exampleblock}
+\end{frame}
+\begin{frame}
+\frametitle{cron 周期性计划任务}
+\label{sec-3-1-10}
+\begin{itemize}
+
+\item crond守护进程
+\label{sec-3-1-10-1}%
+\end{itemize} % ends low level
+\end{frame}
+\section{shell环境}
+\label{sec-4}
+\subsection{shell环境变量}
+\label{sec-4-1}
+\begin{frame}[fragile]
+\frametitle{查看和修改shell环境变量}
+\label{sec-4-1-1}
+\begin{itemize}
+
+\item 查看shell环境变量\\
+\label{sec-4-1-1-1}%
+\begin{minted}[]{bash}
+env
+echo $SHELL
+\end{minted}
+
+\item 修改shell环境变量\\
+\label{sec-4-1-1-2}%
+\begin{minted}[]{bash}
+export HISTSIZE=500
+\end{minted}
+\end{itemize} % ends low level
+\begin{block}{说明}
+\label{sec-4-1-1-3}
+
+上述修改仅对当前会话有效！
+\end{block}
+\end{frame}
+\subsection{shell配置文件}
+\label{sec-4-2}
+\begin{frame}
+\frametitle{bash配置文件}
+\label{sec-4-2-1}
+\begin{exampleblock}{系统级配置文件}
+\label{sec-4-2-1-1}
+
+\begin{enumerate}
+\item /etc/profile       用户登录时运行
+\item /etc/bashrc        启动bash时运行
+\end{enumerate}
+\end{exampleblock}
+\begin{block}{用户级配置文件}
+\label{sec-4-2-1-2}
+
+\begin{enumerate}
+\item .bash\_profile     用户登录时运行
+\item .bashrc            启动bash时运行
+\item .bash\_logout      用户注销时运行
+\item .bash\_history     保存用户命令历史
+\end{enumerate}
+\end{block}
+\end{frame}
+
+\end{document}

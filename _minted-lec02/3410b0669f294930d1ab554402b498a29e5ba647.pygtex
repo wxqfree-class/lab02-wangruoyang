@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+whereis -l       \PYG{c}{\PYGZsh{}列出whereis的搜索目录列表}
+whereis mkdir
+\end{Verbatim}

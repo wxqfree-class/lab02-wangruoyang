@@ -1,0 +1,87 @@
+
+\makeatletter
+\def\PYGmonokai@reset{\let\PYGmonokai@it=\relax \let\PYGmonokai@bf=\relax%
+    \let\PYGmonokai@ul=\relax \let\PYGmonokai@tc=\relax%
+    \let\PYGmonokai@bc=\relax \let\PYGmonokai@ff=\relax}
+\def\PYGmonokai@tok#1{\csname PYGmonokai@tok@#1\endcsname}
+\def\PYGmonokai@toks#1+{\ifx\relax#1\empty\else%
+    \PYGmonokai@tok{#1}\expandafter\PYGmonokai@toks\fi}
+\def\PYGmonokai@do#1{\PYGmonokai@bc{\PYGmonokai@tc{\PYGmonokai@ul{%
+    \PYGmonokai@it{\PYGmonokai@bf{\PYGmonokai@ff{#1}}}}}}}
+\def\PYGmonokai#1#2{\PYGmonokai@reset\PYGmonokai@toks#1+\relax+\PYGmonokai@do{#2}}
+
+\def\PYGmonokai@tok@{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.97,0.97,0.95}{##1}}}
+\def\PYGmonokai@tok@vc{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.97,0.97,0.95}{##1}}}
+\def\PYGmonokai@tok@gs{\let\PYGmonokai@bf=\textbf}
+\def\PYGmonokai@tok@cm{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.46,0.44,0.37}{##1}}}
+\def\PYGmonokai@tok@vg{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.97,0.97,0.95}{##1}}}
+\def\PYGmonokai@tok@m{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.68,0.51,1.00}{##1}}}
+\def\PYGmonokai@tok@l{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.68,0.51,1.00}{##1}}}
+\def\PYGmonokai@tok@ge{\let\PYGmonokai@it=\textit}
+\def\PYGmonokai@tok@il{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.68,0.51,1.00}{##1}}}
+\def\PYGmonokai@tok@cs{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.46,0.44,0.37}{##1}}}
+\def\PYGmonokai@tok@cp{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.46,0.44,0.37}{##1}}}
+\def\PYGmonokai@tok@ni{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.97,0.97,0.95}{##1}}}
+\def\PYGmonokai@tok@ld{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.90,0.86,0.45}{##1}}}
+\def\PYGmonokai@tok@nl{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.97,0.97,0.95}{##1}}}
+\def\PYGmonokai@tok@nn{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.97,0.97,0.95}{##1}}}
+\def\PYGmonokai@tok@no{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.40,0.85,0.94}{##1}}}
+\def\PYGmonokai@tok@na{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.65,0.89,0.18}{##1}}}
+\def\PYGmonokai@tok@nb{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.97,0.97,0.95}{##1}}}
+\def\PYGmonokai@tok@nc{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.65,0.89,0.18}{##1}}}
+\def\PYGmonokai@tok@nd{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.65,0.89,0.18}{##1}}}
+\def\PYGmonokai@tok@ne{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.65,0.89,0.18}{##1}}}
+\def\PYGmonokai@tok@nf{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.65,0.89,0.18}{##1}}}
+\def\PYGmonokai@tok@nx{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.65,0.89,0.18}{##1}}}
+\def\PYGmonokai@tok@si{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.90,0.86,0.45}{##1}}}
+\def\PYGmonokai@tok@s2{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.90,0.86,0.45}{##1}}}
+\def\PYGmonokai@tok@vi{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.97,0.97,0.95}{##1}}}
+\def\PYGmonokai@tok@py{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.97,0.97,0.95}{##1}}}
+\def\PYGmonokai@tok@nt{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.98,0.15,0.45}{##1}}}
+\def\PYGmonokai@tok@nv{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.97,0.97,0.95}{##1}}}
+\def\PYGmonokai@tok@s1{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.90,0.86,0.45}{##1}}}
+\def\PYGmonokai@tok@sh{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.90,0.86,0.45}{##1}}}
+\def\PYGmonokai@tok@ow{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.98,0.15,0.45}{##1}}}
+\def\PYGmonokai@tok@mf{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.68,0.51,1.00}{##1}}}
+\def\PYGmonokai@tok@bp{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.97,0.97,0.95}{##1}}}
+\def\PYGmonokai@tok@mh{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.68,0.51,1.00}{##1}}}
+\def\PYGmonokai@tok@c1{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.46,0.44,0.37}{##1}}}
+\def\PYGmonokai@tok@o{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.98,0.15,0.45}{##1}}}
+\def\PYGmonokai@tok@kc{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.40,0.85,0.94}{##1}}}
+\def\PYGmonokai@tok@c{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.46,0.44,0.37}{##1}}}
+\def\PYGmonokai@tok@kr{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.40,0.85,0.94}{##1}}}
+\def\PYGmonokai@tok@err{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.59,0.00,0.31}{##1}}\def\PYGmonokai@bc##1{\colorbox[rgb]{0.12,0.00,0.06}{##1}}}
+\def\PYGmonokai@tok@kd{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.40,0.85,0.94}{##1}}}
+\def\PYGmonokai@tok@ss{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.90,0.86,0.45}{##1}}}
+\def\PYGmonokai@tok@sr{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.90,0.86,0.45}{##1}}}
+\def\PYGmonokai@tok@mo{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.68,0.51,1.00}{##1}}}
+\def\PYGmonokai@tok@mi{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.68,0.51,1.00}{##1}}}
+\def\PYGmonokai@tok@kn{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.98,0.15,0.45}{##1}}}
+\def\PYGmonokai@tok@sx{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.90,0.86,0.45}{##1}}}
+\def\PYGmonokai@tok@n{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.97,0.97,0.95}{##1}}}
+\def\PYGmonokai@tok@p{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.97,0.97,0.95}{##1}}}
+\def\PYGmonokai@tok@s{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.90,0.86,0.45}{##1}}}
+\def\PYGmonokai@tok@kp{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.40,0.85,0.94}{##1}}}
+\def\PYGmonokai@tok@w{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.97,0.97,0.95}{##1}}}
+\def\PYGmonokai@tok@kt{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.40,0.85,0.94}{##1}}}
+\def\PYGmonokai@tok@sc{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.90,0.86,0.45}{##1}}}
+\def\PYGmonokai@tok@sb{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.90,0.86,0.45}{##1}}}
+\def\PYGmonokai@tok@k{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.40,0.85,0.94}{##1}}}
+\def\PYGmonokai@tok@se{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.68,0.51,1.00}{##1}}}
+\def\PYGmonokai@tok@sd{\def\PYGmonokai@tc##1{\textcolor[rgb]{0.90,0.86,0.45}{##1}}}
+
+\def\PYGmonokaiZbs{\char`\\}
+\def\PYGmonokaiZus{\char`\_}
+\def\PYGmonokaiZob{\char`\{}
+\def\PYGmonokaiZcb{\char`\}}
+\def\PYGmonokaiZca{\char`\^}
+\def\PYGmonokaiZsh{\char`\#}
+\def\PYGmonokaiZpc{\char`\%}
+\def\PYGmonokaiZdl{\char`\$}
+\def\PYGmonokaiZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYGmonokaiZat{@}
+\def\PYGmonokaiZlb{[}
+\def\PYGmonokaiZrb{]}
+\makeatother
+

@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+less /etc/passwd
+less /etc/shadow
+man 5 passwd
+man 5 shadow
+\end{Verbatim}

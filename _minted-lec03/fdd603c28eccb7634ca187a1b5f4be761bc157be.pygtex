@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+ls -l /bin/locate
+chmod g+s file
+chmod g-s file
+chmod 2751 file
+\end{Verbatim}

@@ -1,0 +1,15 @@
+digraph undotree {
+	a[label="one",shape=record];
+	c1[label="change 1",shape=plaintext];
+	b[label="one too",shape=record];
+	c2[label="change 2",shape=plaintext];
+	c[label="one two",shape=record];
+	c3[label="change 3",shape=plaintext];
+	d[label="me too",shape=record];
+	a -> c1[style=dashed];
+	c1 -> b[style=dashed];
+	b -> c2[style=dashed];
+	c2 -> c[style=dashed];
+	b -> c3[style=dashed];
+	c3 -> d[style=dashed];
+}

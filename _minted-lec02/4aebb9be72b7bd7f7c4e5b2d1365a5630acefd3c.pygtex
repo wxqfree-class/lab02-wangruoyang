@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}打包}
+tar -czvf linux2015.tar.gz linux2015fall/
+\PYG{c}{\PYGZsh{}分割}
+split –b 5m linux2015.tar.gz
+split –b 5m –a 1 –d linux2015.tar.gz linux2015.tar.gz.part
+\PYG{c}{\PYGZsh{}合并还原}
+cat linux2015.tar.gz.part* >>linux2015bak.tar.gz
+\end{Verbatim}
