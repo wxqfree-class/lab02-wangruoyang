@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+cat excmd
+uname -a
+\PYG{n+nb}{exec }date
+\PYG{n+nb}{echo} “This line is never displayed”
+
+exec\PYGZus{}excmd \PYG{c}{\PYGZsh{}由于exec不返回到调用位置,因此其后的命令将无法执行。}
+\end{Verbatim}

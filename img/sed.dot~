@@ -1,0 +1,19 @@
+digraph sed {
+	rankdir=LR;
+	node[shape=record];
+	file[label="line 1\nline 2\nline 3\nline 4\n...",shape=note];
+	read[label="1. 读入一行到\n模式空间(pattern space)",shape=plaintext];
+	exec[label="2. 对模式空间执行\n指定的sed命令",shape=plaintext];
+	print[label="3. 打印模式空间内容\n并清空模式空间",shape=plaintext];
+	repeat[label="4. 重复读取下一行\n直到文件结尾",shape=plaintext];
+	pattern[label="模式空间",shape=box3d];
+	file -> read:w;
+	read:e -> pattern:w;
+	read -> exec;
+	exec:e -> pattern:w;
+	exec -> print;
+	print:e -> pattern:w;
+	print -> repeat;
+	repeat:w -> file;
+	{rank = same;read;exec;print;repeat;}
+}

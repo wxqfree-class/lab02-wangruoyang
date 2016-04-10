@@ -1,0 +1,17 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+cat cwords2
+\PYG{c}{\PYGZsh{}!/bin/bash}
+\PYG{k}{if} \PYG{o}{[} \PYG{l+s+s2}{"\PYGZdl{}\PYGZsh{}"} -ne 1 \PYG{o}{]}; \PYG{k}{then}
+\PYG{k}{  }\PYG{n+nb}{echo} \PYG{l+s+s2}{"usage: cwords file"}; \PYG{n+nb}{exit }1
+\PYG{k}{fi}
+\PYG{n+nv}{fname}\PYG{o}{=}\PYG{l+s+s2}{"\PYGZdl{}1"}
+\PYG{k}{while }\PYG{n+nb}{read }line
+\PYG{k}{do}
+\PYG{k}{  }\PYG{n+nb}{set} \PYG{n+nv}{\PYGZdl{}line}
+  \PYG{n+nb}{let }n+\PYG{o}{=}\PYG{n+nv}{\PYGZdl{}\PYGZsh{}}
+\PYG{k}{done} <\PYG{n+nv}{\PYGZdl{}fname}  \PYG{c}{\PYGZsh{}改用输入重定向}
+\PYG{n+nb}{echo} \PYG{l+s+s2}{"\PYGZdl{}fname: \PYGZdl{}n words"}
+
+cwords2 emp.data   \PYG{c}{\PYGZsh{}:-)}
+cwords2 vim-creep  \PYG{c}{\PYGZsh{}:-(}
+\end{Verbatim}

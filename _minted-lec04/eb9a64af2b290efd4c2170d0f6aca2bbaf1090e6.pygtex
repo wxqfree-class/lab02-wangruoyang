@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}计数：累计工作时间超过15小时的员工人数}
+\PYG{n+nv}{\PYGZdl{}3}>15 \PYG{o}{\PYGZob{}}\PYG{n+nv}{emp} \PYG{o}{=} emp +1\PYG{o}{\PYGZcb{}}
+  END \PYG{o}{\PYGZob{}}print emp, \PYG{l+s+s2}{"employees worked more than 15 hours"}\PYG{o}{\PYGZcb{}}
+
+\PYG{c}{\PYGZsh{}统计：计算员工总工资和平均工资}
+    \PYG{o}{\PYGZob{}}pay +\PYG{o}{=} \PYG{n+nv}{\PYGZdl{}2}*\PYG{n+nv}{\PYGZdl{}3}\PYG{o}{\PYGZcb{}}
+END \PYG{o}{\PYGZob{}}print NR, \PYG{l+s+s2}{"employees"}
+     print \PYG{l+s+s2}{"total pay is"}, pay
+     print \PYG{l+s+s2}{"average pay is"}, pay/NR
+    \PYG{o}{\PYGZcb{}}
+\end{Verbatim}

@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} a}\PYG{o}{=}teach
+\PYG{n+nv}{\PYGZdl{} }\PYG{n+nb}{echo} \PYG{l+s+s2}{"he is a \PYGZdl{}aer"}
+\PYG{n+nv}{\PYGZdl{} }\PYG{n+nb}{echo} \PYG{l+s+s2}{"he is a \PYGZdl{}\PYGZob{}a\PYGZcb{}er"}
+\PYG{n+nv}{\PYGZdl{} }\PYG{n+nb}{echo} \PYG{l+s+s1}{'he is a \PYGZdl{}\PYGZob{}a\PYGZcb{}er'}
+\PYG{n+nv}{\PYGZdl{} date}\PYG{o}{=}’07/23/2010’
+\PYG{n+nv}{\PYGZdl{} }\PYG{n+nb}{echo} \PYG{k}{\PYGZdl{}\PYGZob{}}\PYG{n+nv}{date}\PYG{k}{\PYGZcb{}}
+\PYG{n+nv}{\PYGZdl{} }\PYG{n+nb}{echo} \PYG{k}{\PYGZdl{}(}date\PYG{k}{)}
+\end{Verbatim}

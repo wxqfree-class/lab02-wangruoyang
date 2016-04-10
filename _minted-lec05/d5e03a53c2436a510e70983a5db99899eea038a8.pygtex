@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{x}\PYG{o}{=}6/3; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}x}   \PYG{c}{\PYGZsh{}x的值为6/3}
+\PYG{n+nb}{declare} -i x     \PYG{c}{\PYGZsh{}声明x为整数}
+\PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}x}          \PYG{c}{\PYGZsh{}x的值仍为6/3}
+\PYG{n+nv}{x}\PYG{o}{=}6/3; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}x}   \PYG{c}{\PYGZsh{}重新赋值后，x的值为2}
+\PYG{n+nv}{x}\PYG{o}{=}3.14; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}x}  \PYG{c}{\PYGZsh{}不支持浮点数，值变为0}
+\PYG{n+nb}{declare} -r x     \PYG{c}{\PYGZsh{}声明x为只读变量}
+\PYG{n+nv}{x}\PYG{o}{=}100
+\PYG{n+nb}{declare} -p x     \PYG{c}{\PYGZsh{}显示变量x的声明}
+\PYG{n+nb}{declare} -p       \PYG{c}{\PYGZsh{}显示所有变量}
+\PYG{c}{\PYGZsh{} -a(声明数组) -f(声明函数) -x(声明环境变量)}
+\end{Verbatim}

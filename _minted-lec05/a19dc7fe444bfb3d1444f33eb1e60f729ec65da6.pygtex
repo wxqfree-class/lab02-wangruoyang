@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}!/bin/bash}
+\PYG{n+nb}{trap} \PYG{l+s+s1}{'echo "EXIT: min=\PYGZdl{}min max=\PYGZdl{}max"'} EXIT
+\PYG{n+nv}{min}\PYG{o}{=}\PYG{n+nv}{\PYGZdl{}1}
+\PYG{n+nv}{max}\PYG{o}{=}\PYG{n+nv}{\PYGZdl{}2}
+\PYG{k}{if} \PYG{o}{[} \PYG{n+nv}{\PYGZdl{}min} -gt \PYG{n+nv}{\PYGZdl{}max} \PYG{o}{]}; \PYG{k}{then}
+\PYG{k}{  }\PYG{n+nb}{exit }1
+\PYG{k}{fi}
+
+\PYG{n+nb}{trap}-debug1 6 8
+\end{Verbatim}

@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}多行}
+\PYG{k}{for }i in a \PYG{l+s+s2}{"b c"} d
+\PYG{k}{do}
+\PYG{k}{  }\PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}i}
+\PYG{k}{done}
+\PYG{c}{\PYGZsh{}单行}
+\PYG{k}{for }i in a \PYG{l+s+s1}{'b c'} d; \PYG{k}{do }\PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}i}; \PYG{k}{done}
+\PYG{k}{for }i in \PYG{l+s+sb}{`}seq 10 20\PYG{l+s+sb}{`}; \PYG{k}{do}
+\PYG{k}{  }\PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}i}
+\PYG{k}{done}
+\end{Verbatim}

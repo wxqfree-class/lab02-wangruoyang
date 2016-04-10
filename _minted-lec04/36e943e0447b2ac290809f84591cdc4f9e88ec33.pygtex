@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+cat double
+NF>0 \PYG{o}{\PYGZob{}}
+\PYG{k}{if} \PYG{o}{(}\PYG{n+nv}{\PYGZdl{}1} \PYG{o}{==} lastword\PYG{o}{)}
+  \PYG{n+nb}{printf} “\PYGZpc{}s\PYG{l+s+se}{\PYGZbs{}t}\PYGZpc{}d: \PYGZpc{}s\PYG{l+s+se}{\PYGZbs{}n}”, FILENAME, FNR, \PYG{n+nv}{\PYGZdl{}1}
+\PYG{k}{for} \PYG{o}{(} \PYG{n+nv}{i}\PYG{o}{=}1;i<NF;i++ \PYG{o}{)}
+  \PYG{k}{if} \PYG{o}{(} \PYG{n+nv}{\PYGZdl{}i} \PYG{o}{==} \PYG{k}{\PYGZdl{}(}i+1\PYG{k}{)} \PYG{o}{)}
+    \PYG{n+nb}{printf} “\PYGZpc{}s\PYG{l+s+se}{\PYGZbs{}t}\PYGZpc{}d: \PYGZpc{}s\PYG{l+s+se}{\PYGZbs{}n}”, FILENAME, FNR, \PYG{n+nv}{\PYGZdl{}i}
+\PYG{n+nv}{lastword} \PYG{o}{=} \PYG{n+nv}{\PYGZdl{}NF}
+\PYG{o}{\PYGZcb{}}
+
+awk -f double file1 file2 file3
+\end{Verbatim}

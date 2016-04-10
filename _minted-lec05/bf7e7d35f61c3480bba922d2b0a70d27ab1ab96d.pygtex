@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{echo} \PYG{l+s+s1}{'echo \PYGZdl{}x'} >echox
+cx echox;mv echox bin
+\PYG{n+nv}{x}\PYG{o}{=}300
+\PYG{n+nv}{x}\PYG{o}{=}500 echox
+\PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}x}
+\end{Verbatim}

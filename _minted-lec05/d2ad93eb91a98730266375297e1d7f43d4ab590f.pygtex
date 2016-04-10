@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+who | cut -d\PYG{l+s+s2}{" "} -f1 | sort | uniq | wc -l
+\PYG{c}{\PYGZsh{}如需反复执行上述命令，则可以将其组织成一个新命令}
+\PYG{n+nb}{echo} \PYG{l+s+s1}{'who | cut -d" " -f1 | sort | uniq | wc -l'} >nu
+\PYG{c}{\PYGZsh{}执行}
+1. sh <nu
+2. sh nu
+3. chmod +x nu
+   ./nu
+4. mkdir bin
+   \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}PATH}
+   mv nu bin
+   ls nu
+   nu
+\end{Verbatim}

@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+nu\PYG{o}{()\PYGZob{}} who | wc -l; \PYG{o}{\PYGZcb{}}
+nu
+\PYG{n+nb}{type }nu
+\PYG{n+nb}{declare} -f nu
+\PYG{n+nb}{unset} -f nu; nu
+\end{Verbatim}

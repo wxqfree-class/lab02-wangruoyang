@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}在行间加空行}
+sed \PYG{l+s+s1}{'G'} students.db       \PYG{c}{\PYGZsh{}每行前加空行}
+sed \PYG{l+s+s1}{'x;p;x'} students.db   \PYG{c}{\PYGZsh{}每行后加空行}
+\PYG{c}{\PYGZsh{}实现tac file命令}
+sed -n \PYG{l+s+s1}{'1!G;\PYGZdl{}!h;\PYGZdl{}p'} students.db
+sed \PYG{l+s+s1}{'1!G;\PYGZdl{}!h;\PYGZdl{}!d'} students.db
+\end{Verbatim}

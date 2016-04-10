@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{set }3 + \PYG{n+nv}{4} \PYG{o}{=} 7      \PYG{c}{\PYGZsh{}:-)}
+\PYG{n+nb}{set} -3 + \PYG{n+nv}{7} \PYG{o}{=} 4     \PYG{c}{\PYGZsh{}:-(}
+\PYG{n+nb}{set} -- -3 + \PYG{n+nv}{7} \PYG{o}{=} 4  \PYG{c}{\PYGZsh{}:-)}
+\end{Verbatim}

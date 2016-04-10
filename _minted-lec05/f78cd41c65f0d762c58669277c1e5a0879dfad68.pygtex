@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{var}\PYG{o}{=}banana
+\PYG{n+nb}{echo} \PYG{k}{\PYGZdl{}\PYGZob{}}\PYG{n+nv}{var}\PYG{p}{/na/la}\PYG{k}{\PYGZcb{}}     \PYG{c}{\PYGZsh{}替换1次}
+\PYG{n+nb}{echo} \PYG{k}{\PYGZdl{}\PYGZob{}}\PYG{n+nv}{var}\PYG{p}{//na/la}\PYG{k}{\PYGZcb{}}    \PYG{c}{\PYGZsh{}全部替换}
+\PYG{n+nb}{echo} \PYG{k}{\PYGZdl{}\PYGZob{}}\PYG{n+nv}{var}\PYG{p}{/\PYGZsh{}ba/la}\PYG{k}{\PYGZcb{}}    \PYG{c}{\PYGZsh{}仅替换开头}
+\PYG{n+nb}{echo} \PYG{k}{\PYGZdl{}\PYGZob{}}\PYG{n+nv}{var}\PYG{p}{/\PYGZpc{}na/ma}\PYG{k}{\PYGZcb{}}    \PYG{c}{\PYGZsh{}仅替换结尾}
+\end{Verbatim}

@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+grep \PYG{l+s+se}{\PYGZbs{}b}confident\PYG{l+s+se}{\PYGZbs{}b} /usr/share/dict/words
+grep \PYG{l+s+se}{\PYGZbs{}B}confident\PYG{l+s+se}{\PYGZbs{}B} /usr/share/dict/words
+\end{Verbatim}

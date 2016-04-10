@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+grep \PYG{l+s+s1}{'[0-9]\PYGZbs{}+'} file
+grep -E \PYG{l+s+s1}{'[0-9]+'} file
+egrep \PYG{l+s+s1}{'[0-9]+'} file
+\end{Verbatim}

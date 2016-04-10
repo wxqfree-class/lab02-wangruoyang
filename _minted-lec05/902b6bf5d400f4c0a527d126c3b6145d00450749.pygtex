@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}打印命令cat所在的目录}
+\PYG{n+nb}{echo} \PYG{l+s+sb}{`}dirname \PYG{l+s+se}{\PYGZbs{}`}which cat\PYG{l+s+se}{\PYGZbs{}`}\PYG{l+s+sb}{`}
+\PYG{n+nb}{echo} \PYG{k}{\PYGZdl{}(}dirname \PYG{k}{\PYGZdl{}(}which cat\PYG{k}{))}
+\end{Verbatim}

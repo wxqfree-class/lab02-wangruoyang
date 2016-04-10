@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{until} \PYG{o}{[} \PYG{l+s+s2}{"\PYGZdl{}code"} \PYG{o}{=} \PYG{l+s+s2}{"\PYGZdl{}pass1"}\PYG{o}{]}; \PYG{k}{do}
+\PYG{k}{  }clear
+  \PYG{n+nb}{echo} -n \PYG{l+s+s2}{"Enter the password: "}
+  \PYG{n+nb}{read }code
+\PYG{k}{done}
+clear
+stty \PYG{n+nb}{echo}            \PYG{c}{\PYGZsh{}恢复回显}
+\PYG{n+nb}{exit }0
+\end{Verbatim}

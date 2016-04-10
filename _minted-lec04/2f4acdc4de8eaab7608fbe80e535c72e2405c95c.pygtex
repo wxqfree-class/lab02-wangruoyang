@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+awk \PYG{l+s+s1}{'\PYGZob{}printf("pay for \PYGZpc{}s is \PYGZpc{}2.2f\PYGZbs{}n", \PYGZdl{}1, \PYGZdl{}2*\PYGZdl{}3)\PYGZcb{}'} emp.data
+awk \PYG{l+s+s1}{'\PYGZob{}printf("\PYGZpc{}-8s \PYGZdl{}\PYGZpc{}6.2f\PYGZbs{}n", \PYGZdl{}1, \PYGZdl{}2*\PYGZdl{}3)\PYGZcb{}'} emp.data
+awk \PYG{l+s+s1}{'\PYGZob{}printf("\PYGZpc{}6.2f  \PYGZpc{}s\PYGZbs{}n", \PYGZdl{}2*\PYGZdl{}3, \PYGZdl{}0)\PYGZcb{}'} emp.data | sort
+\end{Verbatim}

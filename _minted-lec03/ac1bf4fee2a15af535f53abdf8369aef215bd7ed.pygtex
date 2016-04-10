@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+ls -ld /tmp
+chmod o+t dir
+chmod o-t dir
+chmod 1751 dir
+\end{Verbatim}

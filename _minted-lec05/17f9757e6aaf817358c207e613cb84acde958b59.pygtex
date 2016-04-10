@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+expr a \PYG{l+s+se}{\PYGZbs{}|} b    \PYG{c}{\PYGZsh{}若a存在且非空则返回a，否则返回b}
+\end{Verbatim}

@@ -1,0 +1,16 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+expr 3 + 2 \PYG{c}{\PYGZsh{}3、+、2都看作expr的参数，因此要用空格分隔}
+\PYG{n+nv}{x}\PYG{o}{=}\PYG{l+s+sb}{`}expr 4 - 7\PYG{l+s+sb}{`}; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}x}
+\PYG{n+nv}{x}\PYG{o}{=}\PYG{l+s+sb}{`}expr 3 \PYG{l+s+se}{\PYGZbs{}*} 5\PYG{l+s+sb}{`}; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}x} \PYG{c}{\PYGZsh{}要对*进行转义}
+\PYG{n+nv}{x}\PYG{o}{=}\PYG{l+s+sb}{`}expr \PYG{n+nv}{\PYGZdl{}x} / 4\PYG{l+s+sb}{`}; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}x} \PYG{c}{\PYGZsh{}要对x进行取值}
+expr 4 ** 2 \PYG{c}{\PYGZsh{}错误，expr没有乘幂运算符}
+expr 22 \PYGZpc{} 5
+\PYG{n+nv}{x}\PYG{o}{=}\PYG{l+s+sb}{`}expr 1 \PYG{l+s+se}{\PYGZbs{}<} 2\PYG{l+s+sb}{`}; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}x}
+\PYG{n+nv}{x}\PYG{o}{=}\PYG{l+s+sb}{`}expr 1 \PYG{l+s+se}{\PYGZbs{}<}\PYG{o}{=} 2\PYG{l+s+sb}{`}; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}x}
+\PYG{n+nv}{x}\PYG{o}{=}\PYG{l+s+sb}{`}expr \PYG{n+nv}{2} \PYG{o}{=} 2\PYG{l+s+sb}{`}; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}x}
+\PYG{n+nv}{x}\PYG{o}{=}\PYG{l+s+sb}{`}expr 3 \PYG{l+s+se}{\PYGZbs{}>}2\PYG{l+s+sb}{`}; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}x}
+\PYG{n+nv}{x}\PYG{o}{=}100
+\PYG{n+nv}{r}\PYG{o}{=}\PYG{l+s+sb}{`}expr \PYG{n+nv}{\PYGZdl{}x} \PYG{l+s+se}{\PYGZbs{}|} 1\PYG{l+s+sb}{`}; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}r} \PYG{c}{\PYGZsh{}返回100}
+\PYG{n+nv}{x}\PYG{o}{=}0
+\PYG{n+nv}{r}\PYG{o}{=}\PYG{l+s+sb}{`}expr \PYG{n+nv}{\PYGZdl{}x} \PYG{l+s+se}{\PYGZbs{}|} 1\PYG{l+s+sb}{`}; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}r} \PYG{c}{\PYGZsh{}返回1}
+\end{Verbatim}

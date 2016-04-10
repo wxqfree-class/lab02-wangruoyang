@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+mkfifo fifo       \PYG{c}{\PYGZsh{}创建命名管道}
+ls -l fifo
+tar -cf fifo dir & \PYG{c}{\PYGZsh{}向命名管道写(注意要放在后台！)}
+bzip2 -c <fifo >dir.tar.bz2  \PYG{c}{\PYGZsh{}从命名管道读}
+rm fifo            \PYG{c}{\PYGZsh{}删除命名管道}
+tar -tf dir
+\end{Verbatim}

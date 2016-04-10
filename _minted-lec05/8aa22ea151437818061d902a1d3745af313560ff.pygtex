@@ -1,0 +1,20 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{file1}\PYG{o}{=}\PYG{l+s+s2}{"\PYGZdl{}1"}; \PYG{n+nv}{file2}\PYG{o}{=}\PYG{l+s+s2}{"\PYGZdl{}2"}; \PYG{n+nv}{i}\PYG{o}{=}1
+\PYG{n+nb}{exec }3<\PYG{l+s+s2}{"\PYGZdl{}file1"}; \PYG{n+nb}{exec }4<\PYG{l+s+s2}{"\PYGZdl{}file2"}
+\PYG{k}{while }\PYG{n+nb}{read }line1 0<&3; \PYG{k}{do}
+\PYG{k}{  if }\PYG{n+nb}{read }line2 0<&4; \PYG{k}{then}
+\PYG{k}{    if} \PYG{o}{[} \PYG{l+s+s2}{"\PYGZdl{}line1"} !\PYG{o}{=} \PYG{l+s+s2}{"\PYGZdl{}line2"} \PYG{o}{]}; \PYG{k}{then}
+\PYG{k}{      }\PYG{n+nb}{echo} \PYG{l+s+s2}{"different at line \PYGZdl{}i"} 1>&2; \PYG{n+nb}{exit }1
+    \PYG{k}{fi}
+\PYG{k}{  else}
+\PYG{k}{    }\PYG{n+nb}{echo} \PYG{l+s+s2}{"\PYGZdl{}file1 is longer than \PYGZdl{}file2"} 1>&2; \PYG{n+nb}{exit }2
+  \PYG{k}{fi}
+  \PYG{o}{((}i++\PYG{o}{))}
+\PYG{k}{done}
+\PYG{k}{if }\PYG{n+nb}{read }line2 0<&4; \PYG{k}{then}
+\PYG{k}{  }\PYG{n+nb}{echo} \PYG{l+s+s2}{"\PYGZdl{}file1 is shorter than \PYGZdl{}file2"} 1>&2; \PYG{n+nb}{exit }3
+\PYG{k}{else}
+\PYG{k}{  }\PYG{n+nb}{echo} \PYG{l+s+s2}{"\PYGZdl{}file1 and \PYGZdl{}file2 are the same"}; \PYG{n+nb}{exit }0
+\PYG{k}{fi}
+\PYG{n+nb}{exec }3<&-; \PYG{n+nb}{exec }4<&-
+\end{Verbatim}

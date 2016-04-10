@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+sed \PYG{l+s+s1}{'3r file2'} file1 \PYG{c}{\PYGZsh{}将file2的内容插入file1第3行之后}
+sed -n \PYG{l+s+s1}{'\PYGZsh{}://\PYGZsh{}w file2'} file1 \PYG{c}{\PYGZsh{}匹配://的行保存至file2}
+sed \PYG{l+s+s1}{'3a\PYGZbs{}}
+\PYG{l+s+s1}{line 1\PYGZbs{}}
+\PYG{l+s+s1}{line 2'} file  \PYG{c}{\PYGZsh{}在第3行后插入(append)2行内容}
+sed \PYG{l+s+s1}{'10i\PYGZbs{}}
+\PYG{l+s+s1}{line 1\PYGZbs{}}
+\PYG{l+s+s1}{line 2'} file  \PYG{c}{\PYGZsh{}在第10行前插入(insert)2行内容}
+sed \PYG{l+s+s1}{'/regex/c}
+\PYG{l+s+s1}{line 1}
+\PYG{l+s+s1}{line 2'} file  \PYG{c}{\PYGZsh{}将与regex匹配的行修改(change)为2行内容}
+\end{Verbatim}

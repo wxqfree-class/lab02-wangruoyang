@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+sed \PYG{l+s+s1}{'3r file2'} file1 \PYG{c}{\PYGZsh{}将file2的内容插入file1第3行之后}
+sed -n \PYG{l+s+s1}{'/:\PYGZbs{}/\PYGZbs{}//w file2'} file1 \PYG{c}{\PYGZsh{}匹配://的行号保存至file2}
+sed -n \PYG{l+s+s1}{'\PYGZbs{}\PYGZsh{}://\PYGZsh{}w file2'} file1  \PYG{c}{\PYGZsh{}同上}
+sed \PYG{l+s+s1}{'y/aeiou/xxxxx/'} file \PYG{c}{\PYGZsh{}逐字符替换，前后长度需一致！}
+sed -n \PYG{l+s+s1}{'\PYGZdl{}='} file          \PYG{c}{\PYGZsh{}打印最后一行的行号，即wc -l}
+
+cat sedscript             \PYG{c}{\PYGZsh{}准备好sed脚本文件}
+1,3d                      \PYG{c}{\PYGZsh{}每行包含一条sed命令}
+s/old/new/g
+y/abc/xyz/
+sed -n -f sedscript file  \PYG{c}{\PYGZsh{}利用-f让sed根据脚本处理file}
+\end{Verbatim}

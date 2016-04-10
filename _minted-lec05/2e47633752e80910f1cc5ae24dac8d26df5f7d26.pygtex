@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{var}\PYG{o}{=}banana
+\PYG{n+nb}{echo} \PYG{k}{\PYGZdl{}\PYGZob{}}\PYG{n+nv}{var}\PYG{p}{/na/la}\PYG{k}{\PYGZcb{}}     \PYG{c}{\PYGZsh{}替换1次pattern}
+\PYG{n+nb}{echo} \PYG{k}{\PYGZdl{}\PYGZob{}}\PYG{n+nv}{var}\PYG{p}{//na/la}\PYG{k}{\PYGZcb{}}    \PYG{c}{\PYGZsh{}全部替换(pattern以/开头)}
+\PYG{n+nb}{echo} \PYG{k}{\PYGZdl{}\PYGZob{}}\PYG{n+nv}{var}\PYG{p}{/\PYGZsh{}ba/la}\PYG{k}{\PYGZcb{}}    \PYG{c}{\PYGZsh{}仅替换开头(pattern以\PYGZsh{}开头)}
+\PYG{n+nb}{echo} \PYG{k}{\PYGZdl{}\PYGZob{}}\PYG{n+nv}{var}\PYG{p}{/\PYGZpc{}na/ma}\PYG{k}{\PYGZcb{}}    \PYG{c}{\PYGZsh{}仅替换结尾(pattern以\PYGZpc{}开头)}
+\PYG{n+nb}{echo} \PYG{k}{\PYGZdl{}\PYGZob{}}\PYG{n+nv}{var}\PYG{p}{/a/}\PYG{k}{\PYGZcb{}}        \PYG{c}{\PYGZsh{}删除第一个a(string为空)}
+\PYG{n+nb}{echo} \PYG{k}{\PYGZdl{}\PYGZob{}}\PYG{n+nv}{var}\PYG{p}{//a/}\PYG{k}{\PYGZcb{}}       \PYG{c}{\PYGZsh{}删除所有a}
+\end{Verbatim}

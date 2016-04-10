@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{o}{[} -u file \PYG{o}{]}   \PYG{c}{\PYGZsh{}suid权限}
+\PYG{o}{[} -g file \PYG{o}{]}   \PYG{c}{\PYGZsh{}sgid权限}
+\PYG{o}{[} -k file \PYG{o}{]}   \PYG{c}{\PYGZsh{}skicky权限}
+\PYG{o}{[} -p file \PYG{o}{]}   \PYG{c}{\PYGZsh{}命名管道}
+\PYG{o}{[} -s file \PYG{o}{]}   \PYG{c}{\PYGZsh{}长度>0}
+\PYG{o}{[} -M file \PYG{o}{]}   \PYG{c}{\PYGZsh{}共享内存}
+\PYG{o}{[} -H file \PYG{o}{]}   \PYG{c}{\PYGZsh{}信号量}
+\PYG{o}{[} f1 -ef f2 \PYG{o}{]} \PYG{c}{\PYGZsh{}硬链接}
+\PYG{o}{[} f1 -nt f2 \PYG{o}{]} \PYG{c}{\PYGZsh{}f1比f2新}
+\PYG{o}{[} f1 -ot f2 \PYG{o}{]} \PYG{c}{\PYGZsh{}f1比f2旧}
+\end{Verbatim}

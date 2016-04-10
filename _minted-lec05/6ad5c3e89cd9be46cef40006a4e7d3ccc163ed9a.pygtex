@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+cat fac1
+\PYG{c}{\PYGZsh{}!/bin/bash}
+\PYG{k}{if} \PYG{o}{[} \PYG{l+s+s2}{"\PYGZdl{}\PYGZsh{}"} -ne 1 \PYG{o}{]}; \PYG{k}{then}
+\PYG{k}{  }\PYG{n+nb}{echo} \PYG{l+s+s2}{"usage: fac1 n"} 1>&2; \PYG{n+nb}{exit }1
+\PYG{k}{fi}
+\PYG{n+nv}{fac}\PYG{o}{=}1; \PYG{n+nv}{i}\PYG{o}{=}2
+\PYG{k}{while} \PYG{o}{[} \PYG{n+nv}{\PYGZdl{}i} -le \PYG{n+nv}{\PYGZdl{}1} \PYG{o}{]}; \PYG{k}{do}
+\PYG{k}{  }\PYG{n+nv}{fac}\PYG{o}{=}\PYG{l+s+sb}{`}expr \PYG{n+nv}{\PYGZdl{}fac} \PYG{l+s+se}{\PYGZbs{}*} \PYG{n+nv}{\PYGZdl{}i}\PYG{l+s+sb}{`}
+  \PYG{n+nv}{i}\PYG{o}{=}\PYG{l+s+sb}{`}expr \PYG{n+nv}{\PYGZdl{}i} + 1\PYG{l+s+sb}{`}
+\PYG{k}{done}
+\PYG{n+nb}{echo} \PYG{l+s+s2}{"fac(\PYGZdl{}1)=\PYGZdl{}fac"}
+\end{Verbatim}

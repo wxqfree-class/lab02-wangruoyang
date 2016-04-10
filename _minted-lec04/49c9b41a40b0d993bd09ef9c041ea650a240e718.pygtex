@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+awk -F: \PYG{l+s+s1}{'/bash/\PYGZob{}print \PYGZdl{}1,\PYGZdl{}2\PYGZcb{}'} /etc/passwd
+\end{Verbatim}

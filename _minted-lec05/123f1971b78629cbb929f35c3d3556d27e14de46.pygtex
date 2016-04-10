@@ -1,0 +1,18 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+cat sumup
+\PYG{c}{\PYGZsh{}!/bin/bash}
+awk \PYG{l+s+s1}{'}
+\PYG{l+s+s1}{BEGIN \PYGZob{} m='}\PYG{n+nv}{\PYGZdl{}1}\PYG{l+s+s1}{'; n='}\PYG{n+nv}{\PYGZdl{}2}\PYG{l+s+s1}{' \PYGZcb{}}
+\PYG{l+s+s1}{      \PYGZob{} for (i=m; i<=n; i++)}
+\PYG{l+s+s1}{          sum[i]+=\PYGZdl{}i}
+\PYG{l+s+s1}{      \PYGZcb{}}
+\PYG{l+s+s1}{  END \PYGZob{} for (i=m; i<=n; i++) \PYGZob{}}
+\PYG{l+s+s1}{          printf("sum[\PYGZpc{}d] = \PYGZpc{}d\PYGZbs{}n", i, sum[i])}
+\PYG{l+s+s1}{          total += sum[i]}
+\PYG{l+s+s1}{          \PYGZcb{}}
+\PYG{l+s+s1}{        printf("total = \PYGZpc{}d\PYGZbs{}n", total)}
+\PYG{l+s+s1}{      \PYGZcb{}}
+\PYG{l+s+s1}{'}
+
+sumup 2 5 <score.list
+\end{Verbatim}

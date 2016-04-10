@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+cat well.txt
+Sam reads well, sam writes well, sam sings well.
+sed \PYG{l+s+s1}{'s/sam/tom/'} well.txt
+sed \PYG{l+s+s1}{'s/sam/tom/i'} well.txt
+sed \PYG{l+s+s1}{'s\PYGZsh{}sam\PYGZsh{}tom\PYGZsh{}gi'} well.txt
+sed \PYG{l+s+s1}{'s|sam|tom|2i'} well.txt
+sed \PYG{l+s+s1}{'s\PYGZdl{}sam\PYGZdl{}tom\PYGZdl{}2gi'} well.txt
+\end{Verbatim}

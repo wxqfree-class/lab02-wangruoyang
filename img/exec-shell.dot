@@ -1,0 +1,25 @@
+digraph exec_shell {
+	subgraph cluster1 {
+		a[label="bash"];
+		b[label="bash"];
+		a -> b[label="fork"];
+		color=white;
+	}
+	subgraph cluster2 {
+		c[label="bash"];
+		d[label="bash"];
+		e[label="find"];
+		c -> d[label="fork"];
+		d -> e[label="fork"];
+		f[label="", style=invis];
+		g[label="脚本\n文件", shape=record];
+		g -> d;
+		{rank = same; c;f;}
+		{rank = same; d;g;}
+		color=white;
+	}
+	subgraph cluster3 {
+		h[label="bash"];
+		color=white;
+	}
+}

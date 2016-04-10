@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+cat localvar
+\PYG{c}{\PYGZsh{}!/bin/bash}
+func1\PYG{o}{()\PYGZob{}}
+  \PYG{n+nb}{echo} \PYG{l+s+s2}{"global var x is \PYGZdl{}x"}
+  \PYG{n+nb}{local }\PYG{n+nv}{x}\PYG{o}{=}hello  \PYG{c}{\PYGZsh{}定义局部变量}
+  \PYG{n+nb}{echo} \PYG{l+s+s2}{"local var x is \PYGZdl{}x"}
+\PYG{o}{\PYGZcb{}}
+\PYG{n+nv}{x}\PYG{o}{=}100
+func1
+\PYG{n+nb}{echo} \PYG{l+s+s2}{"global var x is \PYGZdl{}x"}
+\end{Verbatim}

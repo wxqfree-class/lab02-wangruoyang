@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+sed \PYG{l+s+s1}{':a;N;6,\PYGZdl{}D;ba'} students.db     \PYG{c}{\PYGZsh{}实现tail -5命令}
+sed \PYG{l+s+s1}{':m;s/\PYGZca{}.\PYGZbs{}\PYGZob{}1,79\PYGZbs{}\PYGZcb{}\PYGZdl{}/ &/;tm'} students.db \PYG{c}{\PYGZsh{}实现文本右对齐}
+\end{Verbatim}

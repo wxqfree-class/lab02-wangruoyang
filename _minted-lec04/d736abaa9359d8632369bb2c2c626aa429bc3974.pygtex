@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{} interest1 - compute compound interest}
+\PYG{c}{\PYGZsh{}  input: amount rate years}
+\PYG{c}{\PYGZsh{} output: compounded value at the end of each year}
+\PYG{o}{\PYGZob{}} \PYG{n+nv}{i}\PYG{o}{=}1
+  \PYG{k}{while} \PYG{o}{(}i <\PYG{o}{=} \PYG{n+nv}{\PYGZdl{}3}\PYG{o}{)} \PYG{o}{\PYGZob{}}
+    \PYG{n+nb}{printf}\PYG{o}{(}\PYG{l+s+s2}{"\PYGZbs{}t\PYGZpc{}.2f\PYGZbs{}n"}, \PYG{n+nv}{\PYGZdl{}1}*\PYG{o}{(}1+\PYG{n+nv}{\PYGZdl{}2}\PYG{o}{)}\PYGZca{}i\PYG{o}{)}
+    i++
+  \PYG{o}{\PYGZcb{}}
+\PYG{o}{\PYGZcb{}}
+
+awk -f interest1
+1000 .06 5
+\end{Verbatim}

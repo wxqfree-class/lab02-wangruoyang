@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{let }\PYG{n+nv}{x}\PYG{o}{=}32; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}x}
+\PYG{n+nb}{let }\PYG{n+nv}{x}\PYG{o}{=}032; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}x}
+\PYG{n+nb}{let }\PYG{n+nv}{x}\PYG{o}{=}0x32; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}x}
+\PYG{n+nb}{let }\PYG{n+nv}{x}\PYG{o}{=}2\PYGZsh{}111010100101; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}x}
+\end{Verbatim}

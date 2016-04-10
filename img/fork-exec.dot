@@ -1,0 +1,28 @@
+digraph fork_exec {
+	subgraph cluster_init {
+		a[label="bash"];
+		color=white;
+	}
+	subgraph cluster_fork {
+		b[label="bash"];
+		c[label="bash"];
+		b -> c[label=fork];
+		color=white;
+	}
+	subgraph cluster_exec {
+		d[label="bash"];
+		e[label="sort"];
+		d -> e;
+		f[label="", style=invis];
+		g[label="exec sort", shape=plaintext];
+		f -> g[style=invis];
+		g -> e;
+		{rank = same; d;f;}
+		{rank = same; e;g;}
+		color=white;
+	}
+	subgraph cluster_final {
+		h[label="bash"];
+		color=white;
+	}
+}

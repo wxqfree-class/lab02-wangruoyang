@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+bel     \PYG{c}{\PYGZsh{}响铃}
+cols    \PYG{c}{\PYGZsh{}打印屏幕列数}
+clear   \PYG{c}{\PYGZsh{}清屏}
+smso    \PYG{c}{\PYGZsh{}开始突出显示模式}
+rmso    \PYG{c}{\PYGZsh{}结束突出显示模式}
+smul    \PYG{c}{\PYGZsh{}开始下划线模式}
+rmul    \PYG{c}{\PYGZsh{}结束下划线模式}
+rev     \PYG{c}{\PYGZsh{}反白显示}
+ed      \PYG{c}{\PYGZsh{}从光标位置到屏幕底部清屏}
+el      \PYG{c}{\PYGZsh{}从光标位置到行尾清除字符}
+sgr0    \PYG{c}{\PYGZsh{}关闭所有属性}
+bold    \PYG{c}{\PYGZsh{}粗体显示}
+cup r c \PYG{c}{\PYGZsh{}把光标移到r行c列}
+\end{Verbatim}

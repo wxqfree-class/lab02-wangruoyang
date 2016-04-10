@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+awk \PYG{l+s+s1}{'BEGIN\PYGZob{}print index("banana","an")\PYGZcb{}'}
+\PYG{n+nb}{echo }banana | awk \PYG{l+s+s1}{'\PYGZob{}gsub(/an/,"ok");print\PYGZcb{}'}
+\PYG{n+nb}{echo }banana | awk \PYG{l+s+s1}{'\PYGZob{}sub(/an/,"&d&");print\PYGZcb{}'}
+\PYG{n+nb}{echo }banana | awk \PYG{l+s+s1}{'\PYGZob{}print substr(\PYGZdl{}1,2,2)\PYGZcb{}'}
+\PYG{n+nb}{echo }banana | awk \PYG{l+s+s1}{'\PYGZob{}print substr(\PYGZdl{}1,3)\PYGZcb{}'}
+\end{Verbatim}

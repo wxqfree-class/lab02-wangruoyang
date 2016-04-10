@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+grep \PYG{l+s+s1}{'\PYGZca{}\PYGZsh{}'} file
+grep -v \PYG{l+s+s1}{'\PYGZca{}\PYGZsh{}'} file
+grep \PYG{l+s+s1}{'\PYGZca{}[\PYGZca{}\PYGZsh{}]'} file
+\end{Verbatim}

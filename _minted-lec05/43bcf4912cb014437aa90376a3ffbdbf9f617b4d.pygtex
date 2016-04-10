@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} name}\PYG{o}{=}Tom
+\PYG{n+nv}{\PYGZdl{} }\PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}name}
+\PYG{n+nv}{\PYGZdl{} }\PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}place}
+\PYG{n+nv}{\PYGZdl{} }\PYG{n+nb}{echo} \PYG{k}{\PYGZdl{}\PYGZob{}}\PYG{n+nv}{name}\PYG{k}{:-}\PYG{n+nv}{John}\PYG{k}{\PYGZcb{}} \PYG{k}{\PYGZdl{}\PYGZob{}}\PYG{n+nv}{place}\PYG{k}{:-}\PYG{n+nv}{Beijing}\PYG{k}{\PYGZcb{}}
+\PYG{n+nv}{\PYGZdl{} }\PYG{n+nb}{echo} \PYG{k}{\PYGZdl{}\PYGZob{}}\PYG{n+nv}{place}\PYG{p}{:?}\PYG{l+s+s2}{"var place not defined."}\PYG{k}{\PYGZcb{}}
+\PYG{n+nv}{\PYGZdl{} }\PYG{n+nb}{echo} \PYG{k}{\PYGZdl{}\PYGZob{}}\PYG{n+nv}{name}\PYG{p}{:+}\PYG{l+s+s2}{"var name has been defined"}\PYG{k}{\PYGZcb{}}
+\PYG{n+nv}{\PYGZdl{} }\PYG{n+nb}{echo} \PYG{k}{\PYGZdl{}\PYGZob{}}\PYG{n+nv}{place}\PYG{p}{:=}\PYG{l+s+s2}{"Nanchang"}\PYG{k}{\PYGZcb{}}
+\PYG{n+nv}{\PYGZdl{} }\PYG{n+nb}{echo} \PYG{k}{\PYGZdl{}\PYGZob{}}\PYG{n+nv}{name}\PYG{k}{:-}\PYG{n+nv}{John}\PYG{k}{\PYGZcb{}} \PYG{k}{\PYGZdl{}\PYGZob{}}\PYG{n+nv}{place}\PYG{k}{:-}\PYG{n+nv}{Beijing}\PYG{k}{\PYGZcb{}}
+\end{Verbatim}

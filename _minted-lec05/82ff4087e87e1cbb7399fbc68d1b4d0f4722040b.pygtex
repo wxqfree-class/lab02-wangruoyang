@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}weekday}
+\PYG{n+nb}{echo} \PYG{k}{\PYGZdl{}\PYGZob{}}\PYG{n+nv}{weekday}\PYG{p}{[0]}\PYG{k}{\PYGZcb{}}
+\PYG{n+nb}{echo} \PYG{k}{\PYGZdl{}\PYGZob{}}\PYG{n+nv}{weekday}\PYG{p}{[*]}\PYG{k}{\PYGZcb{}}
+\PYG{n+nb}{echo} \PYG{k}{\PYGZdl{}\PYGZob{}}\PYG{n+nv}{suids}\PYG{p}{[@]}\PYG{k}{\PYGZcb{}}
+\PYG{n+nb}{echo} \PYG{k}{\PYGZdl{}\PYGZob{}\PYGZsh{}}\PYG{n+nv}{weekday}\PYG{k}{\PYGZcb{}}
+\PYG{n+nb}{echo} \PYG{k}{\PYGZdl{}\PYGZob{}\PYGZsh{}}\PYG{n+nv}{weekday}\PYG{p}{[0]}\PYG{k}{\PYGZcb{}}
+\PYG{n+nb}{echo} \PYG{k}{\PYGZdl{}\PYGZob{}\PYGZsh{}}\PYG{n+nv}{weekday}\PYG{p}{[*]}\PYG{k}{\PYGZcb{}}
+\PYG{n+nb}{echo} \PYG{k}{\PYGZdl{}\PYGZob{}\PYGZsh{}}\PYG{n+nv}{users}\PYG{p}{[*]}\PYG{k}{\PYGZcb{}}
+users\PYG{o}{[}4\PYG{o}{]=}\PYG{l+s+s2}{"jack"}; users\PYG{o}{[}6\PYG{o}{]=}\PYG{l+s+s2}{"mike"}
+\PYG{n+nb}{unset }users\PYG{o}{[}4\PYG{o}{]}       \PYG{c}{\PYGZsh{}删除users数组的4号元素}
+\PYG{n+nb}{unset }users          \PYG{c}{\PYGZsh{}删除users数组}
+\PYG{n+nv}{a}\PYG{o}{=}100; \PYG{n+nb}{echo} \PYG{k}{\PYGZdl{}\PYGZob{}}\PYG{n+nv}{a}\PYG{p}{[0]}\PYG{k}{\PYGZcb{}}  \PYG{c}{\PYGZsh{}变量其实是仅包含一个元素的数组}
+\end{Verbatim}

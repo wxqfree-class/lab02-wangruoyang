@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{set} -o            \PYG{c}{\PYGZsh{}查看所有set选项}
+\PYG{n+nb}{set} -o noclobber  \PYG{c}{\PYGZsh{}启用noclobber特性}
+\PYG{n+nb}{set} +o noclobber  \PYG{c}{\PYGZsh{}关闭noclobber特性}
+
+\PYG{n+nb}{shopt}             \PYG{c}{\PYGZsh{}查看所有shopt选项}
+\PYG{n+nb}{shopt} -s cmdhist  \PYG{c}{\PYGZsh{}启用cmdhist特性}
+\PYG{n+nb}{shopt} -u cmdhist  \PYG{c}{\PYGZsh{}关闭cmdhist特性}
+\end{Verbatim}

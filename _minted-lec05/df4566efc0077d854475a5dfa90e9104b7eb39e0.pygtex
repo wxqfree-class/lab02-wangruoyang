@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{a}\PYG{o}{=}300; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}a}
+sh; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}a}
+\PYG{n+nb}{exit}
+\PYG{n+nb}{export }a
+sh; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}a}
+\PYG{n+nv}{a}\PYG{o}{=}500; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}a}
+\PYG{n+nb}{exit}
+\PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}a}
+\end{Verbatim}

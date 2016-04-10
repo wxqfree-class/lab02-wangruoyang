@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+cat ison
+\PYG{c}{\PYGZsh{}!/bin/bash}
+\PYG{k}{if} \PYG{o}{[} \PYG{l+s+s2}{"\PYGZdl{}\PYGZsh{}"} -eq 0 \PYG{o}{]}; \PYG{k}{then}
+\PYG{k}{  }\PYG{n+nb}{echo} \PYG{l+s+s2}{"usage: ison username"}; \PYG{n+nb}{exit }1
+\PYG{k}{fi}
+who | grep \PYG{l+s+s2}{"\PYGZca{}\PYGZdl{}1"} &>/dev/null \PYG{o}{&&}\PYG{l+s+se}{\PYGZbs{}}
+ \PYG{n+nb}{echo} \PYG{l+s+s2}{"\PYGZdl{}1 is loggoed on"} \PYG{o}{||}\PYG{l+s+se}{\PYGZbs{}}
+ \PYG{n+nb}{echo} \PYG{l+s+s2}{"\PYGZdl{}1 is not logged on"}
+\end{Verbatim}

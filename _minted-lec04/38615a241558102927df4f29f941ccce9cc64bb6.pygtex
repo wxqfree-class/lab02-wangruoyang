@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{randint} \PYG{o}{=} int\PYG{o}{(}n*rand\PYG{o}{())}+1 \PYG{c}{\PYGZsh{}获得1到n之间的随机整数}
+\PYG{n+nv}{x}\PYG{o}{=}int\PYG{o}{(}x+0.5\PYG{o}{)}  \PYG{c}{\PYGZsh{}四舍五入取整}
+awk \PYG{l+s+s1}{'BEGIN\PYGZob{}cos(60*3.1415926/180)\PYGZcb{}'}
+\PYG{n+nb}{echo }1000 | awk \PYG{l+s+s1}{'\PYGZob{}print log(\PYGZdl{}1)/log(10)\PYGZcb{}'}
+\end{Verbatim}

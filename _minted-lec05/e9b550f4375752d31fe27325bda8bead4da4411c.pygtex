@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+cat whichcolor
+\PYG{c}{\PYGZsh{}!/bin/bash}
+\PYG{n+nv}{PS3}\PYG{o}{=}\PYG{l+s+s2}{"Choose color: "}
+\PYG{n+nv}{colors}\PYG{o}{=}\PYG{l+s+s2}{"red green blue white black quit"}
+\PYG{k}{select }c in \PYG{n+nv}{\PYGZdl{}colors}; \PYG{k}{do}
+\PYG{k}{  if} \PYG{o}{[} \PYG{l+s+s2}{"\PYGZdl{}c"} \PYG{o}{==} \PYG{l+s+s2}{"quit"} \PYG{o}{]}; \PYG{k}{then}
+\PYG{k}{    }\PYG{n+nb}{exit};
+  \PYG{k}{else}
+\PYG{k}{    }\PYG{n+nb}{echo} \PYG{l+s+s2}{"You have choose [\PYGZdl{}REPLY]: \PYGZdl{}c"}
+  \PYG{k}{fi}
+\PYG{k}{done}
+\end{Verbatim}

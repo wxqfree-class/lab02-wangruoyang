@@ -1,0 +1,16 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+cx nu    \PYG{c}{\PYGZsh{}相当于chmod +x nu的缩写}
+\PYG{c}{\PYGZsh{}问题：如何为cx传递文件名参数？}
+\PYG{n+nb}{echo} \PYG{l+s+s1}{'chmod +x \PYGZdl{}1'} >cx
+sh cx cx
+mv cx bin
+\PYG{n+nb}{echo echo }Hi, there >hello
+cx hello
+./hello
+\PYG{c}{\PYGZsh{}问题：如何处理多个参数？}
+chmod +x \PYG{n+nv}{\PYGZdl{}1} \PYG{n+nv}{\PYGZdl{}2} \PYG{n+nv}{\PYGZdl{}3} \PYG{n+nv}{\PYGZdl{}4} \PYG{n+nv}{\PYGZdl{}5} \PYG{n+nv}{\PYGZdl{}6} \PYG{n+nv}{\PYGZdl{}7} \PYG{n+nv}{\PYGZdl{}8} \PYG{n+nv}{\PYGZdl{}9}
+chmod +x \PYG{n+nv}{\PYGZdl{}*}
+\PYG{n+nb}{echo} \PYG{l+s+s1}{'wc -l \PYGZdl{}*'} >lc
+cx lc; mv lc bin
+lc vim*
+\end{Verbatim}

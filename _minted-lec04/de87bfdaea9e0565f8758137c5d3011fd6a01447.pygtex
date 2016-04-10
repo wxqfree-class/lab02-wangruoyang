@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+grep \PYG{l+s+s1}{'\PYGZbs{}\PYGZdl{}[0-9]\PYGZbs{}\PYGZob{}3,4\PYGZbs{}\PYGZcb{}\PYGZbs{}.[0-9]\PYGZob{}\PYGZbs{}2\PYGZbs{}\PYGZcb{}[\PYGZca{}0-9]'} file
+\end{Verbatim}

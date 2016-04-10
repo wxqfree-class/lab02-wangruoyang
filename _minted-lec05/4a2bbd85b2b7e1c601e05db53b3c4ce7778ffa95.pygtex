@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+cat bundle
+\PYG{n+nb}{echo} \PYG{l+s+s2}{"\PYGZsh{} To unbundle, sh this file."}
+\PYG{k}{for }i; \PYG{k}{do}
+\PYG{k}{  }\PYG{n+nb}{echo} \PYG{l+s+s2}{"echo \PYGZdl{}i 1>&2"}
+  \PYG{n+nb}{echo} \PYG{l+s+s2}{"cat >\PYGZdl{}i <<'End of \PYGZdl{}i'"}
+  cat \PYG{n+nv}{\PYGZdl{}i}
+  \PYG{n+nb}{echo} \PYG{l+s+s2}{"End of \PYGZdl{}i"}
+\PYG{k}{done}
+\end{Verbatim}

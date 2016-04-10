@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}打印每个员工的姓名长度}
+\PYG{o}{\PYGZob{}}print \PYG{n+nv}{\PYGZdl{}1}, length\PYG{o}{(}\PYG{n+nv}{\PYGZdl{}1}\PYG{o}{)\PYGZcb{}}
+
+\PYG{c}{\PYGZsh{}统计行数、单词数和字符数}
+    \PYG{o}{\PYGZob{}}nc +\PYG{o}{=} length\PYG{o}{(}\PYG{n+nv}{\PYGZdl{}0}\PYG{o}{)} + 1
+     nw +\PYG{o}{=} NF
+    \PYG{o}{\PYGZcb{}}
+END \PYG{o}{\PYGZob{}}print NR,\PYG{l+s+s2}{"lines,"},nw,\PYG{l+s+s2}{"words,"},nc,\PYG{l+s+s2}{"chars"}\PYG{o}{\PYGZcb{}}
+\end{Verbatim}

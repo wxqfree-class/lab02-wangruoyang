@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+tput clear; tput cup 10 20; \PYG{n+nb}{echo} \PYG{l+s+s2}{"hello"}
+\PYG{n+nv}{bell}\PYG{o}{=}\PYG{l+s+sb}{`}tput bel\PYG{l+s+sb}{`}; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}bell}
+\PYG{n+nv}{line}\PYG{o}{=}\PYG{l+s+sb}{`}tput smul\PYG{l+s+sb}{`}; \PYG{n+nv}{offline}\PYG{o}{=}\PYG{l+s+sb}{`}tput rmul\PYG{l+s+sb}{`}
+tput clear
+tput cup 10 20; \PYG{n+nb}{echo} \PYG{l+s+s2}{"\PYGZdl{}\PYGZob{}line\PYGZcb{}hello\PYGZdl{}\PYGZob{}offline\PYGZcb{}"}
+
+ls
+tput cup 5 0; tput ed
+
+tput -S <<!
+clear
+cup 10 10
+!
+\end{Verbatim}

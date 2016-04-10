@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+awk \PYG{l+s+s1}{'\PYGZdl{}3==0 \PYGZob{}print \PYGZdl{}1\PYGZcb{}'}
+Beth  4.00 0
+Beth
+Dan   3.75 10
+Kathy 3.58 0
+Kathy
+\end{Verbatim}

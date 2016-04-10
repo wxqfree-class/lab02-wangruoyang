@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{echo} \PYG{l+s+s2}{"scale=10; 37/7"} | bc
+bc <<<\PYG{l+s+s2}{"scale=10; 37/7"}    \PYG{c}{\PYGZsh{}here字符串}
+\PYG{n+nv}{x}\PYG{o}{=}\PYG{l+s+sb}{`}\PYG{n+nb}{echo} \PYG{l+s+s2}{"scale=10; 37/7"} | bc\PYG{l+s+sb}{`}; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}x}
+cat bc.task
+12*34
+34/12
+\PYG{n+nv}{scale}\PYG{o}{=}3; 34/12
+\PYG{n+nv}{a}\PYG{o}{=}1;b\PYG{o}{=}2; a+b
+cat bc.task | bc
+bc <bc.task
+\end{Verbatim}

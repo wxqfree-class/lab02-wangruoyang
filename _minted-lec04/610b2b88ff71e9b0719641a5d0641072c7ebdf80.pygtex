@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+grep \PYG{l+s+s1}{'html|HTML'} file
+\end{Verbatim}

@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{x}\PYG{o}{=}3
+\PYG{o}{\PYGZob{}} \PYG{n+nv}{y}\PYG{o}{=}5; \PYG{n+nb}{let }x+\PYG{o}{=}y; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}x}; \PYG{o}{\PYGZcb{}} \PYG{c}{\PYGZsh{}注意空格与分号}
+\PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}x}
+\end{Verbatim}

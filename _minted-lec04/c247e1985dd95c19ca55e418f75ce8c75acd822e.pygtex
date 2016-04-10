@@ -1,0 +1,18 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+END \PYG{o}{\PYGZob{}}
+        \PYG{k}{for} \PYG{o}{(}\PYG{n+nv}{x} \PYG{o}{=} 1; x <\PYG{o}{=} NR; x++\PYG{o}{)}
+                class\PYGZus{}avg\PYGZus{}total +\PYG{o}{=} student\PYGZus{}avg\PYG{o}{[}x\PYG{o}{]}
+        \PYG{n+nv}{class\PYGZus{}average} \PYG{o}{=} class\PYGZus{}avg\PYGZus{}total / NR
+        \PYG{k}{for} \PYG{o}{(}\PYG{n+nv}{x} \PYG{o}{=} 1; x <\PYG{o}{=} NR; x++\PYG{o}{)}
+                \PYG{k}{if} \PYG{o}{(}student\PYGZus{}avg\PYG{o}{[}x\PYG{o}{]} >\PYG{o}{=} class\PYGZus{}average\PYG{o}{)}
+                                ++above\PYGZus{}average
+                \PYG{k}{else}
+                        ++below\PYGZus{}average
+        print \PYG{l+s+s2}{""}
+        print \PYG{l+s+s2}{"Class Average: "}, class\PYGZus{}average
+        print \PYG{l+s+s2}{"At or Above Average: "}, above\PYGZus{}average
+        print \PYG{l+s+s2}{"Below Average: "}, below\PYGZus{}average
+        \PYG{k}{for} \PYG{o}{(}letter\PYGZus{}grade in class\PYGZus{}grade\PYG{o}{)}
+                print letter\PYGZus{}grade \PYG{l+s+s2}{":"}, class\PYGZus{}grade\PYG{o}{[}letter\PYGZus{}grade\PYG{o}{]} | \PYG{l+s+s2}{"sort"}
+\PYG{o}{\PYGZcb{}}
+\end{Verbatim}

@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+find /bin -regex \PYG{l+s+s1}{'ch'}     \PYG{c}{\PYGZsh{}:-(}
+find /bin -regex \PYG{l+s+s1}{'.*ch.*'} \PYG{c}{\PYGZsh{}:-)}
+\end{Verbatim}

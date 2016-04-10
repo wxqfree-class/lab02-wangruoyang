@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+awk \PYG{l+s+s1}{'\PYGZdl{}3==0 \PYGZob{}print \PYGZdl{}1\PYGZcb{}'}  \PYG{c}{\PYGZsh{}输入来自标准输入}
+Beth  4.00 10
+Kathy 3.58 0
+Kathy
+\end{Verbatim}

@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+find /usr/bin -name \PYG{l+s+s1}{'mk*'} -exec basename \PYG{o}{\PYGZob{}\PYGZcb{}} \PYG{l+s+se}{\PYGZbs{};}
+\end{Verbatim}

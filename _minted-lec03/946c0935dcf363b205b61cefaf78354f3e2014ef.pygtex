@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{umask}      \PYG{c}{\PYGZsh{}掩码中某一位为1表示该位对应权限被禁止}
+\PYG{n+nb}{umask} -S
+\PYG{n+nb}{umask }0026
+\end{Verbatim}

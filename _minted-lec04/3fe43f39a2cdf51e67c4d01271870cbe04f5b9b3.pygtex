@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+sed \PYG{l+s+s1}{'y/aeiou/xxxxx/'} file \PYG{c}{\PYGZsh{}逐字符替换，前后长度需一致！}
+sed -n \PYG{l+s+s1}{'\PYGZdl{}='} file          \PYG{c}{\PYGZsh{}打印最后一行的行号，即wc -l}
+\end{Verbatim}

@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{echo} -e \PYG{l+s+s2}{"\PYGZbs{}033[31;46mhello world\PYGZbs{}033[0m"}
+\PYG{c}{\PYGZsh{}\PYGZbs{}033代表ESC,而“ESC[参数m”可用来设置显示属性}
+\PYG{c}{\PYGZsh{}46;31 31表示前景色为红色，46表示背景色为青色}
+\PYG{c}{\PYGZsh{}0表示恢复默认设置}
+\PYG{c}{\PYGZsh{}\PYGZbs{}033也可写成\PYGZbs{}e}
+\PYG{n+nb}{echo} -e \PYG{l+s+s2}{"\PYGZbs{}e[33;44mhello world\PYGZbs{}e[0m"}
+\PYG{c}{\PYGZsh{}33-前景色为棕色，44-背景色为蓝色}
+\end{Verbatim}

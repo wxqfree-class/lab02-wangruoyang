@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+grep \PYG{l+s+s1}{'a.b'} file
+grep \PYG{l+s+s1}{'a\PYGZbs{}.b'} file
+\end{Verbatim}

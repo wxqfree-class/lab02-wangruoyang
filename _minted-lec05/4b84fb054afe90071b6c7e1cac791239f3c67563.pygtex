@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{var}\PYG{o}{=}123456
+\PYG{n+nv}{\PYGZdl{} }\PYG{n+nb}{echo} \PYG{k}{\PYGZdl{}\PYGZob{}\PYGZsh{}}\PYG{n+nv}{var}\PYG{k}{\PYGZcb{}}
+\PYG{c}{\PYGZsh{}获取变量的长度}
+\end{Verbatim}

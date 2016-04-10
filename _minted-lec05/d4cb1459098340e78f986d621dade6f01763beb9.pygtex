@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+cat hour
+\PYG{n+nv}{h}\PYG{o}{=}\PYG{l+s+sb}{`}date +\PYGZpc{}H\PYG{l+s+sb}{`}
+\PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}h}
+
+sh -v hour
+sh -x hour
+\end{Verbatim}

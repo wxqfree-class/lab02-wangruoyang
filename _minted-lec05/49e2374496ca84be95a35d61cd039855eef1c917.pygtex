@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+cat addup n
+\PYG{c}{\PYGZsh{}!/bin/bash}
+awk \PYG{l+s+s1}{'\PYGZob{} s+=\PYGZdl{}'}\PYG{n+nv}{\PYGZdl{}1}\PYG{l+s+s1}{' \PYGZcb{}}
+\PYG{l+s+s1}{  END\PYGZob{} print s \PYGZcb{}'}
+
+cat score.list | addup 2
+\end{Verbatim}

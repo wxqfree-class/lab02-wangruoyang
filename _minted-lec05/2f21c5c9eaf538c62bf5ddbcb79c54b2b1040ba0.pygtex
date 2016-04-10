@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+handleopts -tn -o file.out -r file.rep unit.txt
+handleopts -tn *
+handleopts unit.txt
+handleopts -tn -o file.out -r
+\end{Verbatim}

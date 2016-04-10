@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}bash最多允许同时使用10个文件描述符(0\PYGZti{}9)}
+\PYG{n+nb}{exec} \PYG{o}{[}\PYG{n+nv}{n}\PYG{o}{=}0\PYG{o}{]}<file  \PYG{c}{\PYGZsh{}为标准输入重定向打开file(文件描述符为n)}
+\PYG{n+nb}{exec} \PYG{o}{[}\PYG{n+nv}{n}\PYG{o}{=}1\PYG{o}{]}>file  \PYG{c}{\PYGZsh{}为标准输出重定向(覆盖)打开file(文件描述符为n)}
+\PYG{n+nb}{exec} \PYG{o}{[}\PYG{n+nv}{n}\PYG{o}{=}1\PYG{o}{]}>>file \PYG{c}{\PYGZsh{}为标准输出重定向(追加)打开file(文件描述符为n)}
+\PYG{n+nb}{exec }n<>file     \PYG{c}{\PYGZsh{}为标准输入输出重定向打开file(文件描述符n)}
+cmd <&n          \PYG{c}{\PYGZsh{}输入重定向到文件描述符n}
+cmd >&n          \PYG{c}{\PYGZsh{}输出重定向(覆盖)到文件描述符n}
+cmd >>&n         \PYG{c}{\PYGZsh{}输出重定向(追加)到文件表述符n}
+\PYG{n+nb}{exec }n>&m        \PYG{c}{\PYGZsh{}把m复制到n，即将输出同时重定向到m和n}
+\PYG{n+nb}{exec} <&-         \PYG{c}{\PYGZsh{}关闭标准输入}
+\PYG{n+nb}{exec} >&-         \PYG{c}{\PYGZsh{}关闭标准输出}
+\PYG{n+nb}{exec }n<&-        \PYG{c}{\PYGZsh{}关闭重定向为标准输入的文件描述符n}
+\PYG{n+nb}{exec }n>&-        \PYG{c}{\PYGZsh{}关闭重定向为标准输出的文件描述符n}
+\end{Verbatim}

@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+cat avi
+\PYG{c}{\PYGZsh{}!/bin/bash}
+\PYG{k}{if} \PYG{o}{[} \PYG{l+s+s2}{"\PYGZdl{}\PYGZsh{}"} -ne 1 \PYG{o}{]}; \PYG{k}{then}
+\PYG{k}{  }\PYG{n+nb}{echo} \PYG{l+s+s2}{"Usage: avi file"} 1>&2; \PYG{n+nb}{exit }1
+\PYG{k}{fi}
+vi \PYG{n+nv}{\PYGZdl{}1} &>/dev/null \PYG{l+s}{<<EOF}
+\PYG{l+s}{iTo be or not to be,}
+\PYG{l+s}{It is a problem.\PYGZca{}[  \PYGZsh{}\PYGZca{}[代表ESC键，需先按C-v，再按ESC输入}
+\PYG{l+s}{ZZ}
+\PYG{l+s}{EOF}
+
+avi problem
+\end{Verbatim}

@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+cat fac2
+\PYG{c}{\PYGZsh{}!/bin/bash}
+\PYG{k}{case} \PYG{l+s+s2}{"\PYGZdl{}\PYGZsh{}"} in
+  0\PYG{o}{)} \PYG{n+nb}{echo} \PYG{l+s+s2}{"usage: fac2 n"} 1>&2
+     \PYG{n+nb}{exit }1;;
+\PYG{k}{esac}
+\PYG{n+nv}{fac}\PYG{o}{=}1; \PYG{n+nv}{i}\PYG{o}{=}2
+\PYG{k}{until} \PYG{o}{[} \PYG{n+nv}{\PYGZdl{}i} -gt \PYG{n+nv}{\PYGZdl{}1} \PYG{o}{]}; \PYG{k}{do}
+  \PYG{o}{((}fac*\PYG{o}{=}i\PYG{o}{))}
+  \PYG{o}{((}i++\PYG{o}{))}
+\PYG{k}{done}
+\PYG{n+nb}{echo} \PYG{l+s+s2}{"fac(\PYGZdl{}1)=\PYGZdl{}fac"}
+\end{Verbatim}

@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+bundle nu cx >junk    \PYG{c}{\PYGZsh{}打包}
+mkdir \PYG{n+nb}{test}; \PYG{n+nb}{cd test}
+sh ../junk            \PYG{c}{\PYGZsh{}解包}
+ls
+\end{Verbatim}

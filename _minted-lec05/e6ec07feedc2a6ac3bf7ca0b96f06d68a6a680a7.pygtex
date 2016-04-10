@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+cat fac3
+\PYG{c}{\PYGZsh{}!/bin/bash}
+\PYG{n+nv}{n}\PYG{o}{=}\PYG{k}{\PYGZdl{}\PYGZob{}}\PYG{n+nv}{1}\PYG{k}{:-}\PYG{n+nv}{1}\PYG{k}{\PYGZcb{}}; \PYG{n+nv}{fac}\PYG{o}{=}1
+\PYG{k}{for }i in \PYG{l+s+sb}{`}seq 2 \PYG{n+nv}{\PYGZdl{}n}\PYG{l+s+sb}{`}; \PYG{k}{do}
+\PYG{k}{  }\PYG{n+nb}{let }fac*\PYG{o}{=}i
+  \PYG{n+nb}{let }i++
+\PYG{k}{done}
+\PYG{n+nb}{echo} \PYG{l+s+s2}{"fac(\PYGZdl{}n)=\PYGZdl{}fac"}
+\end{Verbatim}

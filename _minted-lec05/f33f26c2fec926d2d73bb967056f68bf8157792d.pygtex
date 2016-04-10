@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+cat field1
+\PYG{c}{\PYGZsh{}!/bin/bash}
+awk \PYG{l+s+s2}{"\PYGZob{} print \PYGZbs{}\PYGZdl{}\PYGZdl{}1 \PYGZcb{}"}  \PYG{c}{\PYGZsh{}此处必须用双引号！}
+
+cat field2
+\PYG{c}{\PYGZsh{}!/bin/bash}
+awk \PYG{l+s+s1}{'\PYGZob{} print \PYGZdl{}'}\PYG{n+nv}{\PYGZdl{}1}\PYG{l+s+s1}{' \PYGZcb{}'}
+
+who | field1 1
+who | field2 2
+\end{Verbatim}

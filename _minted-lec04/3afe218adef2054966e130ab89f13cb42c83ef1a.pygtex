@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+sed -n \PYG{l+s+s1}{'N;D'} students.db  \PYG{c}{\PYGZsh{}打印末行}
+sed -n \PYG{l+s+s1}{'N;P'} students.db  \PYG{c}{\PYGZsh{}打印奇数行}
+sed -n \PYG{l+s+s1}{'='} books.db | sed \PYG{l+s+s1}{'N;s/\PYGZbs{}n/ /'}  \PYG{c}{\PYGZsh{}加行号}
+\end{Verbatim}

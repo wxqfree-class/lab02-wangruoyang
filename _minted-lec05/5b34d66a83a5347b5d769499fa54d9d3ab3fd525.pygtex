@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{o}{[}\PYG{k}{function}\PYG{o}{]} func\PYGZus{}name\PYG{o}{()\PYGZob{}} \PYG{c}{\PYGZsh{}关键字function可省略}
+  cmd1                  \PYG{c}{\PYGZsh{}若省略function，则()不可省略}
+  cmd2                  \PYG{c}{\PYGZsh{}若不省略function，则()可省略}
+  ...
+  cmdn
+\PYG{o}{\PYGZcb{}}
+func\PYGZus{}name\PYG{o}{()\PYGZob{}} cmd1; cmd2; ...; cmdn; \PYG{o}{\PYGZcb{}} \PYG{c}{\PYGZsh{}注意空格与分号}
+\end{Verbatim}

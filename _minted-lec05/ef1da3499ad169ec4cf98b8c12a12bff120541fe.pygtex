@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+cat welcome
+\PYG{c}{\PYGZsh{}!/bin/bash}
+\PYG{n+nb}{echo} -e \PYG{l+s+s2}{"login: \PYGZbs{}c"}   \PYG{c}{\PYGZsh{}\PYGZbs{}c表示取消换行}
+\PYG{n+nb}{read }user
+\PYG{n+nb}{read} -p \PYG{l+s+s2}{"password: "} -s pass  \PYG{c}{\PYGZsh{}-p 提示，-s关闭回显}
+\PYG{n+nb}{echo}
+\PYG{k}{if} \PYG{o}{[} \PYG{l+s+s2}{"\PYGZdl{}user"} \PYG{o}{=} \PYG{l+s+s2}{"tom"} \PYG{o}{]} \PYG{o}{&&} \PYG{o}{[} \PYG{l+s+s2}{"\PYGZdl{}pass"} \PYG{o}{=} \PYG{l+s+s2}{"123"} \PYG{o}{]}; \PYG{k}{then}
+\PYG{k}{  }\PYG{n+nb}{echo} \PYG{l+s+s2}{"Welcome, \PYGZdl{}user"}!; \PYG{n+nb}{exit }0
+\PYG{k}{else}
+\PYG{k}{  }\PYG{n+nb}{echo} \PYG{l+s+s2}{"login failed."}; \PYG{n+nb}{exit }1
+\PYG{k}{fi}
+\end{Verbatim}

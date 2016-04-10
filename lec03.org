@@ -312,8 +312,7 @@ ls -l输出结果第4列，第二组权限(rw-)
 **** 其他用户
 既不是文件所有者，也不属于文件所属组，第三组权限(r--)
 *** 修改文件和目录权限
-**** chmod
-仅文件所有者和root用户有权修改文件权限
+**** chmod 仅文件所有者和root用户有权修改文件权限
 **** 示例                                                 :B_exampleblock:
 :PROPERTIES:
 :BEAMER_env: exampleblock
@@ -327,13 +326,19 @@ chmod 600 file
 chmod 700 dir
 chmod -R 755 dir
 #+END_SRC
+**** 想一想                                                      :B_block:
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+1. 若用户对某个文件只有读权限，他有没有可能删除该文件？
+2. 可否允许其他用户修改某文件，却不能删除或更名该文件？
 *** 查看和设置默认权限掩码
 **** umask                                                :B_exampleblock:
 :PROPERTIES:
 :BEAMER_env: exampleblock
 :END:
 #+BEGIN_SRC sh
-umask
+umask      #掩码中某一位为1表示该位对应权限被禁止
 umask -S
 umask 0026
 #+END_SRC
@@ -341,9 +346,13 @@ umask 0026
 :PROPERTIES:
 :BEAMER_env: block
 :END:
-1. 新建文件的默认权限等于0666-umask
-2. 新建目录的默认权限等于0777-umask
-3. 0666-0027=0640
+新建文件/目录的权限等于0666/0777与掩码的反码按位相与
+**** 算一算                                                      :B_block:
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+1. 若将umask值设置为0011，则新建文件的默认权限是什么？
+2. 若希望新建文件的权限是所有者可读写，属组用户可读，其他用户无权限，则umask值应设为多少？
 *** 权限设置实例
 **** 问题                                                           :B_block:
 :PROPERTIES:
@@ -355,9 +364,10 @@ xiaobai想在自己的主目录内建立一个公共目录pub，希望所有人�
 :BEAMER_env: note
 :END:
 #+BEGIN_EXAMPLE
-1. chmod o+x ~xiaobai
-2. mkdir pub
-3. echo hello >pub/hello.txt
+1. chmod a+x ~xiaobai
+2. umask 0022
+3. mkdir pub
+4. echo hello >pub/hello.txt
 #+END_EXAMPLE
 **** 另一个问题                                                   :B_note:
 :PROPERTIES:
@@ -441,8 +451,17 @@ chgrp proj proj_dir
 chmod g+s proj_dir
 #+END_SRC
 *** Sticky bit权限
-**** 
-** 
+**** Sticky bit：目前仅对目录有效，目录设置该权限后，该目录内的所有文件仅文件所有者和root用户才有权力进行删除/更名/移动等操作，
+**** 示例                                                 :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+ls -ld /tmp
+chmod o+t dir
+chmod o-t dir
+chmod 1751 dir
+#+END_SRC
 * 进程管理
 ** 进程管理
 *** 查看进程
@@ -589,8 +608,44 @@ atq           #查看作业队列，同at -l
 atrm 2        #删除作业2，同at -d 2
 man at
 #+END_SRC
-*** cron 周期性计划任务
-**** crond守护进程
+*** at/batch 一次性计划任务(2)
+**** 用batch提交作业
+***** batch与at的语法与at相同，但batch作业不在特定时间运行，而是等到系统负载较轻时运行。atd会监控系统平均负载，等待它降低到0.8以下，然后开始运行作业任务。
+*** cron 重复性计划任务
+**** cron允许用户配置要定期运行的命令，用户用crontab命令配置自己的任务计划(crontab)。
+**** cron在/var/spool/cron目录下搜索以用户名命名的crontab文件，以及/etc/crontab文件和/etc/cron.d目录下的crontab文件，cron每分钟醒来一次检查是否有需要运行的作业。
+**** crontab命令                                          :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+crontab -e   #编辑计划任务
+crontab file #从file创建计划任务
+crontab -l   #列出计划任务
+crontab -e   #删除计划任务
+#+END_SRC
+*** cron 重复性计划任务(2)
+**** 计划任务格式                                                :B_block:
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+#+BEGIN_EXAMPLE
+分钟 小时 几号 几月 星期几 [用户] 命令
+注：用户计划任务无需用户字段
+#+END_EXAMPLE
+**** 示例                              :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_EXAMPLE
+SHELL=/bin/sh    #使用/bin/sh执行命令
+MAILTO=mike      #发邮件给mike
+ 5  0  *  *  *   $HOME/bin/daily.job >>$HOME/tmp/out 2>&1
+15 14  1  *  *   $HOME/bin/monthly.job
+ 0 22  *  * 1-5  $HOME/bin/workday.job
+23 0-23/2 * * *  $HOME/bin/twohours.job
+ 5  4  *  * sun  $HOME/bin/sunday.job    
+#+END_EXAMPLE
 * shell环境
 ** shell环境变量
 *** 查看和修改shell环境变量

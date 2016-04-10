@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{x}\PYG{o}{=}8+10
+\PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}x}
+\end{Verbatim}

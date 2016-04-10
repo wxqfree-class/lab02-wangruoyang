@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{declare} -a season
+season\PYG{o}{[}0\PYG{o}{]=}\PYG{l+s+s2}{"spring"}
+season\PYG{o}{[}1\PYG{o}{]=}\PYG{l+s+s2}{"summer"}
+season\PYG{o}{[}2\PYG{o}{]=}\PYG{l+s+s2}{"autumn"}
+season\PYG{o}{[}3\PYG{o}{]=}\PYG{l+s+s2}{"winter"}
+
+\PYG{n+nv}{weekday}\PYG{o}{=(}\PYG{l+s+s2}{"Mon."} \PYG{l+s+s2}{"Tues."} \PYG{l+s+s2}{"Wed."} \PYG{l+s+s2}{"Thur."} \PYG{l+s+s2}{"Fri."} \PYG{l+s+s2}{"Sat."} \PYG{l+s+s2}{"Sun."}\PYG{o}{)}
+
+\PYG{n+nv}{users}\PYG{o}{=(}\PYG{l+s+s2}{"alice"} \PYG{l+s+s2}{"andy"} \PYG{o}{[}4\PYG{o}{]=}\PYG{l+s+s2}{"bob"} \PYG{l+s+s2}{"william"} \PYG{o}{[}8\PYG{o}{]=}\PYG{l+s+s2}{"mary"} \PYG{l+s+s2}{"mike"}\PYG{o}{)}
+\PYG{n+nv}{suids}\PYG{o}{=(}\PYG{l+s+sb}{`}find /usr/bin -perm -4000 | sed \PYG{l+s+s1}{'s\PYGZsh{}.*/\PYGZsh{}\PYGZsh{}'}\PYG{l+s+sb}{`}\PYG{o}{)}
+\PYG{n+nb}{declare} -a
+\PYG{n+nb}{declare} -a suids
+\end{Verbatim}

@@ -1,0 +1,3 @@
+digraph fork {
+	bash -> bash[label=fork];
+}

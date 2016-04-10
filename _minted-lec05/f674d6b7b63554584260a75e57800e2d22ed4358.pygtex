@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{for }i in a \PYG{l+s+s2}{"b c"} d
+\PYG{k}{do}
+\PYG{k}{  }\PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}i}
+\PYG{k}{done}
+\PYG{k}{for }i in a \PYG{l+s+s1}{'b c'} d; \PYG{k}{do }\PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}i}; \PYG{k}{done}
+\end{Verbatim}

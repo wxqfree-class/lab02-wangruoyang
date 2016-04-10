@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{x}\PYG{o}{=}3
+\PYG{n+nb}{echo} \PYG{k}{\PYGZdl{}((}x+8\PYG{k}{))}
+\PYG{n+nb}{echo} \PYG{k}{\PYGZdl{}((}x*9-10/2\PYG{k}{))}
+\PYG{n+nb}{echo} \PYG{k}{\PYGZdl{}((}x++\PYG{k}{))}; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}x}
+\PYG{n+nb}{echo} \PYG{k}{\PYGZdl{}((}\PYG{o}{--}x\PYG{k}{))}; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}x}
+\PYG{n+nb}{echo} \PYG{k}{\PYGZdl{}((}x**3\PYGZpc{}5\PYG{k}{))} \PYG{k}{\PYGZdl{}((}x**\PYG{o}{(}\PYG{l+m}{3}\PYG{o}{\PYGZpc{}}\PYG{l+m}{5}\PYG{k}{))}\PYG{o}{)}
+\PYG{n+nb}{echo} \PYG{k}{\PYGZdl{}((}\PYG{l+m}{8}\PYG{l+s}{<<2)) \PYGZdl{}((-8>>2}\PYG{k}{))}   \PYG{c}{\PYGZsh{}左移和右移}
+\PYG{n+nb}{echo} \PYG{k}{\PYGZdl{}((}x&8\PYG{k}{))} \PYG{k}{\PYGZdl{}((}x|8\PYG{k}{))} \PYG{k}{\PYGZdl{}((}x\PYGZca{}8\PYG{k}{))}    \PYG{c}{\PYGZsh{}按位与、或、异或}
+\PYG{o}{((}x++\PYG{o}{))}; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}x}
+\PYG{o}{((}x*\PYG{o}{=}6\PYG{o}{))}; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}x}
+\PYG{o}{((}\PYG{n+nv}{y}\PYG{o}{=}x<20?0:1\PYG{o}{))}; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}y}
+\end{Verbatim}

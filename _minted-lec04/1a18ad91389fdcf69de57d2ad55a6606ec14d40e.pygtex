@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+grep \PYG{l+s+s1}{'[0-9]\PYGZdl{}'} file
+grep -v \PYG{l+s+s1}{'\PYGZca{}\PYGZdl{}'} file | wc -l
+\end{Verbatim}

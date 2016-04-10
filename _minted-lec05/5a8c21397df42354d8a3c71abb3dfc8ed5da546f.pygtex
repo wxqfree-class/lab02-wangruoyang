@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}!/bin/bash}
+\PYG{k}{if} \PYG{o}{[} \PYG{l+s+s2}{"\PYGZdl{}\PYGZsh{}"} -ne 2 \PYG{o}{]}; \PYG{k}{then}
+\PYG{k}{  }\PYG{n+nb}{echo} \PYG{l+s+s2}{"usage: `basename \PYGZdl{}0` file1 file2"} 1>&2; \PYG{n+nb}{exit }1
+\PYG{k}{elif} \PYG{o}{[} ! -f \PYG{l+s+s2}{"\PYGZdl{}1"} \PYG{o}{]}; \PYG{k}{then}
+\PYG{k}{  }\PYG{n+nb}{echo} \PYG{l+s+s2}{"\PYGZdl{}1 is not a regular file"} 1>&2; \PYG{n+nb}{exit }2
+\PYG{k}{elif} \PYG{o}{[} ! -f \PYG{l+s+s2}{"\PYGZdl{}2"} \PYG{o}{]}; \PYG{k}{then}
+\PYG{k}{  }\PYG{n+nb}{echo} \PYG{l+s+s2}{"\PYGZdl{}2 is not a regular file"} 1>&2; \PYG{n+nb}{exit }3
+\PYG{k}{fi}
+\end{Verbatim}

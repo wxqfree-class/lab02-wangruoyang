@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+0 恢复默认值
+1 加粗
+4 下划线
+7 反白显示
+30 黑色\PYG{o}{(}前景\PYG{o}{)}        40 黑色\PYG{o}{(}背景\PYG{o}{)}
+31 红色\PYG{o}{(}前景\PYG{o}{)}        41 红色\PYG{o}{(}背景\PYG{o}{)}
+32 绿色\PYG{o}{(}前景\PYG{o}{)}        42 绿色\PYG{o}{(}背景\PYG{o}{)}
+33 棕色\PYG{o}{(}前景\PYG{o}{)}        43 棕色\PYG{o}{(}背景\PYG{o}{)}
+34 蓝色\PYG{o}{(}前景\PYG{o}{)}        44 蓝色\PYG{o}{(}背景\PYG{o}{)}
+35 品红\PYG{o}{(}前景\PYG{o}{)}        45 品红\PYG{o}{(}背景\PYG{o}{)}
+36 青色\PYG{o}{(}前景\PYG{o}{)}        46 青色\PYG{o}{(}背景\PYG{o}{)}
+37 白色\PYG{o}{(}前景\PYG{o}{)}        47 白色\PYG{o}{(}背景\PYG{o}{)}
+man console\PYGZus{}codes  \PYG{c}{\PYGZsh{}查看更多属性}
+\end{Verbatim}

@@ -1,0 +1,16 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} var}\PYG{o}{=}testcase
+\PYG{n+nv}{\PYGZdl{} }\PYG{n+nb}{echo} \PYG{k}{\PYGZdl{}\PYGZob{}}\PYG{n+nv}{var}\PYG{p}{\PYGZpc{}s*e}\PYG{k}{\PYGZcb{}}   \PYG{c}{\PYGZsh{}从右边删除最短匹配}
+\PYG{n+nv}{\PYGZdl{} }\PYG{n+nb}{echo} \PYG{k}{\PYGZdl{}\PYGZob{}}\PYG{n+nv}{var}\PYG{p}{\PYGZpc{}\PYGZpc{}s*e}\PYG{k}{\PYGZcb{}}  \PYG{c}{\PYGZsh{}从右边删除最长匹配}
+\PYG{n+nv}{\PYGZdl{} }\PYG{n+nb}{echo} \PYG{k}{\PYGZdl{}\PYGZob{}}\PYG{n+nv}{var}\PYG{k}{\PYGZcb{}}       \PYG{c}{\PYGZsh{}查看变量是否已被改变}
+\PYG{n+nv}{\PYGZdl{} }\PYG{n+nb}{echo} \PYG{k}{\PYGZdl{}\PYGZob{}}\PYG{n+nv}{var}\PYG{p}{\PYGZsh{}t*s}\PYG{k}{\PYGZcb{}}   \PYG{c}{\PYGZsh{}从左边删除最短匹配}
+\PYG{n+nv}{\PYGZdl{} }\PYG{n+nb}{echo} \PYG{k}{\PYGZdl{}\PYGZob{}}\PYG{n+nv}{var}\PYG{p}{\PYGZsh{}\PYGZsh{}t*s}\PYG{k}{\PYGZcb{}}  \PYG{c}{\PYGZsh{}从左边删除最长匹配}
+
+\PYG{n+nv}{\PYGZdl{} fname}\PYG{o}{=}\PYG{l+s+s2}{"game.tar.gz"}
+\PYG{n+nv}{\PYGZdl{} }\PYG{n+nb}{echo} \PYG{k}{\PYGZdl{}\PYGZob{}}\PYG{n+nv}{fname}\PYG{p}{\PYGZpc{}\PYGZpc{}.*}\PYG{k}{\PYGZcb{}}
+\PYG{n+nv}{\PYGZdl{} }\PYG{n+nb}{echo} \PYG{k}{\PYGZdl{}\PYGZob{}}\PYG{n+nv}{fname}\PYG{p}{\PYGZsh{}*.}\PYG{k}{\PYGZcb{}}
+
+\PYG{n+nv}{\PYGZdl{} }cat mybasename
+\PYG{n+nb}{echo} \PYG{k}{\PYGZdl{}\PYGZob{}}\PYG{n+nv}{1}\PYG{p}{\PYGZsh{}\PYGZsh{}*/}\PYG{k}{\PYGZcb{}}
+\PYG{n+nv}{\PYGZdl{} }./mybasename \PYG{l+s+sb}{`}\PYG{n+nb}{pwd}\PYG{l+s+sb}{`}
+\end{Verbatim}

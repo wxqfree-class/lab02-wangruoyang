@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{}1}\PYGZti{}\PYG{n+nv}{\PYGZdl{}9}   \PYG{c}{\PYGZsh{}第1\PYGZti{}9个位置参数}
+\PYG{k}{\PYGZdl{}\PYGZob{}}\PYG{n+nv}{10}\PYG{k}{\PYGZcb{}}   \PYG{c}{\PYGZsh{}第10个位置参数}
+\PYG{n+nv}{\PYGZdl{}*}, \PYG{n+nv}{\PYGZdl{}@}  \PYG{c}{\PYGZsh{}所有位置参数}
+\PYG{n+nv}{\PYGZdl{}\PYGZsh{} }     \PYG{c}{\PYGZsh{}位置参数个数}
+\PYG{n+nv}{\PYGZdl{}0}      \PYG{c}{\PYGZsh{}当前脚本路径名}
+\PYG{l+s+se}{\PYGZbs{}\PYGZdl{}\PYGZbs{}\PYGZdl{}}      \PYG{c}{\PYGZsh{}当前脚本进程号}
+\PYG{n+nv}{\PYGZdl{}?}      \PYG{c}{\PYGZsh{}上一条命令的返回值}
+\end{Verbatim}

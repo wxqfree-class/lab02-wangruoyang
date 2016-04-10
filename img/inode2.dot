@@ -1,0 +1,21 @@
+digraph inode2 {
+	node[shape=record];
+	subgraph cluster0 {
+		dir[label="{15768|file1}|{15274|<dir2>file2}|{15852|file3}"];
+		label="目录";
+	}
+	rankdir=LR;
+	subgraph cluster1 {
+		subgraph cluster10{
+			inodes[label="{inode|inode|inode|inode}|{inode|inode|inode|inode}|{inode|inode|inode|inode}|......|{inode|<i>inode|inode|inode}|{inode|inode|inode|inode}"];
+			label="I节点区";
+		}
+		subgraph cluster11 {		blocks[label="{block|block|block|block|block}|{block|block|block|block|block}|{block|block|block|<b>block|block}|......|{block|block|block|block|block}|{block|block|block|block|block}"];
+			label="数据区";
+		}
+		label="磁盘分区";
+	}
+	dir:dir2:e -> inodes:i:nw;
+	inodes:i:e -> blocks:b:nw;
+	
+}

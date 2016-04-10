@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+grep \PYG{l+s+s1}{'[0-9]\PYGZbs{}.[0-9]'} file
+grep \PYG{l+s+s1}{'[\PYGZca{}0-9][0-9][\PYGZca{}0-9]'} file
+\end{Verbatim}

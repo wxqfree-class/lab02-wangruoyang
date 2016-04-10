@@ -1,0 +1,16 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}!/bin/bash}
+\PYG{c}{\PYGZsh{}锁屏}
+\PYG{n+nb}{trap} \PYG{l+s+s1}{''} 1 2 3 15 20  \PYG{c}{\PYGZsh{}忽略信号}
+clear
+stty -echo           \PYG{c}{\PYGZsh{}关闭回显}
+\PYG{n+nb}{echo} -n \PYG{l+s+s2}{"Enter your password: "}
+\PYG{n+nb}{read }pass1
+\PYG{n+nb}{echo} -n \PYG{l+s+s2}{"Enter your password again: "}
+\PYG{n+nb}{read }pass2
+\PYG{k}{if} \PYG{o}{[} \PYG{l+s+s2}{"\PYGZdl{}pass1"} !\PYG{o}{=} \PYG{l+s+s2}{"\PYGZdl{}pass2"} \PYG{o}{]}; \PYG{k}{then}
+\PYG{k}{  }\PYG{n+nb}{echo} \PYG{l+s+s2}{"Passwords do not match."} 1>&2
+  stty \PYG{n+nb}{echo}          \PYG{c}{\PYGZsh{}恢复回显}
+  \PYG{n+nb}{exit }1
+\PYG{k}{fi}
+\end{Verbatim}

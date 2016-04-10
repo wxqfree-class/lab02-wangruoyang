@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+cat var.sh
+\PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}a}
+\PYG{n+nv}{a}\PYG{o}{=}300
+\PYG{n+nv}{b}\PYG{o}{=}\PYG{l+s+s2}{"hello"}
+\PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}a} \PYG{n+nv}{\PYGZdl{}b}
+\end{Verbatim}

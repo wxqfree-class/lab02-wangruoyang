@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}!/bin/bash}
+\PYG{n+nv}{hour}\PYG{o}{=}\PYG{k}{\PYGZdl{}(}date +\PYGZpc{}H\PYG{k}{)}
+\PYG{k}{if} \PYG{o}{[} \PYG{n+nv}{\PYGZdl{}hour} -ge 0 \PYG{o}{]} \PYG{o}{&&} \PYG{o}{[} \PYG{n+nv}{\PYGZdl{}hour} -le 11 \PYG{o}{]}; \PYG{k}{then}
+\PYG{k}{  }\PYG{n+nb}{echo} \PYG{l+s+s1}{'Good morning!'}
+\PYG{k}{elif} \PYG{o}{[} \PYG{n+nv}{\PYGZdl{}hour} -ge 12 \PYG{o}{]} \PYG{o}{&&} \PYG{o}{[} \PYG{n+nv}{\PYGZdl{}hour} -le 18 \PYG{o}{]}; \PYG{k}{then}
+\PYG{k}{  }\PYG{n+nb}{echo} \PYG{l+s+s1}{'Good afternoon!'}
+\PYG{k}{else}
+\PYG{k}{  }\PYG{n+nb}{echo} \PYG{l+s+s1}{'Good evening!'}
+\PYG{k}{fi}
+\end{Verbatim}

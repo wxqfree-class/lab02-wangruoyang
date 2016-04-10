@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+BEGIN  \PYG{o}{\PYGZob{}}\PYG{n+nv}{FS}\PYG{o}{=}\PYG{l+s+s1}{':'}\PYG{o}{\PYGZcb{}}
+/bash/ \PYG{o}{\PYGZob{}}print \PYG{n+nv}{\PYGZdl{}1},\PYG{n+nv}{\PYGZdl{}2}\PYG{o}{\PYGZcb{}}
+\end{Verbatim}

@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{}2} > 6 \PYG{o}{\PYGZob{}}n++; pay +\PYG{o}{=} \PYG{n+nv}{\PYGZdl{}2}*\PYG{n+nv}{\PYGZdl{}3}\PYG{o}{\PYGZcb{}}
+END    \PYG{o}{\PYGZob{}} \PYG{k}{if} \PYG{o}{(}n>0\PYG{o}{)}
+             print n, \PYG{l+s+s2}{"employees, total pay is"},pay,
+                      \PYG{l+s+s2}{"average pay is"},pay/n
+         \PYG{k}{else}
+\PYG{k}{             }print \PYG{l+s+s2}{"no employees are paid more than \PYGZdl{}6/h"}
+       \PYG{o}{\PYGZcb{}}
+\end{Verbatim}

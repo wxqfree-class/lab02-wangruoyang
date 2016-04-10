@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+cat 411
+grep \PYG{l+s+s2}{"\PYGZdl{}*"} \PYG{l+s}{<<End}
+\PYG{l+s}{dial-a-joke 212-976-3838}
+\PYG{l+s}{dial-a-prayer 212-246-4200}
+\PYG{l+s}{dial santa 212-976-3636}
+\PYG{l+s}{dow jones report 212-976-4141}
+\PYG{l+s}{End}
+\PYG{c}{\PYGZsh{}End(可自行选取其他单词)用于开始和终止输入(here文档)}
+\PYG{c}{\PYGZsh{}          <<End: here文档内的\PYGZdl{}、``和\PYGZbs{}会被替换}
+\PYG{c}{\PYGZsh{}<<\PYGZbs{}End和<<'End': here文档内的\PYGZdl{}、``和\PYGZbs{}不被替换}
+\end{Verbatim}

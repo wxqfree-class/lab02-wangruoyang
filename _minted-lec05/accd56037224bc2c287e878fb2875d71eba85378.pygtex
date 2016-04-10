@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+cat whichkey
+\PYG{c}{\PYGZsh{}!/bin/bash}
+\PYG{k}{until} \PYG{o}{[} \PYG{l+s+s2}{"\PYGZdl{}key"} \PYG{o}{=} \PYG{l+s+s2}{"q"} \PYG{o}{]}; \PYG{k}{do}
+\PYG{k}{  }\PYG{n+nb}{read} -n 1 -s -p \PYG{l+s+s2}{"please press a key"} key \PYG{c}{\PYGZsh{}-n读指定字符数}
+  \PYG{n+nb}{echo} -e \PYG{l+s+s2}{"\PYGZbs{}n\PYGZbs{}tyou have pressed the key \PYGZdl{}key"}
+\PYG{k}{done}
+\end{Verbatim}

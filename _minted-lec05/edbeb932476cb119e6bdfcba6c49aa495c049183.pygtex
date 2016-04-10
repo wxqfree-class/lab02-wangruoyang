@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+cat hour2
+\PYG{c}{\PYGZsh{}!/bin/bash}
+\PYG{n+nb}{set} -v   \PYG{c}{\PYGZsh{}开启调试}
+\PYG{n+nv}{h}\PYG{o}{=}\PYG{l+s+sb}{`}date +\PYGZpc{}H\PYG{l+s+sb}{`}
+\PYG{n+nb}{set} +v   \PYG{c}{\PYGZsh{}关闭调试}
+\PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}h}
+\end{Verbatim}

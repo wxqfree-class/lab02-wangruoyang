@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+sed \PYG{l+s+s1}{''} file
+sed -n \PYG{l+s+s1}{''} file
+sed -n \PYG{l+s+s1}{'1,\PYGZdl{}p'} file
+sed \PYG{l+s+s1}{'10q'} file
+sed -n \PYG{l+s+s1}{'\PYGZdl{}p'} file
+sed \PYG{l+s+s1}{'/string/d'} file
+sed \PYG{l+s+s1}{'\PYGZbs{}\PYGZsh{}string\PYGZsh{}d'} file      \PYG{c}{\PYGZsh{}同上}
+sed -n \PYG{l+s+s1}{'n;p'} file
+sed -n -e \PYG{l+s+s1}{'n'} -e \PYG{l+s+s1}{'p'} file  \PYG{c}{\PYGZsh{}同上}
+sed \PYG{l+s+s1}{'1\PYGZti{}2d'} file            \PYG{c}{\PYGZsh{}同上}
+sed \PYG{l+s+s1}{'2\PYGZti{}2!d'} file           \PYG{c}{\PYGZsh{}同上}
+\end{Verbatim}

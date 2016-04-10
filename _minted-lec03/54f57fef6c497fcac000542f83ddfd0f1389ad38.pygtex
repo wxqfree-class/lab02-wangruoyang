@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+crontab -e   \PYG{c}{\PYGZsh{}编辑计划任务}
+crontab file \PYG{c}{\PYGZsh{}从file创建计划任务}
+crontab -l   \PYG{c}{\PYGZsh{}列出计划任务}
+crontab -e   \PYG{c}{\PYGZsh{}删除计划任务}
+\end{Verbatim}

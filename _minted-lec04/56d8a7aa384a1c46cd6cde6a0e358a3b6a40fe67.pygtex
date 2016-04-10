@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}反向输出每一行(类似tac命令)   while版}
+    \PYG{o}{\PYGZob{}} line\PYG{o}{[}NR\PYG{o}{]} \PYG{o}{=} \PYG{n+nv}{\PYGZdl{}0} \PYG{o}{\PYGZcb{}}
+END \PYG{o}{\PYGZob{}} \PYG{n+nv}{i} \PYG{o}{=} NR
+      \PYG{k}{while} \PYG{o}{(}i>0\PYG{o}{)} \PYG{o}{\PYGZob{}}
+        print line\PYG{o}{[}i\PYG{o}{]}
+        \PYG{n+nv}{i} \PYG{o}{=} i-1
+      \PYG{o}{\PYGZcb{}}
+    \PYG{o}{\PYGZcb{}}
+\PYG{c}{\PYGZsh{} for版}
+    \PYG{o}{\PYGZob{}} line\PYG{o}{[}NR\PYG{o}{]} \PYG{o}{=} \PYG{n+nv}{\PYGZdl{}0} \PYG{o}{\PYGZcb{}}
+END \PYG{o}{\PYGZob{}} \PYG{k}{for} \PYG{o}{(}\PYG{n+nv}{i}\PYG{o}{=}NR; i>0; i--\PYG{o}{)}
+        print line\PYG{o}{[}i\PYG{o}{]}
+    \PYG{o}{\PYGZcb{}}
+\end{Verbatim}

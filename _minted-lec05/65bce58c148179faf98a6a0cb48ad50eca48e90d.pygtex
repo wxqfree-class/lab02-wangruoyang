@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{while} :
+\PYG{k}{do}
+\PYG{k}{  }sleep 1
+  \PYG{n+nb}{echo} \PYG{k}{\PYGZdl{}((}\PYG{o}{++}i\PYG{k}{))}
+\PYG{k}{done}
+
+\PYG{k}{if} \PYG{o}{[} -f file \PYG{o}{]}; \PYG{k}{then}
+  :
+\PYG{k}{else}
+\PYG{k}{  }touch file
+\PYG{k}{fi}
+\end{Verbatim}

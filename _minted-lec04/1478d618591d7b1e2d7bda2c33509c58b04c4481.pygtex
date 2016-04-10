@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+find /usr/bin -regex \PYG{l+s+s1}{'mk'}     \PYG{c}{\PYGZsh{}:-(}
+find /usr/bin -regex \PYG{l+s+s1}{'.*mk.*'} \PYG{c}{\PYGZsh{}:-)}
+\end{Verbatim}

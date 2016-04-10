@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{str}\PYG{o}{=}\PYG{l+s+s2}{"GNU's Not Unix"}
+\PYG{n+nb}{echo} \PYG{k}{\PYGZdl{}\PYGZob{}}\PYG{n+nv}{str}\PYG{p}{:}\PYG{n+nv}{0}\PYG{p}{:}\PYG{n+nv}{3}\PYG{k}{\PYGZcb{}}
+\PYG{n+nb}{echo} \PYG{k}{\PYGZdl{}\PYGZob{}}\PYG{n+nv}{str}\PYG{p}{::}\PYG{n+nv}{3}\PYG{k}{\PYGZcb{}}
+\PYG{n+nb}{echo} \PYG{k}{\PYGZdl{}\PYGZob{}}\PYG{n+nv}{str}\PYG{p}{:}\PYG{n+nv}{6}\PYG{p}{:}\PYG{n+nv}{3}\PYG{k}{\PYGZcb{}}
+\PYG{n+nb}{echo} \PYG{k}{\PYGZdl{}\PYGZob{}}\PYG{n+nv}{str}\PYG{p}{:}\PYG{n+nv}{6}\PYG{k}{\PYGZcb{}}
+\end{Verbatim}

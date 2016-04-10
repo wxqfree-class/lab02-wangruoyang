@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}!/bin/bash}
+\PYG{n+nb}{trap} \PYG{l+s+s1}{'echo "ERR(\PYGZdl{}LINENO): name=\PYGZdl{}name"'} ERR
+\PYG{n+nv}{name}\PYG{o}{=}\PYG{l+s+sb}{`}grep william /etc/passwd\PYG{l+s+sb}{`}
+\PYG{n+nb}{exit }0
+
+\PYG{n+nb}{trap}-debug2
+\end{Verbatim}

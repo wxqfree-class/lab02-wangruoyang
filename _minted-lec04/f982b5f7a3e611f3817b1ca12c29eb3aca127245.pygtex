@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+awk \PYG{l+s+s1}{'\PYGZdl{}2 >= 5'} emp.data
+awk \PYG{l+s+s1}{'\PYGZdl{}2*\PYGZdl{}3 > 50\PYGZob{}printf("\PYGZdl{}\PYGZpc{}.2f for \PYGZpc{}s\PYGZbs{}n", \PYGZdl{}2*\PYGZdl{}3, \PYGZdl{}1)\PYGZcb{}'} emp.data
+awk \PYG{l+s+s1}{'\PYGZdl{}1 == "Susie"'} emp.data
+awk \PYG{l+s+s1}{'/Susie/'} emp.data
+awk \PYG{l+s+s1}{'\PYGZdl{}2 >=4 || \PYGZdl{}3 >=20'} emp.data
+awk \PYG{l+s+s1}{'!(\PYGZdl{}2 <4 && \PYGZdl{}3 <20)'} emp.data
+\end{Verbatim}

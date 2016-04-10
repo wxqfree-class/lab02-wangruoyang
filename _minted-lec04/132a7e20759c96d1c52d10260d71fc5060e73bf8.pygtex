@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{o}{\PYGZob{}}print \PYG{n+nv}{\PYGZdl{}2}, \PYG{n+nv}{\PYGZdl{}1}\PYG{o}{\PYGZcb{}}
+\PYG{o}{\PYGZob{}}\PYG{n+nv}{temp}\PYG{o}{=}\PYG{n+nv}{\PYGZdl{}1};\PYG{n+nv}{\PYGZdl{}1}\PYG{o}{=}\PYG{n+nv}{\PYGZdl{}2};\PYG{n+nv}{\PYGZdl{}2}\PYG{o}{=}temp;print\PYG{o}{\PYGZcb{}}
+\PYG{o}{\PYGZob{}}\PYG{n+nv}{\PYGZdl{}1}\PYG{o}{=}NR;print\PYG{o}{\PYGZcb{}}
+\PYG{o}{\PYGZob{}}\PYG{n+nv}{\PYGZdl{}2}\PYG{o}{=}\PYG{l+s+s2}{""};print\PYG{o}{\PYGZcb{}}
+\PYG{o}{\PYGZob{}}\PYG{k}{for}\PYG{o}{(}\PYG{n+nv}{i}\PYG{o}{=}NF;i>0;i--\PYG{o}{)}\PYG{n+nb}{printf}\PYG{o}{(}\PYG{l+s+s2}{"\PYGZpc{}s "}, \PYG{n+nv}{\PYGZdl{}i}\PYG{o}{)}
+ \PYG{n+nb}{printf}\PYG{o}{(}\PYG{l+s+s2}{"\PYGZbs{}n"}\PYG{o}{)}
+\PYG{o}{\PYGZcb{}}
+\PYG{o}{\PYGZob{}}\PYG{n+nv}{sum} \PYG{o}{=} 0
+ \PYG{k}{for} \PYG{o}{(}\PYG{n+nv}{i}\PYG{o}{=}1;i<\PYG{o}{=}NF;i\PYG{o}{=}i+1\PYG{o}{)} \PYG{n+nv}{sum}\PYG{o}{=}sum+\PYG{n+nv}{\PYGZdl{}i}
+ print sum
+\PYG{o}{\PYGZcb{}}
+\PYG{o}{\PYGZob{}}\PYG{k}{for}\PYG{o}{(}\PYG{n+nv}{i}\PYG{o}{=}1;i<\PYG{o}{=}NF;i++\PYG{o}{)}sum+\PYG{o}{=}\PYG{n+nv}{\PYGZdl{}i}\PYG{o}{\PYGZcb{}}END\PYG{o}{\PYGZob{}}print sum\PYG{o}{\PYGZcb{}}
+\PYG{o}{\PYGZob{}}\PYG{k}{for}\PYG{o}{(}\PYG{n+nv}{i}\PYG{o}{=}1;i<\PYG{o}{=}NF;i++\PYG{o}{)}\PYG{k}{if}\PYG{o}{(}\PYG{n+nv}{\PYGZdl{}i}<0\PYG{o}{)}\PYG{n+nv}{\PYGZdl{}i}\PYG{o}{=}-\PYG{n+nv}{\PYGZdl{}i}\PYG{o}{\PYGZcb{}}print\PYG{o}{\PYGZcb{}}
+\end{Verbatim}

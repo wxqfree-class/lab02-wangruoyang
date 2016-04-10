@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+awk \PYG{l+s+s1}{'BEGIN\PYGZob{}print "NAME   RATE  HOURS"; print ""\PYGZcb{}\PYGZob{}print\PYGZcb{}'} emp.data
+awk \PYG{l+s+s1}{'END\PYGZob{}print NR, "records"\PYGZcb{}'} emp.data
+\end{Verbatim}

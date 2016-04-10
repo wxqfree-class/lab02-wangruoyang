@@ -1,0 +1,1061 @@
+#+STARTUP: indent
+#+TITLE:     第4讲　Linux基础(3)
+#+AUTHOR:    王晓庆
+#+EMAIL:     wangxaoqing@outlook.com
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:t toc:1 \n:nil ':t @:t ::t |:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME: 
+#+XSLT:
+#+startup: beamer
+#+LATEX_CLASS: beamer
+#+BEAMER_FRAME_LEVEL: 3
+#+BEAMER_HEADER_EXTRA: \institute{wangxiaoqing@outlook.com}
+#+LaTeX_CLASS_OPTIONS: [xcolor=svgnames,presentation]
+#+LaTeX_CLASS_OPTIONS: [t]
+#+LATEX_HEADER:\usecolortheme[named=FireBrick]{structure}\setbeamercovered{transparent}\setbeamertemplate{caption}[numbered]\setbeamertemplate{blocks}[rounded][shadow=true] \usetheme{Darmstadt}\date{\today} \usepackage{tikz}\usepackage{xeCJK}\usepackage{amsmath}\setmainfont{Times New Roman}\setCJKmainfont[BoldFont={Adobe Heiti Std},ItalicFont={Adobe Fangsong Std}]{Adobe Heiti Std}\setCJKsansfont{Adobe Heiti Std}\setCJKmonofont{Adobe Fangsong Std}\usepackage{verbatim}\graphicspath{{figures/}} \definecolor{lstbgcolor}{rgb}{0.9,0.9,0.9} \usepackage{listings}\usepackage{minted} \usepackage{fancyvrb}\usepackage{xcolor}\lstset{escapeinside=`',frameround=ftft,language=C,breaklines=true,keywordstyle=\color{blue!70},commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox,backgroundcolor=\color{yellow!20},rulesepcolor=\color{red!20!green!20!blue!20}}
+#+LaTeX_HEADER: \usemintedstyle{default}
+
+* 正则表达式
+** 正则表达式
+*** 正则表达式
+**** 正则表达式由字符与元字符组成，整个表达式用于描述符合某些特定特征的一类字符串。
+**** 最基本的正则表达式匹配单个字符，大多数字符都与其自身匹配，少数具有特殊含义的元字符可以在其前面加反斜杠进行引用。
+**** Linux中许多工具都支持正则表达式，各种编程语言也包含了处理正则表达式的库。
+*** 基本正则表达式(BRE)元字符
+**** . 表示单个任意字符                                      :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+grep 'a.b' file
+grep 'a\.b' file
+#+END_SRC
+**** [xyz] 表示单个括号中列出的字符                                 :B_block:
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+#+BEGIN_SRC sh
+grep '[0-9]\.[0-9]' file
+grep '[^0-9][0-9][^0-9]' file
+#+END_SRC
+**** x* 表示其左边的项x出现0次以上                           :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+grep '[0-9][0-9]*' file
+#+END_SRC
+*** 基本正则表达式(BRE)元字符
+**** 位置锚定
+**** ^ x 匹配位于行首的x                                     :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+grep '^#' file
+grep -v '^#' file
+grep '^[^#]' file
+#+END_SRC
+**** y$ 匹配位于行尾的y                                             :B_block:
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+#+BEGIN_SRC sh
+grep '[0-9]$' file
+grep -v '^$' file | wc -l
+#+END_SRC
+*** 扩展正则表达式(ERE)元字符
+**** 扩展正则表达式元字符
+***** ? + | { } ( )
+**** ERE元字符被视为普通字符，除非在其前面加上反斜杠！
+*** 扩展正则表达式(ERE)元字符(2)
+**** x+ 表示其左边的项x出现1次以上                           :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+grep '[0-9]\+' file
+grep -E '[0-9]+' file
+egrep '[0-9]+' file
+#+END_SRC
+**** x? 表示其左边的项x出现0次或1次                                 :B_block:
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+#+BEGIN_SRC sh
+grep '[0-9]*\.?[0-9]\+' file
+#+END_SRC
+**** x|y 表示x或y                                            :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+grep 'html|HTML' file
+#+END_SRC
+*** 扩展正则表达式(ERE)元字符(3)
+**** x{m} 表示x出现m次                                    :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+grep '\$[0-9]\{2\}\.[0-9]{\2\}[^0-9]' file
+#+END_SRC
+**** x{m,} 表示x出现m次以上                                      :B_block:
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+#+BEGIN_SRC sh
+grep '\$[0-9]\{5,\}\.[0-9]{\2\}[^0-9]' file
+#+END_SRC
+**** x{m,n} 表示x出现m到n次(m<n)                          :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+grep '\$[0-9]\{3,4\}\.[0-9]{\2\}[^0-9]' file
+#+END_SRC
+*** 扩展正则表达式(ERE)元字符(4)
+**** ()与\n 组合与反向引用                                :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+grep '\([0-9]\+\)\.\1' file
+grep '^\(.\).*\1$' file
+#+END_SRC
+**** 试一试                                                      :B_block:
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+1. 如何在/usr/share/dict/words中查找长度为5的回文单词？
+2. 如何滤出类似<em>warning</em>这样的行？
+3. 如何查找包含相邻重复词的行？
+**** 答案                                                         :B_note:
+:PROPERTIES:
+:BEAMER_env: note
+:END:
+#+BEGIN_SRC sh
+egrep '(.)(.).\2\1' /usr/share/dict/words #长度为5的回文词
+egrep '<([^>]*)>[^<]*</\1>' index.html    #一对html标记
+grep '\<\([a-zA-Z]\+\)\> \1' learn-vim    #相邻重复单词
+#+END_SRC
+*** 字符类
+**** 为应更多语言环境，POSIX定义了若干字符类
+#+BEGIN_EXAMPLE
+[:alnum:] 数字、字母
+[:alpha:] 字母
+[:blank:] 空格符、制表符
+[:cntrl:] 控制字符
+[:digit:] 数字0-9
+[:graph:] 数字、字母、标点符号
+[:lower:] 小写字母
+[:print:] 数字、字母、标点符号、空格符
+[:punct:] 标点符号
+[:space:] 制表符、换行符、回车符、空格符
+[:upper:] 大写字母
+[:xdigit:] 十六进制数字0-9a-fA-F
+#+END_EXAMPLE
+*** 反斜杠字符
+**** 有些字符前加上反斜杠后具有特殊含义
+#+BEGIN_EXAMPLE
+\b 匹配单词边缘的空字符串
+\B 匹配非单词边缘的空字符串
+\< 匹配单词开头的空字符串
+\> 匹配单词结尾的空字符串
+\w 匹配单词字符，即[_[:alnum:]]
+\W 匹配非单词字符，即[^_[:alnum:]]
+\s 匹配空白符，即[[:space:]]
+\S 匹配非空白符，即[^[:space:]]
+#+END_EXAMPLE
+*** 字符类和反斜杠字符举例
+**** 字符类示例                                           :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+tr -d '[:punct:]' <file
+grep '[[:digit:]]\+$' file #注意两层中括号的区别
+#+END_SRC
+**** 反斜杠字符示例                                              :B_block:
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+#+BEGIN_SRC sh
+grep \bconfident\b /usr/share/dict/words
+grep \Bconfident\B /usr/share/dict/words
+#+END_SRC
+*** fgrep(fixed fgrep)
+**** 等同于grep -F
+**** fgrep将所有字符都看作普通字符，搜索速度快！
+**** fgrep可以同时搜索以换行符隔开的多个字符串
+**** 示例                                                 :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+fgrep 'normal mode
+insert mode
+command-line mode' learn-vim
+#+END_SRC
+*** 在find命令中使用正则表达式
+**** -regex 匹配正则表达式
+**** -iregex 同上且忽略大小写
+**** 示例                                                 :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+find /usr/bin -regex 'mk'     #:-(
+find /usr/bin -regex '.*mk.*' #:-)
+#+END_SRC
+* sed和awk
+** sed
+*** sed简介
+**** sed(stream editor)
+sed提供非交互式批量文本编辑功能，例如在100个文件中，处理20个不同的编辑操作。
+**** sed的工作原理
+file:img/sed.pdf
+*** 运行sed
+**** sed options... [script] [file]...
+**** 常用选项                                             :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_EXAMPLE
+-n  安静模式，不打印模式空间内容
+-e script 添加处理脚本
+-f script-file 添加保存在文件中的脚本
+-i 直接修改原始输入文件
+#+END_EXAMPLE
+**** 注意                                                        :B_block:
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+script内的命令可以用分号(;)或换行分隔
+*** sed工作原理
+**** sed按以下方式循环处理每一行（sed从前至后仅处理一遍）：
+1. 从输入流中读取一行，去掉尾部的换行符后放入模式空间
+2. 执行脚本，脚本中的每条命令可以与一个地址关联，地址可认为是某种条件码，命令仅在条件满足时才被执行。
+3. 当执行至脚本结尾时，除非指定了-n选项，否则模式空间的内容将被打印到输出流，并且如果前面被删除了换行符则将其添加回去，
+4. 回到步骤1，开始下一次循环。
+**** 注意                                                        :B_block:
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+除非使用了类似D这样的特殊命令，每次循环的最后，模式空间都将被清空。
+*** 地址
+**** 行选择                                               :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_EXAMPLE
+n 第n行
+m~n 从第m行开始，每n行，如1~2表示所有奇数行
+$ 末行
+/regexp/ 与正则表达式regexp匹配的行
+\%regexp% 同上，但把默认的/替换成其他字符，如%
+#+END_EXAMPLE
+**** 范围选择                                                    :B_block:
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+#+BEGIN_EXAMPLE
+m,n 从第m行至第n行
+n,/regexp/ 从第n行往后至与regexp匹配的第一行
+/regexp1/,/regexp2/
+m,n! 除m~n行外
+/regexp/! 除与regexp匹配的行外
+#+END_EXAMPLE
+*** 常用命令
+**** \#   注释
+**** q    退出
+**** d    删除模式空间，立即进入下一循环
+**** p    打印模式空间
+**** n    打印模式空间(若无-n选项)，然后将其内容替换为下一行或者退出
+**** { command1; command2; ... }    命令组，命令之间用分号隔开
+*** sed简单示例
+**** 示例                                                 :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+sed '' file
+sed -n '' file
+sed -n '1,$p' file
+sed '10q' file
+sed -n '$p' file
+sed '/^$/d' file
+sed '\|^#|d' file
+sed -n 'n;p' file
+sed -n -e 'n' -e 'p' file  #同上
+sed '1~2d' file            #同上
+sed '2~2!d' file           #同上
+#+END_SRC
+*** s命令(搜索替换)
+**** 示例                                                 :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+cat well.txt
+Sam reads well, sam writes well, sam sings well.
+sed 's/sam/tom/' well.txt
+sed 's/sam/tom/i' well.txt
+sed 's#sam#tom#gi' well.txt
+sed 's|sam|tom|2i' well.txt
+sed 's$sam$tom$2gi' well.txt
+#+END_SRC
+**** 试一试                                                      :B_block:
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+#+BEGIN_EXAMPLE
+echo 'this costs 23, and that costs 35' >costs.txt
+1. 在所有价格前面加上美元符$
+2. 若把23改成.23，把35改成3.5，怎么加美元符$?
+#+END_EXAMPLE
+**** 答案                                                         :B_note:
+:PROPERTIES:
+:BEAMER_env: note
+:END:
+#+BEGIN_SRC sh
+sed 's/[0-9]\+/$&/g' costs.txt
+sed 's/[0-9]*\.\?[0-9]\+/$&/g' costs.txt
+sed 's/\([0-9]*\.\)\?[0-9]\+/$&/g' costs.txt
+#+END_SRC
+*** a,i,c命令
+**** 示例                                                 :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+sed '3a\
+line 1\
+line 2' file  #在第3行后追加(append)2行内容
+
+sed '10i\
+line 1\
+line 2' file  #在第10行前插入(insert)2行内容
+
+sed '/regex/c
+line 1
+line 2' file  #将与regex匹配的行修改(change)为2行内容
+#+END_SRC
+*** r,w,y,=命令和-f选项
+**** 示例                                                 :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+sed '3r file2' file1 #将file2的内容插入file1第3行之后
+sed -n '/:\/\//w file2' file1 #匹配://的行号保存至file2
+sed -n '\#://#w file2' file1  #同上
+sed 'y/aeiou/xxxxx/' file #逐字符替换，前后长度需一致！
+sed -n '$=' file          #打印最后一行的行号，即wc -l
+
+cat sedscript             #准备好sed脚本文件
+1,3d                      #每行包含一条sed命令
+s/old/new/g
+y/abc/xyz/
+sed -n -f sedscript file  #利用-f让sed根据脚本处理file
+#+END_SRC
+*** e命令
+**** 将sed处理得到的结果提交给shell执行。
+**** 示例                                                 :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+#复制目录结构
+find teach/2014-linux/ -type d \
+| sed 's/2014/2016/' \
+| sed -n 's/^/mkdir -p /e'
+#+END_SRC
+*** sed应用举例
+**** 实现basename命令
+#+BEGIN_SRC sh
+find /usr/bin -name 'mk*' -exec basename {} \;
+#+END_SRC
+**** 实现dirname命令
+#+BEGIN_SRC sh
+find . -name '*.ppt' -exec dirname {} \; | sort | uniq
+#+END_SRC
+**** 抽取网页文本内容
+**** unix文本和windows文本转换
+*** sed高级命令
+**** D
+如果模式空间不含换行符，则与d相同。否则，删除模式空间内容至第一个换行符(包含该换行符)，然后对模式空间重新执行一遍所有命令(不读入新行)。
+**** N
+为模式空间追加换行符和一新行，如果没有新行可读，则直接退出sed，不再执行后续命令。
+**** P
+打印模式空间内容至第一个换行符(包括该换行符)
+*** sed高级命令
+**** 示例                                                 :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+sed -n 'N;D' students.db  #打印末行
+sed -n 'N;P' students.db  #打印奇数行
+sed -n '=' books.db | sed 'N;s/\n/ /'  #加行号
+#+END_SRC
+**** 想一想：下面哪些命令可以打印出输入的最末2行？                  :B_block:
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+1. sed 'N;N;D' students.db
+2. sed -n '$-1,$p' students.db
+3. head -4 students.db | sed -n 'N;$p'
+4. head -3 students.db | sed -n 'N;$p'
+5. sed 'N;$!D' students.db
+**** 答案                                                         :B_note:
+:PROPERTIES:
+:BEAMER_env: note
+:END:
+1. 不能，因为每读2行，只删1行，因此累积下来最后会剩下约一半的行
+2. 不能，因为sed只有处理到最后一行才知道这是末行，不能处理$-1这种地址
+3. 能，因为行数为偶数，N能读到末行(处理过程：读第1行，N追加第2行，清空，读第3行，N追加第4行，打印)
+4. 不能，因为行数为奇数，N不能读到末行，直接退出，无输出(处理过程：读第1行，N追加第2行，清空，读第3行，N读不到新行，退出)
+5. 正解(处理过程：读第1行，N追加第2行，D删除第1行后非空，返回N追加第3行，D删除第2行后非空，返回N追加第4行，......,返回N追加末行，此时不执行D操作，输出)
+*** 暂存空间(hold space)
+**** sed运行时可以使用两个缓存空间
+***** 模式空间(pattern space)
+***** 暂存空间(hold space)
+**** 模式空间                                             :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+1. 不断从输入获取新行
+2. 可对其内容执行sed命令
+3. 一般每次执行完sed命令后会被清空
+**** 暂存空间                                                    :B_block:
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+1. 默认无内容，但可以从模式空间获得内容
+2. 不能直接对其内容执行sed命令
+3. 不会自动清空其内容
+*** 在模式空间和暂存空间之间传递数据
+**** x -- exchange
+交换模式空间和暂存空间的内容。
+**** h -- hold pattern space
+把模式空间的内容复制到暂存空间(覆盖)
+**** H -- Hold pattern space
+把模式空间的内容追加到暂存空间尾部(用换行符分隔)
+**** g -- get contents of hold area
+把暂存空间的内容复制到模式空间(覆盖)
+**** G -- Get contents of hold area
+把暂存空间的内容追加到模式空间尾部(用换行符分隔)
+*** 暂存空间使用示例
+**** 示例                                                 :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+#在行间加空行
+sed 'G' students.db       #每行前加空行
+sed 'x;p;x' students.db   #每行后加空行
+#实现tac file命令
+sed -n '1!G;$!h;$p' students.db
+sed '1!G;$!h;$!d' students.db
+#+END_SRC
+*** 流程控制
+**** 标签                                                 :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_EXAMPLE
+:label    #设置标签
+#+END_EXAMPLE
+**** 分支(branch)                                                :B_block:
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+#+BEGIN_EXAMPLE
+b label   #跳转到标签位置
+b         #跳转到脚本结尾
+#+END_EXAMPLE
+**** 测试(test)                                           :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_EXAMPLE
+t label   #如果成功执行了s命令，则跳转到标签
+t         #如果成功执行了s命令，则跳转到脚本结尾
+#+END_EXAMPLE
+*** 流程控制示例
+**** 示例                                                 :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+sed ':a;N;6,$D;ba' students.db     #实现tail -5命令
+sed ':m;s/^.\{1,79\}$/ &/;tm' students.db #实现文本右对齐
+#+END_SRC
+**** 试一试                                                      :B_block:
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+1. 如何实现文本居中对齐？
+2. 如何在/usr/share/dict/words中搜索任意长度的回文单词？
+**** 答案                                                         :B_note:
+:PROPERTIES:
+:BEAMER_env: note
+:END:
+1. sed ':a;s/^.\{1,78}$/ & /;ta' students.db
+2. sed -n 'h;:b;s/^\(.\)\(.*\)\1$/\2/;tb;/^.\?$/{g;p}' /usr/share/dict/words
+** awk
+*** awk简介
+**** awk是由Al Aho，Peter Weinberger和Brian Kernighan 设计与实现的一种模式扫描与处理语言。
+**** awk最早的设计目的是针对报表生成的一种小巧且具表达力的语言,awk对于处理格式化结构的文本文件特别强大。
+*** awk入门
+**** 引例
+#+BEGIN_SRC sh
+cat emp.data
+Beth  4.00 0
+Dan   3.75 0
+Kathy 4.00 10
+Mark  5.00 20
+Mary  5.50 22
+Susie 4.25 18
+#+END_SRC
+注：第1列为员工姓名，第2列为时薪，第3列为工作时间
+
+1. 要求打印出所有工作时间大于0的员工应发薪水
+#+BEGIN_SRC sh
+awk '$3>0 {print $1, $2*$3}' emp.data
+#+END_SRC
+2. 要求打印出工作时间为0的员工的姓名
+#+BEGIN_SRC sh
+awk '$3==0 {print $1}' emp.data
+#+END_SRC
+*** awk工作原理
+**** awk程序结构
+***** 引例中位于引号内的部分就是awk程序，awk程序由如下形式的语句构成：
+#+BEGIN_EXAMPLE
+pattern {action}
+pattern {action}
+......
+#+END_EXAMPLE
+***** awk程序依次扫描每行输入，每一行都会与每个pattern比较，若匹配则执行相应的action。
+***** 如果省略{action}部分，则打印与pattern匹配的整行    :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_EXAMPLE
+awk '$3==0' emp.data  #打印工作时间为0的员工的整条记录
+#+END_EXAMPLE
+***** 如果省略pattern部分，则每一行都执行对应的action           :B_block:
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+#+BEGIN_EXAMPLE
+awk '{print $1}' emp.data  #打印所有员工的姓名
+#+END_EXAMPLE
+*** 运行awk程序
+**** 方式1：awk 'program' input files                     :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+awk '$3==0 {print $1}' file1 file2
+#+END_SRC
+**** 方式2：awk 'program'                                        :B_block:
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+#+BEGIN_SRC sh
+awk '$3==0 {print $1}'  #输入来自标准输入
+Beth  4.00 10
+Kathy 3.58 0
+Kathy
+#+END_SRC
+**** 方式3：awk -f progfile input files                   :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+cat prog.awk
+$3==0 {print $1}
+awk -f prog.awk file1 file2
+#+END_SRC
+*** 字段(field)和内置变量
+**** awk默认每行为一条记录，记录内的字段分隔符为空格符或tab符
+**** 特定字段：$1,$2,...
+**** 整条记录：$0
+**** 当前记录字段个数：NF
+**** 当前记录最后一个字段：$NF
+**** 当前记录号：NR
+**** 示例                                                 :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+1. who | awk '{print NF,$1,$NF}'
+2. awk '{print NR, $0}' emp.data
+3. awk '{print "total pay for",$1,"is",$2*$3}' emp.data
+#+END_SRC
+*** 更好的输出
+**** 示例                                                 :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+1. {printf("pay for %s is %2.2f\n", $1, $2*$3)}
+2. {printf("%-8s $%6.2f\n", $1, $2*$3)}
+3. awk '{printf("%6.2f  %s\n", $2*$3, $0)}' emp.data \
+| sort
+#+END_SRC
+*** 模式
+**** 模式匹配结果为真，则执行相应动作
+#+BEGIN_EXAMPLE
+1. /regex/
+2. !/regex/
+3. $0~/regex/
+4. $1!~/regex/
+5. NF==0
+6. NR%2!=0
+7. (NR>5)&&(length($3)<30)
+8. (NR==3),(NR==5)
+9. /<[Hh][Tt][Mm][Ll]>/,/<\/[Hh][Tt][Mm][Ll]>/
+10. 1
+#+END_EXAMPLE
+*** 模式
+**** 示例                                                 :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+$2 >= 5
+$2*$3 > 50{printf("$%.2f for %s\n", $2*$3, $1)}
+$1 == "Susie"
+/Susie/
+$2 >=4 || $3 >=20
+!($2 <4 && $3 <20)
+#+END_SRC
+*** BEGIN和END
+**** BEGIN模式所对应的动作在awk处理第一行之前执行
+**** END模式所对应的动作在awk处理完末行之后执行
+**** 示例                                                 :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+BEGIN {print "NAME   RATE  HOURS"; print ""}
+      {print}
+  END {print "Total:", NR, "records"}
+#+END_SRC
+*** 计算
+**** 示例                                                 :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+#计数：累计工作时间超过15小时的员工人数
+$3>15 {emp = emp +1}
+  END {print emp, "employees worked more than 15 hours"}
+
+#统计：计算员工总工资和平均工资
+    {pay += $2*$3}
+END {print NR, "employees"
+     print "total pay is", pay
+     print "average pay is", pay/NR
+    }
+#+END_SRC
+*** 处理文本
+**** 示例                                                 :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+#打印时薪最高的员工姓名及其时薪
+$2 > maxrate {maxrate = $2; maxemp = $1}
+         END {print "highest pay rate:", maxemp, maxrate}
+
+#字符串连接：紧凑打印所有员工姓名
+    {names = names $1 " "}
+END {print names}
+
+#打印末行
+    {last = $0}
+END {print last}
+#+END_SRC
+*** 内置函数
+**** 示例                                                 :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+#打印每个员工的姓名长度
+{print $1, length($1)}
+
+#统计行数、单词数和字符数
+    {nc += length($0) + 1
+     nw += NF
+    }
+END {print NR,"lines,",nw,"words,",nc,"chars"}
+#+END_SRC
+*** 内置函数(部分数值函数)
+| 函数名     | 返回值                 |
+|------------+------------------------|
+| atan2(y,x) | y/x(-pi到pi)的反正切   |
+| cos(x)     | x的余弦，x为弧度值     |
+| exp(x)     | e的x次幂               |
+| int(x)     | x向0取整               |
+| log(x)     | 求x的自然对数(以e为底) |
+| rand()     | [0,1)之间的随机数      |
+| sin(x)     | x的正弦，x为弧度值     |
+| sqrt(x)    | x的平方根              |
+| srand(x)   | x为rand()的新随机种子  |
+*** 数值函数使用举例
+**** 示例                                                 :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+1. randint = int(n*rand())+1 #获得1到n之间的随机整数
+2. x=int(x+0.5)  #四舍五入取整
+3. awk 'BEGIN{cos(60*3.1415926/180)}'
+4. echo 1000 | awk '{print log($1)/log(10)}'
+#+END_SRC
+*** 内置函数(部分字符串函数)
+| 函数名            | 函数描述                                    |
+|-------------------+---------------------------------------------|
+| gsub(r,s[,t])     | 在$0/t中将r全局替换为s,返回替换次数         |
+| index(s,t)        | 返回t在s中首次出现的位置，返回0表示未找到   |
+| length(s)         | 返回s的长度                                 |
+| match(s,r)        | 测试s是否包含r，返回index或0                |
+| split(s,a[,fs])   | 将s拆分为数组a，分隔符为FS/fs，返回字段个数 |
+| sprintf(fmt,list) | 返回按指定格式控制的字符串                  |
+| sub(r,s[,t])      | 类似于gsub(r,s[,t])，但仅替换1次            |
+| substr(s,p[,n])   | 返回s从位置p开始[的长度为n]的子串           |
+*** 字符串函数使用举例
+**** 示例                                                 :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+1. awk 'BEGIN{print index("banana","an")}'
+2. echo banana | awk '{gsub(/an/,"ok");print}'
+3. echo banana | awk '{sub(/an/,"&d&");print}'
+4. echo banana | awk '{print substr($1,2,2)}'
+5. echo banana | awk '{print substr($1,3)}'
+6. echo '10/01/2016' \
+| awk '{split($0,date,"/");print date[3]}'
+#+END_SRC
+*** 自定义函数
+**** 示例                                                 :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+{ print max($1, max($2,$3)) }
+function max(m,n){
+  return m>n ? m : n
+}
+#+END_SRC
+*** 控制流语句
+**** if-else
+**** 示例                                                    :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+$2 > 6 {n++; pay += $2*$3}
+END    { if (n>0)
+             print n, "employees, total pay is",pay,
+                      "average pay is",pay/n
+         else
+             print "no employees are paid more than $6/h"
+       }
+#+END_SRC
+*** 控制流语句
+**** while
+**** 示例：计算银行复利                                      :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+# interest1 - compute compound interest
+#  input: amount rate years
+# output: compounded value at the end of each year
+{ i=1
+  while (i <= $3) {
+    printf("\t%.2f\n", $1*(1+$2)^i)
+    i++
+  }
+}
+
+awk -f interest1
+1000 .06 5
+#+END_SRC
+*** 控制流语句
+**** for
+**** 示例                                                 :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+# interest2 - compute compound interest
+#  input: amount rate years
+# output: compounded value at the end of each year
+{ for (i=1; i<=$3; i++)
+    printf("\t%.2f\n", $1*(1+$2)^i)
+}
+#+END_SRC
+*** 控制流语句应用举例
+**** 示例：查找相邻重复词(包括行首与前一行末的重复)       :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+cat double
+NF>0 {
+if ($1 == lastword)
+  printf “%s\t%d: %s\n”, FILENAME, FNR, $1
+for ( i=1;i<NF;i++ )
+  if ( $i == $(i+1) )
+    printf “%s\t%d: %s\n”, FILENAME, FNR, $i
+lastword = $NF
+}
+
+awk -f double file1 file2 file3
+#+END_SRC
+*** 数组
+**** 示例                                                 :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+#反向输出每一行(类似tac命令)   while版
+    { line[NR] = $0 }
+END { i = NR
+      while (i>0) {
+        print line[i]
+        i--
+      } 
+    }
+#反向输出每一行(类似tac命令)   for版
+    { line[NR] = $0 }
+END { for (i=NR; i>0; i--)
+        print line[i]
+    }
+#+END_SRC
+*** 其他简单示例
+**** awk简单程序示例                                         :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+1. END {print NR} #打印行数
+2. NR==10         #打印第10行
+3. {print $NF}    #打印每行最后一个字段
+4. {field=$NF}END{print field} #打印末行末字段
+5. NF>4  #打印多于4个字段的行
+6. $NF>4 #打印最后一个字段的值大于4的行
+7. {nf=nf+NF}END{print nf} #打印所有行字段个数之和
+8. /Beth/{n++}END{print n} #打印包含Beth的行数
+9. $1>max{max=$1;maxline=$0}END{print max,maxline}
+10. NF>0
+11. length($0) > 80
+12. {print NF, $0}
+#+END_SRC
+*** 其他简单示例
+**** awk简单程序示例(2)                                   :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+13. {print $2, $1}
+14. {temp=$1;$1=$2;$2=temp;print}
+15. {$1=NR;print}
+16. {$2="";print}
+17. {for(i=NF;i>0;i--)printf("%s ", $i)
+ printf("\n")
+}
+18. {sum = 0
+ for (i=1;i<=NF;i++) sum+=$i
+ print sum
+}
+19. {for(i=1;i<=NF;i++)sum+=$i}END{print sum}
+20. {for(i=1;i<=NF;i++)if($i<0)$i=-$i}print}
+#+END_SRC
+*** 指定字段分隔符
+**** 方法1：-F选项                                        :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+awk -F: '/bash/{print $1,$2}' /etc/passwd
+#+END_SRC
+**** 方法2：在BEGIN中为FS内置变量赋值                            :B_block:
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+#+BEGIN_SRC sh
+BEGIN  {FS=':'}
+/bash/ {print $1,$2}
+#+END_SRC
+*** awk内置变量
+| 变量名   | 含义                                  |
+|----------+---------------------------------------|
+| FILENAME | 当前文件名                            |
+| FS       | 输入的字段分隔符(默认为空格符和tab符) |
+| RS       | 输入的记录分隔符(默认为换行符)        |
+| NF       | 当前记录字段个数                      |
+| NR       | 当前记录的序号                        |
+| FNR      | 当前文件的当前记录号                  |
+| OFMT     | 数字的输出格式(默认为%.6g)            |
+| OFS      | 输出的字段分隔符(默认为空格符)        |
+| ORS      | 输出的记录分隔符(默认为换行符)        |
+*** awk内置变量使用举例
+**** 示例                                                 :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_EXAMPLE
+cat stu.db
+tom
+19
+male
+
+mary
+18
+female
+请将stu.db的内容转换为如下格式：
+tom:19:male
+mary:18:female
+#+END_EXAMPLE
+**** 答案                                                         :B_note:
+:PROPERTIES:
+:BEAMER_env: note
+:END:
+#+BEGIN_SRC sh
+awk 'BEGIN{FS="\n";RS="\n\n";OFS=":"}{print $1,$2,$3}' stu.db
+#+END_SRC
+*** 关联数组
+**** 问题：现有客户订货记录order.db如下：
+#+BEGIN_EXAMPLE
+cat order.db
+Susie 400
+John 100
+Mary 200
+Mary 300
+John 100
+Susie 100
+Mary 100
+John 200
+Mary 600
+Susie 500
+#+END_EXAMPLE
+请统计每位客户的订货总数。
+*** 关联数组
+**** 统计每位客户的订货总数                               :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+awk '{sum[$1]+=$2}
+  END{for(u in sum)print n,sum[n]}' order.db
+#+END_SRC
+**** 试一试                                                      :B_block:
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+请用awk进行词频统计，并打印出每个单词出现的次数。
+**** 答案                                                         :B_note:
+:PROPERTIES:
+:BEAMER_env: note
+:END:
+#+BEGIN_SRC sh
+cat >wc.awk
+{gsub(/[[:punct:]]/,"")
+ for (i=1; i<=NF; i++)
+   dict[$i]++
+}
+END{for (w in dict)
+      print w, dict[w] | "sort -k2 -rn"
+}
+
+tr 'A-Z' 'a-z' <students | awk -f wc.awk
+#+END_SRC
+*** 综合实例
+**** 问题：现有学生成绩清单score.list如下：
+#+BEGIN_EXAMPLE
+jasper: 80 82 84 84 88 92
+andrea: 85 89 90 90 94 95
+ellis: 89 90 92 96 96 98
+mona: 70 70 77 83 85 89
+john: 78 85 88 91 92 94
+dunce: 60 60 61 62 64 80
+
+请统计：
+(1)每位同学的平均分及等级(A,B,C,D,F)
+(2)班平均成绩
+(3)平均成绩高于或等与班平均的人数
+(4)平均成绩低于班平均的人数
+(5)每个等级的人数
+#+END_EXAMPLE
+*** 综合实例
+#+BEGIN_SRC sh
+grep -v '^ *#' grade.awk
+BEGIN { OFS = "\t" }
+{ 
+	total = 0
+	for (i = 2; i <= NF; ++i)
+	  total += $i 
+	avg = total / (NF - 1)
+	student_avg[NR] = avg
+	if (avg >= 90)  grade = "A"
+	else if (avg >= 80) grade = "B"
+	else if (avg >= 70) grade = "C"
+	else if (avg >= 60) grade = "D"
+	else grade = "F"	
+	++class_grade[grade]
+	print $1, avg, grade 
+}
+#+END_SRC
+*** 综合实例
+#+BEGIN_SRC sh
+END {
+for (x = 1; x <= NR; x++)
+	class_avg_total += student_avg[x]
+class_average = class_avg_total / NR
+for (x = 1; x <= NR; x++)
+	if (student_avg[x] >= class_average)
+	  ++above_average
+	else
+	  ++below_average
+print ""
+print "Class Average: ", class_average
+print "At or Above Average: ", above_average
+print "Below Average: ", below_average     
+for (letter_grade in class_grade)
+	print letter_grade ":", class_grade[letter_grade] \
+  | "sort" }
+#+END_SRC
+*** 综合实例
+**** awk -f grade.awk score.list的输出结果如下：
+#+BEGIN_EXAMPLE
+jasper:	85	B
+andrea:	90.5	A
+ellis:	93.5	A
+mona:	79	C
+john:	88	B
+dunce:	64.5	D
+
+Class Average: 	83.4167
+At or Above Average: 	4
+Below Average: 	2
+A:	2
+B:	2
+C:	1
+D:	1
+#+END_EXAMPLE

@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+tr -d \PYG{l+s+s1}{'[:punct:]'} <file
+grep \PYG{l+s+s1}{'[[:digit:]]\PYGZbs{}+\PYGZdl{}'} file \PYG{c}{\PYGZsh{}注意要两层中括号的区别}
+\end{Verbatim}

@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{trap} -l \PYG{c}{\PYGZsh{}查看信号列表，同kill -l}
+\PYG{n+nb}{trap} \PYG{l+s+s1}{'echo "Ctrl-C disabled."'} 2 \PYG{c}{\PYGZsh{}捕获信号2并执行echo命令}
+\PYG{n+nb}{trap} -p \PYG{c}{\PYGZsh{}查看当前信号捕获情况}
+\PYG{n+nb}{trap}    \PYG{c}{\PYGZsh{}同上}
+\PYG{n+nb}{trap} \PYG{l+s+s1}{''} TERM INT \PYG{c}{\PYGZsh{}捕获并忽略信号2和15}
+\PYG{n+nb}{trap} - 1 2 15    \PYG{c}{\PYGZsh{}恢复信号1，2，15的系统默认处理}
+\PYG{n+nb}{trap }1 2 15      \PYG{c}{\PYGZsh{}同上}
+\end{Verbatim}

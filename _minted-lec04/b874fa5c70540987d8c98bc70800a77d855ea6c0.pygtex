@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+BEGIN \PYG{o}{\PYGZob{}}print \PYG{l+s+s2}{"NAME   RATE  HOURS"}; print \PYG{l+s+s2}{""}\PYG{o}{\PYGZcb{}}
+      \PYG{o}{\PYGZob{}}print\PYG{o}{\PYGZcb{}}
+  END \PYG{o}{\PYGZob{}}print \PYG{l+s+s2}{"Total:"}, NR, \PYG{l+s+s2}{"records"}\PYG{o}{\PYGZcb{}}
+\end{Verbatim}

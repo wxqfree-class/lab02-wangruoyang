@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{echo} \PYG{l+s+s2}{"Output\PYGZus{}file = \PYGZdl{}output\PYGZus{}file"}
+\PYG{n+nb}{echo} \PYG{l+s+s2}{"Report\PYGZus{}file = \PYGZdl{}report\PYGZus{}file"}
+\PYG{n+nb}{echo} \PYG{l+s+s2}{"Number\PYGZus{}option = \PYGZdl{}\PYGZob{}number\PYGZus{}option:-no\PYGZcb{}"}
+\PYG{n+nb}{echo} \PYG{l+s+s2}{"Title = \PYGZdl{}\PYGZob{}title:-yes\PYGZcb{}"}
+\PYG{n+nb}{echo} \PYG{l+s+s2}{"Arguments before shift: \PYGZdl{}*"}
+\PYG{n+nb}{shift} \PYG{l+s+sb}{`}expr \PYG{n+nv}{\PYGZdl{}OPTIND} - 1\PYG{l+s+sb}{`}
+\PYG{n+nb}{echo} \PYG{l+s+s2}{"Arguments after shift: \PYGZdl{}*"}
+\PYG{n+nb}{exit }0
+\end{Verbatim}

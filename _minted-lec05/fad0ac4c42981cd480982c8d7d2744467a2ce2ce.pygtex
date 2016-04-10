@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{let }\PYG{n+nv}{i}\PYG{o}{=}8+16; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}i}
+\PYG{n+nb}{let }\PYG{n+nv}{x}\PYG{o}{=(}i-4\PYG{o}{)}/5*9; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}x}
+\PYG{n+nb}{let }i++; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}i}
+\PYG{n+nb}{let }x/\PYG{o}{=}6; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}x}
+\PYG{n+nb}{let }\PYG{n+nv}{y}\PYG{o}{=}\PYG{l+s+s2}{"x>10?1:0"}; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}y}
+\end{Verbatim}

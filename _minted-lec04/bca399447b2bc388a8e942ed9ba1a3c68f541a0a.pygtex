@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+sed \PYG{l+s+s1}{'3a\PYGZbs{}}
+\PYG{l+s+s1}{line 1\PYGZbs{}}
+\PYG{l+s+s1}{line 2'} file  \PYG{c}{\PYGZsh{}在第3行后追加(append)2行内容}
+
+sed \PYG{l+s+s1}{'10i\PYGZbs{}}
+\PYG{l+s+s1}{line 1\PYGZbs{}}
+\PYG{l+s+s1}{line 2'} file  \PYG{c}{\PYGZsh{}在第10行前插入(insert)2行内容}
+
+sed \PYG{l+s+s1}{'/regex/c}
+\PYG{l+s+s1}{line 1}
+\PYG{l+s+s1}{line 2'} file  \PYG{c}{\PYGZsh{}将与regex匹配的行修改(change)为2行内容}
+\end{Verbatim}

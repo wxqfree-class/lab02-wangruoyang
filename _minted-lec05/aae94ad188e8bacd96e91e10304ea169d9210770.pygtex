@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{genda}\PYG{o}{=}male; \PYG{n+nv}{age}\PYG{o}{=}21
+\PYG{o}{[} \PYG{l+s+s2}{"\PYGZdl{}genda"} \PYG{o}{=} \PYG{l+s+s2}{"male"} -a \PYG{n+nv}{\PYGZdl{}age} -eq 21 \PYG{o}{]}; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}?}
+\PYG{o}{[} \PYG{l+s+s2}{"\PYGZdl{}genda"} \PYG{o}{=} \PYG{l+s+s2}{"female"} -o \PYG{n+nv}{\PYGZdl{}age} -gt 20 \PYG{o}{]}; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}?}
+\PYG{o}{[} ! \PYG{l+s+s2}{"\PYGZdl{}age"} -lt 20 \PYG{o}{]}; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}?}
+\PYG{o}{[} \PYG{l+s+s2}{"\PYGZdl{}genda"} \PYG{o}{=} \PYG{l+s+s2}{"male"} \PYG{o}{]} \PYG{o}{&&} \PYG{o}{[} \PYG{n+nv}{\PYGZdl{}age} -eq 21 \PYG{o}{]}; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}?}
+\PYG{o}{[[} \PYG{l+s+s2}{"\PYGZdl{}genda"} \PYG{o}{=} \PYG{l+s+s2}{"female"} \PYG{o}{||} \PYG{n+nv}{\PYGZdl{}age} -gt 20 \PYG{o}{]]}; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}?}
+\end{Verbatim}

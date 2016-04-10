@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{source}命令与.命令的意义相同：
+\PYG{n+nb}{source} .bash\PYGZus{}profile
+\end{Verbatim}

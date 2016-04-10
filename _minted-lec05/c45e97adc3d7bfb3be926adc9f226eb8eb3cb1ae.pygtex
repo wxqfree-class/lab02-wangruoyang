@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}!/bin/bash}
+\PYG{n+nb}{eval echo} \PYG{l+s+s1}{'\PYGZdl{}'}\PYG{n+nv}{\PYGZdl{}\PYGZsh{}}
+\end{Verbatim}

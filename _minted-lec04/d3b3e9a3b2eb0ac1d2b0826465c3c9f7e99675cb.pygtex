@@ -1,0 +1,18 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+grep -v \PYG{l+s+s1}{'\PYGZca{} *\PYGZsh{}'} grade.awk
+BEGIN \PYG{o}{\PYGZob{}} \PYG{n+nv}{OFS} \PYG{o}{=} \PYG{l+s+s2}{"\PYGZbs{}t"} \PYG{o}{\PYGZcb{}}
+\PYG{o}{\PYGZob{}}
+        \PYG{n+nv}{total} \PYG{o}{=} 0
+        \PYG{k}{for} \PYG{o}{(}\PYG{n+nv}{i} \PYG{o}{=} 2; i <\PYG{o}{=} NF; ++i\PYG{o}{)}
+          total +\PYG{o}{=} \PYG{n+nv}{\PYGZdl{}i}
+        \PYG{n+nv}{avg} \PYG{o}{=} total / \PYG{o}{(}NF - 1\PYG{o}{)}
+        student\PYGZus{}avg\PYG{o}{[}NR\PYG{o}{]} \PYG{o}{=} avg
+        \PYG{k}{if} \PYG{o}{(}avg >\PYG{o}{=} 90\PYG{o}{)}  \PYG{n+nv}{grade} \PYG{o}{=} \PYG{l+s+s2}{"A"}
+        \PYG{k}{else if} \PYG{o}{(}avg >\PYG{o}{=} 80\PYG{o}{)} \PYG{n+nv}{grade} \PYG{o}{=} \PYG{l+s+s2}{"B"}
+        \PYG{k}{else if} \PYG{o}{(}avg >\PYG{o}{=} 70\PYG{o}{)} \PYG{n+nv}{grade} \PYG{o}{=} \PYG{l+s+s2}{"C"}
+        \PYG{k}{else if} \PYG{o}{(}avg >\PYG{o}{=} 60\PYG{o}{)} \PYG{n+nv}{grade} \PYG{o}{=} \PYG{l+s+s2}{"D"}
+        \PYG{k}{else }\PYG{n+nv}{grade} \PYG{o}{=} \PYG{l+s+s2}{"F"}
+        ++class\PYGZus{}grade\PYG{o}{[}grade\PYG{o}{]}
+        print \PYG{n+nv}{\PYGZdl{}1}, avg, grade
+\PYG{o}{\PYGZcb{}}
+\end{Verbatim}

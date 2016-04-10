@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{declare} -i x
+\PYG{n+nv}{x}\PYG{o}{=}8+10; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}x}
+\PYG{n+nv}{x}\PYG{o}{=}x-9; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}x}
+\PYG{n+nv}{x}\PYG{o}{=}x*4; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}x}
+\PYG{n+nv}{x}\PYG{o}{=}x/12; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}x}
+\PYG{n+nv}{x}\PYG{o}{=}x**3; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}x}
+\PYG{n+nv}{x}\PYG{o}{=}x\PYGZpc{}10; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}x}
+\end{Verbatim}

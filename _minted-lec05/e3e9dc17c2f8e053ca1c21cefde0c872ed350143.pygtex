@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+vim 5
+\PYG{n+nb}{echo }pr -t -\PYG{n+nv}{\PYGZdl{}0} \PYG{c}{\PYGZsh{}调试技巧：将命令语句打印出来}
+ls | 5
+vim 5
+pr -t -\PYG{l+s+sb}{`}basename \PYG{n+nv}{\PYGZdl{}0}\PYG{l+s+sb}{`}  \PYG{c}{\PYGZsh{}反引号：命令替换}
+ls | 5
+\end{Verbatim}

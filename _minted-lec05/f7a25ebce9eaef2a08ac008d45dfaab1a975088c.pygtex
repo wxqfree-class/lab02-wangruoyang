@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{str}\PYG{o}{=}\PYG{l+s+s2}{"foo"}
+\PYG{n+nb}{test} \PYG{l+s+s2}{"\PYGZdl{}str"} \PYG{o}{=} \PYG{l+s+s2}{"for"}; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}?}  \PYG{c}{\PYGZsh{}相等}
+\PYG{n+nb}{test} \PYG{l+s+s2}{"\PYGZdl{}str"} !\PYG{o}{=} \PYG{l+s+s2}{"for"}; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}?} \PYG{c}{\PYGZsh{}不相等}
+\PYG{n+nb}{test} \PYG{l+s+s2}{"\PYGZdl{}str"}; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}?}          \PYG{c}{\PYGZsh{}非空}
+\PYG{n+nb}{test} -n \PYG{l+s+s2}{"\PYGZdl{}str"}; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}?}       \PYG{c}{\PYGZsh{}长度>0}
+\PYG{n+nb}{test} -z \PYG{l+s+s2}{"\PYGZdl{}str"}; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}?}       \PYG{c}{\PYGZsh{}长度=0}
+\PYG{n+nb}{test} \PYG{l+s+s2}{"str"} \PYG{l+s+se}{\PYGZbs{}<} \PYG{l+s+s2}{"for"}; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}?}  \PYG{c}{\PYGZsh{}小于}
+\PYG{n+nb}{test} \PYG{l+s+s2}{"str"} \PYG{l+s+se}{\PYGZbs{}>} \PYG{l+s+s2}{"for"}; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}?}  \PYG{c}{\PYGZsh{}大于}
+\PYG{n+nb}{test} \PYG{n+nv}{\PYGZdl{}a} \PYG{o}{=} \PYG{l+s+s2}{"bar"}               \PYG{c}{\PYGZsh{}:-(}
+\PYG{n+nb}{test} \PYG{l+s+s2}{"\PYGZdl{}a"} \PYG{o}{=} \PYG{l+s+s2}{"bar"}             \PYG{c}{\PYGZsh{}:-)}
+\end{Verbatim}

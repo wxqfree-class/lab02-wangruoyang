@@ -1,0 +1,17 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{x}\PYG{o}{=}3
+\PYG{n+nb}{echo} \PYG{k}{\PYGZdl{}((}x+8\PYG{k}{))}
+\PYG{n+nb}{echo} \PYG{k}{\PYGZdl{}((}x*9-10/2\PYG{k}{))}
+\PYG{n+nb}{echo} \PYG{k}{\PYGZdl{}((}x++\PYG{k}{))}; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}x}
+\PYG{n+nb}{echo} \PYG{k}{\PYGZdl{}((}\PYG{o}{--}x\PYG{k}{))}; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}x}
+\PYG{n+nb}{echo} \PYG{k}{\PYGZdl{}((}x**3\PYGZpc{}5\PYG{k}{))}
+\PYG{n+nb}{echo} \PYG{k}{\PYGZdl{}((}x**\PYG{o}{(}\PYG{l+m}{3}\PYG{o}{\PYGZpc{}}\PYG{l+m}{5}\PYG{k}{))}\PYG{o}{)}
+\PYG{n+nb}{echo} \PYG{k}{\PYGZdl{}((}\PYG{l+m}{8}\PYG{l+s}{<<2))    \PYGZsh{}左移}
+\PYG{l+s}{echo \PYGZdl{}((-8>>1))   \PYGZsh{}右移}
+\PYG{l+s}{echo \PYGZdl{}((x|8))     \PYGZsh{}按位或}
+\PYG{l+s}{echo \PYGZdl{}((x&8))     \PYGZsh{}按位与}
+\PYG{l+s}{echo \PYGZdl{}((x\PYGZca{}4))     \PYGZsh{}按位异或}
+\PYG{l+s}{((x++)); echo \PYGZdl{}x}
+\PYG{l+s}{((x*=6)); echo \PYGZdl{}x}
+\PYG{l+s}{((y=x<2}\PYG{l+m}{0}?0:1\PYG{k}{))}; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}y}
+\end{Verbatim}

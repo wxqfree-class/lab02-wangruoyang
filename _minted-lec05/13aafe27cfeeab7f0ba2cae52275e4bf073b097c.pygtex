@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+cat funcarg
+\PYG{c}{\PYGZsh{}!/bin/bash}
+echoargs\PYG{o}{()\PYGZob{}}
+  \PYG{n+nb}{echo} \PYG{l+s+s2}{"in function:"}
+  \PYG{n+nb}{echo} -e \PYG{l+s+s2}{"\PYGZbs{}targs counts: \PYGZdl{}\PYGZsh{}"}
+  \PYG{n+nb}{echo} -e \PYG{l+s+s2}{"\PYGZbs{}targs: \PYGZdl{}@"}
+\PYG{o}{\PYGZcb{}}
+\PYG{n+nb}{echo} \PYG{l+s+s2}{"out function:"}
+\PYG{n+nb}{echo} -e \PYG{l+s+s2}{"\PYGZbs{}targs counts: \PYGZdl{}\PYGZsh{}"}
+\PYG{n+nb}{echo} -e \PYG{l+s+s2}{"\PYGZbs{}targs: \PYGZdl{}@"}
+echoargs \PYG{n+nv}{\PYGZdl{}2} \PYG{n+nv}{\PYGZdl{}4}  \PYG{c}{\PYGZsh{}调用函数并传入参数}
+
+funcarg 1 2 3 4 5
+\end{Verbatim}

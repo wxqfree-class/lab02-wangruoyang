@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+cat guess
+\PYG{c}{\PYGZsh{}!/bin/bash}
+\PYG{n+nv}{n}\PYG{o}{=}\PYG{k}{\PYGZdl{}((}\PYG{n+nv}{\PYGZdl{}RANDOM}\PYG{o}{\PYGZpc{}}\PYG{l+m}{100}\PYG{k}{))}
+\PYG{k}{until} \PYG{o}{[} \PYG{n+nv}{\PYGZdl{}g} -eq \PYG{n+nv}{\PYGZdl{}n} \PYG{o}{]}; \PYG{k}{do}
+\PYG{k}{  }\PYG{n+nb}{echo} -e \PYG{l+s+s2}{"Please input your guess: \PYGZbs{}c"}
+  \PYG{n+nb}{read }g
+  \PYG{k}{if} \PYG{o}{[} \PYG{n+nv}{\PYGZdl{}g} -lt \PYG{n+nv}{\PYGZdl{}n} \PYG{o}{]}; \PYG{k}{then}
+\PYG{k}{    }\PYG{n+nb}{echo} \PYG{l+s+s2}{"too small, try again."}
+  \PYG{k}{else}
+\PYG{k}{    }\PYG{n+nb}{echo} \PYG{l+s+s2}{"too big, try again."}
+  \PYG{k}{fi}
+\PYG{k}{done}
+\PYG{n+nb}{echo} \PYG{l+s+s1}{'Wow! you are a genius!'}
+\end{Verbatim}

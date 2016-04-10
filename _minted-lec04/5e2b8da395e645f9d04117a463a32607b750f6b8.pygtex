@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+fgrep \PYG{l+s+s1}{'normal mode}
+\PYG{l+s+s1}{insert mode}
+\PYG{l+s+s1}{command-line mode'} learn-vim
+\end{Verbatim}

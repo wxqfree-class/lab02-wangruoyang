@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{x}\PYG{o}{=}100
+\PYG{n+nv}{y}\PYG{o}{=}x
+\PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}y}
+\PYG{n+nb}{echo} \PYG{l+s+s1}{'\PYGZdl{}'}\PYG{n+nv}{\PYGZdl{}y}
+\PYG{n+nb}{eval echo} \PYG{l+s+s1}{'\PYGZdl{}'}\PYG{n+nv}{\PYGZdl{}y}
+\PYG{n+nb}{eval} \PYG{l+s+s1}{'\PYGZdl{}'}\PYG{n+nv}{\PYGZdl{}y}\PYG{o}{=}200
+\PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}x}
+
+\PYG{n+nv}{pipe}\PYG{o}{=}\PYG{l+s+s1}{'|'}
+ls \PYG{n+nv}{\PYGZdl{}pipe} wc -l
+\PYG{n+nb}{eval }ls \PYG{n+nv}{\PYGZdl{}pipe} wc -l
+\end{Verbatim}

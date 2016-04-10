@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}comm命令要求被比较的两个文件事先排好序，利用进程替换就可免除这层麻烦}
+comm <\PYG{o}{(}sort file1\PYG{o}{)} <\PYG{o}{(}sort file2\PYG{o}{)}
+cmd1 <\PYG{o}{(}cmd2\PYG{o}{)} \PYG{c}{\PYGZsh{}cmd1通过设备文件/dev/fd/n读取cmd2的输出}
+cmd1 >\PYG{o}{(}cmd2\PYG{o}{)} \PYG{c}{\PYGZsh{}cmd2通过设备文件/dev/fd/n读取cmd1的输出}
+\PYG{n+nb}{echo} <\PYG{o}{(}\PYG{n+nb}{true}\PYG{o}{)}; \PYG{n+nb}{echo} >\PYG{o}{(}\PYG{n+nb}{true}\PYG{o}{)}
+\PYG{c}{\PYGZsh{}下面的命令等价于tar -czf dir.tar.gz dir}
+gzip -c <\PYG{o}{(}tar -c dir\PYG{o}{)} >dir.tar.gz
+\PYG{c}{\PYGZsh{}下面的命令等价于tar -cjf dir.tar.bz2 dir}
+tar cf >\PYG{o}{(}bzip2 -c >dir.tar.bz2\PYG{o}{)} dir
+\end{Verbatim}

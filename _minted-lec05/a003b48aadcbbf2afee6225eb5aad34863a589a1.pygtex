@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{x}\PYG{o}{=}123
+\PYG{o}{[} \PYG{n+nv}{\PYGZdl{}x} -eq 100 \PYG{o}{]}    \PYG{c}{\PYGZsh{}相等}
+\PYG{o}{[} \PYG{n+nv}{\PYGZdl{}a} -ne 100 \PYG{o}{]}    \PYG{c}{\PYGZsh{}不相等}
+\PYG{o}{[} \PYG{n+nv}{\PYGZdl{}a} -gt 100 \PYG{o}{]}    \PYG{c}{\PYGZsh{}大于}
+\PYG{o}{[} \PYG{n+nv}{\PYGZdl{}a} -ge 100 \PYG{o}{]}    \PYG{c}{\PYGZsh{}大于等于}
+\PYG{o}{[} \PYG{n+nv}{\PYGZdl{}a} -lt 100 \PYG{o}{]}    \PYG{c}{\PYGZsh{}小于}
+\PYG{o}{[} \PYG{n+nv}{\PYGZdl{}a} -le 100 \PYG{o}{]}    \PYG{c}{\PYGZsh{}小于等于}
+\end{Verbatim}

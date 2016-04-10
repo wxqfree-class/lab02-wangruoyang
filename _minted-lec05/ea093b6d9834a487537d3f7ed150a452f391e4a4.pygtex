@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{x}\PYG{o}{=}Hello   \PYG{c}{\PYGZsh{}变量无需声明，注意：=两边不能有空格！}
+sh        \PYG{c}{\PYGZsh{}进入子shell}
+\PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}x}
+Ctrl-d    \PYG{c}{\PYGZsh{}离开子shell}
+\PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}x}
+\PYG{c}{\PYGZsh{}shell文件不能修改变量的值，因为shell文件是由子shell运行的}
+\PYG{n+nb}{echo} \PYG{l+s+s1}{'x="Bye"}
+\PYG{l+s+s1}{echo \PYGZdl{}x'} >setx
+sh setx
+\PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}x}
+\end{Verbatim}

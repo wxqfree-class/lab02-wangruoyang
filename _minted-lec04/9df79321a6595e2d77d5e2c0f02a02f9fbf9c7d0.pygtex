@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}复制目录结构}
+find teach/2014-linux/ -type d \PYG{l+s+se}{\PYGZbs{}}
+| sed \PYG{l+s+s1}{'s/2014/2016/'}  \PYG{l+s+se}{\PYGZbs{}}
+| sed -n \PYG{l+s+s1}{'s/\PYGZca{}/mkdir -p /e'}
+\end{Verbatim}

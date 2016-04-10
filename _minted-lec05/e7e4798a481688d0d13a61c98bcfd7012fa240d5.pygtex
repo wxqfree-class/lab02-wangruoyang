@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{if }\PYG{n+nb}{read }line2 0<&4; \PYG{k}{then}
+\PYG{k}{  }\PYG{n+nb}{echo} \PYG{l+s+s2}{"\PYGZdl{}file1 is shorter than \PYGZdl{}file2"} 1>&2; \PYG{n+nb}{exit }3
+\PYG{k}{else}
+\PYG{k}{  }\PYG{n+nb}{echo} \PYG{l+s+s2}{"\PYGZdl{}file1 and \PYGZdl{}file2 are the same"}; \PYG{n+nb}{exit }0
+\PYG{k}{fi}
+\PYG{n+nb}{exec }3<&-; \PYG{n+nb}{exec }4<&-
+
+diff2 file1 file2
+\end{Verbatim}

@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+awk \PYG{l+s+s1}{'\PYGZdl{}3==0 \PYGZob{}print \PYGZdl{}1\PYGZcb{}'} file1 file2
+\end{Verbatim}

@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+END \PYG{o}{\PYGZob{}}print NR\PYG{o}{\PYGZcb{}} \PYG{c}{\PYGZsh{}打印行数}
+\PYG{n+nv}{NR}\PYG{o}{==}10         \PYG{c}{\PYGZsh{}打印第10行}
+\PYG{o}{\PYGZob{}}print \PYG{n+nv}{\PYGZdl{}NF}\PYG{o}{\PYGZcb{}}    \PYG{c}{\PYGZsh{}打印每行最后一个字段}
+\PYG{o}{\PYGZob{}}\PYG{n+nv}{field}\PYG{o}{=}\PYG{n+nv}{\PYGZdl{}NF}\PYG{o}{\PYGZcb{}}END\PYG{o}{\PYGZob{}}print field\PYG{o}{\PYGZcb{}} \PYG{c}{\PYGZsh{}打印末行末字段}
+NF>4  \PYG{c}{\PYGZsh{}打印多于4个字段的行}
+\PYG{n+nv}{\PYGZdl{}NF}>4 \PYG{c}{\PYGZsh{}打印最后一个字段的值大于4的行}
+\PYG{o}{\PYGZob{}}\PYG{n+nv}{nf}\PYG{o}{=}nf+NF\PYG{o}{\PYGZcb{}}END\PYG{o}{\PYGZob{}}print nf\PYG{o}{\PYGZcb{}} \PYG{c}{\PYGZsh{}打印所有行字段个数之和}
+/Beth/\PYG{o}{\PYGZob{}}n++\PYG{o}{\PYGZcb{}}END\PYG{o}{\PYGZob{}}print n\PYG{o}{\PYGZcb{}} \PYG{c}{\PYGZsh{}打印包含Beth的行数}
+\PYG{n+nv}{\PYGZdl{}1}>max\PYG{o}{\PYGZob{}}\PYG{n+nv}{max}\PYG{o}{=}\PYG{n+nv}{\PYGZdl{}1};\PYG{n+nv}{maxline}\PYG{o}{=}\PYG{n+nv}{\PYGZdl{}0}\PYG{o}{\PYGZcb{}}END\PYG{o}{\PYGZob{}}print max,maxline\PYG{o}{\PYGZcb{}}
+NF>0
+length\PYG{o}{(}\PYG{n+nv}{\PYGZdl{}0}\PYG{o}{)} > 80
+\PYG{o}{\PYGZob{}}print NF, \PYG{n+nv}{\PYGZdl{}0}\PYG{o}{\PYGZcb{}}
+\end{Verbatim}

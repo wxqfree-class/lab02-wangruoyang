@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{for }i in *; \PYG{k}{do}
+\PYG{k}{  }ls -l \PYG{n+nv}{\PYGZdl{}i}
+\PYG{k}{done} | grep \PYG{l+s+s1}{'\PYGZbs{}.doc\PYGZdl{}'} | wc -l
+
+\PYG{k}{for }i in \PYG{n+nv}{\PYGZdl{}*}; \PYG{k}{do }\PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}i}; \PYG{k}{done}
+\PYG{k}{for }i in \PYG{l+s+s2}{"\PYGZdl{}*"}; \PYG{k}{do }\PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}i}; \PYG{k}{done}
+\PYG{k}{for }i in \PYG{n+nv}{\PYGZdl{}@}; \PYG{k}{do }\PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}i}; \PYG{k}{done}
+\PYG{k}{for }i in \PYG{l+s+s2}{"\PYGZdl{}@"}; \PYG{k}{do }\PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}i}; \PYG{k}{done}
+\PYG{k}{for }i; \PYG{k}{do }\PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}i}; \PYG{k}{done}
+\end{Verbatim}

@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+cat sum2n
+\PYG{c}{\PYGZsh{}!/bin/bash}
+\PYG{n+nv}{n}\PYG{o}{=}\PYG{k}{\PYGZdl{}\PYGZob{}}\PYG{n+nv}{1}\PYG{k}{:-}\PYG{n+nv}{100}\PYG{k}{\PYGZcb{}}
+\PYG{k}{for }i in \PYG{k}{\PYGZdl{}(}seq \PYG{n+nv}{\PYGZdl{}n}\PYG{k}{)}; \PYG{k}{do}
+\PYG{k}{  }\PYG{n+nb}{let }sum+\PYG{o}{=}i
+  \PYG{o}{[} \PYG{l+s+sb}{`}\PYG{n+nb}{echo} \PYG{k}{\PYGZdl{}\PYGZob{}}\PYG{n+nv}{debug}\PYG{p}{-:}\PYG{n+nv}{0}\PYG{k}{\PYGZcb{}}\PYG{l+s+sb}{`} -eq 1 \PYG{o}{]} \PYG{o}{&&} \PYG{n+nb}{echo} \PYG{l+s+s2}{"i=\PYGZdl{}i sum=\PYGZdl{}sum"}
+\PYG{k}{done}
+\PYG{n+nb}{echo} \PYG{l+s+s2}{"1+...+\PYGZdl{}n=\PYGZdl{}sum"}
+
+sum2n         \PYG{c}{\PYGZsh{}正常运行}
+\PYG{n+nv}{debug}\PYG{o}{=}1 sum2n \PYG{c}{\PYGZsh{}调试运行}
+\end{Verbatim}

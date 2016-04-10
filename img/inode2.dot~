@@ -1,0 +1,6 @@
+digraph inode2 {
+	node[shape=record];
+	rankdir=LR;
+	dir[label="15768|15274|15852"];
+	
+}

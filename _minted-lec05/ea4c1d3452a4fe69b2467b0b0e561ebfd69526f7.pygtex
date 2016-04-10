@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{o}{[} -r file \PYG{o}{]}   \PYG{c}{\PYGZsh{}可读}
+\PYG{o}{[} -w file \PYG{o}{]}   \PYG{c}{\PYGZsh{}可写}
+\PYG{o}{[} -x file \PYG{o}{]}   \PYG{c}{\PYGZsh{}可执行}
+\PYG{o}{[} -f file \PYG{o}{]}   \PYG{c}{\PYGZsh{}普通文件}
+\PYG{o}{[} -c file \PYG{o}{]}   \PYG{c}{\PYGZsh{}字符设备}
+\PYG{o}{[} -b file \PYG{o}{]}   \PYG{c}{\PYGZsh{}块设备}
+\PYG{o}{[} -d file \PYG{o}{]}   \PYG{c}{\PYGZsh{}目录}
+\PYG{o}{[} -e file \PYG{o}{]}   \PYG{c}{\PYGZsh{}文件存在}
+\PYG{o}{[} -h file \PYG{o}{]}   \PYG{c}{\PYGZsh{}符号链接}
+\PYG{o}{[} -L file \PYG{o}{]}   \PYG{c}{\PYGZsh{}同上}
+\end{Verbatim}

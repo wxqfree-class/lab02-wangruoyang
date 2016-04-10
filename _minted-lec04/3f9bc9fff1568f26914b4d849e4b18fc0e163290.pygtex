@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+1. who | awk \PYG{l+s+s1}{'\PYGZob{}print NF,\PYGZdl{}1,\PYGZdl{}NF\PYGZcb{}'}
+2. awk \PYG{l+s+s1}{'\PYGZob{}print NR, \PYGZdl{}0\PYGZcb{}'} emp.data
+3. awk \PYG{l+s+s1}{'\PYGZob{}print "total pay for",\PYGZdl{}1,"is",\PYGZdl{}2*\PYGZdl{}3\PYGZcb{}'} emp.data
+\end{Verbatim}

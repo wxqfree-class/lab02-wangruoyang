@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+date >junk
+ls -l junk       \PYG{c}{\PYGZsh{}显示最近修改时间}
+cat junk
+ls -lu junk      \PYG{c}{\PYGZsh{}显示最近访问时间}
+ls -lc junk      \PYG{c}{\PYGZsh{}显示最近修改I节点时间}
+chmod 444 junk
+ls -lc junk
+ls -i junk       \PYG{c}{\PYGZsh{}显示文件的I节点号}
+\end{Verbatim}

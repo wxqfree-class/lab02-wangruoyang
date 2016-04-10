@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+awk \PYG{l+s+s1}{'\PYGZob{}sum[\PYGZdl{}1]+=\PYGZdl{}2\PYGZcb{}}
+\PYG{l+s+s1}{  END\PYGZob{}for(u in sum)print n,sum[n]\PYGZcb{}'} order.db
+\end{Verbatim}

@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+cat a.awk
+\PYG{n+nv}{\PYGZdl{}3}\PYG{o}{==}0 \PYG{o}{\PYGZob{}}print \PYG{n+nv}{\PYGZdl{}1}\PYG{o}{\PYGZcb{}}
+awk -f a.awk file1 file2
+\end{Verbatim}

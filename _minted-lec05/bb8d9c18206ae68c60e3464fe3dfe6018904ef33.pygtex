@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+who; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}?}
+woh; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}?}
+\PYG{n+nb}{true}; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}?}
+\PYG{n+nb}{false}; \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}?}
+\end{Verbatim}

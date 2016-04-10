@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+func\PYGZus{}name\PYG{o}{()\PYGZob{}}
+  cmd1
+  cmd2
+  ...
+  cmdn
+\PYG{o}{\PYGZcb{}}
+func\PYGZus{}name\PYG{o}{()\PYGZob{}} cmd1; cmd2; ...; cmdn; \PYG{o}{\PYGZcb{}} \PYG{c}{\PYGZsh{}注意空格与分号}
+\end{Verbatim}

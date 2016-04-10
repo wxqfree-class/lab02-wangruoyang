@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+ls | pr -t -5 \PYG{c}{\PYGZsh{}将输入按5列输出}
+\PYG{n+nb}{echo} \PYG{l+s+s1}{'pr -t -5'} >5
+cx 5; mv 5 bin
+ls | 5
+若要按2列、3列、4列、6列输出呢？
+\PYG{n+nb}{echo} \PYG{l+s+s1}{'pr -t -\PYGZdl{}0'} >5
+ln 5 2;ln 5 3;ln 5 4;ln 5 6
+ls | 5        \PYG{c}{\PYGZsh{}:-(}
+\end{Verbatim}

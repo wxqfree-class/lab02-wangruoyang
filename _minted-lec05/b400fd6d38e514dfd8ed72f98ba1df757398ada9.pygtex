@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+cat lib.sh       \PYG{c}{\PYGZsh{}函数库文件}
+\PYG{c}{\PYGZsh{}!/bin/bash}
+error\PYG{o}{()\PYGZob{}}
+  \PYG{n+nb}{echo} \PYG{l+s+s2}{"ERROR: "} \PYG{n+nv}{\PYGZdl{}@} 1>&2
+\PYG{o}{\PYGZcb{}}
+warn\PYG{o}{()\PYGZob{}}
+  \PYG{n+nb}{echo} \PYG{l+s+s2}{"WARNING: "} \PYG{n+nv}{\PYGZdl{}@} 1>&2
+\PYG{o}{\PYGZcb{}}
+cat main.sh      \PYG{c}{\PYGZsh{}主脚本}
+\PYG{c}{\PYGZsh{}!/bin/sh}
+. lib.sh         \PYG{c}{\PYGZsh{}导入函数库(要用.命令执行！)}
+\PYG{n+nv}{msg}\PYG{o}{=}\PYG{l+s+s2}{"file not found"}
+error \PYG{n+nv}{\PYGZdl{}msg}       \PYG{c}{\PYGZsh{}调用函数库函数}
+\end{Verbatim}

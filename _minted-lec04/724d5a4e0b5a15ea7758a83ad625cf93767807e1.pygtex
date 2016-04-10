@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{} interest2 - compute compound interest}
+\PYG{c}{\PYGZsh{}  input: amount rate years}
+\PYG{c}{\PYGZsh{} output: compounded value at the end of each year}
+\PYG{o}{\PYGZob{}} \PYG{k}{for} \PYG{o}{(}\PYG{n+nv}{i}\PYG{o}{=}1; i<\PYG{o}{=}\PYG{n+nv}{\PYGZdl{}3}; \PYG{n+nv}{i}\PYG{o}{=}i+1\PYG{o}{)}
+    \PYG{n+nb}{printf}\PYG{o}{(}\PYG{l+s+s2}{"\PYGZbs{}t\PYGZpc{}.2f\PYGZbs{}n"}, \PYG{n+nv}{\PYGZdl{}1}*\PYG{o}{(}1+\PYG{n+nv}{\PYGZdl{}2}\PYG{o}{)}\PYGZca{}i\PYG{o}{)}
+\PYG{o}{\PYGZcb{}}
+\end{Verbatim}

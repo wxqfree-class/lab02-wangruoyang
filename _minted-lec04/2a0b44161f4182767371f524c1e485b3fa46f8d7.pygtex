@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}打印时薪最高的员工姓名及其时薪}
+\PYG{n+nv}{\PYGZdl{}2} > maxrate \PYG{o}{\PYGZob{}}\PYG{n+nv}{maxrate} \PYG{o}{=} \PYG{n+nv}{\PYGZdl{}2}; \PYG{n+nv}{maxemp} \PYG{o}{=} \PYG{n+nv}{\PYGZdl{}1}\PYG{o}{\PYGZcb{}}
+         END \PYG{o}{\PYGZob{}}print \PYG{l+s+s2}{"highest pay rate:"}, maxemp, maxrate\PYG{o}{\PYGZcb{}}
+
+\PYG{c}{\PYGZsh{}字符串连接：紧凑打印所有员工姓名}
+    \PYG{o}{\PYGZob{}}\PYG{n+nv}{names} \PYG{o}{=} names \PYG{n+nv}{\PYGZdl{}1} \PYG{l+s+s2}{" "}\PYG{o}{\PYGZcb{}}
+END \PYG{o}{\PYGZob{}}print names\PYG{o}{\PYGZcb{}}
+
+\PYG{c}{\PYGZsh{}打印末行}
+    \PYG{o}{\PYGZob{}}\PYG{n+nv}{last} \PYG{o}{=} \PYG{n+nv}{\PYGZdl{}0}\PYG{o}{\PYGZcb{}}
+END \PYG{o}{\PYGZob{}}print last\PYG{o}{\PYGZcb{}}
+\end{Verbatim}

@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{var}\PYG{o}{=}123456
+\PYG{n+nb}{echo} \PYG{k}{\PYGZdl{}\PYGZob{}\PYGZsh{}}\PYG{n+nv}{var}\PYG{k}{\PYGZcb{}}
+\end{Verbatim}

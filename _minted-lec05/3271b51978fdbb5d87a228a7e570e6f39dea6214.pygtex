@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}!/bin/bash}
+\PYG{n+nv}{hour}\PYG{o}{=}\PYG{l+s+sb}{`}date+\PYGZpc{}H\PYG{l+s+sb}{`}
+\PYG{k}{case} \PYG{n+nv}{\PYGZdl{}hour} in
+0?|1\PYG{o}{[}01\PYG{o}{])} \PYG{n+nb}{echo} \PYG{l+s+s1}{'Good morning!'};;
+1\PYG{o}{[}2-8\PYG{o}{])}   \PYG{n+nb}{echo} \PYG{l+s+s1}{'Good afternoon!'};;
+*\PYG{o}{)}        \PYG{n+nb}{echo} \PYG{l+s+s1}{'Good evening'};;
+\PYG{k}{esac}
+\end{Verbatim}

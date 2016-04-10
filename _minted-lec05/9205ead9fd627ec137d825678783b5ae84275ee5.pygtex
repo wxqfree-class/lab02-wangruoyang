@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}PATH}
+\PYG{n+nb}{echo} \PYG{l+s+s1}{'PATH=\PYGZdl{}PATH:/sbin'} >>.bash\PYGZus{}profile
+sh .bash\PYGZus{}profile
+\PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}PATH}
+. .bash\PYGZus{}profile
+\PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}PATH}
+\end{Verbatim}

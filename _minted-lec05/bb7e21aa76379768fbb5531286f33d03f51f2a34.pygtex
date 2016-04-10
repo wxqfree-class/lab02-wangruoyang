@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}!/bin/bash}
+\PYG{n+nb}{trap} \PYG{l+s+s1}{'echo "DEBUG(\PYGZdl{}LINENO): var=\PYGZdl{}var"'} DEBUG
+\PYG{n+nv}{var}\PYG{o}{=}29
+\PYG{n+nb}{let }\PYG{n+nv}{var}\PYG{o}{=}var*2
+\PYG{n+nb}{exit }0
+
+\PYG{n+nb}{trap}-debug3
+\end{Verbatim}
