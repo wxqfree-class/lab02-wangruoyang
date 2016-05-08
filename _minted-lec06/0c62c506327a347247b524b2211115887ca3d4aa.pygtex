@@ -1,0 +1,17 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}1. 修改/etc/fstab配置文件}
+/dev/sdb1 /mnt/sdb1 ext3 defaults,usrquota,grpquota 0 0
+\PYG{c}{\PYGZsh{}2. 重新挂载分区}
+mount -o remount /mnt/sdb1
+mount
+\PYG{c}{\PYGZsh{}3. 扫描分区并生成磁盘配额信息文件}
+quotacheck -cvuga   \PYG{c}{\PYGZsh{}/etc/fstab中设定了配额选项的分区}
+quotacheck -cvug /mnt/sdb1 \PYG{c}{\PYGZsh{}指定分区}
+ls /mnt/sdb1
+\PYG{c}{\PYGZsh{}4. 启用磁盘配额}
+quotaon -a
+quotaon /mnt/sdb1
+\PYG{c}{\PYGZsh{}5. 编辑用户/组配额}
+edquota mike
+edquota -g stu
+\end{Verbatim}

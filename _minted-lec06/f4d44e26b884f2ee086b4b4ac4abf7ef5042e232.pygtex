@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+dd \PYG{k}{if}\PYG{o}{=}/dev/sda \PYG{n+nv}{of}\PYG{o}{=}mbr.dat \PYG{n+nv}{bs}\PYG{o}{=}512 \PYG{n+nv}{count}\PYG{o}{=}1
+hexdump -s 446 -n 64 -e \PYG{l+s+se}{\PYGZbs{}}
+\PYG{l+s+s1}{'1/1 "\PYGZpc{}02x " 1/3 "\PYGZpc{}06x " 1/1 "\PYGZpc{}02x " 1/3 "\PYGZpc{}06x " 2/4 "\PYGZpc{}04x " "\PYGZbs{}n"'} \PYG{l+s+se}{\PYGZbs{}}
+mbr.dat
+\end{Verbatim}

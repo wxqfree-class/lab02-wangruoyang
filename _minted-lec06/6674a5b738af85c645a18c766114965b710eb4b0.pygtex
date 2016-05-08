@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}准备：创建分区/dev/sdb1并设置其类型为82(Linux swap)}
+mkswap /dev/sdb1
+free
+swapon /dev/sdb1
+swapon -s
+free
+swapoff /dev/sdb1
+free
+\end{Verbatim}

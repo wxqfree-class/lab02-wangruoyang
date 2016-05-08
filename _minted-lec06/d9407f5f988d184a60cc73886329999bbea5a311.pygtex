@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+mke2fs /dev/sdb1
+-b  \PYG{c}{\PYGZsh{}指定块大小}
+-j  \PYG{c}{\PYGZsh{}创建ext3文件系统}
+-J  \PYG{c}{\PYGZsh{}指定日志选项}
+-o  \PYG{c}{\PYGZsh{}指定创建选项}
+-n  \PYG{c}{\PYGZsh{}预览创建结果，并不真正创建}
+-m  \PYG{c}{\PYGZsh{}保留块所占百分比}
+-L  \PYG{c}{\PYGZsh{}指定分区卷标}
+-F  \PYG{c}{\PYGZsh{}强制执行}
+\end{Verbatim}

@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{cd} /mnt/cdrom/CentOS
+rpm -ivh wireshark-gnome-1.0.15-6.el5\PYGZus{}10.i386.rpm
+\end{Verbatim}

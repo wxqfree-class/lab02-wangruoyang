@@ -1,0 +1,16 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}1. 准备4个阵列成员(创建RAID分区)}
+\PYG{c}{\PYGZsh{}2. 创建RAID设备：系统默认只有md0设备，其他需自行创建}
+ls –l /dev/md0 \PYG{c}{\PYGZsh{}查看md设备的类型和主次设备号}
+mknod /dev/md1 b 9 1 \PYG{c}{\PYGZsh{}创建设备文件}
+\PYG{c}{\PYGZsh{}3. 建立RAID 5设备}
+mdadm --create /dev/md1 --level\PYG{o}{=}5 \PYG{l+s+se}{\PYGZbs{}}
+--raid-devices\PYG{o}{=}3 --spare-devices\PYG{o}{=}1 /dev/sdd\PYG{o}{[}5-8\PYG{o}{]}
+mdadm --detail /dev/md1
+\PYG{c}{\PYGZsh{}4. 设置mdadm配置文件/etc/mdadm.conf}
+DEVICE /dev/sdd5 /dev/sdd6 /dev/sdd7 /dev/sdd8
+ARRAY /dev/md1 \PYG{n+nv}{devices}\PYG{o}{=}/dev/sdd5,/dev/sdd6,/dev/sdd7,/dev/sdd8
+mkfs.ext3 /dev/md1 \PYG{c}{\PYGZsh{}5. 建立文件系统}
+mkdir /mnt/raid5
+mount /dev/md1 /mnt/raid5 \PYG{c}{\PYGZsh{}6. 挂载RAID 5设备}
+\end{Verbatim}

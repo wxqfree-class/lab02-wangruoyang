@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+sar \PYG{o}{[}选项\PYG{o}{]} \PYG{o}{[}采样间隔\PYG{o}{]} \PYG{o}{[}采样次数\PYG{o}{]}
+sar   \PYG{c}{\PYGZsh{}查看当天的CPU统计信息}
+sar -u 3 5 \PYG{c}{\PYGZsh{}每3秒采样1次，连续采样5次}
+\end{Verbatim}

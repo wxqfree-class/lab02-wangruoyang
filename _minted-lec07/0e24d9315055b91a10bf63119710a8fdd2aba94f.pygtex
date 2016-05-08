@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+cat /proc/cpuinfo   \PYG{c}{\PYGZsh{}查看cpu信息}
+cat /proc/meminfo   \PYG{c}{\PYGZsh{}查看内存信息}
+cat /proc/devices   \PYG{c}{\PYGZsh{}查看硬件设备列表}
+cat /proc/diskstats \PYG{c}{\PYGZsh{}查看磁盘状态信息}
+/proc/ide/          \PYG{c}{\PYGZsh{}ide设备信息}
+/proc/scsi/         \PYG{c}{\PYGZsh{}scsi设备信息}
+\end{Verbatim}

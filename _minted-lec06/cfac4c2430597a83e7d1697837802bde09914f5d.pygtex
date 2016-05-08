@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+fdisk /dev/sdb
+m  \PYG{c}{\PYGZsh{}获取帮助}
+n  \PYG{c}{\PYGZsh{}新增分区}
+d  \PYG{c}{\PYGZsh{}删除分区}
+p  \PYG{c}{\PYGZsh{}打印分区情况}
+t  \PYG{c}{\PYGZsh{}更改分区类型标识}
+w  \PYG{c}{\PYGZsh{}保存退出}
+q  \PYG{c}{\PYGZsh{}不保存退出}
+partprobe    \PYG{c}{\PYGZsh{}不重新启动而让内核重新加载分区表}
+\end{Verbatim}

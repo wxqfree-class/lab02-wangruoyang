@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+modprobe -l \PYG{o}{[}-t dirname\PYG{o}{]} \PYG{o}{[}wildcard\PYG{o}{]}
+modprobe -l tcp*
+\end{Verbatim}

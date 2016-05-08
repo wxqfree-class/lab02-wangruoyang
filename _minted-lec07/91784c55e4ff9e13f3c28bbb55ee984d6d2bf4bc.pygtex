@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+top
+us \PYG{c}{\PYGZsh{}用户进程占用CPU百分比}
+sy \PYG{c}{\PYGZsh{}系统内核占用CPU百分比}
+ni \PYG{c}{\PYGZsh{}更改过优先级的进程占CPU百分比}
+id \PYG{c}{\PYGZsh{}CPU空闲时间百分比}
+wa \PYG{c}{\PYGZsh{}CPU等待I/O操作时间百分比}
+hi \PYG{c}{\PYGZsh{}CPU用于处理硬件中断所占时间百分比}
+si \PYG{c}{\PYGZsh{}CPU用于处理软件中断所占时间百分比}
+st \PYG{c}{\PYGZsh{}虚拟设备所占CPU时间百分比}
+PID\PYG{o}{(}进程id\PYG{o}{)} USER\PYG{o}{(}用户\PYG{o}{)} PR\PYG{o}{(}优先级\PYG{o}{)} NI\PYG{o}{(}nice值\PYG{o}{)}
+VIRT\PYG{o}{(}占用虚拟内存大小\PYG{o}{)} RES\PYG{o}{(}占用物理内存大小\PYG{o}{)} SHR\PYG{o}{(}共享内存\PYG{o}{)}
+S\PYG{o}{(}进程状态\PYG{o}{)} \PYGZpc{}CPU\PYG{o}{(}占用CPU百分比\PYG{o}{)} \PYGZpc{}MEM\PYG{o}{(}占用物理内存百分比\PYG{o}{)} TIME+\PYG{o}{(}使用CPU的时间\PYG{o}{)} COMMAND\PYG{o}{(}进程命令名\PYG{o}{)}
+\end{Verbatim}

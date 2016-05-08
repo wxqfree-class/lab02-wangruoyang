@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+vgcreate -s 16M vg1 /dev/sdb\PYG{o}{[}23\PYG{o}{]} \PYG{c}{\PYGZsh{}创建卷组}
+\PYG{c}{\PYGZsh{}-s指定PE大小，默认为4M，最小为1K，且必须为2的次幂}
+vgs                              \PYG{c}{\PYGZsh{}显示卷组简要信息}
+vgdisplay                        \PYG{c}{\PYGZsh{}显示卷组详细信息}
+\end{Verbatim}

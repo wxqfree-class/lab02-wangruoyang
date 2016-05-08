@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+modprobe -r \PYG{o}{[}模块名...\PYG{o}{]}
+\end{Verbatim}

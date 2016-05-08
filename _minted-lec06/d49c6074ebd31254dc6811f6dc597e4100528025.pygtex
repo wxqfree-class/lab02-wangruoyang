@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+cat /etc/fstab
+man 5 fstab
+\end{Verbatim}

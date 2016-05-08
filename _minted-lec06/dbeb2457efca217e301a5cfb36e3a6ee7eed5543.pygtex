@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+mke2fs /dev/sdb1
+-b  \PYG{c}{\PYGZsh{}指定块大小}
+-j  \PYG{c}{\PYGZsh{}创建ext3文件系统}
+-i  \PYG{c}{\PYGZsh{}指定每多少字节分配一个i节点}
+-N  \PYG{c}{\PYGZsh{}直接指定i节点个数}
+-n  \PYG{c}{\PYGZsh{}预览创建结果，并不真正创建}
+-m  \PYG{c}{\PYGZsh{}保留块所占百分比}
+-L  \PYG{c}{\PYGZsh{}指定分区卷标}
+\end{Verbatim}

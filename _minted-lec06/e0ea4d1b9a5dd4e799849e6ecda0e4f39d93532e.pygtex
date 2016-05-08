@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+fsck -a
+fsck /dev/sdb1 \PYG{c}{\PYGZsh{}fsck应在分区被卸载时运行}
+\end{Verbatim}

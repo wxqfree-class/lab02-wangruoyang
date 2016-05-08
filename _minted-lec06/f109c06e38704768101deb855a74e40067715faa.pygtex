@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+mount \PYG{o}{[}-t \PYG{n+nb}{type}\PYG{o}{]} \PYG{o}{[}-o option\PYG{o}{]} device mountpoint
+mount /dev/sda1 /mnt/sda1 \PYG{c}{\PYGZsh{}挂载点一般为空目录}
+mount -a                  \PYG{c}{\PYGZsh{}挂载/etc/fstab的文件系统}
+mount                     \PYG{c}{\PYGZsh{}打印文件系统挂载情况}
+cat /etc/mtab             \PYG{c}{\PYGZsh{}同上}
+mount -t ext2 -o noatime,noexec /dev/sda1 /mnt/sda1
+date >/mnt/sda1/date1
+mount -o remount,ro /mnt/sda1 \PYG{c}{\PYGZsh{}重新挂载已挂载文件系统}
+date >/mnt/sda1/date2
+mount -o remount,rw /mnt/sda1
+date >/mnt/sda1/date3
+\end{Verbatim}

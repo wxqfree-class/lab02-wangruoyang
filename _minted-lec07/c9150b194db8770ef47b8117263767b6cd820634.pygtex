@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+modprobe \PYG{o}{[}-C 配置文件\PYG{o}{]} \PYG{o}{[}模块名\PYG{o}{]} \PYG{o}{[}参数\PYG{o}{=}值...\PYG{o}{]}
+\end{Verbatim}

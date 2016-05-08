@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}利用备用盘重建RAID 5}
+mdadm /dev/md1 --fail /dev/sdd6
+mdadm --detail /dev/md1
+\PYG{c}{\PYGZsh{}可看到备用盘自动参与重建阵列,而故障盘成为备用磁盘,而且表示出故障状态}
+\PYG{c}{\PYGZsh{}注意:要等待RAID重建完毕,再替换故障磁盘}
+\PYG{c}{\PYGZsh{}将故障磁盘移除并加入新磁}
+mdadm /dev/md1 --remove /dev/sdd6
+mdadm /dev/md1 --add /dev/sde1
+mdadm --detail /dev/md1
+\end{Verbatim}

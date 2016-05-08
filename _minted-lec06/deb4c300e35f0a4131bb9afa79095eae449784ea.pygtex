@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+mkfs -t ext3 /dev/vg1/lv1       \PYG{c}{\PYGZsh{}建立文件系统}
+mkdir /mnt/lvm1
+mount /dev/vg1/lv1 /mnt/lv1     \PYG{c}{\PYGZsh{}挂载逻辑卷}
+mount /dev/mapper/vg1-lv1 /mnt/lv1   \PYG{c}{\PYGZsh{}同上}
+\PYG{c}{\PYGZsh{}创建文件测试}
+dd \PYG{k}{if}\PYG{o}{=}/dev/zero \PYG{n+nv}{of}\PYG{o}{=}/mnt/lv1/bigfile \PYG{n+nv}{bs}\PYG{o}{=}1M \PYG{n+nv}{count}\PYG{o}{=}800
+ls /mnt/lv1
+df -h /mnt/lv1
+\end{Verbatim}

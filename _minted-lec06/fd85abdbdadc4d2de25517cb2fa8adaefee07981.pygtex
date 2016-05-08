@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+vgcreate -s 32M testvg /dev/sde2 /dev/sde3 \PYG{c}{\PYGZsh{}-s设定PE大小}
+\end{Verbatim}

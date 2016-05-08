@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+mkdir /media/cdrom             \PYG{c}{\PYGZsh{}创建挂载点}
+mount /dev/cdrom /media/cdrom  \PYG{c}{\PYGZsh{}挂载光盘}
+umount /dev/cdrom              \PYG{c}{\PYGZsh{}卸载光盘}
+umount /media/cdrom            \PYG{c}{\PYGZsh{}同上}
+eject                          \PYG{c}{\PYGZsh{}弹出光驱}
+eject -t                       \PYG{c}{\PYGZsh{}收回光驱}
+\end{Verbatim}

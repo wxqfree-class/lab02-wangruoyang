@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+sysctl -a              \PYG{c}{\PYGZsh{}查看所有内核参数}
+sysctl kernel.hostname \PYG{c}{\PYGZsh{}查看指定内核参数}
+\end{Verbatim}

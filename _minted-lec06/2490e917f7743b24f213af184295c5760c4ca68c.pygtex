@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+cdrecord –scanbus \PYG{n+nv}{dev}\PYG{o}{=}ATA \PYG{c}{\PYGZsh{}获取刻录机设备识别号}
+cdrecord -v \PYG{n+nv}{dev}\PYG{o}{=}ATA:0,1,0 boot.iso  \PYG{c}{\PYGZsh{}刻录}
+\end{Verbatim}

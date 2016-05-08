@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+fuser /mnt/sda1   \PYG{c}{\PYGZsh{}查看正在使用目录的进程}
+lsof /mnt/sda1    \PYG{c}{\PYGZsh{}查看正被进程打开的文件/目录}
+umount /dev/sda1  \PYG{c}{\PYGZsh{}设备名}
+umount /mnt/sda1  \PYG{c}{\PYGZsh{}挂载点}
+\end{Verbatim}

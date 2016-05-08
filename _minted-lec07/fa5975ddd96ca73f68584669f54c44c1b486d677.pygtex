@@ -1,0 +1,16 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+yum list            \PYG{c}{\PYGZsh{}列出所有已安装和可用的软件包}
+yum list bash       \PYG{c}{\PYGZsh{}列出bash软件包}
+yum list available  \PYG{c}{\PYGZsh{}列出仓库中所有可用的软件包}
+yum list updates    \PYG{c}{\PYGZsh{}列出仓库中比已安装包更新的软件包}
+yum list installed  \PYG{c}{\PYGZsh{}列出已安装的软件包}
+yum list recent     \PYG{c}{\PYGZsh{}列出新加入仓库的软件包}
+yum search httpd    \PYG{c}{\PYGZsh{}搜索httpd相关软件包}
+yum -y install pkgs \PYG{c}{\PYGZsh{}安装软件包}
+yum -y update \PYG{o}{[}pkgs\PYG{o}{]}\PYG{c}{\PYGZsh{}升级软件包，未给包名则升级整个系统}
+yum remove pkgs     \PYG{c}{\PYGZsh{}删除软件包及所有依赖于该包的软件包}
+yum info pkgs       \PYG{c}{\PYGZsh{}查询软件包信息}
+yum grouplist       \PYG{c}{\PYGZsh{}查询软件包组}
+yum groupinstall \PYG{l+s+s2}{"grpname"} \PYG{c}{\PYGZsh{}安装软件包组}
+yum groupremove \PYG{l+s+s2}{"grpname"}  \PYG{c}{\PYGZsh{}卸载软件包组}
+\end{Verbatim}

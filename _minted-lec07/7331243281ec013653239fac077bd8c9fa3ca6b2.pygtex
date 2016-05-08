@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+name\PYG{o}{(}名字\PYG{o}{)}-version\PYG{o}{(}版本\PYG{o}{)}-release\PYG{o}{(}发行\PYG{o}{)}.arch\PYG{o}{(}架构\PYG{o}{)}.rpm
+例：wget-1.11.4-3.el5\PYGZus{}8.2.i386.rpm
+\end{Verbatim}

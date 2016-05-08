@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{default}\PYG{o}{=}0 \PYG{c}{\PYGZsh{}默认启动的操作系统编号}
+\PYG{n+nv}{timeout}\PYG{o}{=}5 \PYG{c}{\PYGZsh{}等待用户选择的时间(秒)}
+\PYG{c}{\PYGZsh{}引导菜单背景图案}
+\PYG{n+nv}{splashimage}\PYG{o}{=(}hd0,0\PYG{o}{)}/grub/splash.xpm.gz
+hiddenmenu \PYG{c}{\PYGZsh{}隐藏引导菜单}
+title CentOS \PYG{o}{(}2.6.18-398.e15\PYG{o}{)} \PYG{c}{\PYGZsh{}引导项标题}
+        root \PYG{o}{(}hd0,0\PYG{o}{)}          \PYG{c}{\PYGZsh{}内核所在分区}
+        \PYG{c}{\PYGZsh{}内核文件及内核启动参数}
+        kernel /vmlinuz-2.6.18-398.e15 ro \PYG{n+nv}{root}\PYG{o}{=}\PYG{n+nv}{LABEL}\PYG{o}{=}/
+        \PYG{c}{\PYGZsh{}内存磁盘镜像文件}
+        initrd /initrd-2.6.18-398.e15.img
+\end{Verbatim}

@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}停止RAID设备(停止前要先卸载)}
+mdadm --stop RAID设备名
+\PYG{c}{\PYGZsh{}启动RAID设备}
+mdadm --assemble --scan /dev/md0
+\PYG{c}{\PYGZsh{}监控RAID设备}
+mdadm --monitor --mail\PYG{o}{=}admin@abc.com \PYG{l+s+se}{\PYGZbs{}}
+--delay\PYG{o}{=}180 /dev/md0
+\PYG{c}{\PYGZsh{}将监控任务转入后台执行}
+nohup mdadm --monitor --mail\PYG{o}{=}admin@abc.com \PYG{l+s+se}{\PYGZbs{}}
+--delay\PYG{o}{=}180 /dev/md0
+\end{Verbatim}

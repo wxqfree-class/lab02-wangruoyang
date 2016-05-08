@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}rpm校验通常用于两种情况：}
+\PYG{c}{\PYGZsh{}1. 软件包本来运行良好，现在却出问题了，需要找出问题所在}
+\PYG{c}{\PYGZsh{}2. 安全性考虑，检查是否有关键文件被修改了}
+rpm -V pam
+\end{Verbatim}

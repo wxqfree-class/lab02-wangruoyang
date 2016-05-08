@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+dd \PYG{k}{if}\PYG{o}{=}/dev/zero \PYG{n+nv}{of}\PYG{o}{=}/tmp/swapfile \PYG{n+nv}{bs}\PYG{o}{=}1M \PYG{n+nv}{count}\PYG{o}{=}200
+mkswap /tmp/swapfile
+free
+swapon /tmp/swapfile
+swapon -s
+free
+swapoff /tmp/swapfile
+rm /tmp/swapfile
+\end{Verbatim}

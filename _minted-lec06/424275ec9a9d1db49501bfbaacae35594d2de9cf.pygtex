@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+cdrecord –scanbus \PYG{n+nv}{dev}\PYG{o}{=}ATA \PYG{c}{\PYGZsh{}获取刻录机设备识别号}
+cdrecord -v \PYG{n+nv}{dev}\PYG{o}{=}ATA:0,1,0 boot.iso  \PYG{c}{\PYGZsh{}刻录}
+cdrecord -v -eject \PYG{n+nv}{speed}\PYG{o}{=}8 \PYG{n+nv}{dev}\PYG{o}{=}ATA:0,1,0 boot.iso \PYG{c}{\PYGZsh{}刻录}
+\PYG{c}{\PYGZsh{}-v 输出尽可能多的校验信息}
+\PYG{c}{\PYGZsh{}-eject 刻录完毕后弹出光盘}
+\PYG{c}{\PYGZsh{}speed=8 指定刻录机的速度}
+\end{Verbatim}

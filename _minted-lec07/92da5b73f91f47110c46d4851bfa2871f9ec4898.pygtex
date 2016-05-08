@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+vim /etc/logrotate.conf
+/usr/local/apache2/logs/access\PYGZus{}log \PYG{o}{\PYGZob{}}
+  daily
+  create
+  rotate 30
+\PYG{o}{\PYGZcb{}}
+\end{Verbatim}

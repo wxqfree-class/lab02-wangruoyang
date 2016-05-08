@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+lsusb                     \PYG{c}{\PYGZsh{}查看USB设备信息}
+cat /proc/bus/usb/devices \PYG{c}{\PYGZsh{}查看USB设备详细信息}
+\end{Verbatim}

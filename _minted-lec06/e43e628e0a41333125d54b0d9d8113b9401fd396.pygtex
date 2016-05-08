@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+pvcreate /dev/sdf1 \PYG{c}{\PYGZsh{}新建物理卷}
+vgextend testvg /dev/sdf1 \PYG{c}{\PYGZsh{}扩充卷组}
+vgdisplay testvg \PYG{c}{\PYGZsh{}显示卷组信息}
+lvdisplay /dev/testvg/testlv \PYG{c}{\PYGZsh{}显示逻辑卷信息}
+lvresize -l +255 /dev/testvg/testlv \PYG{c}{\PYGZsh{}扩充逻辑卷}
+lvresize -L 2G /dev/testvg/testlv \PYG{c}{\PYGZsh{}扩充逻辑卷}
+lvdisplay /dev/testvg/testlv \PYG{c}{\PYGZsh{}显示卷组信息}
+df /mnt/lvm1 \PYG{c}{\PYGZsh{}查看逻辑卷空间使用情况}
+resize2fs /dev/testvg/testlv \PYG{c}{\PYGZsh{}扩充文件系统}
+df /mnt/lvm1 \PYG{c}{\PYGZsh{}查看逻辑卷空间使用情况}
+\end{Verbatim}

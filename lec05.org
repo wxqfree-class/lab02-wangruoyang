@@ -1575,6 +1575,7 @@ while getopts o:r:nt opt; do
     t) title="no";;
     *) exit 1;
   esac
+  echo "option: $opt next: $OPTIND"
 done
 #+END_SRC
 *** 选项与参数处理(2)
@@ -1600,7 +1601,7 @@ exit 0
 1. while循环通过调用getopts每次获取一个选项并存入字符串变量opt中，直至读取不到新的选项或读取到--选项。
 2. o:r:nt  表示接受4个选项，其中o和r带选项参数
 3. $OPTARG 表示当前选项的参数
-4. $OPTIND 指向第一个非选项参数的位置参数，即第一个命令参数。如果位置参数的值为--，则忽略之。
+4. $OPTIND 初值为1，每处理完一个选项后，指向下一个要处理的选项/参数位置。处理完所有选项后，将指向第一个非选项参数的位置参数，即第一个命令参数。如果位置参数的值为--，则忽略之。
 *** 选项与参数处理(4)
 **** 测试：handleopts                                     :B_exampleblock:
 :PROPERTIES:
@@ -1608,9 +1609,9 @@ exit 0
 :END:
 #+BEGIN_SRC sh
 handleopts -tn -o file.out -r file.rep unit.txt
-handleopts -tn *
+handleopts -t -n -o file.out -r file.rep unit.txt
 handleopts unit.txt
-handleopts -tn -o file.out -r
+handleopts -tn -o file.out -r    #:-(
 #+END_SRC
 *** 给awk传递参数(1)
 **** field n：打印输入的第n个字段                         :B_exampleblock:

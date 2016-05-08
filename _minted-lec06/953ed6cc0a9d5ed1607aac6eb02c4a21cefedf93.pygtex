@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+tune2fs -j /dev/sda1      \PYG{c}{\PYGZsh{}转换为ext3文件系统}
+tune2fs -L data /dev/sda1 \PYG{c}{\PYGZsh{}设置卷标}
+blkid /dev/sda1  \PYG{c}{\PYGZsh{}查看设备的UUID(128位)}
+tune2fs -U random /dev/sda1 \PYG{c}{\PYGZsh{}设置随机UUID}
+tune2fs -U clear /dev/sda1  \PYG{c}{\PYGZsh{}清除UUID}
+man tune2fs
+\end{Verbatim}

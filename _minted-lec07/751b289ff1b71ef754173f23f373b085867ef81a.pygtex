@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+rpm -Uvh zsh-4.2.6-9.el5.i386.rpm
+\PYG{c}{\PYGZsh{}会自动删除旧版软件包}
+\PYG{c}{\PYGZsh{}即使以前未安装过该软件包也会完成软件包的安装}
+\PYG{c}{\PYGZsh{}会自动把旧版本的配置文件备份}
+rpm -Uvh --oldpackage zsh-older.rpm \PYG{c}{\PYGZsh{}降级安装}
+\end{Verbatim}

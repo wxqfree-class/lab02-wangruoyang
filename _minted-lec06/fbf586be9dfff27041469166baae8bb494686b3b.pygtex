@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+mkdir /media/iso
+mount -o loop cdrom.iso /media/iso
+\end{Verbatim}

@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+modprobe \PYG{o}{[}-C 配置文件\PYG{o}{]} \PYG{o}{[}模块名\PYG{o}{]} \PYG{o}{[}参数\PYG{o}{=}值...\PYG{o}{]}
+modprobe md4 \PYG{c}{\PYGZsh{}默认配置文件为/etc/modprobe.conf}
+\end{Verbatim}

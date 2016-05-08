@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+rmmod \PYG{o}{[}-f\PYG{o}{]} \PYG{o}{[}-w\PYG{o}{]} \PYG{o}{[}-s\PYG{o}{]} \PYG{o}{[}-v\PYG{o}{]} \PYG{o}{[}模块名\PYG{o}{]}
+rmmod md4
+\end{Verbatim}

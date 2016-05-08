@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+yum clean all
+rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
+\end{Verbatim}

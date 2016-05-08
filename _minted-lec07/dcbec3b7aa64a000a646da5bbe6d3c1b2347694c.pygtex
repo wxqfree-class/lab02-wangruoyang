@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}查找系统已安装的10个最大软件包}
+rpm -qa --queryformat \PYG{l+s+s2}{"\PYGZpc{}10\PYGZob{}size\PYGZcb{} \PYGZpc{}\PYGZob{}name\PYGZcb{}\PYGZbs{}n"} | sort -rn | head
+rpm -q --requires samba \PYG{c}{\PYGZsh{}查看安装samba软件包的必要条件}
+rpm -q --provides samba \PYG{c}{\PYGZsh{}查看samba软件包提供的内容}
+rpm -q --scripts samba  \PYG{c}{\PYGZsh{}查看samba软件包相关脚本}
+                        \PYG{c}{\PYGZsh{}相关脚本分为4类：}
+                        \PYG{c}{\PYGZsh{}安装前/安装后/卸载前/卸载后}
+rpm -qa --last | head   \PYG{c}{\PYGZsh{}查看最新安装的rpm软件包}
+\end{Verbatim}

@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{cd} /etc/makedev.d
+grep \PYG{l+s+s1}{'sdb\PYGZdl{}'} *
+ls /dev/sd*
+MAKEDEV -x sdb \PYG{c}{\PYGZsh{}-x 仅创建sdb，而不是以sdb开头的所有设备}
+ls /dev/sd*
+\end{Verbatim}

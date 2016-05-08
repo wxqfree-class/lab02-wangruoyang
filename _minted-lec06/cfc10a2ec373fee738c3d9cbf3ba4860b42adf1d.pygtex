@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+vgcreate -s 32M testvg /dev/sde2 /dev/sde3 \PYG{c}{\PYGZsh{}创建卷组}
+vgdisplay testvg \PYG{c}{\PYGZsh{}显示卷组信息}
+\end{Verbatim}

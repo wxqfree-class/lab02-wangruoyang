@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{echo} \PYG{l+s+s1}{'echo "server1.abc.com" >/proc/sys/kernel/hostname'} \PYG{l+s+se}{\PYGZbs{}}
+>>/etc/rc.d/rc.local
+\end{Verbatim}

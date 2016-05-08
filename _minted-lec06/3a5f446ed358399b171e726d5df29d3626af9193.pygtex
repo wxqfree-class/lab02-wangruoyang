@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}比较备份文件与文件系统之间的差异}
+restore –C f /tmp/boot.dump
+\PYG{c}{\PYGZsh{}恢复之前,浏览备份文件的数据}
+restore -tf /tmp/boot.dump
+\PYG{c}{\PYGZsh{}恢复备份(restore不支持覆盖式还原,应将其还原至其他分区)}
+mkdir bootbak
+\PYG{n+nb}{cd }bootbak
+restore -rf /tmp/boot.dump
+\PYG{c}{\PYGZsh{}-r 表示重建}
+\PYG{c}{\PYGZsh{}进入交互式恢复模式}
+restore -if /tmp/boot.dump
+\end{Verbatim}

@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+mkisofs -r -o /tmp/boot.iso /boot
+\PYG{c}{\PYGZsh{}-r 支持长文件名，-o 指定输出文件}
+dd \PYG{k}{if}\PYG{o}{=}/dev/sda1 \PYG{n+nv}{of}\PYG{o}{=}/tmp/boot.iso
+\end{Verbatim}

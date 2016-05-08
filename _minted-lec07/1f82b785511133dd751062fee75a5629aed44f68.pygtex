@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+cat /etc/inittab
+man 5 inittab
+id:runlevels:action:process
+id        \PYG{c}{\PYGZsh{}不超过4个字符的标识符}
+runlevels \PYG{c}{\PYGZsh{}运行级别列表，决定当前行对哪些运行级别起作用}
+action    \PYG{c}{\PYGZsh{}进程执行方式}
+  sysinit \PYG{c}{\PYGZsh{}只要系统引导就开始运行}
+  respawn \PYG{c}{\PYGZsh{}表示进程结束后重新启动该进程}
+  \PYG{n+nb}{wait}    \PYG{c}{\PYGZsh{}表示进程运行一次，init需要等待其运行结束}
+  initdefault \PYG{c}{\PYGZsh{}定义默认运行级别}
+process   \PYG{c}{\PYGZsh{}具体运行的进程}
+\end{Verbatim}

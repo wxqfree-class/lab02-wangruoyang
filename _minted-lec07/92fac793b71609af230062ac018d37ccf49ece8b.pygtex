@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+insmod \PYG{o}{[}模块文件名\PYG{o}{]} \PYG{o}{[}参数\PYG{o}{=}值...\PYG{o}{]}
+insmod /lib/modules/\PYG{l+s+sb}{`}uname -r\PYG{l+s+sb}{`}/kernel/crypto/md4.ko
+\end{Verbatim}

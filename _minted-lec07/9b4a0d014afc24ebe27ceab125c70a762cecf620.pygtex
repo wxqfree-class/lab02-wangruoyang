@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+mpstat \PYG{o}{[}-P CPU编号|ALL\PYG{o}{]} \PYG{o}{[}采样间隔\PYG{o}{]} \PYG{o}{[}采样次数\PYG{o}{]}
+mpstat
+mpstat -P 0 3 5 \PYG{c}{\PYGZsh{}观测CPU0，每3秒采样1次，连续采样5次}
+\end{Verbatim}

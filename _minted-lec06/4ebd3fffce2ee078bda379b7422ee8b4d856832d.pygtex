@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+lvcreate -l 178 -n testlv testvg \PYG{c}{\PYGZsh{}创建逻辑卷}
+lvcreate -L 1G -n testlv testvg \PYG{c}{\PYGZsh{}创建逻辑卷}
+\PYG{c}{\PYGZsh{}-l指定PE数量，-L指定容量(k,m,g,t，不区分大小写)}
+lvdisplay /dev/testvg/testlv \PYG{c}{\PYGZsh{}显示逻辑卷信息}
+\end{Verbatim}

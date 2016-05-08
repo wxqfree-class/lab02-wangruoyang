@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+mount \PYG{o}{[}-t \PYG{n+nb}{type}\PYG{o}{]} \PYG{o}{[}-o option\PYG{o}{]} device mountpoint
+mount /dev/sda1 /mnt/sda1 \PYG{c}{\PYGZsh{}挂载点一般为空目录}
+mount -a                  \PYG{c}{\PYGZsh{}自动挂载/etc/fstab中的文件系统}
+mount                     \PYG{c}{\PYGZsh{}打印文件系统挂载情况}
+\end{Verbatim}

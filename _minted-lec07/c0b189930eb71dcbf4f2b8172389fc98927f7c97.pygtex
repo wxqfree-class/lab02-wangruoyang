@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+mount /dev/cdrom /media/cdrom
+\PYG{n+nb}{cd} /media/cdrom/CentOS
+rpm -ivh zsh-4.2.6-9.el5.i386.rpm
+rpm -ivh --replacepkgs zsh-4.2.6-9.el5.i386.rpm \PYG{c}{\PYGZsh{}重新安装}
+\end{Verbatim}

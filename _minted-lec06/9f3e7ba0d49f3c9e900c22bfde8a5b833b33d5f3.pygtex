@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}1. 卸载逻辑卷}
+umount /mnt/lv1
+\PYG{c}{\PYGZsh{}2. 删除逻辑卷}
+lvremove /dev/vg1/lv1
+\PYG{c}{\PYGZsh{}3. 停用卷组}
+vgchange -a -n vg1
+\PYG{c}{\PYGZsh{}4. 删除卷组}
+vgremove vg1
+\PYG{c}{\PYGZsh{}5. 删除物理卷}
+pvremove /dev/sde\PYG{o}{[}23\PYG{o}{]}
+\PYG{c}{\PYGZsh{}6. 使用fdisk将分区ID改回83}
+\end{Verbatim}

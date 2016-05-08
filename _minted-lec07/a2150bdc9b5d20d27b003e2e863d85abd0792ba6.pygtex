@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+tar xjvf httpd-2.2.31.tar.bz2
+\PYG{n+nb}{cd }httpd-2.2.31
+vim INSTALL
+./configure --prefix\PYG{o}{=}/usr/local/apache2
+make
+make install
+/usr/local/apache2/bin/apachectl start
+/usr/local/apache2/bin/apachectl stop
+\end{Verbatim}

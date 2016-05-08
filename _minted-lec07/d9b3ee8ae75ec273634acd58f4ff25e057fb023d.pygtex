@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+rpm2cpio 包全名 | cpio -idv .文件绝对路径
+\PYG{c}{\PYGZsh{}rpm2cpio将rpm包转换为cpio格式}
+\PYG{c}{\PYGZsh{}cpio用于创建软件档案文件和从档案文件中提取文件}
+-i \PYG{c}{\PYGZsh{}copy-in模式，还原/提取}
+-d \PYG{c}{\PYGZsh{}还原时自动新建目录}
+-v \PYG{c}{\PYGZsh{}显示还原过程}
+\end{Verbatim}

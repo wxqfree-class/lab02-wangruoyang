@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}复制mike的配额设置}
+edquota -p mike mary bob
+\end{Verbatim}

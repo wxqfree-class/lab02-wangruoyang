@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+rpm -qa | grep gpg-pubkey
+\end{Verbatim}

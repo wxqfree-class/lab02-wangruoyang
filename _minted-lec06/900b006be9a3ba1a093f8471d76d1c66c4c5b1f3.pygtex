@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+vgcreate -s 16M vg1 /dev/sdb\PYG{o}{[}23\PYG{o}{]} \PYG{c}{\PYGZsh{}创建卷组}
+vgs                              \PYG{c}{\PYGZsh{}显示卷组简要信息}
+vgdisplay                        \PYG{c}{\PYGZsh{}显示卷组详细信息}
+\end{Verbatim}

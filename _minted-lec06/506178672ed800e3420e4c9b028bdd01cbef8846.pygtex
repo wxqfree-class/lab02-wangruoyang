@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+mkdir /mnt/lvm1
+mount /dev/testvg/testlv /mnt/lvm1
+\end{Verbatim}

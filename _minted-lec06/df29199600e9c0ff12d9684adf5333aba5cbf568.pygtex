@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}1. 创建两个相同大小的RAID分区，设置分区id为fd}
+\PYG{c}{\PYGZsh{}2. 建立RAID设备}
+mdadm --create /dev/md0 --level 1 --raid-devices\PYG{o}{=}2 \PYG{l+s+se}{\PYGZbs{}}
+/dev/sdb1 /dev/sdc1
+\PYG{c}{\PYGZsh{}3. 设置mdadm配置文件/etc/mdadm.conf}
+DEVICE /dev/sdb1 /dev/sdc1
+ARRAY /dev/md0 \PYG{n+nv}{devices}\PYG{o}{=}/dev/sdb1,/dev/sdc1
+\PYG{c}{\PYGZsh{}4. 建立文件系统}
+mkfs -t ext3 /dev/md0
+\PYG{c}{\PYGZsh{}5. 挂载RAID设备}
+mkdir /mnt/raid1
+mount /dev/md0 /mnt/raid1
+\end{Verbatim}

@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+cat handleopts
+\PYG{c}{\PYGZsh{}!/bin/bash}
+\PYG{k}{while }\PYG{n+nb}{getopts }o:r:nt opt; \PYG{k}{do}
+\PYG{k}{  case} \PYG{l+s+s2}{"\PYGZdl{}opt"} in
+    o\PYG{o}{)} \PYG{n+nv}{output\PYGZus{}file}\PYG{o}{=}\PYG{l+s+s2}{"\PYGZdl{}OPTARG"};;
+    r\PYG{o}{)} \PYG{n+nv}{report\PYGZus{}file}\PYG{o}{=}\PYG{l+s+s2}{"\PYGZdl{}OPTARG"};;
+    n\PYG{o}{)} \PYG{n+nv}{number\PYGZus{}option}\PYG{o}{=}\PYG{l+s+s2}{"yes"};;
+    t\PYG{o}{)} \PYG{n+nv}{title}\PYG{o}{=}\PYG{l+s+s2}{"no"};;
+    *\PYG{o}{)} \PYG{n+nb}{exit }1;
+  \PYG{k}{esac}
+\PYG{k}{  }\PYG{n+nb}{echo} \PYG{l+s+s2}{"option: \PYGZdl{}opt next: \PYGZdl{}OPTIND"}
+\PYG{k}{done}
+\end{Verbatim}

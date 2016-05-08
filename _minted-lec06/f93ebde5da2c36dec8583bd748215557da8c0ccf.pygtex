@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+mkdir /media/usb               \PYG{c}{\PYGZsh{}创建挂载点}
+mount -t vfat /dev/sdb1 /media/usb  \PYG{c}{\PYGZsh{}挂载}
+umount /media/usb                   \PYG{c}{\PYGZsh{}卸载}
+\end{Verbatim}

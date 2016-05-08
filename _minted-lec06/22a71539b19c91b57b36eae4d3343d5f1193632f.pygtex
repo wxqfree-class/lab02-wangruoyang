@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}创建磁盘分区(100柱面大小)，并将分区的ID设为8e}
+pvcreate /dev/sdb2 /dev/sdb3     \PYG{c}{\PYGZsh{}建立物理卷}
+pvscan                           \PYG{c}{\PYGZsh{}扫描物理卷信息}
+pvs                              \PYG{c}{\PYGZsh{}查看物理卷简要信息}
+pvdisplay                        \PYG{c}{\PYGZsh{}查看物理卷详细信息}
+\end{Verbatim}

@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+free    \PYG{c}{\PYGZsh{}查看内存使用情况}
+sar -r  \PYG{c}{\PYGZsh{}查看内存统计信息}
+vmstat  \PYG{c}{\PYGZsh{}查看虚拟内存统计报告}
+\end{Verbatim}

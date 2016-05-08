@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+handleopts -tn -o file.out -r file.rep unit.txt
+handleopts -t -n -o file.out -r file.rep unit.txt
+handleopts unit.txt
+handleopts -tn -o file.out -r    \PYG{c}{\PYGZsh{}:-(}
+\end{Verbatim}

@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}模拟某成员磁盘发生故障}
+mdadm /dev/md0 --fail /dev/sdc1
+\PYG{c}{\PYGZsh{}从RAID 1阵列中移除故障成员}
+mdadm /dev/md0 --remove /dev/sdc1
+\PYG{c}{\PYGZsh{}准备一块要替换的磁盘，并将新磁盘加入到阵列中}
+mdadm /dev/md0 --add /dev/sdd1
+\PYG{c}{\PYGZsh{}查看阵列实时信息}
+cat /proc/mdstat
+mdadm --detail /dev/md0
+\end{Verbatim}

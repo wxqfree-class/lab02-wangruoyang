@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+sar -b  \PYG{c}{\PYGZsh{}查看磁盘I/O统计信息}
+iostat \PYG{o}{[}选项\PYG{o}{]} \PYG{o}{[}采样间隔\PYG{o}{]} \PYG{o}{[}采样次数\PYG{o}{]}
+iostat
+\end{Verbatim}

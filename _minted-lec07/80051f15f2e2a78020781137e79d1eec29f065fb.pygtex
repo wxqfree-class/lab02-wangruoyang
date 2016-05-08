@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+mount /dev/cdrom /mnt/cdrom
+\PYG{n+nb}{cd} /etc/yum.repos.d/
+mkdir bak; mv *.repo bak; mv bak/CentOS-Media.repo .
+vim CentOS-Media.repo
+\PYG{o}{[}c5-media\PYG{o}{]}
+\PYG{n+nv}{name}\PYG{o}{=}CentOS-\PYG{n+nv}{\PYGZdl{}releasever} - Media
+\PYG{n+nv}{baseurl}\PYG{o}{=}file:///mnt/cdrom
+\PYG{c}{\PYGZsh{}        file:///media/cdrom/}
+\PYG{c}{\PYGZsh{}        file:///media/cdrecorder/}
+\PYG{n+nv}{gpgcheck}\PYG{o}{=}1
+\PYG{n+nv}{enabled}\PYG{o}{=}1
+\PYG{n+nv}{gpgkey}\PYG{o}{=}file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+\end{Verbatim}

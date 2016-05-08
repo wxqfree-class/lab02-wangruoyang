@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+yum grouplist
+yum groupinstall \PYG{l+s+s2}{"软件组名"}
+yum groupremove \PYG{l+s+s2}{"软件组名"}
+\end{Verbatim}

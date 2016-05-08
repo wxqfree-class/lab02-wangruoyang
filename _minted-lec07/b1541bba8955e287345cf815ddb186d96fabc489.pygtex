@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+top
+us \PYG{c}{\PYGZsh{}用户进程占用CPU百分比}
+sy \PYG{c}{\PYGZsh{}系统内核占用CPU百分比}
+ni \PYG{c}{\PYGZsh{}更改过优先级的进程占CPU百分比}
+id \PYG{c}{\PYGZsh{}CPU空闲时间百分比}
+wa \PYG{c}{\PYGZsh{}CPU等待I/O操作时间百分比}
+hi \PYG{c}{\PYGZsh{}CPU用于处理硬件中断所占时间百分比}
+si \PYG{c}{\PYGZsh{}CPU用于处理软件中断所占时间百分比}
+st \PYG{c}{\PYGZsh{}虚拟设备所占CPU时间百分比}
+\end{Verbatim}

@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+fdisk -l     \PYG{c}{\PYGZsh{}按柱面查看分区}
+fdisk -lu    \PYG{c}{\PYGZsh{}按扇区查看分区}
+\end{Verbatim}

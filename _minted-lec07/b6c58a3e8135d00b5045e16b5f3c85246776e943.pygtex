@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+lspci  \PYG{c}{\PYGZsh{}查看系统安装的PCI设备信息}
+setpci \PYG{o}{[}选项\PYG{o}{]} 设备 操作 \PYG{c}{\PYGZsh{}配置PCI设备}
+\end{Verbatim}

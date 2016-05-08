@@ -1,0 +1,16 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}替换}
+pvcreate /dev/sdb6         \PYG{c}{\PYGZsh{}创建新物理卷}
+vgextend vg1 /dev/sdb6     \PYG{c}{\PYGZsh{}向卷组添加物理卷}
+vgs -o+pv\PYGZus{}used             \PYG{c}{\PYGZsh{}查看物理卷信息}
+pvmove /dev/sdb2 /dev/sdb6 \PYG{c}{\PYGZsh{}转移物理卷数据}
+vgreduce vg1 /dev/sdb2     \PYG{c}{\PYGZsh{}从卷组中删除物理卷}
+vgs -o+pv\PYGZus{}used
+ls /mnt/lv1
+\PYG{c}{\PYGZsh{}恢复}
+pvextend vg1 /dev/sdb2
+pvmove /dev/sdb6 /dev/sdb2
+vgreduce vg1 /dev/sdb6
+vgs -o+pv\PYGZus{}used
+ls /mnt/lv1
+\end{Verbatim}

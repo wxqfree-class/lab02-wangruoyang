@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+dh -h /mnt/lv1              \PYG{c}{\PYGZsh{}查看逻辑卷空间情况}
+umount /mnt/lv1             \PYG{c}{\PYGZsh{}卸载逻辑卷}
+e2fsck -f /dev/vg1/lv1      \PYG{c}{\PYGZsh{}检查逻辑卷}
+resize2fs /dev/vg1/lv1 1G   \PYG{c}{\PYGZsh{}缩小文件系统}
+lvreduce -L 1G /dev/vg1/lv1 \PYG{c}{\PYGZsh{}缩小逻辑卷}
+lvs                         \PYG{c}{\PYGZsh{}查看逻辑卷简要信息}
+mount /dev/vg1/lv1 /mnt/lv1 \PYG{c}{\PYGZsh{}重新挂载逻辑卷}
+dh -h /mnt/lv1              \PYG{c}{\PYGZsh{}查看逻辑卷空间情况}
+\end{Verbatim}

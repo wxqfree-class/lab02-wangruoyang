@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+dumpe2fs /dev/sda1
+tune2fs -l /dev/sda1
+\end{Verbatim}

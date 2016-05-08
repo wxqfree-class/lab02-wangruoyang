@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+vim /etc/sysctl.conf    \PYG{c}{\PYGZsh{}默认内核参数配置文件}
+kernel.hostname\PYG{o}{=}server1 \PYG{c}{\PYGZsh{}添加一行}
+sysctl -p               \PYG{c}{\PYGZsh{}使配置立即生效}
+\end{Verbatim}

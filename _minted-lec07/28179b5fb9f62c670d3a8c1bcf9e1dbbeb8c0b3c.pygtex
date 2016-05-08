@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+ldd /bin/cat \PYG{c}{\PYGZsh{}查看cat命令所需的动态链接库}
+\end{Verbatim}

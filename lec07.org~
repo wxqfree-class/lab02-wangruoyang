@@ -1,0 +1,589 @@
+#+STARTUP: indent
+#+TITLE:     第7讲　Linux系统配置与管理
+#+AUTHOR:    王晓庆
+#+EMAIL:     wangxaoqing@outlook.com
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:t toc:1 \n:nil ':t @:t ::t |:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME: 
+#+XSLT:
+#+startup: beamer
+#+LATEX_CLASS: beamer
+#+BEAMER_FRAME_LEVEL: 2
+#+BEAMER_HEADER_EXTRA: \institute{wangxiaoqing@outlook.com}
+#+LaTeX_CLASS_OPTIONS: [xcolor=svgnames,presentation]
+#+LaTeX_CLASS_OPTIONS: [t]
+#+LATEX_HEADER:\usecolortheme[named=FireBrick]{structure}\setbeamercovered{transparent}\setbeamertemplate{caption}[numbered]\setbeamertemplate{blocks}[rounded][shadow=true] \usetheme{Darmstadt}\date{\today} \usepackage{tikz}\usepackage{xeCJK}\usepackage{amsmath}\setmainfont{Times New Roman}\setCJKmainfont[BoldFont={Adobe Heiti Std},ItalicFont={Adobe Fangsong Std}]{Adobe Heiti Std}\setCJKsansfont{Adobe Heiti Std}\setCJKmonofont{Adobe Fangsong Std}\usepackage{verbatim}\graphicspath{{figures/}} \definecolor{lstbgcolor}{rgb}{0.9,0.9,0.9} \usepackage{listings}\usepackage{minted} \usepackage{fancyvrb}\usepackage{xcolor}\lstset{escapeinside=`',frameround=ftft,language=C,breaklines=true,keywordstyle=\color{blue!70},commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox,backgroundcolor=\color{yellow!20},rulesepcolor=\color{red!20!green!20!blue!20}}
+#+LaTeX_HEADER: \usemintedstyle{default}
+* Linux系统启动过程与故障排除
+** Linux启动过程
+*** Linux启动步骤                                                   :BMCOL:
+:PROPERTIES:
+:BEAMER_col: 0.5
+:END:
+1. 启动BIOS
+2. 启动引导
+3. 启动内核
+4. 启动并执行init程序
+*** Linux启动过程                                   :BMCOL:B_ignoreheading:
+:PROPERTIES:
+:BEAMER_col: 0.5
+:BEAMER_env: ignoreheading
+:END:
+file:img/linuxboot.png
+** 引导加载程序grub(1)
+*** /boot/grub/grub.conf(符号链接：/etc/grub.conf)
+#+BEGIN_SRC sh
+default=0 #默认启动的操作系统编号
+timeout=5 #等待用户选择的时间(秒)
+#引导菜单背景图案
+splashimage=(hd0,0)/grub/splash.xpm.gz
+hiddenmenu #隐藏引导菜单
+title CentOS (2.6.18-398.e15) #引导项标题
+        root (hd0,0)          #内核所在分区
+        #内核文件及内核启动参数
+        kernel /vmlinuz-2.6.18-398.e15 ro root=LABEL=/
+        #内存磁盘镜像文件
+        initrd /initrd-2.6.18-398.e15.img
+#+END_SRC
+** 引导加载程序grub(2)
+*** 动态修改grub引导参数
+**** a #添加引导参数
+**** e #编辑grub菜单
+**** c #进入grub命令行模式
+**** 例：忘记root口令解决办法
+在root行后加空格和1(或single)
+*** 设置grub密码
+**** 明文密码
+password 明文密码
+**** 加密密码
+1. grub-md5-crypt生成加密密码
+2. password --md5 加密密码
+** Linux运行级别
+file:img/runlevels.png
+** Linux运行级别
+*** 查看当前运行级别
+#+BEGIN_SRC sh
+runlevel
+#+END_SRC
+*** 切换到不同的运行级别
+**** 启动时:通过grub将运行级别作为参数传给内核
+**** 启动后:init或telinit
+*** 设置默认运行级别
+**** /etc/inittab文件中的参数id设置
+**** 若未设置默认运行级别,启动过程中将提示用户输入一个运行级别
+** init进程的工作过程
+*** init启动后，根据/etc/inittab文件的设置一次执行下列程序：
+1. /etc/rc.d/rc.sysinit：初始化Linux系统的环境
+主要工作包括启动udev与SELinux系统，设置内核参数、系统时间、交换空间、主机名、检查并挂载必要但文件系统，初始化硬件设备，启用软磁盘阵列与LVM，卸载initrd，重设磁盘参数等。
+2. /etc/rc.d/rc：建立并初始化运行级别环境
+不同的运行级别可提供不同的服务，通过/etc/rc.d/rc来启动或停止特定运行级别中的服务。
+3. /etc/rc.d/rc.local：完成定制的初始化计划
+可在开机过程中执行某些初始化工作，执行该文件的前提是要进入的运行级别启用local服务，因为local服务的功能就是执行/etc/rc.d/rc.local
+*** 管理员可以定制/etc/inittab来建立所需的系统运行环境
+** /etc/inittab文件
+*** /etc/inittab文件格式
+#+BEGIN_SRC sh
+cat /etc/inittab
+man 5 inittab
+id:runlevels:action:process
+id        #不超过4个字符的标识符
+runlevels #运行级别列表，决定当前行对哪些运行级别起作用
+action    #进程执行方式
+  sysinit #只要系统引导就开始运行
+  respawn #表示进程结束后重新启动该进程
+  wait    #表示进程运行一次，init需要等待其运行结束
+  initdefault #定义默认运行级别
+process   #具体运行的进程
+#+END_SRC
+** 系统启动过程故障排除顺序
+1. 确定引导加载程序GRUB是否有问题
+2. 检查是否正确载入kernel内核
+3. 检查根目录是否挂载成功,如果不成功,应检查/sbin/init、/etc/inittab以及/boot/grub/grub.con配置文件的设置是否有错误,另外还要检查根目录是否损坏
+4. 如果/etc/rc.d/rc.sysinit执行不成功,则有可能是/bin/bash文件损毁或是/etc/fstab配置有问题
+5. 检查/etc/rc.d/rc以及/etc/rc.d/rc?.d(?表示运行级别)是否有问题
+** 利用单用户模式修复系统(1)
+*** 单用户模式类型
+1. runlevel 1
+执行init程序之后接着执行/etc/rc.sysinit程序以初始化系统，然后再执行/etc/rc1.d/目录下的所有程序
+2. runlevel S
+执行init程序之后仅执行/etc/rc.sysinit程序以初始化系统
+3. runlevel emergency
+执行init程序之后仅执行/etc/rc.sysinit程序中某些必要的程序，绕过rc.sysinit.sulogin，并不全部执行。
+** 利用单用户模式修复系统(2)
+*** 进入单用户模式
+**** 在GRUB引导菜单按a或e键,根据需要在内核参数项上加上“1”或“single” ,以进入单用户模式
+**** 在/etc/inittab配置文件将默认运行级别设置为1可在下次启动时进入单用户模式
+**** 一个正在运行的Linux系统可以通过执行命令init 1切换至单用户模式
+**** 启动至出现欢迎界面时，按下I键，系统会逐一询问是否启动每项服务，这时就处于runlevel S模式
+**** 启动过程中如果挂载程序出现错误，会提示输入root用户密码，输入密码后，系统将直接进入runlevel emergency模式，完成修改后，按Ctrl-d将重启系统。
+** 利用单用户模式修复系统(3)
+*** 单用户模式修复的问题
+**** Runlevel 1执行至/etc/rc1.d/目录下的所有程序就结束,可以用来解决运行更高级别(2~5)时所发生的错误
+**** Runlevel S仅执行到rc.sysinit为止,除了可以解决Runlevel 1可以解决的问题之外,还可用来修复Runlevel 1发生的错误
+**** RunLevel emergency除了Runlevel S可以解决的错误之外,还可以解决rc.sysinit发生的错误
+**** 注意                                                        :B_block:
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+进入runlevel emergency时根文件系统处于只读状态，无法直接修改linux系统文件。假设/etc/fstab文件出了问题，启动时系统将进入emergency模式，这时需执行mount -o remount,rw /重新挂载根文件系统，以便对/etc/fstab进行修改。
+** 使用Linux救援模式
+*** 救援模式(rescue mode)
+**** 当根目录所在的文件系统或grub损坏时无法启动内核或执行init进程，此时不能用单用户模式，而只能通过救援模式来修复linux系统故障。救援模式提供了从系统硬盘以外的设备(光盘、U盘等)引导一个小型linux环境的能力，引导成功后再对硬盘上的错误进行修改和恢复。
+*** 进入救援模式的几种方式
+1. 从CentOS安装光盘的第1张盘引导系统
+2. 从boot.iso映像制作的引导光盘引导系统
+3. 从bookdisk.img映像制作的安装引导盘引导系统
+** 通过安装光盘进入Linux救援模式
+1. 从光盘引导系统，出现boot:提示符后，输入linux rescue命令
+2. 提示救援环境是图寻找硬盘中的linux系统，并将其挂载到/mnt/sysimage目录，需要选择如何处理（需要修改硬盘文件时选择Continue；仅需读取硬盘文件而不修改时选择Read-Only；如果要手动挂载文件系统则选择Skip直接跳过寻找并挂载硬盘的步骤。）
+3. 按回车键后，系统提供一个shell给管理员使用
+4. 进入救援模式后，正在运行的系统来自光盘，根分区也是光盘的/，硬盘分区全部被挂载到/mnt/sysimage目录，有些管理工具必须在硬盘环境中执行，这时需要利用chroot /mnt/sysimage命令将程序运行时的根目录改为硬盘根目录，完成修复后，执行exit退出chroot环境，因为在chroot环境中读不到光盘文件。
+** 实例：修复损坏的主引导记录
+*** 模拟损坏的主引导记录
+#+BEGIN_SRC sh
+dd if=/dev/zero of=/dev/sda bs=446 count=1
+#+END_SRC 
+*** 修复步骤
+1. 用光盘引导系统，输入linux rescue进入救援模式
+2. 改变根目录环境：chroot /mnt/sysinit
+3. 修复主引导记录：grub-install /dev/sda
+4. 执行exit退出chroot环境，再执行exit退出救援模式
+5. 重新从硬盘引导系统
+*** 如何修复分区表？                                               :B_note:
+:PROPERTIES:
+:BEAMER_env: note
+:END:
+可百度testdisk，这是一款可以修复分区表和误删文件的Linux工具。
+* 内核管理
+** 内核组件
+*** 内核镜像文件
+**** 内核通常以镜像文件(Image File)形式存储在Linux系统中
+*** 内核模块
+**** Linux内核的功能可以编译到内核镜像文件中(静态模块),或者单独成为内核模块,以在系统运行期间动态地加载或者卸除模块(动态模块)
+*** initrd镜像文件
+**** Linux系统将部分模块制作成初始化内存磁盘(initrd)镜像文件, initrd文件是在系统引导过程中挂载的一个临时根文件系统,包含了引导过程中需要的模块和程序,可用来挂载实际的根文件系统。
+** 与内核有关的rpm软件包
+*** kernel:包括内核、内核模块和必要文件
+*** kerenl-PAE:适用于物理内存超过4GB的内核软件包
+*** kernel-xen:适用于Xen虚拟化系统的内核软件包
+*** kernel-doc:Linux内核文档(内核源码的说明文件)
+*** kernel-utils:提供Linux内核的管理工具,以及与内核有关的服务
+*** kernel-TYPE-devel:编译不同类型的内核(内核镜像文件和模块)所需的文件,TYPE表示内核类型,如PAE
+** 内核模块
+*** 可以在编译内核时选择将某些功能编译成为模块
+*** 内核模块可使用户不用重新编译内核就可动态地启用或者停用某一项功能
+*** 内核模块位于目录/lib/modules/`uname -r`/kernel
+**** arch：有关硬件平台
+**** crypto：加密算法
+**** drivers：硬件设备驱动程序
+**** fs：有关文件系统
+**** lib：各种模块所需用到的链接库
+**** net：有关网络
+**** sound：声卡驱动
+*** 模块文件的扩展名为.ko，文件名部分就是模块名称
+** 管理内核模块
+*** 查看已加载的内核模块
+#+BEGIN_SRC sh
+lsmod | grep md4
+#+END_SRC
+*** 查看内核模块信息
+#+BEGIN_SRC sh
+modinfo [-0][-F 字段名] 模块名...
+modinfo ext3
+modinfo -F depends ext3
+#+END_SRC
+*** 手动加载模块
+#+BEGIN_SRC sh
+insmod [模块文件名] [参数=值...]
+insmod /lib/modules/`uname -r`/kernel/crypto/md4.ko
+#+END_SRC
+*** 手动卸载模块
+#+BEGIN_SRC sh
+rmmod [-f] [-w] [-s] [-v] [模块名]
+rmmod md4
+#+END_SRC
+** 处理模块间的依赖关系
+*** 使用modprobe命令可以自动加载或卸载所有必须用到的模块，modprobe从/lib/modules/`uname -r`/modules.dep文件读取模块的依赖关系。
+#+BEGIN_SRC sh
+modprobe [-C 配置文件] [模块名] [参数=值...]
+modprobe md4 #默认配置文件为/etc/modprobe.conf
+#+END_SRC
+*** 使用modprobe卸载模块只需使用-r选项
+#+BEGIN_SRC sh
+modprobe -r [模块名...]
+#+END_SRC
+*** 使用选项-l显示符合条件的模块文件路径
+#+BEGIN_SRC sh
+modprobe -l [-t dirname] [wildcard]
+modprobe -l tcp*
+#+END_SRC
+** 内核模块配置文件
+*** /etc/modprobe.conf用于配置各种内核模块的值，主要功能是设置模块的默认参数，指定加载或卸载模块时要执行的任务，以及设置模块别名。
+**** alias：定义模块别名
+**** options：设置模块默认参数
+**** install：定义使用insmod或modprobe加载模块时执行的命令
+**** remove：定义使用delmod或modprobe卸载模块时执行的命令
+**** include：用于嵌入其他的内核模块配置文件
+** 配置内核参数(1)
+*** 编辑/proc目录中的内核参数文件
+**** /proc/sys中的每一子目录存储重要的内核参数，这些目录中的每一个文件实际上是对应某一个内核参数,可称为内核参数文件,修改这些文件的内容就可以修改内核的功能
+#+BEGIN_SRC sh
+echo "server1.abc.com" >/proc/sys/kernel/hostname
+#+END_SRC
+**** 修改内核参数属于临时修改,在关闭系统时就会丢失,可以通过修改/etc/rc.d/rc.local文件指定要设置哪些内核参数
+#+BEGIN_SRC sh
+echo 'echo "server1.abc.com" >\
+/proc/sys/kernel/hostname' >>/etc/rc.d/rc.local
+#+END_SRC
+** 配置内核参数(2)
+*** 使用sysctl配置内核参数
+**** sysctl定义的内核参数名称
+#+BEGIN_SRC sh
+/proc/sys/kernel/hostname对应内核参数kernel.hostname
+#+END_SRC
+**** 查看内核参数
+#+BEGIN_SRC sh
+sysctl -a              #查看所有内核参数
+sysctl kernel.hostname #查看指定内核参数
+#+END_SRC
+**** 使用sysctl临时修改内核参数(立即生效)
+#+BEGIN_SRC sh
+sysctl -w kernel.hostname=server1
+#+END_SRC
+**** 通过sysctl配置文件永久性配置内核参数
+#+BEGIN_SRC sh
+vim /etc/sysctl.conf    #默认内核参数配置文件
+kernel.hostname=server1 #添加一行
+sysctl -p               #使配置立即生效
+#+END_SRC
+* Linux软件包管理
+** rpm软件包管理(1)
+*** rpm是由Red Hat公司提出的一种软件包管理标准，可用于软件的安装、查询、更新、升级、校验、卸载等。是目前应用比较广泛的软件包格式之一。
+*** 另一个应用比较广泛的软件包格式是来自Debian Linux提出的deb软件包管理标准，其功能与rpm类似。
+*** rpm软件包名称规范
+#+BEGIN_SRC sh
+name(名字)-version(版本)-release(发行).arch(架构).rpm
+例：wget-1.11.4-3.el5_8.2.i386.rpm
+#+END_SRC
+** rpm软件包管理(2)
+*** 安装
+#+BEGIN_SRC sh
+mount /dev/cdrom /media/cdrom
+cd /media/cdrom/CentOS
+rpm -ivh zsh-4.2.6-9.el5.i386.rpm
+rpm -ivh --replacepkgs zsh-4.2.6-9.el5.i386.rpm #重新安装
+#+END_SRC
+*** 升级
+#+BEGIN_SRC sh
+rpm -Uvh zsh-4.2.6-9.el5.i386.rpm
+#会自动删除旧版软件包
+#即使以前未安装过该软件包也会完成软件包的安装
+#会自动把旧版本的配置文件备份
+rpm -Uvh --oldpackage zsh-older.rpm #降级安装
+#+END_SRC
+*** 卸载
+#+BEGIN_SRC sh
+rpm -e zsh-4.2.6-9.el5.i386.rpm
+#+END_SRC
+** rpm软件包管理(3)
+*** 查询
+#+BEGIN_SRC sh
+rpm -qa      #打印所有已安装软件包列表
+rpm -q zsh   #查询软件包是否安装
+rpm -qa | grep zsh  #同上
+rpm -qi zsh  #查看软件包信息
+rpm -ql zsh  #查看软件包文件列表
+rpm -qd zsh  #查看软件包文档列表
+rpm -qc zsh  #查看软件包配置文件列表
+rpm -qs zsh  #查看软件包文件状态
+rpm -qf /etc/inittab #查询文件所属软件包
+#上述带-q选项的命令加上-p选项可查询待安装rpm包信息
+rpm -qip /media/cdrom/CentOS/w3m-0.5.1-18.el5.i386.rpm
+#+END_SRC
+** rpm软件包管理(4)
+*** 校验
+#+BEGIN_SRC sh
+#rpm校验通常用于两种情况：
+#1. 软件包本来运行良好，现在却出问题了，需要找出问题所在
+#2. 安全性考虑，检查是否有关键文件被修改了
+rpm -V pam
+#+END_SRC
+*** rpm校验标记
+| 标记 | 相关属性     |
+|------+--------------|
+| S    | 大小         |
+| M    | 模式(权限)   |
+| 5    | md5校验和    |
+| D    | 设备号不匹配 |
+| L    | 符号链接状态 |
+| U    | 所有者       |
+| G    | 所属组       |
+| T    | 修改时间     |
+** rpm软件包管理(5)
+*** 软件包签名验证
+**** CentOS公钥可以从以下任何一个地方获得：
+- http://mirror.centos.org/centos/
+- 安装光盘根目录
+- /etc/pki/rpm-gpg/目录
+**** 导入CentOS公钥
+#+BEGIN_SRC sh
+rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-*
+#+END_SRC
+**** 查看已导入的公钥列表
+#+BEGIN_SRC sh
+rpm -qa | grep gpg-pubkey
+#+END_SRC
+**** 手动检查软件包签名
+#+BEGIN_SRC sh
+rpm --checksig evince-0.6.0-17.el5.i386.rpm
+#+END_SRC
+** rpm软件包管理(6)
+*** 高级查询
+#+BEGIN_SRC sh
+#查找系统已安装的10个最大软件包
+rpm -qa --queryformat "%10{size} %{name}\n" \
+| sort -rn | head
+rpm -q --requires samba #查看samba软件包的必要条件
+rpm -q --provides samba #查看samba软件包提供的内容
+rpm -q --scripts samba  #查看samba软件包相关脚本
+                        #相关脚本分为4类：
+                        #安装前/安装后/卸载前/卸载后
+rpm -qa --last | head   #查看最新安装的rpm软件包
+#+END_SRC
+** rpm软件包管理(7)
+*** 从rpm包中提取文件
+#+BEGIN_SRC sh
+rpm2cpio 包全名 | cpio -idv .文件绝对路径
+#rpm2cpio将rpm包转换为cpio格式
+#cpio用于创建软件档案文件和从档案文件中提取文件
+-i #copy-in模式，还原/提取
+-d #还原时自动新建目录
+-v #显示还原过程
+#+END_SRC
+*** 示例                                                   :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+rpm -qf /bin/cat      #查询cat属于哪个软件包
+mv /bin/cat /tmp      #假装误删除cat命令
+cd /mnt/cdrom/CentOS
+rpm2cpio coreutils-5.97-34.el5_8.1.i386.rpm \|
+cpio -idv ./bin/cat   #提取cat命令至当前目录
+cp ./bin/cat /bin/cat #恢复cat命令至系统目录
+#+END_SRC
+** rpm软件包管理(8)
+*** rpm包的依赖性
+**** 树形依赖：a --> b --> c(可按c --> b --> a顺序安装解决)
+**** 环形依赖：a --> b --> c --> a(可同时安装a、b、c解决)
+**** 模块依赖：www.rpmfind.net(可查询模块所属软件包)
+#+BEGIN_SRC sh
+ldd /bin/cat #查看cat命令所需的动态链接库
+#+END_SRC
+*** rpm包依赖性示例                                        :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+#+BEGIN_SRC sh
+cd /mnt/cdrom/CentOS
+rpm -ivh wireshark-gnome-1.0.15-6.el5_10.i386.rpm
+#+END_SRC
+** yum包管理(1)
+*** yum(Yellowdog Update, Modified)是由Duke大学开发的包管理器,它能自动解决安装rpm软件包时遇到的依赖问题。
+**** 软件仓库：一个预先准备好的目录或网站，包含了软件包和索引文件。yum可以在仓库中自动定位并获取rpm软件包，只需一个命令就可以更新系统中的所有软件，也可以根据指定搜索条件来查找安装新的软件。
+**** 配置yum仓库：在使用yum安装软件之前，应先配置yum指定使用的仓库。定义yum仓库的配置文件存放在/etc/yum.repos.d目录下，文件名格式为*.repo。
+***** 默认/etc/yum.repos.d目录内已经定义好了几个软件仓库。
+** yum包管理(2)
+*** 配置本地yum源的步骤
+**** 建立yum软件仓库
+1. 安装createrepo软件包
+2. 将所有rpm软件包复制到一个目录(如/mnt/myrepo)
+3. 执行createrepo /mnt/myrepo创建软件仓库
+**** 配置yum软件仓库
+***** 在/etc/yum.repos.d目录下建立myrepo.repo配置文件
+#+BEGIN_EXAMPLE
+[myrepo]
+name=my local repo
+baseurl=file:///mnt/myrepo
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
+#+END_EXAMPLE
+**** 清理yum缓存并导入签名
+#+BEGIN_SRC sh
+yum clean all
+rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
+#+END_SRC
+** yum包管理(3)
+*** yum软件包管理
+#+BEGIN_SRC sh
+yum list all        #列出所有已安装和仓库中可用的软件包
+yum list bash       #列出bash软件包
+yum list available  #列出仓库中所有可用的软件包
+yum list updates    #列出仓库中比系统已安装软件包更新的软件包
+yum list installed  #列出已安装的软件包
+yum list recent     #列出新加入仓库的软件包
+yum install -y pkgs #安装一个或多个指定软件包
+yum remove pkgs     #删除一个或多个指定软件包
+yum info pkgs       #查询软件包信息
+#+END_SRC
+* 硬件管理
+** 设备文件与设备识别号
+** 创建设备文件
+** 监控硬件设备
+** 管理PCI设备
+* 系统性能监测
+** 性能监测概述
+** CPU性能监测
+** 内存性能监测
+** 磁盘I/O性能监测
+** 通过top实现综合监控
+** 优化系统性能
+* 系统日志管理
+** syslog简介
+file:img/syslog.png
+** 常见日志文件
+| 文件             | 记录内容                                 |
+|------------------+------------------------------------------|
+| /var/log/cron    | 系统定时任务相关日志                     |
+| /var/log/cups    | 打印日志                                 |
+| /var/log/dmesg   | 系统开机时内核自检信息，可用dmesg查看    |
+| /var/log/btmp    | 错误登录日志，用lastb查看                |
+| /var/log/lastlog | 所有用户最后一次登录时间，用lastlog查看  |
+| /var/log/maillog | 邮件日志                                 |
+| /var/log/message | 系统绝大多数日志信息                     |
+| /var/log/secure  | 验证和授权日志，记录涉及账户和密码的操作 |
+| /var/log/wtmp    | 所有用户登录、系统启停日志，用last查看   |
+| /var/log/utmp    | 记录当前登录用户信息，用w、who等命令查看 |
+** 常见日志文件(2)
+*** 除了系统默认的日志之外，采用rpm方式安装的系统服务也会默认把日志记录在/var/log/目录中（源码包安装的服务日志是在源码包指定目录中）。不过这些日志不是由syslogd服务来记录和管理的，而是各个服务使用自己的日志管理文档来记录自身日志。
+| 文件           | 记录内容                 |
+|----------------+--------------------------|
+| /var/log/httpd | apache服务的服务日志目录 |
+| /var/log/mail  | 邮件服务的服务日志目录   |
+| /var/log/samba | samba服务的服务日志目录  |
+| /var/log/sssd  | 安全服务的服务日志目录   |
+** 日志管理
+*** 日志格式
+1. 时间产生的时间
+2. 产生事件的服务器的主机名
+3. 产生事件的服务名或程序名
+4. 事件的具体信息
+*** 清空日志文件内容
+#+BEGIN_SRC sh
+echo >/var/log/secure
+#+END_SRC
+*** /etc/syslog.conf配置文件
+#+BEGIN_EXAMPLE
+authpriv.* /var/log/secure
+选择子      动作
+选择子：服务名称[连接符号]日志等级
+动作：日志记录位置或日志处理动作
+认证相关服务.所有日志等级 记录在/var/log/secure中
+#+END_EXAMPLE
+** 服务名称
+| 服务名称       | 含义                                       |
+|----------------+--------------------------------------------|
+| auth           | 安全和认证相关消息(不推荐使用authpriv替代) |
+| authpriv       | 安全和认证相关消息（私有的）               |
+| cron           | 系统定时任务cron和at产生的日志             |
+| daemon         | 和各个守护进程相关的日志                   |
+| ftp            | ftp守护进程产生的日志                      |
+| kern           | 内核而非用户进程产生的日志                 |
+| local10-local7 | 为本地使用预留的服务                       |
+| lpr            | 打印产生的日志                             |
+| mail           | 邮件收发日志                               |
+| news           | 与新闻服务器相关的日志                     |
+| syslog         | 由syslogd产生的日志信息                    |
+| user           | 用户等级类别的日志信息                     |
+| uucp           | uucp子系统的日志信息                       |
+** 日志等级
+| 等级名称 | 说明                                           |
+|----------+------------------------------------------------|
+| none     | 不记录所有等级日志                             |
+| *        | 记录所有等级日志                               |
+| debug    | 一般的调试信息说明                             |
+| info     | 基本的通知信息                                 |
+| notice   | 普通信息，但是有一定的重要性                   |
+| warning  | 警告信息，但未影响到服务或系统的运行           |
+| err      | 错误信息，已经影响到服务或系统的运行           |
+| crit     | 临界状况信息，比err等级还要严重                |
+| alert    | 警告状态信息，比crit还要严重，必须立即采取行动 |
+| emerg    | 紧急等级信息，系统已经无法使用                 |
+** 连接符和日志处理方式
+*** 连接符
+| 连接符 | 含义                       |
+|--------+----------------------------|
+| .      | 记录大于等于指定等级的日志 |
+| .=     | 仅记录指定等级的日志       |
+| .!     | 记录除指定等级之外的日志   | 
+*** 日志处理方式
+**** 记录至指定日志文件：如/var/log/secure
+**** 发送到系统设备文件：如/dev/lp0
+**** 转发给远程主机：如@192.168.0.210
+**** 发送到指定用户所在终端：如root,adm
+** 日志管理和测试
+*** 修改日志配置文件后使配置立即生效
+#+BEGIN_SRC sh
+killall -HUP syslogd
+#+END_SRC
+*** 使用logger工具进行测试
+#+BEGIN_SRC sh
+logger kern.info "kern info test" #模拟kern.info消息
+#+END_SRC
+** 日志轮替
+*** 日志轮替：防止日志占用过多磁盘空间
+**** 日志存储为多个文件，如每日一个
+**** 限制日志文件个数，如只保留一周的日志
+*** 日志轮替中文件的命名规则
+file:img/logrotate.png
+** 日志轮替配置文件/etc/logrotate.conf
+| 参数                    | 说明                                    |
+|-------------------------+-----------------------------------------|
+| daily                   | 每天轮替                                |
+| weekly                  | 每周轮替                                |
+| monthly                 | 每月轮替                                |
+| rotate n                | 保留n个日志文件                         |
+| compress                | 轮替时压缩旧日志                        |
+| create mode owner group | 新建日志(权限、所有者、属组)            |
+| mail address            | 轮替时发邮件至指定邮箱地址              |
+| missingok               | 忽略日志不存在的情况                    |
+| notifempty              | 不轮替空日志                            |
+| minsize 10k             | 按时间轮替，日志小于10k时不轮替         |
+| size 1M                 | 日志按大小轮替，达到1M时轮替            |
+| dateext                 | 用日期作为日志后缀，如secure-20160606  |
+** 日志轮替管理
+*** 用rpm包安装的软件包默认使用了日志轮替
+*** 用源码安装的软件包需要手工配置日志轮替
+#+BEGIN_SRC sh
+vim /etc/logrotate.conf
+/usr/local/apache2/logs/access_log {
+  daily
+  create
+  rotate 30
+}
+#+END_SRC
+*** logrotate [选项] 配置文件名
+**** 如果没有指定选项，则按照配置文件的配置进行日志轮替
+**** -v 显示日志轮替详细信息
+**** -f 强制进行日志轮替
+** 集中式日志管理
+*** 在作为日志客户端的计算机上设置适当的信息传送到日志服务器。此时,需在“处理方式”字段中使用@指定日志服务器的计算机名称或IP地址
+#+BEGIN_EXAMPLE
+*.* @logserver
+#+END_EXAMPLE
+*** 修改日志服务器的/etc/sysconfig/syslog配置文件
+#+BEGIN_EXAMPLE
+SYSLOGD_OPTIONS="-m 0 -r"
+#+END_EXAMPLE
+*** 重新启动日志服务器与客户端的系统日志服务
+#+BEGIN_SRC sh
+service syslog restart
+#+END_SRC

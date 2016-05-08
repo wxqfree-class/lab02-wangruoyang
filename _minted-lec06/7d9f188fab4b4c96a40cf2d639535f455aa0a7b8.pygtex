@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+mkfs -t ext3 /dev/testvg/testlv \PYG{c}{\PYGZsh{}建立文件系统}
+mkdir /mnt/lvm1
+mount /dev/testvg/testlv /mnt/lvm1 \PYG{c}{\PYGZsh{}挂载逻辑卷}
+\end{Verbatim}

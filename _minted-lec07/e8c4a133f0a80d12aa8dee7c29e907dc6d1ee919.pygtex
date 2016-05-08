@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+/etc/rc.d/init.d/httpd start
+service httpd start
+\end{Verbatim}

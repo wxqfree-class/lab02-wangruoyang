@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+lv create -l 178 -n testlv testvg \PYG{c}{\PYGZsh{}-l指定PE数}
+lv create -L 5.56G -n testlv testvg \PYG{c}{\PYGZsh{}-L指定容量(k,m,g,t等)}
+\end{Verbatim}

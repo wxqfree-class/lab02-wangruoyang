@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+modinfo \PYG{o}{[}-0\PYG{o}{][}-F 字段名\PYG{o}{]} 模块名...
+modinfo ext3
+modinfo -F depends ext3
+\end{Verbatim}

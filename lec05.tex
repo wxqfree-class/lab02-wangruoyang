@@ -1,4 +1,4 @@
-% Created 2016-04-10 日 22:01
+% Created 2016-04-22 五 23:06
 \documentclass[xcolor=svgnames,presentation]{beamer}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -2259,6 +2259,7 @@ while getopts o:r:nt opt; do
     t) title="no";;
     *) exit 1;
   esac
+  echo "option: $opt next: $OPTIND"
 done
 \end{minted}
 \end{exampleblock}
@@ -2292,7 +2293,7 @@ exit 0
 \item while循环通过调用getopts每次获取一个选项并存入字符串变量opt中，直至读取不到新的选项或读取到--选项。
 \item o:r:nt  表示接受4个选项，其中o和r带选项参数
 \item \$OPTARG 表示当前选项的参数
-\item \$OPTIND 指向第一个非选项参数的位置参数，即第一个命令参数。如果位置参数的值为--，则忽略之。
+\item \$OPTIND 初值为1，每处理完一个选项后，指向下一个要处理的选项/参数位置。处理完所有选项后，将指向第一个非选项参数的位置参数，即第一个命令参数。如果位置参数的值为--，则忽略之。
 \end{enumerate}
 \end{exampleblock}
 \end{frame}
@@ -2305,9 +2306,9 @@ exit 0
 
 \begin{minted}[]{bash}
 handleopts -tn -o file.out -r file.rep unit.txt
-handleopts -tn *
+handleopts -t -n -o file.out -r file.rep unit.txt
 handleopts unit.txt
-handleopts -tn -o file.out -r
+handleopts -tn -o file.out -r    #:-(
 \end{minted}
 \end{exampleblock}
 \end{frame}

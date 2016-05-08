@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+dump -0u -f /tmp/boot0.dump /boot
+dump -1u -f /tmp/boot1.dump /boot
+dump -2u -f /tmp/boot2.dump /boot
+dump -3u -f /tmp/boot3.dump /boot
+\end{Verbatim}

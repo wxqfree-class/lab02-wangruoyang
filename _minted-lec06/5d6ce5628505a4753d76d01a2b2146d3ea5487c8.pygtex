@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}1. 停用RAID设备}
+mdadm --stop /dev/md0
+\PYG{c}{\PYGZsh{}2. 清空每个组成分区的超级块}
+mdadm --zero-superblock /dev/sdb1
+mdadm --zero-superblock /dev/sdc1
+\end{Verbatim}

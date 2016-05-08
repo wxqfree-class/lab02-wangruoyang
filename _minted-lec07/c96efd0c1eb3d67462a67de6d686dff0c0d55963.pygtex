@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+rpm -qf /bin/ls     \PYG{c}{\PYGZsh{}查询ls属于哪个软件包}
+mv /bin/ls /tmp     \PYG{c}{\PYGZsh{}假装误删除ls命令}
+\PYG{n+nb}{cd} /mnt/cdrom/CentOS
+rpm2cpio coreutils-5.97-34.el5\PYGZus{}8.1.i386.rpm \PYG{l+s+se}{\PYGZbs{}|}
+cpio -idv ./bin/ls  \PYG{c}{\PYGZsh{}提取ls命令}
+cp ./bin/ls /bin/ls \PYG{c}{\PYGZsh{}恢复ls命令}
+\end{Verbatim}

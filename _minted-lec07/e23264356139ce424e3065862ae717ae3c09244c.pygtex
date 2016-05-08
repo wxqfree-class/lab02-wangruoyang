@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+/proc/sys/kernel/hostname对应内核参数kernel.hostname
+\end{Verbatim}

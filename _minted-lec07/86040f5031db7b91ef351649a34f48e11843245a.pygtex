@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+rpm -qa      \PYG{c}{\PYGZsh{}打印所有已安装软件包列表}
+rpm -q zsh   \PYG{c}{\PYGZsh{}查询软件包是否安装}
+rpm -qa | grep zsh  \PYG{c}{\PYGZsh{}同上}
+rpm -qi zsh  \PYG{c}{\PYGZsh{}查看软件包信息}
+rpm -ql zsh  \PYG{c}{\PYGZsh{}查看软件包文件列表}
+rpm -qd zsh  \PYG{c}{\PYGZsh{}查看软件包文档列表}
+rpm -qc zsh  \PYG{c}{\PYGZsh{}查看软件包配置文件列表}
+rpm -qs zsh  \PYG{c}{\PYGZsh{}查看软件包文件状态}
+rpm -qf /etc/inittab \PYG{c}{\PYGZsh{}查询文件所属软件包}
+\PYG{c}{\PYGZsh{}上述带-q选项的命令加上-p选项可查询待安装rpm包信息}
+rpm -qip /media/cdrom/CentOS/w3m-0.5.1-18.el5.i386.rpm
+\end{Verbatim}

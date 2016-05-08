@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+dump -0S /dev/sda1  \PYG{c}{\PYGZsh{}计算完全备份/dev/sda1所需空间}
+\PYG{c}{\PYGZsh{}完全备份/boot分区}
+dump -0u -f /tmp/boot.dump /boot
+dump -0uj -f /tmp/boot.dump.bz2 /boot
+\PYG{c}{\PYGZsh{}-u 表示更新数据库文件/etc/dumpdates}
+\PYG{c}{\PYGZsh{}   (记录文件日期、存储级别、文件系统等信息)}
+\PYG{c}{\PYGZsh{}-f 指定备份文件}
+\PYG{c}{\PYGZsh{}-j 用bzip2进行压缩}
+dump -W  \PYG{c}{\PYGZsh{}查看分区备份情况}
+\end{Verbatim}
