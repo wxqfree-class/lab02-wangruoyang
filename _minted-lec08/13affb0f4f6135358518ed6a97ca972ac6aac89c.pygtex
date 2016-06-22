@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+tcpdump not \PYG{o}{(}port 22 or port 23\PYG{o}{)} \PYG{c}{\PYGZsh{}不捕获ssh和telnet包}
+tcpdump -n -i eth0 not port 22 \PYG{c}{\PYGZsh{}捕获eth0的非ssh包}
+tcpdump -i eth0 \PYG{o}{[}src|dst\PYG{o}{]} host 192.168.1.1 \PYG{c}{\PYGZsh{}过滤主机}
+tcpdump -i eth0 \PYG{o}{[}src|dst\PYG{o}{]} net 192.168 \PYG{c}{\PYGZsh{}过滤网络}
+tcpdump -i eth0 \PYG{o}{[}src|dst\PYG{o}{]} port 80 \PYG{c}{\PYGZsh{}过滤端口号}
+tcpdump -i eth0 -c 8 icmp \PYG{c}{\PYGZsh{}过滤协议，捕获8个包}
+tcpdump -i eth1 \PYG{l+s+s1}{'((tcp) and (port 80) and}
+\PYG{l+s+s1}{((dst host 192.168.1.254) or (dst host 192.168.1.200)))'}
+tcpdump -i eth1 \PYG{l+s+s1}{'((icmp) and ((ether dst host}
+\PYG{l+s+s1}{00:01:02:03:04:05)))'}
+tcpdump -i eth1 \PYG{l+s+s1}{'((tcp) and ((dst net 192.168) and}
+\PYG{l+s+s1}{(not dst host 192.168.1.200)))'}
+\end{Verbatim}

@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+reconfigure \PYG{c}{\PYGZsh{}重新读取配置文件}
+shutdown    \PYG{c}{\PYGZsh{}关闭}
+debug       \PYG{c}{\PYGZsh{}进入调试模式}
+check       \PYG{c}{\PYGZsh{}检查squid进程}
+parse       \PYG{c}{\PYGZsh{}检查配置文件}
+\end{Verbatim}

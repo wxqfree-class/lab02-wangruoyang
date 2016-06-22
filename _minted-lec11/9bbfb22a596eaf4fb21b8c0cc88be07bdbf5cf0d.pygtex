@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+<Directory \PYG{l+s+s2}{"/var/www/html"}>
+    Options Indexes FollowSymLinks
+    AllowOverride None \PYG{c}{\PYGZsh{}不允许被.htaccess文件的设置覆盖}
+    Order allow,deny
+    Allow from all
+</Directory>
+\end{Verbatim}

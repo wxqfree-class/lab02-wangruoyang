@@ -1,0 +1,17 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+cp -p named.local 192.168.1.rev
+vim 192.168.1.rev
+\PYG{n+nv}{\PYGZdl{}TTL} 86400
+@ IN SOA ns1.abc.com. root.abc.com. \PYG{o}{(}
+                         1997022700 ; Serial
+                         28800      ; Refresh
+                         14400      ; Retry
+                         3600000    ; Expire
+                         86400 \PYG{o}{)}    ; Minimum
+        IN      NS      ns1.abc.com.
+200     IN      PTR     ns1.abc.com.
+200     IN      PTR     www.abc.com.
+200     IN      PTR     ftp.abc.com.
+200     IN      PTR     mail.abc.com.
+10      IN      PTR     client1.abc.com.
+\end{Verbatim}

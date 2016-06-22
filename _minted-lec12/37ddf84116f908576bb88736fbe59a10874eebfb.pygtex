@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+iptables -A INPUT -i eth0 -j ACCEPT
+\PYG{c}{\PYGZsh{}允许从eth0接口进入且目的地值为本机的数据包}
+\end{Verbatim}

@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}添加默认路由}
+route add default gw 192.168.56.1 dev eth0
+\PYG{c}{\PYGZsh{}删除默认路由}
+route del default gw 192.168.56.1 dev eth0
+\PYG{c}{\PYGZsh{}添加静态路由}
+route add -net 192.56.76.0 netmask 255.255.255.0 \PYG{l+s+se}{\PYGZbs{}}
+dev eth0
+route add -net 192.56.76.0 netmask 255.255.255.0 \PYG{l+s+se}{\PYGZbs{}}
+gw 192.168.56.200
+\end{Verbatim}

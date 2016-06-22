@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+vim named.caching-nameserver.conf
+acl corpnets \PYG{o}{\PYGZob{}} 192.168.1.0/24; 192.168.2.0/24; \PYG{o}{\PYGZcb{}};
+options \PYG{o}{\PYGZob{}}
+        listen-on port 53 \PYG{o}{\PYGZob{}} any; \PYG{o}{\PYGZcb{}}; \PYG{c}{\PYGZsh{}监听所有接口}
+        directory \PYG{l+s+s2}{"/var/named"};
+    allow-query \PYG{o}{\PYGZob{}} corpnets; \PYG{o}{\PYGZcb{}}; \PYG{c}{\PYGZsh{}允许指定客户端}
+\PYG{o}{\PYGZcb{}};
+view corpnets \PYG{o}{\PYGZob{}} \PYG{c}{\PYGZsh{}定义视图}
+        match-clients      \PYG{o}{\PYGZob{}} corpnets; \PYG{o}{\PYGZcb{}}; \PYG{c}{\PYGZsh{}匹配请求源地址}
+        match-destinations \PYG{o}{\PYGZob{}} any; \PYG{o}{\PYGZcb{}}; \PYG{c}{\PYGZsh{}匹配请求目标地址}
+        recursion yes; \PYG{c}{\PYGZsh{}允许递归查询}
+        include \PYG{l+s+s2}{"/etc/named.rfc1912.zones"}; \PYG{c}{\PYGZsh{}包含区域文件}
+\PYG{o}{\PYGZcb{}};
+\end{Verbatim}

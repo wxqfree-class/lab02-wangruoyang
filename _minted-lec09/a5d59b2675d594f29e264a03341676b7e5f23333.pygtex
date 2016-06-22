@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{cd} /var/named/chroot/var/named
+cp -p named.local 192.168.1.rev
+vim 192.168.1.rev
+\end{Verbatim}

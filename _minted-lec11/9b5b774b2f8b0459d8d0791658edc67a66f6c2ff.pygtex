@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}1. 为服务器配置多块网卡或配置虚拟网卡}
+ifconfig eth0:0 192.168.56.201
+ifconfig eth0:1 192.168.56.202
+\PYG{c}{\PYGZsh{}2. 为虚拟主机注册域名，此处为方便可直接修改hosts文件}
+vim /etc/hosts
+192.168.56.201  www.abc.com
+192.168.56.202  www.xyz.net
+\PYG{c}{\PYGZsh{}3. 为两个网站分别创建网站根目录}
+mkdir -p /var/www/abc.com
+mkdir -p /var/www/xyz.net
+\PYG{c}{\PYGZsh{}4. 在两个网站的根目录中分别创建index.html文件}
+\PYG{c}{\PYGZsh{}5. 编辑httpd.conf文件，确认配置有以下Listen指令}
+Listen 80
+\end{Verbatim}

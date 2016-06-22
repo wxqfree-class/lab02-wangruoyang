@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+AuthType Basic|Digest
+\PYG{c}{\PYGZsh{}Digest更安全，但并非所有浏览器都支持，因此通常用Basic}
+AuthName \PYG{l+s+s2}{"Please login: "}        \PYG{c}{\PYGZsh{}设置登录提示内容}
+AuthUserFile /etc/httpd/testpwd  \PYG{c}{\PYGZsh{}设置用户密码文件}
+AuthGroupFile /etc/httpd/testgrp \PYG{c}{\PYGZsh{}设置组密码文件}
+\end{Verbatim}

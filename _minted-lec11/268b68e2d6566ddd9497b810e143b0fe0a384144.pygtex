@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+<IfModule worker.c>
+StartServers         2
+MaxClients         150
+MinSpareThreads     25
+MaxSpareThreads     75
+ThreadsPerChild     25
+MaxRequestsPerChild  0
+</IfModule>
+\end{Verbatim}

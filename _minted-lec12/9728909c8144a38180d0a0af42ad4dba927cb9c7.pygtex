@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+iptables -P FORWARD ACCEPT
+\end{Verbatim}

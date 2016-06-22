@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+Alias /icons/ \PYG{l+s+s2}{"/var/www/icons/"}
+Alias /error/ \PYG{l+s+s2}{"/var/www/error/"}
+\end{Verbatim}

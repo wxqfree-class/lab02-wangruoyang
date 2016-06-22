@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+ldd /bin/login | grep libpam.so \PYG{c}{\PYGZsh{}查看应用是否包含PAM库}
+\end{Verbatim}

@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+chroot\PYGZus{}list\PYGZus{}enable \PYG{c}{\PYGZsh{}将指定用户锁定在其主目录中}
+chroot\PYGZus{}list\PYGZus{}file   \PYG{c}{\PYGZsh{}设置要锁定的用户列表文件}
+\PYG{c}{\PYGZsh{}默认文件为/etc/vsftpd/chroot\PYGZus{}list，格式为一行一个用户}
+chroot\PYGZus{}local\PYGZus{}user  \PYG{c}{\PYGZsh{}所有本地用户被锁定在其主目录中}
+passwd\PYGZus{}chroot\PYGZus{}enable \PYG{c}{\PYGZsh{}与chroot\PYGZus{}local\PYGZus{}user配合使用}
+\end{Verbatim}

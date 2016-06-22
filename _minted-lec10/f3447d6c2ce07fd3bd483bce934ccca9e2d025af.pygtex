@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+smbpasswd -a neo \PYG{c}{\PYGZsh{}向/etc/samba/smbpasswd中添加账户}
+\PYG{c}{\PYGZsh{} -x 删除账户 -d 禁用账户 -e 启用账户}
+\end{Verbatim}

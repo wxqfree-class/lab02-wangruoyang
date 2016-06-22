@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+iptables -A INPUT -m limit --limit 100/s --limit-burst 120 -j ACCEPT
+\PYG{c}{\PYGZsh{}突发收到120个数据包后立即触发每秒仅允许通过100个数据包的限制}
+\PYG{c}{\PYGZsh{}--limit的时间单位可以是s(秒),m(分),h(时),d(日)}
+\end{Verbatim}

@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+smbclient -L //192.168.0.200 -U neo     \PYG{c}{\PYGZsh{}查看共享资源}
+smbclient //192.168.0.200/public -U neo \PYG{c}{\PYGZsh{}访问共享资源}
+Password:
+smb: \PYG{l+s+se}{\PYGZbs{}>} ?
+smb: \PYG{l+s+se}{\PYGZbs{}>} ls
+smb: \PYG{l+s+se}{\PYGZbs{}>} get \PYG{n+nb}{test}
+smb: \PYG{l+s+se}{\PYGZbs{}>} q
+\end{Verbatim}

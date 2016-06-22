@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+hosts \PYG{n+nv}{deny} \PYG{o}{=} 192.168.2.
+hosts \PYG{n+nv}{allow} \PYG{o}{=} 192.168.2.200
+hosts \PYG{n+nv}{allow} \PYG{o}{=} 192.168.2. EXCEPT 192.168.2.200
+\PYG{c}{\PYGZsh{}可以使用通配符*和?，ALL(任意客户端),LOCAL(本机)等}
+\end{Verbatim}

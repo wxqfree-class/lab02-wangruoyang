@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+iptables -t nat -A PREROUTING -i eth1 -p tcp \PYG{l+s+se}{\PYGZbs{}}
+--dport 80 -j --to-destination 192.168.0.1:80
+iptables -t nat -A PREROUTING -i eth1 -p tcp \PYG{l+s+se}{\PYGZbs{}}
+--dport 8000 -j --to-destination 192.168.0.20:80
+\end{Verbatim}

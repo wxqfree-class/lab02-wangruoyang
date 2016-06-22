@@ -1,0 +1,422 @@
+#+STARTUP: indent
+#+TITLE:     第9讲　DNS与DHCP服务配置管理
+#+AUTHOR:    王晓庆
+#+EMAIL:     wangxaoqing@outlook.com
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:t toc:1 \n:nil ':t @:t ::t |:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME: 
+#+XSLT:
+#+startup: beamer
+#+LATEX_CLASS: beamer
+#+BEAMER_FRAME_LEVEL: 2
+#+BEAMER_HEADER_EXTRA: \institute{wangxiaoqing@outlook.com}
+#+LaTeX_CLASS_OPTIONS: [xcolor=svgnames,presentation]
+#+LaTeX_CLASS_OPTIONS: [t]
+#+LATEX_HEADER:\usecolortheme[named=FireBrick]{structure}\setbeamercovered{transparent}\setbeamertemplate{caption}[numbered]\setbeamertemplate{blocks}[rounded][shadow=true] \usetheme{Darmstadt}\date{\today} \usepackage{tikz}\usepackage{xeCJK}\usepackage{amsmath}\setmainfont{Times New Roman}\setCJKmainfont[BoldFont={Adobe Heiti Std},ItalicFont={Adobe Fangsong Std}]{Adobe Heiti Std}\setCJKsansfont{Adobe Heiti Std}\setCJKmonofont{Adobe Fangsong Std}\usepackage{verbatim}\graphicspath{{figures/}} \definecolor{lstbgcolor}{rgb}{0.9,0.9,0.9} \usepackage{listings}\usepackage{minted} \usepackage{fancyvrb}\usepackage{xcolor}\lstset{escapeinside=`',frameround=ftft,language=C,breaklines=true,keywordstyle=\color{blue!70},commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox,backgroundcolor=\color{yellow!20},rulesepcolor=\color{red!20!green!20!blue!20}}
+#+LaTeX_HEADER: \usemintedstyle{default}
+* DNS服务配置与管理
+** Bind的安装与DNS服务器类型
+*** Bind的安装
+#+BEGIN_SRC sh
+rpm -qa | grep 'bind'
+yum install bind bind-chroot bind-libs bind-utils
+rpm -ql bind | less
+#+END_SRC
+*** DNS服务器类型
+1. 缓存服务器(Caching)
+2. 转发服务器(Forwarding)
+3. 主域名服务器(Master)
+4. 从域名服务器(Slave)
+*** 注意                                                          :B_block:
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+一台服务器可以同时充当上述多种角色。
+** 实验环境搭建
+*** 实验拓扑图                                                      :BMCOL:
+:PROPERTIES:
+:BEAMER_col: 1
+:END:
+file:img/serverslab.pdf
+*** 实验准备
+**** 按图配置主机名、IP、默认网关等，保证所有主机能互相ping通。
+** 缓存服务器的安装配置(server1)
+***  默认情况下bind并未提供主配置文件
+**** /var/named/chroot/etc/named.conf
+*** 安装缓存服务器
+#+BEGIN_SRC sh
+yum -y install caching-nameserver
+rpm -ql caching-nameserver
+service named start
+#+END_SRC
+** 缓存服务器的默认配置
+#+BEGIN_SRC sh
+cd /var/named/chroot/etc
+grep -v '//' named.caching-nameserver.conf
+options {
+	listen-on port 53 { 127.0.0.1; }; #仅监听环回接口
+	listen-on-v6 port 53 { ::1; };
+	directory 	"/var/named"; #指定默认工作目录
+	dump-file 	"/var/named/data/cache_dump.db";
+        statistics-file "/var/named/data/named_stats.txt";
+        memstatistics-file "/var/named/data/named_mem_stats.txt";
+	allow-query     { localhost; }; #仅允许本机访问
+	allow-query-cache { localhost; }; #本机访问缓存
+};
+#+END_SRC
+** 缓存服务器的默认配置(2)
+#+BEGIN_SRC sh
+logging {
+        channel default_debug { #定义日志通道
+                file "data/named.run"; #默认日志文件
+                severity dynamic; #默认日志等级
+        };
+};
+view localhost_resolver { #定义视图
+	match-clients 	   { localhost; }; #匹配请求源地址
+	match-destinations { localhost; }; #匹配请求目标地址
+	recursion yes; #允许递归查询
+	include "/etc/named.rfc1912.zones"; #包含区域文件
+};
+#+END_SRC
+** 修改缓存服务器默认配置
+#+BEGIN_SRC sh
+vim named.caching-nameserver.conf
+acl corpnets { 192.168.1.0/24; 192.168.2.0/24; };
+options {
+	listen-on port 53 { any; }; #监听所有接口
+	directory "/var/named";
+	allow-query { corpnets; }; #允许指定客户端
+	recursion yes; #允许递归查询
+};
+include "/etc/named.rfc1912.zones"; #包含区域文件
+
+service named restart #重启named服务使配置生效
+cat /var/named/chroot/etc/named.rfc1912.zones
+ls /var/named/chroot/var/named #查看区域文件所在目录
+#+END_SRC
+** 配置主域名服务器(server1)(1)
+*** 1. 配置named.conf文件，添加区域
+#+BEGIN_SRC sh
+cd /var/named/chroot/etc
+cp -p named.caching-nameserver.conf named.conf
+vim named.conf #在最后添加下面几行
+zone "abc.com" IN {
+	type master;
+	file "abc.com.zone";
+};
+zone "1.168.192.in-addr.arpa" IN {
+	type master;
+	file "192.168.1.rev";
+};
+#+END_SRC
+** 配置主域名服务器(server1)(2)
+*** 2. 创建正向区域文件abc.com.zone
+#+BEGIN_SRC sh
+cp -p localhost.zone abc.com.zone
+vim abc.com.zone
+$TTL 86400
+@	IN SOA ns1.abc.com. root.abc.com. (
+				42   ; serial
+				3H   ; refresh
+				15M  ; retry
+				1W   ; expiry
+				1D ) ; minimum
+  	IN NS		ns1.abc.com.
+  	IN MX    5      mail.abc.com.
+ns1 	IN A		192.168.1.200
+www	IN A		192.168.1.200
+ftp	IN CNAME	www.abc.com.
+mail	IN A		192.168.1.200
+#+END_SRC
+** 配置主域名服务器(server1)(3)
+*** 3. 创建反向区域文件192.168.1.rev
+#+BEGIN_SRC sh
+cp -p named.local 192.168.1.rev
+vim 192.168.1.rev
+$TTL 86400
+@ IN SOA ns1.abc.com. root.abc.com. (
+                         2016052001 ; Serial
+                         28800      ; Refresh
+                         14400      ; Retry
+                         3600000    ; Expire
+                         86400 )    ; Minimum
+  	IN	NS	ns1.abc.com.
+200	IN	PTR	ns1.abc.com.
+200	IN	PTR	www.abc.com.
+200	IN	PTR	ftp.abc.com.
+200	IN	PTR	mail.abc.com.
+10	IN	PTR	client1.abc.com.
+#+END_SRC
+** 配置主域名服务器(server1)(4)
+*** 检查配置文件
+#+BEGIN_SRC sh
+cd /var/named/chroot/etc
+named-checkconf named.conf #检查主配置文件
+cd /var/named/chroot/var/named
+named-checkzone abc.com abc.com.zone #检查区域文件
+named-checkzone 1.168.192.in-addr.arpa 192.168.1.rev
+#+END_SRC
+*** 重启named服务，使配置生效
+#+BEGIN_SRC sh
+service named restart
+#+END_SRC
+** 客户端配置及测试(client1)
+*** 客户端配置
+#+BEGIN_SRC sh
+vim /etc/resolv.conf
+nameserver 192.168.1.200
+#+END_SRC
+*** 客户端测试
+#+BEGIN_SRC sh
+host [-t type] domain-name [dns-server]
+host www.abc.com [192.168.1.200]
+host -t mx abc.com [192.168.1.200]
+nslookup ftp.abc.com [192.168.1.200]
+nslookup [- 192.168.1.200] #开始交互查询
+set type=mx
+abc.com
+exit                       #退出交互查询
+dig @server domain type
+dig @192.168.1.200 abc.com ns
+#+END_SRC
+** 配置从域名服务器(server1)(1)
+*** 1. 编辑主域名服务器主配置文件
+#+BEGIN_SRC sh
+cd /var/named/chroot/etc
+vim named.conf #添加allow-transfer语句
+zone "abc.com" IN {
+	type master;
+	file "abc.com.zone";
+	allow-transfer { 192.168.2.200; };
+};
+zone "1.168.192.in-addr.arpa" IN {
+	type master;
+	file "192.168.1.rev";
+	allow-transfer { 192.168.2.200; };
+};
+#+END_SRC
+** 配置从域名服务器(server2)(2)
+*** 2. 编辑从域名服务器主配置文件
+#+BEGIN_SRC sh
+cd /var/named/chroot/etc
+scp root@192.168.1.200:/var/named/chroot\
+/etc/named.conf .
+chgrp named named.conf #将配置文件归属named组
+vim named.conf #修改区域定义相关内容
+zone "abc.com" IN {
+	type slave;
+	file "slaves/abc.com.zone";
+	masters { 192.168.1.200; };
+};
+zone "1.168.192.in-addr.arpa" IN {
+	type slave;
+	file "slaves/192.168.1.rev";
+	masters { 192.168.1.200; };
+};
+#+END_SRC
+** 配置从域名服务器(server1和server2)
+*** 3. 使配置生效并检查、测试从域名服务器
+#+BEGIN_SRC sh
+cd /var/named/chroot/var/named
+ls slaves
+#重启server1的named服务
+service named restart
+#重启server2的named服务
+service named restart
+ls slaves
+#+END_SRC
+*** 注意                                                          :B_block:
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+每次修改主域名服务器的区域文件后，一定不要忘记增加其SOA记录中的序号，否则从域名服务器将得不到区域更新！
+*** 4. 客户端测试（略）
+** 练习
+*** 在server2上配置xyz.net域的主域名服务器
+1. 编辑named.conf文件
+2. 编辑xyz.net.zone正向区域文件
+3. 编辑192.168.2.rev反向区域文件
+4. 检查配置文件和区域文件
+5. 重启named服务
+6. 配置dns客户端(client2)
+7. 客户端测试
+** 配置区域委派(1)
+*** 1. 在子域主域名服务器(server2)上配置子域
+#+BEGIN_SRC sh
+cd /var/named/chroot
+vim etc/named.conf #在最后面添加子域定义
+zone "jx.abc.com" IN {
+  type master;
+  file "jx.abc.com.zone";
+};
+#此处不需要重复定义反向区域2.168.192.in-addr.arpa
+#+END_SRC
+** 配置区域委派(2)
+*** 2. 在子域主域名服务器(server2)上配置子域正向区域文件
+#+BEGIN_SRC sh
+vim var/named/jx.abc.com.zone
+$TTL 86400
+@	IN	SOA ns1  root (
+				42   ; serial
+				3H   ; refresh
+				15M  ; retry
+				1W   ; expiry
+				1D ) ; minimum
+  	IN NS		ns1.jx.abc.com.
+ns1 	IN A		192.168.2.200
+www	IN A		192.168.2.200
+ftp	IN CNAME	www.abc.com.
+#+END_SRC
+** 配置区域委派(3)
+*** 3. 在子域主域名服务器(server2)上配置子域反向区域文件
+#+BEGIN_SRC sh
+vim var/named/192.168.2.rev #在最后面添加几行记录
+  	IN	NS	ns1.jx.abc.com.
+200	IN	PTR	ns1.jx.abc.com.
+200	IN	PTR	www.jx.abc.com.
+200	IN	PTR	ftp.jx.abc.com.
+#+END_SRC
+** 配置区域委派(4)
+*** 4. 在父域域名服务器(server1)正向区域文件中上添加委派记录
+#+BEGIN_SRC sh
+cd /var/named/chroot/var/named
+vim abc.com.zone   #在最后面添加子域委派记录
+jx	IN	NS	ns1.jx.abc.com.
+ns1.jx	IN	A	192.168.2.200
+#+END_SRC
+*** 5. 重启父域和子域named服务
+#+BEGIN_SRC sh
+service named restart
+#+END_SRC
+*** 6. 客户端测试
+**** 通过父域域名服务器查询得到的是非权威答案
+#+BEGIN_SRC sh
+nslookup ftp.jx.abc.com 192.168.1.200
+#+END_SRC
+** 配置转发器(1)
+*** 在server1上配置全局转发
+#+BEGIN_SRC sh
+host ftp.xyz.net 192.168.1.200 #无法解析！
+cd /var/named/chroot/etc
+vim named.conf #添加下面几行
+options {
+	listen-on port 53 { any; };
+	directory 	"/var/named";
+  forward only; #仅转发，也可为first(先转发)
+  forwarders { 192.168.2.200; }; #配置转发器
+	allow-query     { any; };
+	recursion yes;
+};
+
+service named restart #重启named服务
+host ftp.xyz.net 192.168.1.200 #解析成功！
+#+END_SRC
+** 配置转发器(2)
+*** 在server1上配置区域转发
+#+BEGIN_SRC sh
+cd /var/named/etc
+vim named.conf #修改主配置文件
+options {
+	listen-on port 53 { any; };
+	directory 	"/var/named";
+	allow-query     { any; };
+	recursion yes;
+};
+...
+zone "xyz.net" IN {  #添加转发区域
+  type forward;
+  forwarders: { 192.168.2.200; };
+};
+#+END_SRC
+* DHCP服务配置与管理
+** 在server1上安装配置dhcp服务器(1)
+*** 1. 安装dhcp服务
+#+BEGIN_SRC sh
+rpm -qa | grep dhcp
+yum install dhcp
+rpm -ql dhcp
+#+END_SRC
+** 在server1上安装配置dhcp服务器(2)
+*** 2. 配置dhcp服务
+#+BEGIN_SRC sh
+cd /usr/share/doc/dhcp-3.0.5/
+cp dhcpd.conf.sample /etc/dhcpd.conf
+vim dhcpd.conf
+ddns-update-style interim;
+ignore client-updates;
+subnet 192.168.1.0 netmask 255.255.255.0 {
+	option routers			192.168.1.1;
+	option subnet-mask		255.255.255.0;
+	option domain-name-servers	192.168.1.200;
+	range 192.168.1.50 192.168.1.199;
+	default-lease-time 21600;
+	max-lease-time 43200;
+}
+#+END_SRC
+** 在server1上安装配置dhcp服务器(3)
+*** 3. 测试dhcp服务器
+**** 启动dhcpd服务
+#+BEGIN_SRC sh
+chkconfig --level 3 dhcpd on
+service dhcpd start
+#+END_SRC
+**** 配置dhcp客户端client1
+#+BEGIN_SRC sh
+cd /etc/sysconfig/network-scripts
+vim ifcfg-eth1
+DEVICE=eth1
+BOOTPROTO=dhcp
+ONBOOT=yes
+
+dhclient   #启动dhcp客户端
+ifconfig
+cat /var/lib/dhclient/dhclient.leases #client1上查看租约
+cat /var/lib/dhcpd/dhcpd.leases #server1上查看租约
+#+END_SRC
+** 安装配置dhcp中继代理(1)
+*** 1. 配置dhcp服务器server1
+#+BEGIN_SRC sh
+vim /etc/dhcpd.conf  #在最后面添加子网
+subnet 192.168.2.0 netmask 255.255.255.0 {
+	option routers			192.168.2.1;
+	option subnet-mask		255.255.255.0;
+	option domain-name-servers	192.168.2.200;
+	range 192.168.2.50 192.168.2.199;
+	default-lease-time 21600;
+	max-lease-time 43200;
+}
+#+END_SRC
+** 安装配置dhcp中继代理(2)
+*** 2. 配置dhcp中继代理server2
+#+BEGIN_SRC sh
+yum install dhcp
+chkconfig --level 3 dhrelay on
+vim /etc/sysconfig/dhcrelay
+DHCRELAYARGS="" #运行参数
+INTERFACES=""   #监听接口，如"eth0 eth1"
+DHCPSERVERS="192.168.2.200" #指定dhcp服务器
+#注意：dhcp中继代理本身必须有静态地址并能与服务器通信
+service dhrelay start
+#+END_SRC
+** 安装配置dhcp中继代理(3)
+*** 3. 配置dhcp客户端client2
+#+BEGIN_SRC sh
+cd /etc/sysconfig/network-scripts
+vim ifcfg-eth1
+DEVICE=eth1
+BOOTPROTO=dhcp
+ONBOOT=yes
+
+dhclient   #启动dhcp客户端
+ifconfig
+cat /var/lib/dhclient/dhclient.leases #client2上查看租约
+cat /var/lib/dhcpd/dhcpd.leases #server1上查看租约
+#+END_SRC

@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+vim /etc/sysconfig/network-scripts/ifcfg-ipsec0
+\PYG{n+nv}{DST}\PYG{o}{=}192.168.2.10 \PYG{c}{\PYGZsh{}对端主机IP地址}
+\PYG{n+nv}{TYPE}\PYG{o}{=}IPSEC       \PYG{c}{\PYGZsh{}接口类型}
+\PYG{n+nv}{ONBOOT}\PYG{o}{=}no        \PYG{c}{\PYGZsh{}系统启动时是否激活}
+\PYG{n+nv}{IKE\PYGZus{}METHOD}\PYG{o}{=}PSK   \PYG{c}{\PYGZsh{}IKE验证方式(此处采用预共享密钥)}
+\end{Verbatim}

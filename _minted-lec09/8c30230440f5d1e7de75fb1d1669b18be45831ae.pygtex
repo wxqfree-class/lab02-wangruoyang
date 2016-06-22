@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+vim /etc/dhcpd.conf  \PYG{c}{\PYGZsh{}在最后面添加子网}
+subnet 192.168.2.0 netmask 255.255.255.0 \PYG{o}{\PYGZob{}}
+        option routers                  192.168.2.1;
+        option subnet-mask              255.255.255.0;
+        option domain-name-servers      192.168.2.200;
+        range 192.168.2.50 192.168.2.199;
+        default-lease-time 21600;
+        max-lease-time 43200;
+\PYG{o}{\PYGZcb{}}
+\end{Verbatim}

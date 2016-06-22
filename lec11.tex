@@ -1,0 +1,1087 @@
+% Created 2016-06-13 一 12:52
+\documentclass[xcolor=svgnames,presentation]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{soul}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\tolerance=1000
+\usepackage{minted}
+\usecolortheme[named=FireBrick]{structure}\setbeamercovered{transparent}\setbeamertemplate{caption}[numbered]\setbeamertemplate{blocks}[rounded][shadow=true] \usetheme{Darmstadt}\date{\today} \usepackage{tikz}\usepackage{xeCJK}\usepackage{amsmath}\setmainfont{Times New Roman}\setCJKmainfont[BoldFont={Adobe Heiti Std},ItalicFont={Adobe Fangsong Std}]{Adobe Heiti Std}\setCJKsansfont{Adobe Heiti Std}\setCJKmonofont{Adobe Fangsong Std}\usepackage{verbatim}\graphicspath{{figures/}} \definecolor{lstbgcolor}{rgb}{0.9,0.9,0.9} \usepackage{listings}\usepackage{minted} \usepackage{fancyvrb}\usepackage{xcolor}\lstset{escapeinside=`',frameround=ftft,language=C,breaklines=true,keywordstyle=\color{blue!70},commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox,backgroundcolor=\color{yellow!20},rulesepcolor=\color{red!20!green!20!blue!20}}
+\usemintedstyle{default}
+\providecommand{\alert}[1]{\textbf{#1}}
+
+\title{第11讲　Apache服务器}
+\author{王晓庆}
+\date{\today}
+\hypersetup{
+  pdfkeywords={},
+  pdfsubject={},
+  pdfcreator={Emacs Org-mode version 7.9.3f}}
+
+\institute{wangxiaoqing@outlook.com}
+\begin{document}
+
+\maketitle
+
+\begin{frame}
+\frametitle{Outline}
+\setcounter{tocdepth}{1}
+\tableofcontents
+\end{frame}
+\section{Apache服务器基本配置}
+\label{sec-1}
+\begin{frame}[fragile]
+\frametitle{安装和管理Apache服务器}
+\label{sec-1-1}
+\begin{itemize}
+
+\item 安装Apache服务器\\
+\label{sec-1-1-1}%
+\begin{minted}[]{bash}
+yum install httpd
+\end{minted}
+
+\item 管理Apache服务器\\
+\label{sec-1-1-2}%
+\begin{minted}[]{bash}
+chkconfig --level 345 httpd on
+service httpd configtest #检查配置文件
+httpd -t                 #检查配置文件
+service httpd start
+#客户端测试
+#默认网站主目录：/var/www/html
+\end{minted}
+\end{itemize} % ends low level
+\end{frame}
+\begin{frame}
+\frametitle{主配置文件/etc/httpd/conf/httpd.conf(1)}
+\label{sec-1-2}
+\begin{itemize}
+
+\item 配置文件组成部分
+\label{sec-1-2-1}%
+\begin{enumerate}
+\item 全局环境
+\item 主服务器配置
+\item 虚拟主机
+\end{enumerate}
+
+\item 凡是虚拟主机不能处理的请求都由主服务器处理。
+\label{sec-1-2-2}%
+
+\item 可对Apache服务器进行自上而下的分层管理：
+\label{sec-1-2-3}%
+\begin{enumerate}
+\item 服务器(全局)
+\item 网站(虚拟主机)
+\item 目录(虚拟目录)
+\item 文件
+\end{enumerate}
+\begin{itemize}
+
+\item 下级层次的设置继承上级层次，但也可以覆盖上级设置
+\label{sec-1-2-3-1}%
+\end{itemize} % ends low level
+\end{itemize} % ends low level
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{主配置文件/etc/httpd/conf/httpd.conf(2)}
+\label{sec-1-3}
+\begin{itemize}
+
+\item 基本格式\\
+\label{sec-1-3-1}%
+\begin{minted}[]{bash}
+指令名称 参数   #指令名称不区分大小写，但参数区分大小写
+\end{minted}
+
+\item 容器
+\label{sec-1-3-2}%
+\begin{itemize}
+
+\item 用于封装一组指令，限制指令的条件或作用域\\
+\label{sec-1-3-2-1}%
+\begin{verbatim}
+<容器名 参数>
+  一组指令
+</容器名>
+
+<IfModule> 若指定模块存在则执行其内指令，否则忽略
+<Directory> 目录容器
+<Files> 文件容器
+<Location> URL地址容器
+<VirtualHost> 虚拟主机容器
+\end{verbatim}
+\end{itemize} % ends low level
+\end{itemize} % ends low level
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{Apache服务器全局配置(1)}
+\label{sec-1-4}
+\begin{itemize}
+
+\item 设置服务器根目录\\
+\label{sec-1-4-1}%
+\begin{minted}[]{bash}
+ServerRoot "/etc/httpd" #配置、日志及相关文件的根目录
+\end{minted}
+
+\item 设置运行Apache所使用的PidFile路径\\
+\label{sec-1-4-2}%
+\begin{minted}[]{bash}
+PidFile run/httpd.pid #记录父httpd进程的pid
+\end{minted}
+
+\item 设置连接参数\\
+\label{sec-1-4-3}%
+\begin{minted}[]{bash}
+TimeOut #连接请求超时时间
+KeepAlive #是否启用持久连接
+MaxKeepAliveRequests #单个持久连接所允许的最大请求数
+KeepAliveTimeout #持久连接中等待下一次请求的最长时间
+\end{minted}
+\end{itemize} % ends low level
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{Apache服务器全局配置(2)}
+\label{sec-1-5}
+\begin{itemize}
+
+\item 配置MPM(多处理模块)(1)
+\label{sec-1-5-1}%
+\begin{itemize}
+
+\item Apache是模块化的，通过MPM实现模块化功能。MPM必须静态编译，每次只能有一个MPM是活动的。目前主要使用两种模块：
+\label{sec-1-5-1-1}%
+\begin{enumerate}
+\item 传统的prework：每个请求使用一个进程
+\item 线程化的worker：使用多进程，每个进程又有多个线程
+\end{enumerate}
+
+\item 获知当前使用的MPM模型\\
+\label{sec-1-5-1-2}%
+\begin{minted}[]{bash}
+httpd -l
+\end{minted}
+\end{itemize} % ends low level
+\end{itemize} % ends low level
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{Apache服务器全局配置(3)}
+\label{sec-1-6}
+\begin{itemize}
+
+\item 配置MPM(多处理模块)(2)
+\label{sec-1-6-1}%
+\begin{itemize}
+
+\item prework默认配置\\
+\label{sec-1-6-1-1}%
+\begin{minted}[]{bash}
+<IfModule prefork.c>
+StartServers       8 #启动时的服务器进程数
+MinSpareServers    5 #最小的空闲子进程数
+MaxSpareServers   20 #最大的空闲子进程数
+ServerLimit      256 #所允许的MaxClients最大值
+MaxClients       256 #所允许的最大服务器进程数
+MaxRequestsPerChild  4000 #每个进程可以处理的最大请求数
+</IfModule>
+\end{minted}
+\end{itemize} % ends low level
+\end{itemize} % ends low level
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{Apache服务器全局配置(4)}
+\label{sec-1-7}
+\begin{itemize}
+
+\item 配置MPM(多处理模块)(3)
+\label{sec-1-7-1}%
+
+\item worker默认配置\\
+\label{sec-1-7-2}%
+\begin{minted}[]{bash}
+<IfModule worker.c>
+StartServers         2 #启动时的服务器进程数
+MaxClients         150 #所允许的最大并发连接数
+MinSpareThreads     25 #最小的空闲线程数
+MaxSpareThreads     75 #最大的空闲线程数
+ThreadsPerChild     25 #每个进程的线程数
+MaxRequestsPerChild  0 #每个进程处理的最大请求数
+</IfModule>
+\end{minted}
+\end{itemize} % ends low level
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{Apache服务器全局配置(5)}
+\label{sec-1-8}
+\begin{itemize}
+
+\item 设置Apache服务器侦听的IP地址和端口\\
+\label{sec-1-8-1}%
+\begin{minted}[]{bash}
+Listen [ip] 80
+\end{minted}
+
+\item 设置动态加载模块
+\label{sec-1-8-2}%
+\begin{itemize}
+
+\item Apache是高度模块化的，可将模块直接编译到Apache中，也可以动态加载。动态加载模块位于/usr/lib/httpd/modules目录，可通过LoadModule语句加载。\\
+\label{sec-1-8-2-1}%
+\begin{minted}[]{bash}
+LoadModule auth_basic_module modules/mod_auth_basic.so
+LoadModule auth_digest_module modules/mod_auth_digest.so
+LoadModule authn_file_module modules/mod_authn_file.so
+LoadModule authn_alias_module modules/mod_authn_alias.so
+LoadModule authn_anon_module modules/mod_authn_anon.so
+LoadModule authn_dbm_module modules/mod_authn_dbm.so
+......
+\end{minted}
+\end{itemize} % ends low level
+\end{itemize} % ends low level
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{Apache服务器全局配置(6)}
+\label{sec-1-9}
+\begin{itemize}
+
+\item 设置包含文件\\
+\label{sec-1-9-1}%
+\begin{minted}[]{bash}
+Include conf.d/*.conf
+\end{minted}
+
+\item 设置运行Apache服务器的用户或群组\\
+\label{sec-1-9-2}%
+\begin{minted}[]{bash}
+User apache
+Group apache
+\end{minted}
+\end{itemize} % ends low level
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{Apache主服务器基本配置}
+\label{sec-1-10}
+
+
+\begin{minted}[]{bash}
+ServerAdmin root@localhost #管理员email
+ServerName www.example.com:80 #服务器名和端口
+UseCanonicalName Off #使用客户端提供的服务器名和端口号
+DocumentRoot "/var/www/html" #网站主目录(最后不能加/)
+DirectoryIndex index.html index.html.var #网站默认文档
+ErrorLog logs/error_log #错误日志
+LogLevel warn #错误日志等级高于等于warn
+CustomLog logs/access_log combined #访问日志及其格式
+LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \
+\"%{User-Agent}i\"" combined       #定义日志格式别名
+LogFormat "%h %l %u %t \"%r\" %>s %b" common #同上
+LogFormat "%{Referer}i -> %U" referer        #同上
+LogFormat "%{User-agent}i" agent             #同上
+AddDefaultCharset UTF-8             #设置默认字符集
+\end{minted}
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{配置目录访问控制(1)}
+\label{sec-1-11}
+\begin{itemize}
+
+\item 目录访问控制的两种实现方式
+\label{sec-1-11-1}%
+\begin{enumerate}
+\item 在httpd.conf文件中使用<Directory>容器进行设置
+\item 在目录内建立访问控制文件.htaccess，将访问控制参数写入其中，下层目录自动继承上层目录的访问控制设置
+\end{enumerate}
+
+\item 目录默认配置\\
+\label{sec-1-11-2}%
+\begin{minted}[]{bash}
+<Directory />
+    Options FollowSymLinks
+    AllowOverride None
+</Directory>
+\end{minted}
+\end{itemize} % ends low level
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{配置目录访问控制(2)}
+\label{sec-1-12}
+\begin{itemize}
+
+\item 网站根目录配置\\
+\label{sec-1-12-1}%
+\begin{minted}[]{bash}
+<Directory "/var/www/html">
+    Options Indexes FollowSymLinks
+    AllowOverride None #不允许被.htaccess的设置覆盖
+    Order allow,deny
+    Allow from all
+</Directory>
+\end{minted}
+
+\item Order指令
+\label{sec-1-12-2}%
+\begin{itemize}
+
+\item Order Allow,Deny\\
+\label{sec-1-12-2-1}%
+先匹配所有Allow指令，再匹配所有Deny指令，Deny指令可以覆盖Allow指令，若两者均无匹配则拒绝访问。
+
+\item Order Deny,Allow\\
+\label{sec-1-12-2-2}%
+先匹配所有Deny指令，再匹配所有Allow指令，Allow指令可以覆盖Deny指令，若两者均无匹配则允许访问。
+
+\item Order Mutual-failure\\
+\label{sec-1-12-2-3}%
+效果与Order Allow,Deny相同，但不建议使用。
+\end{itemize} % ends low level
+\end{itemize} % ends low level
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{配置目录访问控制(3)}
+\label{sec-1-13}
+\begin{exampleblock}{示例1}
+\label{sec-1-13-1}
+
+
+\begin{minted}[]{bash}
+Order Deny,Allow
+Deny from all
+Allow from abc.com
+#拒绝所有客户端访问，但允许abc.com域的主机访问
+\end{minted}
+\end{exampleblock}
+\begin{block}{示例2}
+\label{sec-1-13-2}
+
+
+\begin{minted}[]{bash}
+Order Allow,Deny
+Allow from xyz.net
+Deny from jx.xyz.net
+#允许来自xyz.net域的主机访问(jx.xyz.net子域除外)
+#拒绝所有其他主机
+\end{minted}
+\end{block}
+\begin{itemize}
+
+\item 若示例2改为Order Deny,Allow，则哪些主机可以访问？
+\label{sec-1-13-3}%
+\end{itemize} % ends low level
+\note{答案
+
+所有主机均可以访问！
+}
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{配置和管理虚拟目录}
+\label{sec-1-14}
+\begin{itemize}
+
+\item 虚拟目录和物理目录
+\label{sec-1-14-1}%
+\begin{itemize}
+
+\item 物理目录：网站主目录内的实际子目录
+\label{sec-1-14-1-1}%
+
+\item 虚拟目录：网站主目录之外的其他目录，但在URL中显示为网站子目录，方便灵活
+\label{sec-1-14-1-2}%
+
+\item 物理目录与虚拟目录重名时，优先访问虚拟目录。
+\label{sec-1-14-1-3}%
+
+\item ISP常使用虚拟目录提供免费个人主页，企业往往使用虚拟目录作为各部门的子网站。
+\label{sec-1-14-1-4}%
+\end{itemize} % ends low level
+
+\item 创建虚拟目录\\
+\label{sec-1-14-2}%
+\begin{minted}[]{bash}
+Alias /icons/ "/var/www/icons/"
+Alias /error/ "/var/www/error/"
+\end{minted}
+
+\item 根据需要还可以对相应的实际物理目录设置访问权限。
+\label{sec-1-14-3}%
+\end{itemize} % ends low level
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{为用户配置个人Web空间(1)}
+\label{sec-1-15}
+\begin{itemize}
+
+\item 1. 修改/etc/httpd/conf/httpd.conf文件\\
+\label{sec-1-15-1}%
+\begin{minted}[]{bash}
+<IfModule mod_userdir.c>
+    UserDir disable root #禁止root用户使用个人主页
+    UserDir public_html  #设置用户Web站点目录
+</IfModule>
+#取消注释以下容器及其指令
+<Directory /home/*/public_html>
+    AllowOverride FileInfo AuthConfig Limit
+    ......
+</Directory>
+\end{minted}
+\end{itemize} % ends low level
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{为用户配置个人Web空间(2)}
+\label{sec-1-16}
+\begin{itemize}
+
+\item 2. 创建用户个人主页主目录并修改权限\\
+\label{sec-1-16-1}%
+\begin{minted}[]{bash}
+su - mike
+mkdir public_html
+chmod 711 ~mike
+chmod 755 ~mike/public_html
+\end{minted}
+
+\item 3. 在public$_{\mathrm{html}}$目录中创建index.html文件
+\label{sec-1-16-2}%
+
+\item 4. 重启httpd服务，或重新加载httpd配置文件\\
+\label{sec-1-16-3}%
+\begin{minted}[]{bash}
+service httpd restart|reload
+\end{minted}
+
+\item 5. 测试访问\\
+\label{sec-1-16-4}%
+\begin{minted}[]{bash}
+http://192.168.0.200/~mike
+\end{minted}
+\end{itemize} % ends low level
+\end{frame}
+\section{配置Web应用程序}
+\label{sec-2}
+\begin{frame}[fragile]
+\frametitle{配置PHP应用程序}
+\label{sec-2-1}
+\begin{itemize}
+
+\item 1. 安装PHP解释器\\
+\label{sec-2-1-1}%
+\begin{minted}[]{bash}
+yum install php-common php-cli php
+\end{minted}
+
+\item 2. 配置Apache以支持PHP\\
+\label{sec-2-1-2}%
+\begin{minted}[]{bash}
+vim /etc/httpd/conf/httpd.conf
+...
+Include conf.d/*.conf
+
+cat /etc/httpd/conf.d/php.conf
+ls /etc/php.ini #php本身的配置文件
+\end{minted}
+
+\item 3. 测试\\
+\label{sec-2-1-3}%
+\begin{minted}[]{bash}
+cd /var/www/html
+cat '<?phpinfo()?>' >test.php #创建php测试页面
+访问http://192.168.56.200/test.php
+\end{minted}
+\end{itemize} % ends low level
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{配置和管理MySQL数据库服务器(1)}
+\label{sec-2-2}
+\begin{itemize}
+
+\item 1. 安装MySQL及相关程序\\
+\label{sec-2-2-1}%
+\begin{minted}[]{bash}
+yum install perl-DBI perl-DBD-MySQL mysql mysql-server
+service mysqld start
+#管理员账户为root，默认密码为空
+mysqladmin -u root password 123456 #首次设置root用户密码
+mysqladmin -u root -p password 111111 #修改root用户密码
+mysql -uroot -p111111 #登录mysql，-p后面不能有空格！
+mysql> show databases; #后面要加分号
+mysql> exit
+\end{minted}
+\end{itemize} % ends low level
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{配置和管理MySQL数据库服务器(2)}
+\label{sec-2-3}
+\begin{itemize}
+
+\item 2. 使用phpMyAdmin管理MySQL\\
+\label{sec-2-3-1}%
+\begin{minted}[]{bash}
+yum install php-mysql php-mbstring
+#下载phpMyAdmin至/var/www/html目录
+cd /var/www/html
+tar -xjvf phpMyAdmin-2.11.11.3-all-languages.tar.bz2
+mv phpMyAdmin-2.11.11.3-all-languages phpMyAdmin
+cd phpMyAdmin
+cp -p config.sample.inc.php config.inc.php
+vim config.inc.php
+$cfg['blowfish_secret'] = 'www.abc.com';
+...
+$cfg['Servers'][$i]['user'] = 'root';
+$cfg['Servers'][$i]['password'] = '111111';
+访问http://192.168.56.200/phpMyAdmin
+\end{minted}
+\end{itemize} % ends low level
+\end{frame}
+\section{配置和管理虚拟主机}
+\label{sec-3}
+\begin{frame}[fragile]
+\frametitle{基于IP的虚拟主机(1)}
+\label{sec-3-1}
+
+
+\begin{minted}[]{bash}
+#1. 为服务器配置多块网卡或配置虚拟网卡
+ifconfig eth0:0 192.168.56.201
+ifconfig eth0:1 192.168.56.202
+#2. 为虚拟主机注册域名，此处为方便可直接修改hosts文件
+vim /etc/hosts
+......
+192.168.56.201  www.abc.com
+192.168.56.202  www.xyz.net
+#3. 为两个网站分别创建网站根目录
+mkdir -p /var/www/abc.com
+mkdir -p /var/www/xyz.net
+#4. 在两个网站的根目录中分别创建index.html文件
+#5. 编辑httpd.conf文件，确认配置有以下Listen指令
+Listen 80
+\end{minted}
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{基于IP的虚拟主机(2)}
+\label{sec-3-2}
+
+
+\begin{minted}[]{bash}
+#6. 编辑httpd.conf文件，定义虚拟主机
+<VirtualHost 192.168.56.201>
+    ServerName www.abc.com
+    DocumentRoot /var/www/abc.com
+</VirtualHost>
+<VirtualHost 192.168.56.202>
+    ServerName www.xyz.net
+    DocumentRoot /var/www/xyz.net
+</VirtualHost>
+#7. 重启httpd服务
+service httpd restart
+#8. 测试访问
+1. 如果配置了DNS，则即可以通过ip也可以通过域名访问。
+2. 对于<VritualHost>容器中未定义地址的请求(如localhost)，
+   都将指向主服务器。
+\end{minted}
+\end{frame}
+\begin{frame}
+\frametitle{基于名称的虚拟主机(1)}
+\label{sec-3-3}
+\begin{itemize}
+
+\item 定义
+\label{sec-3-3-1}%
+\begin{itemize}
+
+\item 将多个域名绑定到同一个IP地址，服务器通过HTTP请求中的主机名来确定客户请求的是哪个网站。
+\label{sec-3-3-1-1}%
+\end{itemize} % ends low level
+
+\item 特点
+\label{sec-3-3-2}%
+\begin{itemize}
+
+\item 节省IP地址，只能通过域名访问，不能通过IP地址访问
+\label{sec-3-3-2-1}%
+\end{itemize} % ends low level
+
+\item 虚拟主机匹配顺序
+\label{sec-3-3-3}%
+\begin{itemize}
+
+\item 检查HTTP请求是否使用了与NameVirtualHost指令匹配的ip地址，如果是，则逐一查找使用该IP地址的<VirtualHost>段，并尝试找出一个ServerName或ServerAlias指令与该请求匹配的虚拟主机。如果无匹配，则使用符合该地址的第一个虚拟主机，即排在最前面的虚拟主机成为默认虚拟主机。
+\label{sec-3-3-3-1}%
+
+\item 当请求的IP地址与NameVirtualHost指令中的地址匹配时，主服务器中的DocumentRoot将永远不会被用到。
+\label{sec-3-3-3-2}%
+\end{itemize} % ends low level
+\end{itemize} % ends low level
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{基于名称的虚拟主机(2)}
+\label{sec-3-4}
+\begin{itemize}
+
+\item 示例1：在单一IP地址上运行多个基于名称的网站(1)\\
+\label{sec-3-4-1}%
+\begin{minted}[]{bash}
+#1. 配置域名解析，为方便可以编辑hosts文件
+vim /etc/hosts
+192.168.56.200  www.abc.com
+192.168.56.200  www.xyz.net
+#2. 为每个网站创建根目录
+mkdir -p /var/www/abc.com
+mkdir -p /var/www/xyz.net
+#3. 在每个网站根目录下准备index.html文件
+#4. 编辑httpd.conf文件
+......
+Listen 80
+......
+\end{minted}
+\end{itemize} % ends low level
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{基于名称的虚拟主机(3)}
+\label{sec-3-5}
+\begin{itemize}
+
+\item 示例1：在单一IP地址上运行多个基于名称的网站(2)\\
+\label{sec-3-5-1}%
+\begin{minted}[]{bash}
+#5. 配置虚拟主机
+NameVirtualHost *:80 #侦听所有IP地址的虚拟主机请求
+<VirtualHost *:80>   #地址要与NameVirtualHost指令一致
+    ServerName www.abc.com
+    DocumentRoot /var/www/abc.com
+</VirtualHost>
+<VirtualHost *:80>
+    ServerName www.xyz.net
+    DocumentRoot /var/www/xyz.net
+</VirtualHost>
+#6. 重启httpd服务并测试
+service httpd restart
+\end{minted}
+
+\item 说明：本例中*与任何地址均匹配，因此www.abc.com将成为默认或主服务器。
+\label{sec-3-5-2}%
+\end{itemize} % ends low level
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{基于名称的虚拟主机(4)}
+\label{sec-3-6}
+\begin{itemize}
+
+\item 示例2：在多个IP地址上运行基于名称的Web网站(2)\\
+\label{sec-3-6-1}%
+\begin{minted}[]{bash}
+Listen 80
+ServerName www.mainsite.com
+DocumentRoot "/var/www/html"
+NameVirtualHost 192.168.56.201
+<VirtualHost 192.168.56.201>
+    ServerName www.abc.com
+    DocumentRoot /var/www/abc.com
+</VirtualHost>
+<VirtualHost 192.168.56.201>
+    ServerName www.xyz.net
+    DocumentRoot /var/www/xyz.net
+</VirtualHost>
+\end{minted}
+
+\item 说明：对于192.168.56.201之外的访问均由主服务器响应，而www.abc.com则是192.168.56.201上的默认服务器。
+\label{sec-3-6-2}%
+\end{itemize} % ends low level
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{基于名称的虚拟主机(5)}
+\label{sec-3-7}
+\begin{itemize}
+
+\item 示例3：在不同地址(内外网)上运行相同的网站\\
+\label{sec-3-7-1}%
+\begin{minted}[]{bash}
+NameVirtualHost 192.168.56.200
+NameVirtualHost 200.1.1.200
+<VirtualHost 192.168.56.200 200.1.1.200>
+    ServerName www.abc.com
+    ServerAlias webserver
+    DocumentRoot /var/www/abc.com
+</VirtualHost>
+\end{minted}
+
+\item 内网用户可以使用ServerAlias定义的别名webserver，而不用www.abc.com来访问网站。
+\label{sec-3-7-2}%
+\end{itemize} % ends low level
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{基于TCP端口号架设多个Web网站}
+\label{sec-3-8}
+\begin{itemize}
+
+\item 示例\\
+\label{sec-3-8-1}%
+\begin{minted}[]{bash}
+Listen 80
+Listen 8080
+<VirtualHost 192.168.56.200:80>
+    ServerName www.abc.com
+    DocumentRoot /var/www/abc.com
+</VirtualHost>
+<VirtualHost 192.168.56.200:8080>
+    ServerName www.xyz.net
+    DocumentRoot /var/www/xyz.net
+</VirtualHost>
+\end{minted}
+\end{itemize} % ends low level
+\end{frame}
+\section{配置Web服务器安全}
+\label{sec-4}
+\begin{frame}[fragile]
+\frametitle{用户认证(1)}
+\label{sec-4-1}
+\begin{itemize}
+
+\item 认证指令：可以出现在<Directory>容器或.htaccess文件中。\\
+\label{sec-4-1-1}%
+\begin{minted}[]{bash}
+AuthType Basic|Digest
+#Digest更安全，但并非所有浏览器都支持，因此通常用Basic
+AuthName "Please login: "        #设置登录提示内容
+AuthUserFile /etc/httpd/testpwd  #设置用户密码文件
+AuthGroupFile /etc/httpd/testgrp #设置组密码文件
+\end{minted}
+
+\item 授权命令：为指定用户/组授权访问资源\\
+\label{sec-4-1-2}%
+\begin{minted}[]{bash}
+Require user usr1 usr2 ...  #为指定用户授权
+Require group grp1 grp2 ... #为指定组授权
+Require valid-user #为认证密码文件中所有用户授权
+\end{minted}
+\end{itemize} % ends low level
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{用户认证(2)}
+\label{sec-4-2}
+\begin{itemize}
+
+\item 管理密码文件\\
+\label{sec-4-2-1}%
+\begin{minted}[]{bash}
+用户名:加密的密码 #密码文件格式
+htpasswd [-c][-m][-D] 密码文件名 用户名
+#-c：创建密码文件，若文件已存在则清空并改写
+#-m：使用md5加密密码
+#-D：如果用户存在于密码文件中，则删除该用户
+htpasswd -c file user #添加认证用户并创建密码文件
+htpasswd file user #在现有密码文件中添加/修改用户密码
+\end{minted}
+\end{itemize} % ends low level
+\begin{block}{注意}
+\label{sec-4-2-2}
+
+密码文件应存储在不能被网络用户访问的位置，以免被下载！
+\end{block}
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{用户认证(3)}
+\label{sec-4-3}
+\begin{itemize}
+
+\item 示例：使用基本认证方法实现Web用户认证\\
+\label{sec-4-3-1}%
+\begin{minted}[]{bash}
+#1. 为用户mike创建一个密码文件
+htpasswd -c /etc/httpd/passwords mike
+#2. 配置Web服务器，要求经过认证才能访问某网站/目录
+<Directory "/var/www/html/dev">
+    AuthType Basic
+    AuthName "Restricted Files:"
+    AuthUserFile /etc/httpd/passwds
+    Require user mike #授权mike可以访问该目录
+</Directory>
+#3. 重启httpd服务
+service httpd restart
+#4. 访问测试
+http://192.168.56.200/dev
+\end{minted}
+\end{itemize} % ends low level
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{访问控制}
+\label{sec-4-4}
+\begin{itemize}
+
+\item 限制目录访问：<Directory>容器
+\label{sec-4-4-1}%
+
+\item 限制文件访问：<Files>容器\\
+\label{sec-4-4-2}%
+\begin{minted}[]{bash}
+<Files ~ "^\.ht"> #文件名以.ht开头的文件
+    Order allow,deny
+    Deny from all #拒绝所有客户端访问
+</Files>
+\end{minted}
+
+\item 限制URL地址访问：<Location>容器\\
+\label{sec-4-4-3}%
+\begin{minted}[]{bash}
+<Location /inner> #网站中以/inner开头的URL
+    Order deny,allow
+    Deny from all
+    Allow from 192.168.0.1
+</Location>
+\end{minted}
+
+\item 通过本地文件权限控制访问
+\label{sec-4-4-4}%
+\end{itemize} % ends low level
+\end{frame}
+\begin{frame}
+\frametitle{为Apache服务器配置SSL(1)}
+\label{sec-4-5}
+\begin{itemize}
+
+\item 基于SSL的Web网站可以实现以下安全目标：
+\label{sec-4-5-1}%
+\begin{enumerate}
+\item Web浏览器确认Web服务器的身份，防止假冒网站。
+\item 在Web服务器和Web浏览器之间建立安全的数据通道，确保安全传输敏感数据，防止数据被第三方非法获取。
+\item 如有必要，可以让服务器确认用户身份，防止假冒用户。
+\end{enumerate}
+
+\item 假设SSL安全网站，关键要具备以下条件：
+\label{sec-4-5-2}%
+\begin{enumerate}
+\item 需要从可信的或权威的证书颁发机构(CA)获取证书，也可以创建自签名的证书(X509结构)。另外还要保证证书不能过期。
+\item 必须在Web服务器上安装服务器证书并启用SSL功能。
+\item 如果要求对客户端进行身份验证，则客户端需要申请和安装用户证书；否则，客户端必须与服务器信任同一证书认证机构，需要安装CA证书。
+\end{enumerate}
+\end{itemize} % ends low level
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{为Apache服务器配置SSL(2)}
+\label{sec-4-6}
+\begin{itemize}
+
+\item 1. 安装必要的软件包\\
+\label{sec-4-6-1}%
+\begin{minted}[]{bash}
+rpm -qa | grep openssl
+rpm -qa | grep mod_ssl
+\end{minted}
+
+\item 2. 为Apache服务器准备SSL证书\\
+\label{sec-4-6-2}%
+\begin{minted}[]{bash}
+cd /etc/pki/tls/private
+openssl genrsa -out abcsrv.key 1024 #为服务器创建私钥
+#利用上一步产生的私钥创建一个证书签名请求文件
+openssl req -new -key abcsrv.key -out abcsrv.csr
+mkdir /etc/pki/tls/csr; mv abcsrv.csr /etc/pki/tls/csr
+cd /etc/pki/tls/certs
+#基于服务器私钥为服务器创建一个自签名证书
+openssl x509 -req -days 365 -in \
+/etc/pki/tls/csr/abcsrv.csr -signkey \
+/etc/pki/tls/private/abcsrv.key -out abcsrv.crt
+\end{minted}
+\end{itemize} % ends low level
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{为Apache服务器配置SSL(3)}
+\label{sec-4-7}
+\begin{itemize}
+
+\item 3. 为Apache服务器启用SSL功能\\
+\label{sec-4-7-1}%
+\begin{minted}[]{bash}
+vim /etc/httpd/conf.d/ssl.conf
+LoadModule ssl_module modules/mod_ssl.so
+Listen 443
+<VirtualHost _default_:443>
+SSLEngine on  #启用SSL功能
+#设置服务器证书文件
+SSLCertificateFile /etc/pki/tls/certs/abcsrv.crt
+#设置服务器私钥文件
+SSLCertificateKeyFile /etc/pki/tls/private/abcsrv.key
+</VirtualHost>
+\end{minted}
+
+\item 4. 重启httpd服务\\
+\label{sec-4-7-2}%
+\begin{minted}[]{bash}
+service httpd restart
+\end{minted}
+\end{itemize} % ends low level
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{为Apache服务器配置SSL(4)}
+\label{sec-4-8}
+\begin{itemize}
+
+\item 5. 客户端基于SSL连接到Apache服务器\\
+\label{sec-4-8-1}%
+\begin{minted}[]{bash}
+访问 https://www.abc.com
+\end{minted}
+
+\item 强制客户端使用SSL连接
+\label{sec-4-8-2}%
+\begin{itemize}
+
+\item 按照上述配置，HTTP和HTTPS两种通信连接都支持。如果要强制客户端使用HTTPS，只要屏蔽非SSL网站即可。例如，不允许侦听80端口，或不配置80端口的虚拟主机。
+\label{sec-4-8-2-1}%
+\end{itemize} % ends low level
+\end{itemize} % ends low level
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{为Apache服务器配置SSL(5)}
+\label{sec-4-9}
+\begin{itemize}
+
+\item 为Apache虚拟主机启用SSL(1)
+\label{sec-4-9-1}%
+\begin{itemize}
+
+\item 基于IP的虚拟主机：需为每个域名/IP申请证书\\
+\label{sec-4-9-1-1}%
+\begin{minted}[]{bash}
+Listen 443
+<VirtualHost 192.168.56.201:443>
+SSLEngine on
+SSLCertificateFile /etc/pki/tls/certs/abcsrv.crt
+SSLCertificateKeyFile /etc/pki/tls/private/abcsrv.key
+......
+</VirtualHost>
+<VirtualHost 192.168.56.202:443>
+SSLEngine on
+SSLCertificateFile /etc/pki/tls/certs/xyzsrv.crt
+SSLCertificateKeyFile /etc/pki/tls/private/xyzsrv.key
+......
+</VirtualHost>
+\end{minted}
+\end{itemize} % ends low level
+\end{itemize} % ends low level
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{为Apache服务器配置SSL(6)}
+\label{sec-4-10}
+\begin{itemize}
+
+\item 为Apache虚拟主机启用SSL(2)
+\label{sec-4-10-1}%
+\begin{itemize}
+
+\item 基于TCP端口的虚拟主机：只需为一个域名/IP申请证书\\
+\label{sec-4-10-1-1}%
+\begin{minted}[]{bash}
+Listen 443
+Listen 8443
+<VirtualHost 192.168.56.201:443>
+SSLEngine on
+SSLCertificateFile /etc/pki/tls/certs/abcsrv.crt
+SSLCertificateKeyFile /etc/pki/tls/private/abcsrv.key
+......
+</VirtualHost>
+<VirtualHost 192.168.56.201:8443>
+SSLEngine on
+SSLCertificateFile /etc/pki/tls/certs/abcsrv.crt
+SSLCertificateKeyFile /etc/pki/tls/private/abcsrv.key
+......
+</VirtualHost>
+\end{minted}
+\end{itemize} % ends low level
+\end{itemize} % ends low level
+\end{frame}
+\section{管理Apache服务器}
+\label{sec-5}
+\begin{frame}[fragile]
+\frametitle{监控Apache服务器}
+\label{sec-5-1}
+\begin{itemize}
+
+\item 编辑httpd.conf，去掉以下指令前的注释：\\
+\label{sec-5-1-1}%
+\begin{minted}[]{bash}
+<Location /server-status>
+    SetHandler server-status
+    Order deny,allow
+    Deny from all
+    Allow from .example.com
+</Location>
+\end{minted}
+
+\item 访问 \href{http://192.168.56.200/server-status}{http://192.168.56.200/server-status}
+\label{sec-5-1-2}%
+\end{itemize} % ends low level
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{查看Apache服务器配置信息}
+\label{sec-5-2}
+\begin{itemize}
+
+\item 编辑httpd.conf，去掉以下指令前的注释：\\
+\label{sec-5-2-1}%
+\begin{minted}[]{bash}
+<Location /server-info>
+    SetHandler server-status
+    Order deny,allow
+    Deny from all
+    Allow from .example.com
+</Location>
+\end{minted}
+
+\item 访问 \href{http://192.168.56.200/server-info}{http://192.168.56.200/server-info}
+\label{sec-5-2-2}%
+\end{itemize} % ends low level
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{查看和分析Apache服务器日志(1)}
+\label{sec-5-3}
+\begin{itemize}
+
+\item 检查错误日志和访问日志\\
+\label{sec-5-3-1}%
+\begin{minted}[]{bash}
+vim /etc/httpd/conf/httpd.conf
+......
+ErrorLog logs/error_log           #配置错误日志
+......
+CustomLog logs/access_log common  #配置访问日志
+
+tail -f /etc/httpd/logs/error_log #实时监测错误日志
+\end{minted}
+\end{itemize} % ends low level
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{查看和分析Apache服务器日志(2)}
+\label{sec-5-4}
+\begin{itemize}
+
+\item 使用Webalizer分析访问日志\\
+\label{sec-5-4-1}%
+\begin{minted}[]{bash}
+vim /etc/httpd/conf.d/webalizer.conf
+Alias /usage /var/www/usage
+<Location /usage>
+    Order deny,allow
+    Deny from all
+    Allow from 127.0.0.1
+    Allow from ::1
+    Allow from 192.168.56.1 #增加客户端许可
+</Location>
+
+service httpd restart
+访问 http://192.168.56.200/usage
+\end{minted}
+\end{itemize} % ends low level
+\end{frame}
+
+\end{document}

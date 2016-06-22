@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+iptables -A FORWARD -p tcp --tcp-options 6
+\PYG{c}{\PYGZsh{}检查tcp选项类型，匹配选项类型为6的数据包}
+\PYG{c}{\PYGZsh{}选项类型值可参考}
+http://www.iana.org/assignments/
+tcp-parameters/tcp-parameters.xhtml
+\end{Verbatim}

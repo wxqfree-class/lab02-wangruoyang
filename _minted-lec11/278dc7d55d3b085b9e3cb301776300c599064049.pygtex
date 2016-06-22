@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+用户名:加密的密码 \PYG{c}{\PYGZsh{}密码文件格式}
+htpasswd \PYG{o}{[}-c\PYG{o}{][}-m\PYG{o}{][}-D\PYG{o}{]} 密码文件名 用户名
+\PYG{c}{\PYGZsh{}-c：创建密码文件，若文件已存在则清空并改写}
+\PYG{c}{\PYGZsh{}-m：使用md5加密密码}
+\PYG{c}{\PYGZsh{}-D：如果用户存在于密码文件中，则删除该用户}
+htpasswd -c file user \PYG{c}{\PYGZsh{}添加认证用户并创建密码文件}
+htpasswd file user \PYG{c}{\PYGZsh{}在现有密码文件中添加/修改用户密码}
+\end{Verbatim}

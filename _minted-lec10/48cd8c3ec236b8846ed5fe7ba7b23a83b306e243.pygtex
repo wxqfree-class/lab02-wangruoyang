@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+chkconfig --level 3 smb on
+service smb \PYG{o}{\PYGZob{}}start|stop|restart|status|condrestart\PYG{o}{\PYGZcb{}}
+\end{Verbatim}

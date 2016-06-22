@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}允许为整个内网(eth0)转发分组}
+iptables -A FORWARD -i eth0 -j ACCEPT
+iptables -A FORWARD -o eth0 -j ACCEPT
+\end{Verbatim}

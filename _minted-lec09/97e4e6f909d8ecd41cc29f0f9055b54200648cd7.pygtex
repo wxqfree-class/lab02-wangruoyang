@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{cd} /var/named/chroot/etc
+cp -p named.caching-nameserver.conf named.conf
+vim named.conf \PYG{c}{\PYGZsh{}在最后添加下面几行}
+z
+\end{Verbatim}

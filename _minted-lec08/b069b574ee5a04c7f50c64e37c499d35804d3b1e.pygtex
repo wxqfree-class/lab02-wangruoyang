@@ -1,0 +1,17 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+vim /etc/quagga/ripd.conf  \PYG{c}{\PYGZsh{}配置rip服务}
+hostname R1
+password abc
+\PYG{n+nb}{enable }password 123
+log stdout
+router rip
+  version 2
+  network 192.168.0.0/24
+  network 192.168.1.0/24
+service ripd start         \PYG{c}{\PYGZsh{}启动rip服务}
+telnet 127.0.0.1 2601      \PYG{c}{\PYGZsh{}登录zebra服务}
+show ip route
+telnet 127.0.0.1 2602      \PYG{c}{\PYGZsh{}登录rip服务}
+\PYG{n+nb}{enable}
+show ip rip
+\end{Verbatim}

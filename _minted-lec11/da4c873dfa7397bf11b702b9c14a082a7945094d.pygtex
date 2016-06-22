@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+vim /etc/httpd/conf.d/ssl.conf
+LoadModule ssl\PYGZus{}module modules/mod\PYGZus{}ssl.so
+Listen 443
+<VirtualHost \PYGZus{}default\PYGZus{}:443>
+SSLEngine on  \PYG{c}{\PYGZsh{}启用SSL功能}
+\PYG{c}{\PYGZsh{}设置服务器证书文件}
+SSLCertificateFile /etc/pki/tls/certs/abcsrv.crt
+\PYG{c}{\PYGZsh{}设置服务器私钥文件}
+SSLCertificateKeyFile /etc/pki/tls/private/abcsrv.key
+</VirtualHost>
+\end{Verbatim}

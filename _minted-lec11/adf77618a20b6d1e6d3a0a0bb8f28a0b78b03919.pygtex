@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+chkconfig --level 345 httpd on
+service httpd configtest \PYG{c}{\PYGZsh{}检查配置文件}
+service httpd start
+\PYG{c}{\PYGZsh{}客户端测试}
+\PYG{c}{\PYGZsh{}默认网站主目录：/var/www/html}
+\end{Verbatim}

@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{cd} /etc/sysconfig/network-scripts
+vim ifcfg-eth1
+\end{Verbatim}

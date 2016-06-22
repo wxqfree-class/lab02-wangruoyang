@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="23cm" height="10cm" viewBox="-226 60 451 188" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <rect style="fill: #ffffff" x="-56.2" y="62" width="118" height="30"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-56.2" y="62" width="118" height="30"/>
+  </g>
+  <text font-size="13.5467" style="fill: #000000;text-anchor:middle;font-family:serif;font-style:normal;font-weight:normal" x="2.8" y="81.525">
+    <tspan x="2.8" y="81.525">应用程序</tspan>
+  </text>
+  <g>
+    <rect style="fill: #ffffff" x="-56.2" y="139.9" width="118" height="30"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-56.2" y="139.9" width="118" height="30"/>
+  </g>
+  <text font-size="13.5467" style="fill: #000000;text-anchor:middle;font-family:serif;font-style:normal;font-weight:normal" x="2.8" y="159.402">
+    <tspan x="2.8" y="159.402">libpam.so</tspan>
+  </text>
+  <g>
+    <rect style="fill: #ffffff" x="-56.2" y="217.35" width="118" height="30"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-56.2" y="217.35" width="118" height="30"/>
+  </g>
+  <text font-size="13.5467" style="fill: #000000;text-anchor:middle;font-family:serif;font-style:normal;font-weight:normal" x="2.8" y="236.853">
+    <tspan x="2.8" y="236.853">pam_unix.so</tspan>
+  </text>
+  <g>
+    <rect style="fill: #ffffff" x="-224.1" y="217.35" width="118" height="30"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-224.1" y="217.35" width="118" height="30"/>
+  </g>
+  <text font-size="13.5467" style="fill: #000000;text-anchor:middle;font-family:serif;font-style:normal;font-weight:normal" x="-165.1" y="236.852">
+    <tspan x="-165.1" y="236.852">pam_env.so</tspan>
+  </text>
+  <g>
+    <rect style="fill: #ffffff" x="106.204" y="217.35" width="118" height="30"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="106.204" y="217.35" width="118" height="30"/>
+  </g>
+  <text font-size="13.5467" style="fill: #000000;text-anchor:middle;font-family:serif;font-style:normal;font-weight:normal" x="165.204" y="236.852">
+    <tspan x="165.204" y="236.852">pam_deny.so</tspan>
+  </text>
+  <g>
+    <path style="fill: #e6e6e6" d="M 148.9 143.75 C 148.9,138.25 148.9,138.25 153.9,138.25 C 158.9,138.25 158.9,138.25 163.9,138.25 C 168.9,138.25 168.9,138.25 168.9,143.75 C 168.9,143.75 183.9,143.75 183.9,143.75 C 183.9,143.75 183.9,165.75 183.9,165.75 C 183.9,165.75 148.9,165.75 148.9,165.75 C 148.9,165.75 148.9,149.25 148.9,143.75z"/>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 148.9 143.75 C 148.9,138.25 148.9,138.25 153.9,138.25 C 158.9,138.25 158.9,138.25 163.9,138.25 C 168.9,138.25 168.9,138.25 168.9,143.75 C 168.9,143.75 183.9,143.75 183.9,143.75 C 183.9,143.75 183.9,165.75 183.9,165.75 C 183.9,165.75 148.9,165.75 148.9,165.75 C 148.9,165.75 148.9,149.25 148.9,143.75"/>
+    <path style="fill: none; fill-opacity:0; stroke-width: 0.2; stroke: #000000" d="M 148.9 143.75 C 148.9,138.25 148.9,138.25 153.9,138.25 C 158.9,138.25 158.9,138.25 163.9,138.25 C 168.9,138.25 168.9,138.25 168.9,143.75 C 168.9,143.75 183.9,143.75 183.9,143.75 C 183.9,143.75 183.9,165.75 183.9,165.75 C 183.9,165.75 148.9,165.75 148.9,165.75 C 148.9,165.75 148.9,149.25 148.9,143.75"/>
+    <polygon style="fill: #ffffff" points="148.9,165.75 143.9,146.5 178.9,146.5 183.9,165.75 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="148.9,165.75 143.9,146.5 178.9,146.5 183.9,165.75 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 0.2; stroke: #000000" points="148.9,165.75 143.9,146.5 178.9,146.5 183.9,165.75 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="163.9" y="158.375">
+      <tspan x="163.9" y="158.375"></tspan>
+    </text>
+  </g>
+  <text font-size="13.5465" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="123.9" y="181.75">
+    <tspan x="123.9" y="181.75">/etc/pam.d/*</tspan>
+  </text>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="-12.1" y1="95" x2="-12.8626" y2="126.267"/>
+    <polygon style="fill: #000000" points="-13.0455,133.765 -17.8002,123.646 -12.8626,126.267 -7.80313,123.889 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-13.0455,133.765 -17.8002,123.646 -12.8626,126.267 -7.80313,123.889 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="-0.583554" y1="171.948" x2="-1.34616" y2="203.215"/>
+    <polygon style="fill: #000000" points="-1.52903,210.713 -6.28372,200.594 -1.34616,203.215 3.71331,200.838 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-1.52903,210.713 -6.28372,200.594 -1.34616,203.215 3.71331,200.838 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="-21.1" y1="173" x2="-146.746" y2="209.298"/>
+    <polygon style="fill: #000000" points="-153.952,211.379 -145.732,203.8 -146.746,209.298 -142.957,213.408 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-153.952,211.379 -145.732,203.8 -146.746,209.298 -142.957,213.408 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="21.9" y1="173" x2="159.506" y2="210.444"/>
+    <polygon style="fill: #000000" points="166.742,212.413 155.78,214.612 159.506,210.444 158.406,204.963 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="166.742,212.413 155.78,214.612 159.506,210.444 158.406,204.963 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="15.9" y1="134" x2="16.6439" y2="105.733"/>
+    <polygon style="fill: #000000" points="16.8412,98.2353 21.5764,108.363 16.6439,105.733 11.5798,108.1 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="16.8412,98.2353 21.5764,108.363 16.6439,105.733 11.5798,108.1 "/>
+  </g>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 4; stroke: #000000" x1="69.9" y1="155" x2="138.9" y2="156"/>
+  <text font-size="16.9333" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="-26.1" y="121">
+    <tspan x="-26.1" y="121">1</tspan>
+  </text>
+  <text font-size="16.9333" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="106.375" y="149.2">
+    <tspan x="106.375" y="149.2">2</tspan>
+  </text>
+  <text font-size="16.9333" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="8.91645" y="194.448">
+    <tspan x="8.91645" y="194.448">3</tspan>
+  </text>
+  <text font-size="16.9333" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="28.175" y="123">
+    <tspan x="28.175" y="123">4</tspan>
+  </text>
+</svg>

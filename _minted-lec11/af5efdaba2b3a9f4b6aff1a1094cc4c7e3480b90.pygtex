@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+LoadModule auth\PYGZus{}basic\PYGZus{}module modules/mod\PYGZus{}auth\PYGZus{}basic.so
+LoadModule auth\PYGZus{}digest\PYGZus{}module modules/mod\PYGZus{}auth\PYGZus{}digest.so
+LoadModule authn\PYGZus{}file\PYGZus{}module modules/mod\PYGZus{}authn\PYGZus{}file.so
+LoadModule authn\PYGZus{}alias\PYGZus{}module modules/mod\PYGZus{}authn\PYGZus{}alias.so
+LoadModule authn\PYGZus{}anon\PYGZus{}module modules/mod\PYGZus{}authn\PYGZus{}anon.so
+LoadModule authn\PYGZus{}dbm\PYGZus{}module modules/mod\PYGZus{}authn\PYGZus{}dbm.so
+\end{Verbatim}

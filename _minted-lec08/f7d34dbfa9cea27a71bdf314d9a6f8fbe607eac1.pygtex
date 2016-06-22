@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+tcpdump \PYG{o}{[}选项〕\PYG{o}{[}-c 数量\PYG{o}{][}-F 文件名\PYG{o}{]} \PYG{o}{[}-i 网络接口\PYG{o}{]} \PYG{o}{[}-r 文件名\PYG{o}{]}
+\PYG{o}{[}-s snaplen\PYG{o}{]} \PYG{o}{[}-T 类型\PYG{o}{]} \PYG{o}{[}w 文件名\PYG{o}{]} \PYG{o}{[}表达式\PYG{o}{]}
+\end{Verbatim}

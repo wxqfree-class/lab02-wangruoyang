@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+smbclient -L localhost -U\PYGZpc{}
+smbstatus
+ls /var/log/samba
+\PYG{c}{\PYGZsh{}Samba自动为每个连接到Samba服务器的计算机分别建立日志文件}
+\PYG{c}{\PYGZsh{}nmbd.log 记录nmdb进程的解析信息}
+\PYG{c}{\PYGZsh{}smdb.log 记录用户访问Samba服务器的事件}
+\end{Verbatim}

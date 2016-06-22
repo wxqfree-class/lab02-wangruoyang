@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+iptables -D INPUT -p tcp --dport 80 -j DROP
+\PYG{c}{\PYGZsh{}从filter表中删除规则：拒绝协议为tcp，目标为防火墙80端口的数据包}
+\PYG{c}{\PYGZsh{}删除规则时也可以通过直接指定规则编号加以删除，如下：}
+iptables -D INPUT 1 \PYG{c}{\PYGZsh{}删除INPUT链中编号为1的规则}
+\end{Verbatim}

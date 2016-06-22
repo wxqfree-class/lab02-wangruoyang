@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+http\PYGZus{}port \PYG{o}{[}主机名或IP:\PYG{o}{]} 端口 \PYG{o}{[}选项\PYG{o}{]}
+\end{Verbatim}

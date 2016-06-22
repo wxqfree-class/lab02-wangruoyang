@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+iptables -Z INPUT
+\PYG{c}{\PYGZsh{}将filter表的INPUT链的计数器清零}
+iptables -Z
+\PYG{c}{\PYGZsh{}将filter表的所有链的计数器清零}
+\end{Verbatim}

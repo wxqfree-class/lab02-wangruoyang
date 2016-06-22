@@ -1,0 +1,19 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{cd} /etc/pki/tls/private
+openssl genrsa -out abcsrv.key 1024 \PYG{c}{\PYGZsh{}为服务器创建私钥}
+\PYG{c}{\PYGZsh{}利用上一步产生的私钥创建一个证书签名请求文件}
+openssl genrsa req -new -key abcsrc.key -out abcsrv.csr
+......
+Country Name \PYG{o}{(}2 letter code\PYG{o}{)} \PYG{o}{[}GB\PYG{o}{]}:CN
+State or Province Name \PYG{o}{(}full name\PYG{o}{)} \PYG{o}{[}Berkshire\PYG{o}{]}:JX
+Locality Name \PYG{o}{(}eg, city\PYG{o}{)} \PYG{o}{[}Newbury\PYG{o}{]}:NC
+Organization Name \PYG{o}{(}eg, company\PYG{o}{)} \PYG{o}{[}My Company Ltd\PYG{o}{]}:ABC
+Organizational Unit Name \PYG{o}{(}eg, section\PYG{o}{)} \PYG{o}{[]}:INFO
+Common Name \PYG{o}{(}eg, your name or your server\PYG{l+s+s1}{'s hostname) []:www.abc.com}
+\PYG{l+s+s1}{Email Address []:root@abc.com}
+
+\PYG{l+s+s1}{Please enter the following '}extra\PYG{err}{'} attributes
+to be sent with your certificate request
+A challenge password \PYG{o}{[]}:abc123
+An optional company name \PYG{o}{[]}:abc
+\end{Verbatim}

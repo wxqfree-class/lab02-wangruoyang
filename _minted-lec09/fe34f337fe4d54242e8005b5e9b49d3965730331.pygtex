@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{cd} /var/named/chroot
+vim etc/named.conf \PYG{c}{\PYGZsh{}在最后面添加子域定义}
+zone \PYG{l+s+s2}{"jx.abc.com"} IN \PYG{o}{\PYGZob{}}
+  \PYG{n+nb}{type }master;
+  file \PYG{l+s+s2}{"jx.abc.com.zone"};
+\PYG{o}{\PYGZcb{}};
+\PYG{c}{\PYGZsh{}此处不需要重复定义反向区域2.168.192.in-addr.arpa}
+\end{Verbatim}

@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{userlist\PYGZus{}enable}\PYG{o}{=}YES
+\PYG{n+nv}{userlist\PYGZus{}file}\PYG{o}{=}/etc/vsftpd/user\PYGZus{}list
+\PYG{n+nv}{userlist\PYGZus{}deny}\PYG{o}{=}YES
+\end{Verbatim}

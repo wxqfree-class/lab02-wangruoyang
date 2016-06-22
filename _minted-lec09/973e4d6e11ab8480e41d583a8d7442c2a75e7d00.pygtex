@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+yum -y install caching-nameserver
+rpm -ql caching-nameserver
+service named start
+\end{Verbatim}

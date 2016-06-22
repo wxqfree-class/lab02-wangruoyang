@@ -1,0 +1,16 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{cd} /var/named/chroot/var/named
+vim abc.com.zone.in
+\PYG{n+nv}{\PYGZdl{}TTL} 86400
+@       IN SOA ns1 root \PYG{o}{(}
+                        42      ; serial \PYG{o}{(}d. adams\PYG{o}{)}
+                        3H      ; refresh
+                        15M     ; retry
+                        1W      ; expiry
+                        1D \PYG{o}{)}    ; minimum
+        IN NS           ns1
+ns1     IN A            10.0.0.100
+www     IN A            192.168.56.10
+                IN A            192.168.56.20
+ftp     IN CNAME        www
+\end{Verbatim}

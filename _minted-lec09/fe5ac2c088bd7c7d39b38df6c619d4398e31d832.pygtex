@@ -1,0 +1,17 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{cd} /var/named/chroot/etc
+scp root@192.168.1.200:/var/named/chroot\PYG{l+s+se}{\PYGZbs{}}
+/etc/named.conf .
+chgrp named named.conf
+vim named.conf \PYG{c}{\PYGZsh{}修改区域定义相关内容}
+zone \PYG{l+s+s2}{"abc.com"} IN \PYG{o}{\PYGZob{}}
+        \PYG{n+nb}{type }slave;
+        file \PYG{l+s+s2}{"slaves/abc.com.zone"};
+        masters \PYG{o}{\PYGZob{}} 192.168.1.200; \PYG{o}{\PYGZcb{}};
+\PYG{o}{\PYGZcb{}};
+zone \PYG{l+s+s2}{"1.168.192.in-addr.arpa"} IN \PYG{o}{\PYGZob{}}
+        \PYG{n+nb}{type }slave;
+        file \PYG{l+s+s2}{"slaves/192.168.1.rev"};
+        masters \PYG{o}{\PYGZob{}} 192.168.1.200; \PYG{o}{\PYGZcb{}};
+\PYG{o}{\PYGZcb{}};
+\end{Verbatim}

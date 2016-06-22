@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{o}{[}public\PYG{o}{]}
+\PYG{n+nv}{comment} \PYG{o}{=} DataShare
+\PYG{n+nv}{path} \PYG{o}{=} /home/pubsmb
+force \PYG{n+nv}{user} \PYG{o}{=} neo
+force \PYG{n+nv}{group} \PYG{o}{=} pubsmb
+\PYG{n+nb}{read }\PYG{n+nv}{only} \PYG{o}{=} no
+\end{Verbatim}

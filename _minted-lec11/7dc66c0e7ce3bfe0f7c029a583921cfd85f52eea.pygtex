@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+yum install php-mysql php-mbstring
+\PYG{c}{\PYGZsh{}下载phpMyAdmin至/var/www/html目录}
+\PYG{n+nb}{cd} /var/www/html
+tar -xjvf phpMyAdmin-2.11.11.3-all-languages.tar.bz2
+mv phpMyAdmin-2.11.11.3-all-languages phpMyAdmin
+cp -p config.sample.inc.php config.inc.php
+vim config.inc.php
+\PYG{n+nv}{\PYGZdl{}cfg}\PYG{o}{[}\PYG{l+s+s1}{'blowfish\PYGZus{}secret'}\PYG{o}{]} \PYG{o}{=} \PYG{l+s+s1}{'www.abc.com'};
+...
+\PYG{n+nv}{\PYGZdl{}cfg}\PYG{o}{[}\PYG{l+s+s1}{'Servers'}\PYG{o}{][}\PYG{n+nv}{\PYGZdl{}i}\PYG{o}{][}\PYG{l+s+s1}{'user'}\PYG{o}{]} \PYG{o}{=} \PYG{l+s+s1}{'root'};
+\PYG{n+nv}{\PYGZdl{}cfg}\PYG{o}{[}\PYG{l+s+s1}{'Servers'}\PYG{o}{][}\PYG{n+nv}{\PYGZdl{}i}\PYG{o}{][}\PYG{l+s+s1}{'password'}\PYG{o}{]} \PYG{o}{=} \PYG{l+s+s1}{'111111'};
+\end{Verbatim}

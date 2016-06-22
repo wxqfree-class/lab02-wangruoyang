@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+mkdir /mnt/public
+mount \PYG{o}{[}-t cifs\PYG{o}{]} -o \PYG{n+nv}{username}\PYG{o}{=}neo,password\PYG{o}{=}666666 \PYG{l+s+se}{\PYGZbs{}}
+//192.168.0.200/public /mnt/public
+\PYG{c}{\PYGZsh{}注：服务器使用share安全模式，则客户端无需用户名和密码就能挂载}
+\end{Verbatim}

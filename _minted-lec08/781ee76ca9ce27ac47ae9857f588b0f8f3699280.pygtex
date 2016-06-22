@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+sysctl -w net.ipv4.ip\PYGZus{}forward\PYG{o}{=}1 \PYG{c}{\PYGZsh{}临时启用IP转发功能}
+vim /etc/sysctl.conf
+net.ipv4.ip\PYGZus{}forward\PYG{o}{=}1           \PYG{c}{\PYGZsh{}永久开启IP转发功能}
+sysctl -p                       \PYG{c}{\PYGZsh{}使配置文件立即生效}
+\end{Verbatim}

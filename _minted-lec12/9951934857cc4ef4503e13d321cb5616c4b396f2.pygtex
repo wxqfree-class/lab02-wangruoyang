@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}指定多层缓存网络中其他缓存服务器}
+cache\PYGZus{}peer hostname \PYG{n+nb}{type }http\PYGZus{}port icp\PYGZus{}port \PYG{o}{[}options\PYG{o}{]}
+\PYG{c}{\PYGZsh{}限定要查询的邻居缓存服务器的域}
+cache\PYGZus{}peer\PYGZus{}domain 邻居缓存服务器 域名 \PYG{o}{[}域名 ...\PYG{o}{]}
+\end{Verbatim}

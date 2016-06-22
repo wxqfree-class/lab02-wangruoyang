@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}设置反向代理监听端口(通常为80)和反向代理模式}
+http\PYGZus{}port 80 accel
+\PYG{c}{\PYGZsh{}设置所代理的内部web服务器}
+cache\PYGZus{}peer 192.168.0.21 parent 80 0 \PYG{l+s+se}{\PYGZbs{}}
+no-query originserver \PYG{n+nv}{name}\PYG{o}{=}myAccel
+\PYG{c}{\PYGZsh{}设置允许访问该加速站点，不允许其他访问}
+acl our\PYGZus{}sites dstdomain www.abc.name
+http\PYGZus{}access allow our\PYGZus{}sites
+cache\PYGZus{}peer\PYGZus{}access myAccel allow our\PYGZus{}sites
+cache\PYGZus{}peer\PYGZus{}access myAccel deny all
+\PYG{c}{\PYGZsh{}重启squid服务}
+\PYG{c}{\PYGZsh{}将web网站的公共域名执行squid服务器后进行访问测试}
+\end{Verbatim}

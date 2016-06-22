@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+iptables -R INPUT 1 -p tcp --dport 80 -j DROP
+\PYG{c}{\PYGZsh{}替换filter表的INPUT链的规则1：}
+\PYG{c}{\PYGZsh{}丢弃目标地址为本机tcp协议80端口的数据包}
+\end{Verbatim}

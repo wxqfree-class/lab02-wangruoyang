@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+acl noauth\PYGZus{}user src 192.168.0.21
+acl auth\PYGZus{}user proxy\PYGZus{}auth REQUIRED
+http\PYGZus{}access allow noauth\PYGZus{}user
+http\PYGZus{}access allow auth\PYGZus{}user
+\end{Verbatim}

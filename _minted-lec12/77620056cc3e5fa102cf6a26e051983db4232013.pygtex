@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+iptables -t nat -A POSTROUTING -o eth1 \PYG{l+s+se}{\PYGZbs{}}
+-s 192.168.0.0/24 -j MASQUERADE
+\end{Verbatim}

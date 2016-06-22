@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+cache\PYGZus{}mem 8 MB \PYG{c}{\PYGZsh{}指定Squid可以使用的内存大小}
+\PYG{c}{\PYGZsh{}设置内存缓存中可保存的最大对象大小}
+maximum\PYGZus{}object\PYGZus{}size\PYGZus{}in\PYGZus{}memory 8KB
+\end{Verbatim}

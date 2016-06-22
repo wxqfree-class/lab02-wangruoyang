@@ -1,0 +1,16 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}=====Global Settings=====}
+\PYG{o}{[}global\PYG{o}{]}
+\PYG{n+nv}{workgroup} \PYG{o}{=} WORKGROUP
+server \PYG{n+nv}{string} \PYG{o}{=} samba server
+\PYG{n+nv}{security} \PYG{o}{=} user
+log \PYG{n+nv}{file} \PYG{o}{=} /var/log/samba/\PYGZpc{}m.log
+username \PYG{n+nv}{map}\PYG{o}{=}/etc/samba/smbusers
+\PYG{c}{\PYGZsh{}=====Share Definitions=====}
+\PYG{o}{[}homes\PYG{o}{]}
+\PYG{n+nv}{comment} \PYG{o}{=} Home Directories
+\PYG{n+nv}{validusers} \PYG{o}{=} \PYGZpc{}S
+\PYG{n+nb}{read }\PYG{n+nv}{only} \PYG{o}{=} no
+\PYG{n+nv}{browseable} \PYG{o}{=} no
+\PYG{n+nv}{writable} \PYG{o}{=} yes
+\end{Verbatim}

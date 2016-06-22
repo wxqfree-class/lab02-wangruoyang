@@ -343,9 +343,9 @@ file:img/here.jpg
 ***** 扩展分区内可以划分更多的逻辑分区
 **** Windos分区与Linux分区
 ***** Windows
-****** 单根目录：每个分区都有一个根目录
+****** 多根目录：每个分区都有一个根目录
 ***** Linux
-****** 多根目录：整个系统只有一个根目录
+****** 单根目录：整个系统只有一个根目录
 ****** 所有分区都挂载在目录树上的某个目录(称为挂载点)下面
 ****** 根分区挂载于/目录，其他分区挂载于根目录下的子目录
 ****** 对分区的文件访问，通过相应的挂载点进行
@@ -658,7 +658,7 @@ tail -3 /etc/passwd
 su
 tail -f /var/log/messages  #跟踪文件结尾追加的行
                            #按Ctrl-c结束
-systemctrl restart network.service
+service network restart
 #+END_SRC
 *** Linux目录结构
 **** 遵循文件系统层次标准(Filesystem Hierarchy Standard, FHS)

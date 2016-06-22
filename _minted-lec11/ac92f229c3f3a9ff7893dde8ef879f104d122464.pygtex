@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+<Files \PYGZti{} \PYG{l+s+s2}{"\PYGZca{}\PYGZbs{}.ht"}> \PYG{c}{\PYGZsh{}文件名以.ht开头的文件}
+    Order allow,deny
+    Deny from all \PYG{c}{\PYGZsh{}拒绝所有客户端访问}
+</Files>
+\end{Verbatim}

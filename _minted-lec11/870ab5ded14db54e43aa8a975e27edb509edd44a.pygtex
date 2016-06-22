@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+PidFile run/httpd.pid \PYG{c}{\PYGZsh{}记录所有httpd子进程的父进程的pid}
+\end{Verbatim}

@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}1. 修改squid.conf，启用透明代理支持}
+http\PYGZus{}port 192.168.0.2:3128 transparent
+\PYG{c}{\PYGZsh{}2. 启用ip转发功能}
+\PYG{c}{\PYGZsh{}3. 配置iptables，实现http流量拦截}
+iptables -t nat -A PREROUTING -i eth0 -p tcp \PYG{l+s+se}{\PYGZbs{}}
+--dport 80 -j REDIRECT --to-ports 3128
+iptables -t nat -A POSTROUTING -o eth1 -j MASQUERADE
+\PYG{c}{\PYGZsh{}4. 重启squid或重新加载squid配置文件}
+\PYG{c}{\PYGZsh{}5. 重启iptables}
+\PYG{c}{\PYGZsh{}6. 客户端只需要将默认网关设置为squid主机的内网地址，}
+\PYG{c}{\PYGZsh{}   即可正常访问外部网站}
+\end{Verbatim}

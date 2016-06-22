@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+vim /etc/exports
+/home/public 192.168.1.0/24\PYG{o}{(}rw\PYG{o}{)} *\PYG{o}{(}ro\PYG{o}{)}
+/ 192.168.1.10\PYG{o}{(}rw,no\PYGZus{}root\PYGZus{}squash\PYG{o}{)}
+/pub \PYG{o}{(}ro,insecure,all\PYGZus{}squash\PYG{o}{)}
+
+exportfs -rv  \PYG{c}{\PYGZsh{}重新发布/etc/exports配置的共享目录}
+mkdir /home/public /pub
+chmod a+w /home/public
+\end{Verbatim}

@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{port\PYGZus{}enable}\PYG{o}{=}YES \PYG{c}{\PYGZsh{}运行于PORT(主动)模式(默认值)}
+\PYG{n+nv}{connect\PYGZus{}from\PYGZus{}port\PYGZus{}20}\PYG{o}{=}YES \PYG{c}{\PYGZsh{}PORT模式数据连接使用端口20(默认值NO)}
+\PYG{n+nv}{ftp\PYGZus{}data\PYGZus{}port}\PYG{o}{=}20 \PYG{c}{\PYGZsh{}PORT模式连接发起的端口(默认值)}
+\end{Verbatim}

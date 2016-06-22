@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+setkey -f FILE \PYG{c}{\PYGZsh{}根据FILE设置SAD和SPD}
+setkey -D      \PYG{c}{\PYGZsh{}查看SAD}
+setkey -P -D   \PYG{c}{\PYGZsh{}查看SPD}
+setkey -F      \PYG{c}{\PYGZsh{}清空SAD}
+setkey -P -F   \PYG{c}{\PYGZsh{}情况SPD}
+man setkey     \PYG{c}{\PYGZsh{}了解详细信息}
+\end{Verbatim}

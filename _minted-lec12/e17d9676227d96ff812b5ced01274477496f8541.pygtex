@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+iptables -P INPUT DROP
+\PYG{c}{\PYGZsh{}设置filter表的INPUT链的默认处理策略为DROP}
+\PYG{c}{\PYGZsh{}当数据包经过INPUT链且没有匹配任何规则时将被丢弃}
+\PYG{c}{\PYGZsh{}只有内置链才能定义默认处理策略}
+\end{Verbatim}

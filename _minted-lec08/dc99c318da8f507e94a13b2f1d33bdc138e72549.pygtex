@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+/etc/rc.d/init.d/sshd \PYG{l+s+se}{\PYGZbs{}}
+start|stop|restart|reload|condrestart|status
+reload      \PYG{c}{\PYGZsh{}在不重新启动服务的前提下重新加载其配置文件}
+condrestart \PYG{c}{\PYGZsh{}只有服务正在运行时才重新启动该服务}
+service sshd start|stop|...
+\end{Verbatim}

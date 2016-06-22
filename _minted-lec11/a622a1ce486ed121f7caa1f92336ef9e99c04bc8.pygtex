@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+Listen 80
+ServerName www.mainsite.com
+DocumentRoot \PYG{l+s+s2}{"/var/www/html"}
+NameVirtualHost 192.168.56.201
+<VirtualHost 192.168.56.201>
+    ServerName www.abc.com
+    DocumentRoot /var/www/abc.com
+</VirtualHost>
+<VirtualHost 192.168.56.201>
+    ServerName www.xyz.net
+    DocumentRoot /var/www/xyz.net
+</VirtualHost>
+\end{Verbatim}

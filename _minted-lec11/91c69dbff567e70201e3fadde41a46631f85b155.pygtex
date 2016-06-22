@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+su - mike
+mkdir public\PYGZus{}html
+chmod 711 \PYGZti{}mike
+chmod 755 \PYGZti{}mike/public\PYGZus{}html
+\end{Verbatim}

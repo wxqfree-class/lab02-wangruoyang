@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+service smb \PYG{o}{\PYGZob{}}start|stop|restart|status|condrestart\PYG{o}{\PYGZcb{}}
+\end{Verbatim}

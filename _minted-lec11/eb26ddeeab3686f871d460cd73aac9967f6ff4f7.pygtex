@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+DocumentRoot \PYG{l+s+s2}{"/var/www/html"} \PYG{c}{\PYGZsh{}注意：路径最后不能加/}
+\end{Verbatim}

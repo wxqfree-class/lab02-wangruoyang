@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}定义规则的目标，即对匹配该规则的数据包所做的操作。}
+\PYG{c}{\PYGZsh{}目标可以是用户自定义链}
+\PYG{c}{\PYGZsh{}目标也可以是一个内置目标(ACCEPT,DROP等)或扩展}
+\end{Verbatim}

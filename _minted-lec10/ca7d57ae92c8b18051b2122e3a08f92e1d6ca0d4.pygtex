@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+anon\PYGZus{}umask \PYG{c}{\PYGZsh{}匿名用户新增文件默认权限掩码(默认值077)}
+local\PYGZus{}umask \PYG{c}{\PYGZsh{}本地用户新增文件默认权限掩码(默认值077)}
+file\PYGZus{}open\PYGZus{}mode \PYG{c}{\PYGZsh{}上传文件的权限(默认值0666)}
+\end{Verbatim}

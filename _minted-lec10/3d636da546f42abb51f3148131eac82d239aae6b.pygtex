@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+rpm -qd vsftpd
+man 5 vsftpd.conf
+\end{Verbatim}

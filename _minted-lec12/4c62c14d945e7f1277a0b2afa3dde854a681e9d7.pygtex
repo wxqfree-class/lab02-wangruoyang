@@ -1,0 +1,16 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+http\PYGZus{}port 80 vhost \PYG{c}{\PYGZsh{}设置监听端口,并启用反向代理}
+\PYG{c}{\PYGZsh{}指定Squid要代理的内部Web服务器}
+cache\PYGZus{}peer 192.168.0.2 parent 80 0 \PYG{l+s+se}{\PYGZbs{}}
+no-query originserver \PYG{n+nv}{name}\PYG{o}{=}a
+cache\PYGZus{}peer 192.168.0.21 parent 80 0 \PYG{l+s+se}{\PYGZbs{}}
+no-query originserver \PYG{n+nv}{name}\PYG{o}{=}b
+cache\PYGZus{}peer\PYGZus{}domain a www.servera.com
+cache\PYGZus{}peer\PYGZus{}domain b www.serverb.com
+\PYG{c}{\PYGZsh{}设置访问控制,允许所有外部客户端访问这些站点}
+acl all src 0.0.0.0/0.0.0.0
+http\PYGZus{}access allow all
+cache\PYGZus{}peer\PYGZus{}access a allow all
+cache\PYGZus{}peer\PYGZus{}access b allow all
+\PYG{c}{\PYGZsh{}重启squid,将公共域名指向Squid代理服务器并测试}
+\end{Verbatim}

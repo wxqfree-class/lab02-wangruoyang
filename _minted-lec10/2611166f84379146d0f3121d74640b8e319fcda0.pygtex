@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+vim /etc/pam.d/vsftpd
+\PYG{c}{\PYGZsh{}注释掉其他所有行，并添加以下两行内容}
+auth required /lib/security/pam\PYGZus{}userdb.so \PYG{n+nv}{db}\PYG{o}{=}/etc/vsftpd/login
+account required /lib/security/pam\PYGZus{}userdb.so \PYG{n+nv}{db}\PYG{o}{=}/etc/vsftpd/login
+\end{Verbatim}

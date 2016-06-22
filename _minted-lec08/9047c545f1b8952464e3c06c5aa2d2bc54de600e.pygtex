@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+ifconfig -a            \PYG{c}{\PYGZsh{}查看所有网络接口信息}
+ifconfig eth0          \PYG{c}{\PYGZsh{}查看指定网络接口信息}
+\PYG{c}{\PYGZsh{}配置接口ip地址，立即生效，但未修改配置文件，所以是临时生效}
+ifconfig eth0 192.168.56.201 netmask 255.255.255.0
+ifconfig eth0 down|up  \PYG{c}{\PYGZsh{}激活/关闭网卡}
+\end{Verbatim}

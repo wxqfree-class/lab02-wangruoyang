@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+<Directory />
+    Options FollowSymLinks
+    AllowOverride None
+</Directory>
+\end{Verbatim}

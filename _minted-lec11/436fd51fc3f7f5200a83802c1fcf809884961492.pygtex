@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{cd} /var/www/html
+cat \PYG{l+s+s1}{'<?phpinfo()?>'} >test.php
+
+访问http://192.168.56.200/test.php
+\end{Verbatim}

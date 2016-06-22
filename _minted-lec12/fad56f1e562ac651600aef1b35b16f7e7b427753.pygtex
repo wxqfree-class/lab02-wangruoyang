@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+iptables -N MYCHAIN
+\PYG{c}{\PYGZsh{}在filter表中定义一条名为MYCHAIN的新链}
+\PYG{c}{\PYGZsh{}定义了新链后，可以在新链中添加规则}
+\end{Verbatim}

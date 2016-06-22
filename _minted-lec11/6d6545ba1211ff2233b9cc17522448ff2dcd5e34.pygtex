@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}6. 编辑httpd.conf文件，定义虚拟主机}
+<VirtualHost 192.168.56.201>
+    ServerName www.abc.com
+    DocumentRoot /var/www/abc.com
+</VirtualHost>
+<VirtualHost 192.168.56.202>
+    ServerName www.xyz.net
+    DocumentRoot /var/www/xyz.net
+</VirtualHost>
+\PYG{c}{\PYGZsh{}7. 重启httpd服务}
+service httpd restart
+\PYG{c}{\PYGZsh{}8. 测试访问}
+如果配置了DNS，则即可以通过ip也可以通过域名访问。
+\end{Verbatim}

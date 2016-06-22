@@ -224,6 +224,7 @@ wc -c learn-vim
 #+BEGIN_SRC sh
 grep root /etc/passwd
 grep "insert mode" learn-vim
+grep -i "insert mode" learn-vim
 grep -n "insert mode" learn-vim
 grep -vn "nologin" /etc/passwd
 grep -c "/bin/bash" /etc/passwd 

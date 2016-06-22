@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+vim /etc/squid/squid.conf \PYG{c}{\PYGZsh{}在最后添加}
+http\PYGZus{}port 10.0.0.100:3128 transparent \PYG{c}{\PYGZsh{}透明代理}
+dns\PYGZus{}nameservers 127.0.0.1 \PYG{c}{\PYGZsh{}指定代理的dns服务器}
+acl inside src 192.168.56.0/255.255.255.0 \PYG{c}{\PYGZsh{}定义内网列表}
+http\PYGZus{}access allow inside \PYG{c}{\PYGZsh{}允许内网访问透明代理}
+\end{Verbatim}

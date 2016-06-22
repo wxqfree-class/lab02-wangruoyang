@@ -1,0 +1,16 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{anonymous\PYGZus{}enable}\PYG{o}{=}NO
+\PYG{n+nv}{local\PYGZus{}enable}\PYG{o}{=}YES
+\PYG{n+nv}{write\PYGZus{}enable}\PYG{o}{=}NO
+\PYG{n+nv}{anon\PYGZus{}upload\PYGZus{}enable}\PYG{o}{=}NO
+\PYG{n+nv}{anon\PYGZus{}mkdir\PYGZus{}write\PYGZus{}enable}\PYG{o}{=}NO
+\PYG{n+nv}{anon\PYGZus{}other\PYGZus{}write\PYGZus{}enable}\PYG{o}{=}NO
+\PYG{n+nv}{chroot\PYGZus{}local\PYGZus{}user}\PYG{o}{=}YES
+\PYG{n+nv}{guest\PYGZus{}enable}\PYG{o}{=}YES \PYG{c}{\PYGZsh{}启用虚拟用户功能}
+\PYG{n+nv}{guest\PYGZus{}username}\PYG{o}{=}virtual \PYG{c}{\PYGZsh{}设置虚拟用户所映射的系统用户}
+\PYG{n+nv}{pam\PYGZus{}service\PYGZus{}name}\PYG{o}{=}vsftpd \PYG{c}{\PYGZsh{}设置PAM配置文件名}
+\PYG{n+nv}{listen}\PYG{o}{=}YES
+\PYG{n+nv}{listen\PYGZus{}port}\PYG{o}{=}8021
+\PYG{n+nv}{pasv\PYGZus{}min\PYGZus{}port}\PYG{o}{=}30000
+\PYG{n+nv}{pasv\PYGZus{}max\PYGZus{}port}\PYG{o}{=}30999
+\end{Verbatim}

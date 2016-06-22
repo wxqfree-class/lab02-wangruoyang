@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+ifup ipsec0 \PYG{c}{\PYGZsh{}将自动生成/etc/raccoon/192.168.2.10.conf}
+\end{Verbatim}

@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+rpm -qa | grep \PYG{l+s+s1}{'bind'}
+yum install \PYG{n+nb}{bind bind}-chroot \PYG{n+nb}{bind}-libs \PYG{n+nb}{bind}-utils
+rpm -ql \PYG{n+nb}{bind} | less
+\end{Verbatim}

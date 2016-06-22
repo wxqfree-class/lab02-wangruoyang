@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{cd} /var/named/chroot/var/named
+ls slaves
+\PYG{c}{\PYGZsh{}重启server1的named服务}
+service named restart
+\PYG{c}{\PYGZsh{}重启server2的named服务}
+service named restart
+ls slaves
+\end{Verbatim}

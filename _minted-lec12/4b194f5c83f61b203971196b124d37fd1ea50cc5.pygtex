@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+iptables -A FORWARD -p tcp --tcp-flags SYN,ACK,FIN,RST SYN
+\PYG{c}{\PYGZsh{}检查数据包的SYN，ACK，FIN，RST位}
+\PYG{c}{\PYGZsh{}仅匹配设置了SYN位，而未设置ACK,FIN,RST位的数据包}
+\end{Verbatim}

@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+act all src 0.0.0.0/0.0.0.0
+acl administrator 192.168.0.0/24
+acl common\PYGZus{}time \PYG{n+nb}{time }MTWHF 8:30-20:30
+acl manage\PYGZus{}time \PYG{n+nb}{time }MTWHFAS 13:00-18:00
+http\PYGZus{}access allow all common\PYGZus{}time
+http\PYGZus{}access allow administrator manage\PYGZus{}time
+http\PYGZus{}access deny all
+\end{Verbatim}

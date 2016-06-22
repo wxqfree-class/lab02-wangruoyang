@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+iptables -A INPUT -j ACCEPT
+\PYG{c}{\PYGZsh{}向filter表的INPUT链追加一条规则:}
+\PYG{c}{\PYGZsh{}接受所有目标地址为本机的数据包}
+\PYG{c}{\PYGZsh{}新增加的规则将会成为规则链中的最后一条规则}
+\end{Verbatim}

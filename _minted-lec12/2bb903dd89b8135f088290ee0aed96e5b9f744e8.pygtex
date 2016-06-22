@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+iptables -A OUTPUT -p tcp --sport 22 -j ACCEPT
+\PYG{c}{\PYGZsh{}以下命令仅允许从外网(eth1)访问防火墙}
+iptables -A INPUT -p tcp -i eth1 --dport 22 -j ACCEPT
+iptables -A OUTPUT -p tcp -o eth1 --sport 22 -j ACCEPT
+\end{Verbatim}

@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+vim /etc/httpd/conf/httpd.conf
+...
+Include conf.d/*.conf
+...
+
+cat /etc/httpd/conf.d/php.conf
+ls /etc/php.ini \PYG{c}{\PYGZsh{}php本身的配置文件}
+\end{Verbatim}

@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}指定Squid存储对象的缓存空间的大小及其目录结构}
+cache\PYGZus{}dir Type Dir-Name Fs-specific-data \PYG{o}{[}options\PYG{o}{]}
+cache\PYGZus{}swap\PYGZus{}low 90  \PYG{c}{\PYGZsh{}设置交换空间上限}
+cache\PYGZus{}swap\PYGZus{}high 95 \PYG{c}{\PYGZsh{}设置交换空间下限}
+maximum\PYGZus{}object\PYGZus{}size 4096KB \PYG{c}{\PYGZsh{}设置硬盘缓存中可保存的最大对象}
+\end{Verbatim}

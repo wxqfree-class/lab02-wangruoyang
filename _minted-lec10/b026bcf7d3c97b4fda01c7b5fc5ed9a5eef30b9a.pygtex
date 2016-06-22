@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+service vsftpd restart
+
+ftp 192.168.0.200 8021
+user: kehu01
+pass: abc123
+\end{Verbatim}

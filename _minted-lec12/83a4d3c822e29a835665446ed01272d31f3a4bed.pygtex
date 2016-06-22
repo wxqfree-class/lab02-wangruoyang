@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+iptables -A FORWARD -m state \PYG{l+s+se}{\PYGZbs{}}
+--state ESTABLISHED,RELATED -j ACCEPT
+\end{Verbatim}

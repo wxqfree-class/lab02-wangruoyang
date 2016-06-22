@@ -1,0 +1,16 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+vim xyz.net.zone
+\PYG{n+nv}{\PYGZdl{}TTL} 86400
+@       IN SOA ns1 root \PYG{o}{(}
+                        42      ; serial \PYG{o}{(}d. adams\PYG{o}{)}
+                        3H      ; refresh
+                        15M     ; retry
+                        1W      ; expiry
+                        1D \PYG{o}{)}    ; minimum
+                IN NS           ns1
+ns1     IN A            10.0.0.100
+www     IN A            200.0.0.200
+ftp     IN CNAME        www
+
+chkconfig --level 345 named on; service named start
+\end{Verbatim}

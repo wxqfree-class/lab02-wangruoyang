@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+ntsysv \PYG{c}{\PYGZsh{}ntsysv命令默认只能对当前运行级别下的服务进行启动配置}
+ntsysv --level 235 \PYG{c}{\PYGZsh{}对运行级别235下的服务进行启动配置}
+setup  \PYG{c}{\PYGZsh{}可以通过setup命令对服务进行启动配置}
+\end{Verbatim}

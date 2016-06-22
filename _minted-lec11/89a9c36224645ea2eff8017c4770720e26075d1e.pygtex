@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+Order Deny,Allow
+Deny from all
+Allow from abc.com
+\PYG{c}{\PYGZsh{}拒绝所有客户端访问，但属于abc.com域的主机除外}
+\end{Verbatim}

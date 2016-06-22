@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}1. 为用户mike创建一个密码文件}
+htpasswd -c /etc/httpd/passwords mike
+\PYG{c}{\PYGZsh{}2. 配置Web服务器，要求经过认证才能访问某网站/目录}
+<Directory \PYG{l+s+s2}{"/var/www/html/dev"}>
+    AuthType Basic
+    AuthName \PYG{l+s+s2}{"Restricted Files:"}
+    AuthUserFile /etc/httpd/passwds
+    Require user mike \PYG{c}{\PYGZsh{}授权mike可以访问该目录}
+</Directory>
+\PYG{c}{\PYGZsh{}3. 重启httpd服务}
+service httpd restart
+\PYG{c}{\PYGZsh{}4. 访问测试}
+http://192.168.56.200/dev
+\end{Verbatim}

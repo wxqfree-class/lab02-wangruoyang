@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{writable} \PYG{o}{=} yes \PYG{c}{\PYGZsh{}所有人都拥有写权限}
+
+\PYG{n+nv}{writable} \PYG{o}{=} no  \PYG{c}{\PYGZsh{}所有人都没有写权限}
+write \PYG{n+nv}{list} \PYG{o}{=} neo, @cwb \PYG{c}{\PYGZsh{}但neo和财务部组成员具有写权限}
+\end{Verbatim}

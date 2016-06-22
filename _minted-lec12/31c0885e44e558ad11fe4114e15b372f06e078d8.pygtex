@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+iptables -A FORWARD -i eth1 -p tcp --dport 80 \PYG{l+s+se}{\PYGZbs{}}
+-d 192.168.0.1 -j ACCEPT
+iptables -A FORWARD -o eth1 -p tcp --sport 80 \PYG{l+s+se}{\PYGZbs{}}
+-s 192.168.0.1 -j ACCEPT
+\end{Verbatim}

@@ -1,0 +1,17 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+ServerAdmin root@localhost \PYG{c}{\PYGZsh{}管理员email}
+ServerName www.example.com:80 \PYG{c}{\PYGZsh{}服务器名和端口}
+UseCanonicalName Off \PYG{c}{\PYGZsh{}使用客户端提供的服务器名称和端口号}
+DocumentRoot \PYG{l+s+s2}{"/var/www/html"} \PYG{c}{\PYGZsh{}网站主目录(路径最后不能加/)}
+DirectoryIndex index.html index.html.var \PYG{c}{\PYGZsh{}网站默认文档}
+ErrorLog logs/error\PYGZus{}log \PYG{c}{\PYGZsh{}错误日志}
+LogLevel warn \PYG{c}{\PYGZsh{}错误日志等级高于等于warn}
+CustomLog logs/access\PYGZus{}log combined \PYG{c}{\PYGZsh{}客户端访问日志及记录格式}
+\PYG{c}{\PYGZsh{} 定义日志格式别名}
+LogFormat \PYG{l+s+s2}{"\PYGZpc{}h \PYGZpc{}l \PYGZpc{}u \PYGZpc{}t \PYGZbs{}"\PYGZpc{}r\PYGZbs{}" \PYGZpc{}>s \PYGZpc{}b \PYGZbs{}"\PYGZpc{}\PYGZob{}Referer\PYGZcb{}i\PYGZbs{}" \PYGZbs{}}
+\PYG{l+s+s2}{\PYGZbs{}"\PYGZpc{}\PYGZob{}User-Agent\PYGZcb{}i\PYGZbs{}""} combined
+LogFormat \PYG{l+s+s2}{"\PYGZpc{}h \PYGZpc{}l \PYGZpc{}u \PYGZpc{}t \PYGZbs{}"\PYGZpc{}r\PYGZbs{}" \PYGZpc{}>s \PYGZpc{}b"} common
+LogFormat \PYG{l+s+s2}{"\PYGZpc{}\PYGZob{}Referer\PYGZcb{}i -> \PYGZpc{}U"} referer
+LogFormat \PYG{l+s+s2}{"\PYGZpc{}\PYGZob{}User-agent\PYGZcb{}i"} agent
+AddDefaultCharset UTF-8 \PYG{c}{\PYGZsh{}设置默认字符集}
+\end{Verbatim}

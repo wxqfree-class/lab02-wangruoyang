@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{cd} /var/named/chroot/etc
+grep -v \PYG{l+s+s1}{'//'} named.caching-nameserver.conf
+options \PYG{o}{\PYGZob{}}
+        listen-on port 53 \PYG{o}{\PYGZob{}} 127.0.0.1; \PYG{o}{\PYGZcb{}}; \PYG{c}{\PYGZsh{}仅监听环回接口}
+        listen-on-v6 port 53 \PYG{o}{\PYGZob{}} ::1; \PYG{o}{\PYGZcb{}};
+        directory       \PYG{l+s+s2}{"/var/named"}; \PYG{c}{\PYGZsh{}指定默认工作目录}
+        dump-file       \PYG{l+s+s2}{"/var/named/data/cache\PYGZus{}dump.db"};
+        statistics-file \PYG{l+s+s2}{"/var/named/data/named\PYGZus{}stats.txt"};
+        memstatistics-file \PYG{l+s+s2}{"/var/named/data/named\PYGZus{}mem\PYGZus{}stats.txt"};
+        allow-query     \PYG{o}{\PYGZob{}} localhost; \PYG{o}{\PYGZcb{}}; \PYG{c}{\PYGZsh{}仅允许本机客户端访问}
+        allow-query-cache \PYG{o}{\PYGZob{}} localhost; \PYG{o}{\PYGZcb{}}; \PYG{c}{\PYGZsh{}仅允许本机客户端访问缓存}
+\PYG{o}{\PYGZcb{}};
+\end{Verbatim}

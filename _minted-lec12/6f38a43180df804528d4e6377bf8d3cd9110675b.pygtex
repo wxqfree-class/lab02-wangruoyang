@@ -1,0 +1,22 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+vim /var/named/chroot/etc/named.conf
+...
+\PYG{c}{\PYGZsh{}定义内网用户(包括dmz区)acl及内网用户视图}
+acl \PYG{l+s+s2}{"inside\PYGZus{}hosts"} \PYG{o}{\PYGZob{}}
+        127.0.0.1;192.168.56.0/24;10.0.0.0/24;
+\PYG{o}{\PYGZcb{}};
+view inside \PYG{o}{\PYGZob{}}
+        match-clients      \PYG{o}{\PYGZob{}} inside\PYGZus{}hosts \PYG{o}{\PYGZcb{}};
+        match-destinations \PYG{o}{\PYGZob{}} any; \PYG{o}{\PYGZcb{}};
+        recursion yes;
+        include \PYG{l+s+s2}{"/etc/named.rfc1912.zones"};
+        zone \PYG{l+s+s2}{"abc.com"} IN \PYG{o}{\PYGZob{}}
+                \PYG{n+nb}{type }master;
+                file \PYG{l+s+s2}{"abc.com.zone.in"};
+        \PYG{o}{\PYGZcb{}};
+        zone \PYG{l+s+s2}{"xyz.net"} IN \PYG{o}{\PYGZob{}}
+                \PYG{n+nb}{type }master;
+                file \PYG{l+s+s2}{"xyz.net.zone"};
+        \PYG{o}{\PYGZcb{}};
+\PYG{o}{\PYGZcb{}};
+\end{Verbatim}

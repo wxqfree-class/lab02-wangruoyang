@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}5. 配置虚拟主机}
+NameVirtualHost *:80 \PYG{c}{\PYGZsh{}侦听所有IP地址的虚拟主机请求}
+<VirtualHost *:80>   \PYG{c}{\PYGZsh{}地址要与NameVirtualHost指令一致}
+    ServerName www.abc.com
+    DocumentRoot /var/www/abc.com
+</VirtualHost>
+<VirtualHost *:80>
+    ServerName www.xyz.net
+    DocumentRoot /var/www/xyz.net
+</VirtualHost>
+\end{Verbatim}

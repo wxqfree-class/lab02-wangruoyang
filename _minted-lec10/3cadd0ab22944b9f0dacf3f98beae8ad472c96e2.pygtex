@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}3. 配置共享目录}
+vim /etc/samba/smb.conf
+...
+\PYG{n+nv}{security} \PYG{o}{=} share
+...
+\PYG{o}{[}pub\PYG{o}{]}
+\PYG{n+nv}{path} \PYG{o}{=} /pubdir
+force \PYG{n+nv}{user} \PYG{o}{=} fox \PYG{c}{\PYGZsh{}所有客户端映射为默认用户fox}
+force \PYG{n+nv}{group} \PYG{o}{=} fox \PYG{c}{\PYGZsh{}所有客户端映射为默认组fox}
+\PYG{n+nb}{read }\PYG{n+nv}{only} \PYG{o}{=} no \PYG{c}{\PYGZsh{}read only=no等价于writable = yes}
+guest \PYG{n+nv}{ok} \PYG{o}{=} yes \PYG{c}{\PYGZsh{}guest ok与public是同义词}
+
+\PYG{c}{\PYGZsh{}4. 重启smb服务并在客户端测试}
+\end{Verbatim}

@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+host \PYG{o}{[}-t \PYG{n+nb}{type}\PYG{o}{]} domain-name \PYG{o}{[}dns-server\PYG{o}{]}
+host www.abc.com \PYG{o}{[}192.168.1.200\PYG{o}{]}
+host -t mx abc.com \PYG{o}{[}192.168.1.200\PYG{o}{]}
+nslookup ftp.abc.com \PYG{o}{[}192.168.1.200\PYG{o}{]}
+nslookup \PYG{o}{[}- 192.168.1.200\PYG{o}{]} \PYG{c}{\PYGZsh{}开始交互查询}
+\PYG{n+nb}{set type}\PYG{o}{=}mx
+abc.com
+\PYG{n+nb}{exit}                       \PYG{c}{\PYGZsh{}退出交互查询}
+dig @server domain \PYG{n+nb}{type}
+dig @192.168.1.200 abc.com ns
+\end{Verbatim}

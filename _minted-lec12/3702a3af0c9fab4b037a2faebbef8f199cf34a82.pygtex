@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+iptables -E MYCHAIN MYNEWCHAIN
+\PYG{c}{\PYGZsh{}将用户自定义的链MYCHAIN重命名为MYNEWCHAIN}
+\end{Verbatim}

@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+yum install perl-DBI perl-DBD-MySQL mysql mysql-server
+service mysqld start
+\PYG{c}{\PYGZsh{}管理员账户为root，默认密码为空}
+mysqladmin -u root password 123456 \PYG{c}{\PYGZsh{}首次设置root用户密码}
+mysqladmin -u root -p password 111111 \PYG{c}{\PYGZsh{}修改root用户密码}
+mysql -uroot -p111111 \PYG{c}{\PYGZsh{}登录mysql，-p后面不能有空格！}
+mysql> show databases
+mysql> \PYG{n+nb}{exit}
+\end{Verbatim}

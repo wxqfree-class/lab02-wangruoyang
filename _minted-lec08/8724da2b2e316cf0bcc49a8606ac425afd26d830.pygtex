@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+vim /etc/quagga/ripd.conf  \PYG{c}{\PYGZsh{}配置rip服务}
+hostname R1
+password abc
+\PYG{n+nb}{enable }password 123
+log stdout
+router rip
+  version 2
+  network 192.168.0.0/24
+  network 192.168.1.0/24
+interface eth1 \PYG{c}{\PYGZsh{}每个rip协议接口均需配置验证}
+  ip rip authentication mode md5
+  ip rip authentication string abc
+\end{Verbatim}

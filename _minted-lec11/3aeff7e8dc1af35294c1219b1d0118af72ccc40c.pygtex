@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+vim /etc/httpd/conf/httpd.conf
+......
+ErrorLog logs/error\PYGZus{}log \PYG{c}{\PYGZsh{}配置访问日志}
+......
+CustomLog logs/access\PYGZus{}log common \PYG{c}{\PYGZsh{}配置访问日志}
+
+tail -f /etc/httpd/logs/error\PYGZus{}log \PYG{c}{\PYGZsh{}实时监测错误日志}
+\end{Verbatim}

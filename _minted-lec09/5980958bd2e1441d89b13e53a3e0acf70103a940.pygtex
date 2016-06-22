@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{cd} /var/named/etc
+vim named.conf \PYG{c}{\PYGZsh{}修改主配置文件}
+options \PYG{o}{\PYGZob{}}
+        listen-on port 53 \PYG{o}{\PYGZob{}} any; \PYG{o}{\PYGZcb{}};
+        directory       \PYG{l+s+s2}{"/var/named"};
+        allow-query     \PYG{o}{\PYGZob{}} any; \PYG{o}{\PYGZcb{}};
+        recursion yes;
+\PYG{o}{\PYGZcb{}};
+...
+zone \PYG{l+s+s2}{"xyz.net"} IN \PYG{o}{\PYGZob{}}  \PYG{c}{\PYGZsh{}添加转发区域}
+  \PYG{n+nb}{type }forward;
+  forwarders: \PYG{o}{\PYGZob{}} 192.168.2.200; \PYG{o}{\PYGZcb{}};
+\PYG{o}{\PYGZcb{}};
+\end{Verbatim}

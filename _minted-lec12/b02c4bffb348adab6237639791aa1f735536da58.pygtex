@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+iptables -A INPUT -s 192.168.1.1 -j ACCEPT
+\PYG{c}{\PYGZsh{}允许源地址为192.168.1.1且目的地址为本机的数据包}
+\PYG{c}{\PYGZsh{}-s 192.168.1.0/24匹配一个网段的源地址}
+\PYG{c}{\PYGZsh{}-s ! 192.168.2.0/24排除一个网段的源地址}
+\end{Verbatim}

@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{} 定义认证方式、认证程序路径和需读取的账户文件}
+auth\PYGZus{}param basic program \PYG{l+s+se}{\PYGZbs{}}
+/usr/lib/squid/ncsa\PYGZus{}auth /etc/squid/passwd
+\PYG{c}{\PYGZsh{} 设置认证程序的进程数}
+auth\PYGZus{}param basic children 5
+\PYG{c}{\PYGZsh{} 设置认证有效时间,超过该时间要求重新输入用户名和密码}
+auth\PYGZus{}param basic credentialsttl 2 hours
+\PYG{c}{\PYGZsh{} 设置认证领域内容,即浏览器显示认证对话框时的提示内容}
+auth\PYGZus{}param basic realm \PYG{l+s+se}{\PYGZbs{}}
+This is a Squid proxy-caching
+\end{Verbatim}

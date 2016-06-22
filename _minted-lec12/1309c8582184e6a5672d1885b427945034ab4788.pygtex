@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+iptables -A FORWARD -o eth1 -j ACCEPT
+\PYG{c}{\PYGZsh{}允许源地址和目的地址都不是本机从eth1接口转发出去}
+\end{Verbatim}

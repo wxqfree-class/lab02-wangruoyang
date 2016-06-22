@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+vim named.caching-nameserver.conf
+acl corpnets \PYG{o}{\PYGZob{}} 192.168.1.0/24; 192.168.2.0/24; \PYG{o}{\PYGZcb{}};
+options \PYG{o}{\PYGZob{}}
+        listen-on port 53 \PYG{o}{\PYGZob{}} any; \PYG{o}{\PYGZcb{}}; \PYG{c}{\PYGZsh{}监听所有接口}
+        directory \PYG{l+s+s2}{"/var/named"};
+    allow-query \PYG{o}{\PYGZob{}} corpnets; \PYG{o}{\PYGZcb{}}; \PYG{c}{\PYGZsh{}允许指定客户端}
+\PYG{o}{\PYGZcb{}};
+zone \PYG{l+s+s2}{"0.0.127.in-addr.arpa"} \PYG{o}{\PYGZob{}} \PYG{c}{\PYGZsh{}定义区域}
+        \PYG{n+nb}{type }master; \PYG{c}{\PYGZsh{}区域类型}
+        file \PYG{l+s+s2}{"localhost.rev"}; \PYG{c}{\PYGZsh{}区域文件}
+        notify no; \PYG{c}{\PYGZsh{}主域名服务器不主动向从域名服务器通知更新}
+\PYG{o}{\PYGZcb{}};
+\end{Verbatim}

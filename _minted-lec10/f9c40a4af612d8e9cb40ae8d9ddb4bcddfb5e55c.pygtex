@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{cd} /usr/share/doc/vsftpd-2.0.5/EXAMPLE
+vim INTERNET\PYGZus{}SITE\PYGZus{}NOINETD/vsftpd.conf
+\end{Verbatim}

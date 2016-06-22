@@ -1,0 +1,17 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}定义其他用户的视图}
+view outside \PYG{o}{\PYGZob{}}
+        match-clients  \PYG{o}{\PYGZob{}} any; \PYG{o}{\PYGZcb{}};
+        match-destinations \PYG{o}{\PYGZob{}} any; \PYG{o}{\PYGZcb{}};
+        recursion no;
+        include \PYG{l+s+s2}{"/etc/named.rfc1912.zones"};
+        zone \PYG{l+s+s2}{"abc.com"} IN \PYG{o}{\PYGZob{}}
+                \PYG{n+nb}{type }master;
+                file \PYG{l+s+s2}{"abc.com.zone.out"};
+        \PYG{o}{\PYGZcb{}};
+        zone \PYG{l+s+s2}{"xyz.net"} IN \PYG{o}{\PYGZob{}}
+                \PYG{n+nb}{type }master;
+                file \PYG{l+s+s2}{"xyz.net.zone"};
+        \PYG{o}{\PYGZcb{}};
+\PYG{o}{\PYGZcb{}};
+\end{Verbatim}

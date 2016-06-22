@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+chkconfig --list      \PYG{c}{\PYGZsh{}查看所有服务的启动配置}
+chkconfig --list sshd \PYG{c}{\PYGZsh{}查看sshd服务的启动配置}
+chkconfig --level 234 sshd on \PYG{c}{\PYGZsh{}运行级别234启动sshd}
+chkconfig --level 24 sshd off \PYG{c}{\PYGZsh{}运行级别24关闭sshd}
+\end{Verbatim}

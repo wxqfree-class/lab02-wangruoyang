@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+yum install php-common php-cli php
+\end{Verbatim}

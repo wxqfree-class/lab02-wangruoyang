@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{cd} /usr/share/doc/dhcp-3.0.5/
+cp dhcpd.conf.sample /etc/dhcpd.conf
+vim dhcpd.conf
+ddns-update-style interim;
+ignore client-updates;
+subnet 192.168.1.0 netmask 255.255.255.0 \PYG{o}{\PYGZob{}}
+        option routers                  192.168.1.1;
+        option subnet-mask              255.255.255.0;
+        option domain-name-servers      192.168.1.200;
+        range 192.168.1.50 192.168.1.199;
+        default-lease-time 21600;
+        max-lease-time 43200;
+\PYG{o}{\PYGZcb{}}
+\end{Verbatim}

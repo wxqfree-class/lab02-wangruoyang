@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+groupadd pubsmb
+useradd -g pubsmb neo
+passwd neo
+\end{Verbatim}

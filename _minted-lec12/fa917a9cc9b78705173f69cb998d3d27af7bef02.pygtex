@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+iptables \PYG{o}{[}-t table\PYG{o}{]} \PYG{n+nb}{command }chain \PYG{o}{[}match\PYG{o}{]} \PYG{o}{[}-j target/jump\PYG{o}{]}
+说明：
+table:指定这个规则所应用的规则表。如果没有使用这个选项,默认指定filter表
+\PYG{n+nb}{command}:指定要执行的动作,如添加或删除一条规则。
+chain:指定编辑、创建或删除的链。
+match:用来设置匹配模板
+-j target/jump:用来设置目标动作或其他规则链
+\end{Verbatim}

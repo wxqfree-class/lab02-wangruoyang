@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{cd} /etc/squid/
+cp -p squid.conf squid.conf.bak
+sed -i \PYG{l+s+s1}{'/\PYGZca{}\PYGZsh{}\PYGZbs{}|\PYGZca{}\PYGZdl{}/d'} squid.conf \PYG{c}{\PYGZsh{}去除注释行和空行}
+vim squid.conf  \PYG{c}{\PYGZsh{}在最前面添加以下几行(反向代理必须设在最前面)}
+visible\PYGZus{}hostname 10.0.0.100
+http\PYGZus{}port 80 vhost
+cache\PYGZus{}peer 192.168.56.10 parent 80 0 \PYG{l+s+se}{\PYGZbs{}}
+no-query originserver \PYG{n+nv}{name}\PYG{o}{=}a
+cache\PYGZus{}peer\PYGZus{}domain a www.abc.com
+acl all src 0.0.0.0/0.0.0.0
+http\PYGZus{}access allow all
+cache\PYGZus{}peer\PYGZus{}access a allow all
+\end{Verbatim}

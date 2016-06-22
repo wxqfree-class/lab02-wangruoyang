@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+定义规则的目标，即对匹配该规则的数据包所做的操作。
+目标可以是用户自定义链，也可以是一个内置目标\PYG{o}{(}ACCEPT,DROP等\PYG{o}{)}。
+也可以是一个扩展
+\end{Verbatim}

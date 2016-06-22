@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+valid \PYG{n+nv}{users} \PYG{o}{=} neo, @cwb \PYG{c}{\PYGZsh{}仅允许neo和财务部(cwb)组成员访问}
+\end{Verbatim}

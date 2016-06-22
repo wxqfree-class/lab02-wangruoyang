@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+service squid \PYG{o}{\PYGZob{}}start|stop|status|reload|restart|\PYG{l+s+se}{\PYGZbs{}}
+condrestart\PYG{o}{\PYGZcb{}}
+\end{Verbatim}

@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+acl all src 0.0.0.0/0.0.0.0
+acl manager proto cache\PYGZus{}object
+acl localhost src 127.0.0.1/255.255.255.255
+acl to\PYGZus{}localhost dst 127.0.0.0/8
+acl SSL\PYGZus{}ports port 443
+acl Safe\PYGZus{}ports port 80 \PYG{c}{\PYGZsh{} http}
+acl Safe\PYGZus{}ports port 21 \PYG{c}{\PYGZsh{} ftp}
+acl Safe\PYGZus{}ports port 443 \PYG{c}{\PYGZsh{} https}
+acl Safe\PYGZus{}ports port 1025-65535 \PYG{c}{\PYGZsh{} unregistered ports}
+acl Safe\PYGZus{}ports port 777 \PYG{c}{\PYGZsh{} multiling http}
+acl CONNECT method CONNECT
+\end{Verbatim}

@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+iptables \PYG{o}{[}-t table\PYG{o}{]} \PYG{n+nb}{command }chain \PYG{o}{[}match\PYG{o}{]} \PYG{o}{[}-j target/jump\PYG{o}{]}
+\end{Verbatim}

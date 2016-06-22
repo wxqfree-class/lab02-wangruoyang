@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+ifup eth0        \PYG{c}{\PYGZsh{}激活网卡}
+ifdown eth0      \PYG{c}{\PYGZsh{}关闭网卡}
+\end{Verbatim}

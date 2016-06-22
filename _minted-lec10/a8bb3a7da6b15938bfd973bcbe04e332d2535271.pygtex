@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+chekconfig --level 345 vsftpd on
+service vsftpd start
+ftp 192.168.0.200
+\end{Verbatim}

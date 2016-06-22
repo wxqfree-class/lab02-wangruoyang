@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}1. 添加用户}
+useradd fox
+password fox
+smbpasswd -a fox
+
+\PYG{c}{\PYGZsh{}2. 创建共享目录}
+mkdir /pubdir
+chown fox:fox /pubdir
+chmod -R 770 /pubdir
+\end{Verbatim}

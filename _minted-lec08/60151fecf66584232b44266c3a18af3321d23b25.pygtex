@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+pam\PYGZus{}access.so   \PYG{c}{\PYGZsh{}控制访问者地址与账户名称}
+pam\PYGZus{}cracklib.so \PYG{c}{\PYGZsh{}根据密码规则检查密码}
+pam\PYGZus{}listfile.so \PYG{c}{\PYGZsh{}控制访问者的账户名或登录位置}
+pam\PYGZus{}limits.so   \PYG{c}{\PYGZsh{}控制为用户分配的资源}
+pam\PYGZus{}localuser   \PYG{c}{\PYGZsh{}要求将用户列于/etc/passwd文件中}
+pam\PYGZus{}rootok.so   \PYG{c}{\PYGZsh{}允许root无条件通过认证}
+pam\PYGZus{}unix.so     \PYG{c}{\PYGZsh{}通过/etc/passwd文件提供传统密码验证}
+pam\PYGZus{}userdb.so   \PYG{c}{\PYGZsh{}设置用户账号数据库认证}
+\end{Verbatim}

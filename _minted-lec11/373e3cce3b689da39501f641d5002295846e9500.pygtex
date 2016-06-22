@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+rpm -qa | grep openssl
+rpm -qa | grep mod\PYGZus{}ssl
+\end{Verbatim}

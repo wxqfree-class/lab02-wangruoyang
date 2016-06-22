@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+Order Allow,Deny
+Allow from xyz.net
+Deny from jx.xyz.net
+\PYG{c}{\PYGZsh{}允许来自xyz.net域的主机访问(jx.xyz.net子域除外)}
+\PYG{c}{\PYGZsh{}拒绝所有其他主机}
+\end{Verbatim}

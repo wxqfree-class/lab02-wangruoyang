@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{cd} /var/named/chroot/etc
+cp -p named.caching-nameserver.conf named.conf
+vim named.conf \PYG{c}{\PYGZsh{}在最后添加下面几行}
+zone \PYG{l+s+s2}{"abc.com"} IN \PYG{o}{\PYGZob{}}
+        \PYG{n+nb}{type }master;
+        file \PYG{l+s+s2}{"abc.com.zone"};
+\PYG{o}{\PYGZcb{}};
+zone \PYG{l+s+s2}{"1.168.192.in-addr.arpa"} IN \PYG{o}{\PYGZob{}}
+        \PYG{n+nb}{type }master;
+        file \PYG{l+s+s2}{"192.168.1.rev"};
+\PYG{o}{\PYGZcb{}};
+\end{Verbatim}

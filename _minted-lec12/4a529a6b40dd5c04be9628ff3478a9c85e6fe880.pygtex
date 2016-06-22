@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+service iptables save
+service iptables restart
+\end{Verbatim}

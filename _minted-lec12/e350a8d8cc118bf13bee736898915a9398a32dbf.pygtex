@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+iptables -t nat -A POSTROUTING -o eth1 \PYG{l+s+se}{\PYGZbs{}}
+-j SNAT --to 172.16.0.10
+\end{Verbatim}

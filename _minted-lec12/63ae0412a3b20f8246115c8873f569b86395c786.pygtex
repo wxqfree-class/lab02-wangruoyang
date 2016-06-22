@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+iptables -A FORWARD -m mac --mac-source 00:50:0C:34:9A:D3 -j DROP
+\PYG{c}{\PYGZsh{}丢弃来自指定MAC地址发出的数据包}
+\PYG{c}{\PYGZsh{}注意：一个数据包经过路由器转发后，}
+\PYG{c}{\PYGZsh{}     其源MAC地址将变成路由器接口的MAC地址！}
+\end{Verbatim}

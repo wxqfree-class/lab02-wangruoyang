@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{cd} /etc/sysconfig/network-scripts
+vim ifcfg-eth1
+\PYG{n+nv}{DEVICE}\PYG{o}{=}eth1
+\PYG{n+nv}{BOOTPROTO}\PYG{o}{=}dhcp
+\PYG{n+nv}{ONBOOT}\PYG{o}{=}yes
+
+dhclient   \PYG{c}{\PYGZsh{}启动dhcp客户端}
+ifconfig
+cat /var/lib/dhclient/dhclient.leases \PYG{c}{\PYGZsh{}client2上查看租约}
+cat /var/lib/dhcpd/dhcpd.leases \PYG{c}{\PYGZsh{}server1上查看租约}
+\end{Verbatim}

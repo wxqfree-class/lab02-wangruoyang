@@ -1,0 +1,16 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}指定多层缓存网络中其他缓存服务器}
+cache\PYGZus{}peer hostname \PYG{n+nb}{type }http\PYGZus{}port icp\PYGZus{}port \PYG{o}{[}options\PYG{o}{]}
+cache\PYGZus{}peer p.abc.com parent 3128 3130 proxy-only default
+cache\PYGZus{}peer s1.abc.com sibling 3128 3130 proxy-only
+cache\PYGZus{}peer s2.abc.com sibling 3128 3130 proxy-only
+\PYG{c}{\PYGZsh{}type: parent(父级)、sibling(同级)}
+\PYG{c}{\PYGZsh{}http\PYGZus{}port: 该缓存服务器监听客户端http请求的端口，默认3128}
+\PYG{c}{\PYGZsh{}icp\PYGZus{}port：该缓存服务器ICP查询所用端口，默认3130}
+\PYG{c}{\PYGZsh{}options：proxy-only:不保存来自缓存的对象}
+\PYG{c}{\PYGZsh{}         default：作为顶层缓存服务器}
+\PYG{c}{\PYGZsh{}限定要查询的邻居缓存服务器的域}
+cache\PYGZus{}peer\PYGZus{}domain p.abc.com \PYG{o}{[}!\PYG{o}{]}.edu
+\PYG{c}{\PYGZsh{}通过acl提供更灵活的访问控制}
+cache\PYGZus{}peer\PYGZus{}access p.abc.com allow|deny acl1
+\end{Verbatim}

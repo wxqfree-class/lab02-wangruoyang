@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+acl mynet src 192.168.0.0/255.255.0.0
+http\PYGZus{}access allow mynet
+http\PYGZus{}access deny all
+\end{Verbatim}

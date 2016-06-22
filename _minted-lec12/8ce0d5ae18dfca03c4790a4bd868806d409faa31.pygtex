@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+http\PYGZus{}port 192.168.0.2:3128 \PYG{c}{\PYGZsh{}监听地址及端口}
+cache\PYGZus{}mem 128 MB \PYG{c}{\PYGZsh{}设置高速缓存为128MB}
+cache\PYGZus{}dir ufs /var/spool/squid 4096 16 256 \PYG{c}{\PYGZsh{}设置硬盘缓存}
+access\PYGZus{}log /var/log/squid/access.log \PYG{c}{\PYGZsh{}设置访问日志}
+cache\PYGZus{}log /var/log/squid/cache.log \PYG{c}{\PYGZsh{}设置缓存日志}
+cache\PYGZus{}store\PYGZus{}log /var/log/squid/store.log \PYG{c}{\PYGZsh{}设置网页缓存日志}
+dns\PYGZus{}nameservers 211.137.191.26 \PYG{c}{\PYGZsh{}设置DNS服务器}
+acl all src 0.0.0.0/0.0.0.0 \PYG{c}{\PYGZsh{}定义访问控制列表all}
+http\PYGZus{}access allow all \PYG{c}{\PYGZsh{}允许所有客户端访问}
+cache\PYGZus{}mgr root@abc.com \PYG{c}{\PYGZsh{}设置管理员E-mail地址}
+cache\PYGZus{}effective\PYGZus{}user squid \PYG{c}{\PYGZsh{}设置squid进程所有者}
+cache\PYGZus{}effective\PYGZus{}group squid \PYG{c}{\PYGZsh{}设置squid进程所属组}
+visible\PYGZus{}hostname 192.168.0.2 \PYG{c}{\PYGZsh{}设置squid可见主机名}
+\end{Verbatim}

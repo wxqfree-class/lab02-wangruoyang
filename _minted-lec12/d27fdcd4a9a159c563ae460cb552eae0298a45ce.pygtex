@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+ac1 bigfiles urlpath\PYGZus{}regex -i \PYG{l+s+se}{\PYGZbs{}.}mp3\PYG{n+nv}{\PYGZdl{} }\PYG{l+s+se}{\PYGZbs{}.}exe\PYG{n+nv}{\PYGZdl{} }\PYG{l+s+se}{\PYGZbs{}z}ip\PYG{n+nv}{\PYGZdl{} }\PYG{l+s+se}{\PYGZbs{}.}rar\PYG{err}{\PYGZdl{}}
+http\PYGZus{}access deny bigfiles
+\end{Verbatim}

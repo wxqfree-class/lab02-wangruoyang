@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{cd} /etc/sysconfig/network-scripts
+vim ifcfg-eth2:0
+\PYG{n+nv}{DEVICE}\PYG{o}{=}eth2:0
+\PYG{n+nv}{BOOTPROTO}\PYG{o}{=}none
+\PYG{n+nv}{IPADDR}\PYG{o}{=}200.0.0.253
+\PYG{n+nv}{NETMASK}\PYG{o}{=}255.255.255.0
+\PYG{n+nv}{ONBOOT}\PYG{o}{=}yes
+\end{Verbatim}

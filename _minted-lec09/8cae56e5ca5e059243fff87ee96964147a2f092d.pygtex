@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{cd} /var/named/chroot/etc
+named-checkconf named.conf \PYG{c}{\PYGZsh{}检查主配置文件}
+\PYG{n+nb}{cd} /var/named/chroot/var/named
+named-checkzone abc.com abc.com.zone \PYG{c}{\PYGZsh{}检查区域文件}
+named-checkzone 1.168.192.in-addr.arpa 192.168.1.rev
+\end{Verbatim}

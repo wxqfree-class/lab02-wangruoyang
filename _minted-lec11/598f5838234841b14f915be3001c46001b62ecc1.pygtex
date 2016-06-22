@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+vim /etc/httpd/conf.d/webalizer.conf
+Alias /usage /var/www/usage
+<Location /usage>
+    Order deny,allow
+    Deny from all
+    Allow from 127.0.0.1
+    Allow from ::1
+    Allow from 192.168.56.1 \PYG{c}{\PYGZsh{}增加客户端许可}
+</Location>
+
+service httpd restart
+访问 http://192.168.56.200/usage
+\end{Verbatim}

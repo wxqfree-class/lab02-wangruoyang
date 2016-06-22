@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+iptables -A FORWARD -s 192.168.0.0/24 -i eth1 -j DROP
+\end{Verbatim}

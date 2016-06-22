@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+squid -k parse \PYG{c}{\PYGZsh{}检查配置文件是否正确}
+squid -z       \PYG{c}{\PYGZsh{}初始化squid缓存}
+service squid start \PYG{c}{\PYGZsh{}启动squid}
+\end{Verbatim}

@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+smbclient -L //192.168.0.200/public -U neo
+\end{Verbatim}

@@ -1,0 +1,18 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+<IfModule mod\PYGZus{}userdir.c>
+    UserDir disable root \PYG{c}{\PYGZsh{}禁止root用户使用个人Web空间}
+    UserDir public\PYGZus{}html  \PYG{c}{\PYGZsh{}设置用户Web站点目录}
+</IfModule>
+<Directory /home/*/public\PYGZus{}html>
+    AllowOverride FileInfo AuthConfig Limit
+    Options MultiViews Indexes SymLinksIfOwnerMatch IncludesNoExec
+    <Limit GET POST OPTIONS>
+        Order allow,deny
+        Allow from all
+    </Limit>
+    <LimitExcept GET POST OPTIONS>
+        Order deny,allow
+        Deny from all
+    </LimitExcept>
+</Directory>
+\end{Verbatim}

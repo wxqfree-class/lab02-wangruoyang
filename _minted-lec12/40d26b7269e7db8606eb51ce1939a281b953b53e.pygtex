@@ -1,0 +1,17 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+vim firewall.sh
+iptables -F; iptables -X; iptables -Z;
+iptables -t nat -F
+iptables -t nat -X
+iptables -t nat -Z
+\PYG{c}{\PYGZsh{}对http服务的访问转向DMZ区反向代理}
+iptables -t nat -A PREROUTING -i eth2 -p tcp \PYG{l+s+se}{\PYGZbs{}}
+--dport 80 -j DNAT --to 10.0.0.100:80
+\PYG{c}{\PYGZsh{}对ftp服务的访问转向DMZ区ftp服务器}
+iptables -t nat -A PREROUTING -i eth2 -p tcp \PYG{l+s+se}{\PYGZbs{}}
+--dport 21 -j DNAT --to 10.0.0.100:21
+\PYG{c}{\PYGZsh{}对dns服务的访问转向DMZ区dns服务器}
+iptables -t nat -A PREROUTING -i eth2 -p udp \PYG{l+s+se}{\PYGZbs{}}
+--dport 53 -j DNAT --to 10.0.0.100:53
+service iptables save; service iptables restart
+\end{Verbatim}

@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+ServerRoot \PYG{l+s+s2}{"/etc/httpd"} \PYG{c}{\PYGZsh{}配置、日志及相关文件的根目录}
+\end{Verbatim}

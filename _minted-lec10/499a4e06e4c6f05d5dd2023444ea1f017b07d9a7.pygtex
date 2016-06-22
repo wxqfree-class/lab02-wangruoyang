@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+yum -y install samba
+service smb \PYG{o}{\PYGZob{}}start|stop|restart|status|condrestart\PYG{o}{\PYGZcb{}}
+\end{Verbatim}

@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{pasv\PYGZus{}enable}\PYG{o}{=}YES \PYG{c}{\PYGZsh{}是否允许采用PASV模式(默认值)}
+pasv\PYGZus{}min\PYGZus{}port \PYG{c}{\PYGZsh{}PASV模式数据连接所用端口最小值(默认值0)}
+pasv\PYGZus{}max\PYGZus{}port \PYG{c}{\PYGZsh{}PASV模式数据连接所用端口最大值(默认值0)}
+\end{Verbatim}

@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+iptables -X MYCHAIN
+\PYG{c}{\PYGZsh{}删除filter表中名为MYCHAIN的链}
+\PYG{c}{\PYGZsh{}只能删除用户自定义的链，不能删除内置链}
+\end{Verbatim}

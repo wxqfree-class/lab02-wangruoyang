@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+rpm -qa | grep dhcp
+yum install dhcp
+rpm -ql dhcp
+\end{Verbatim}

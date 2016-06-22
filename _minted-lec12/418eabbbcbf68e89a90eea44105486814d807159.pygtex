@@ -1,0 +1,17 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}定义内网用户视图}
+view inside \PYG{o}{\PYGZob{}}
+        match-clients      \PYG{o}{\PYGZob{}} inside\PYGZus{}hosts \PYG{o}{\PYGZcb{}};
+        match-destinations \PYG{o}{\PYGZob{}} any; \PYG{o}{\PYGZcb{}};
+        recursion yes;
+        include \PYG{l+s+s2}{"/etc/named.rfc1912.zones"};
+        zone \PYG{l+s+s2}{"abc.com"} IN \PYG{o}{\PYGZob{}}
+                \PYG{n+nb}{type }master;
+                file \PYG{l+s+s2}{"abc.com.zone.in"};
+        \PYG{o}{\PYGZcb{}};
+        zone \PYG{l+s+s2}{"xyz.net"} IN \PYG{o}{\PYGZob{}}
+                \PYG{n+nb}{type }master;
+                file \PYG{l+s+s2}{"xyz.net.zone"};
+        \PYG{o}{\PYGZcb{}};
+\PYG{o}{\PYGZcb{}};
+\end{Verbatim}

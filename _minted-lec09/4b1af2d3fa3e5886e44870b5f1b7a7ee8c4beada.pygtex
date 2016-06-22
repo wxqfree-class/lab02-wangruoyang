@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+rpm -qa | grep \PYG{l+s+s1}{'bind'}
+yum install \PYG{n+nb}{bind bind}-chroot \PYG{n+nb}{bind}-libs \PYG{n+nb}{bind}-utils
+\PYG{c}{\PYGZsh{}bind-chroot不是必需的，但它可以通过将dns服务放入其自己的根目录内以增强dns服务器的安全性，如果有人入侵dns服务器，则他们将会被限制在该根目录内而无法入侵其他位置。}
+rpm -ql \PYG{n+nb}{bind} | less
+\end{Verbatim}

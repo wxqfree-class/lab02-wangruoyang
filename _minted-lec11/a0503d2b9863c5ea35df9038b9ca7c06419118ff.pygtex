@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+<IfModule worker.c>
+StartServers         2 \PYG{c}{\PYGZsh{}启动时的服务器进程数}
+MaxClients         150 \PYG{c}{\PYGZsh{}所允许的最大并发连接数}
+MinSpareThreads     25 \PYG{c}{\PYGZsh{}最小的空闲线程数}
+MaxSpareThreads     75 \PYG{c}{\PYGZsh{}最大的空闲线程数}
+ThreadsPerChild     25 \PYG{c}{\PYGZsh{}每个进程的线程数}
+MaxRequestsPerChild  0 \PYG{c}{\PYGZsh{}每个进程处理的最大请求数}
+</IfModule>
+\end{Verbatim}

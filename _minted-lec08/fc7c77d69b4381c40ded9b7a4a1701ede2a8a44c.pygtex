@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+nameserver 192.168.0.1 \PYG{c}{\PYGZsh{}名称服务器}
+nameserver 8.8.8.8
+search abc.com         \PYG{c}{\PYGZsh{}DNS搜索路径}
+domain abc.com         \PYG{c}{\PYGZsh{}默认域名}
+\end{Verbatim}

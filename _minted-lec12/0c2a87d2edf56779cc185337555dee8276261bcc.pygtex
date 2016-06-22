@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+iptables -I INPUT 1 -p tcp --dport 80 -j ACCEPT
+\PYG{c}{\PYGZsh{}在filter表的INPUT链中位置1处插入一条规则：}
+\PYG{c}{\PYGZsh{}允许协议为tcp，目标地址为本机80端口的数据包}
+\PYG{c}{\PYGZsh{}原来在位置1及其后的规则依次向后移动}
+\end{Verbatim}

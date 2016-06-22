@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+vim /etc/resolv.conf
+nameserver 200.0.0.253
+search localdomain
+\end{Verbatim}

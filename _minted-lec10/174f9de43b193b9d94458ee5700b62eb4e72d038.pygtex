@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+mkdir /home/pubsmb
+chown neo:pubsmb /home/pubsmb
+chmod 777 /home/pubsmb
+\end{Verbatim}

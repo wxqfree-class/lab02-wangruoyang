@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+vim /etc/samba/smb.conf
+...
+\PYG{n+nv}{security} \PYG{o}{=} share
+...
+\PYG{o}{[}doc\PYG{o}{]}
+\PYG{n+nv}{comment} \PYG{o}{=} documents
+\PYG{n+nv}{path} \PYG{o}{=} /usr/share/doc
+\PYG{n+nv}{public} \PYG{o}{=} yes
+\PYG{c}{\PYGZsh{}注意：此处没有添加writable = yes，默认权限为只读。}
+
+service smb restart
+\end{Verbatim}

@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+hide\PYGZus{}ids \PYG{c}{\PYGZsh{}将目录列表中的所有用户和组信息显示为ftp}
+ls\PYGZus{}recurse\PYGZus{}enable \PYG{c}{\PYGZsh{}允许使用ls -R指令}
+write\PYGZus{}enable \PYG{c}{\PYGZsh{}允许使用任何修改文件系统的ftp指令}
+secure\PYGZus{}chroot\PYGZus{}dir \PYG{c}{\PYGZsh{}设置安全chroot监牢目录，相见man手册}
+\end{Verbatim}

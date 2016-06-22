@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}1. 在主配置文件中设置用户配置文件所在目录}
+\PYG{n+nv}{user\PYGZus{}config\PYGZus{}dir}\PYG{o}{=}/etc/vsftpd\PYGZus{}user\PYGZus{}conf
+\PYG{c}{\PYGZsh{}2. 创建用户配置目录}
+mkdir /etc/vsftpd\PYGZus{}user\PYGZus{}conf
+\PYG{c}{\PYGZsh{}3. 创建用户配置文件}
+vim /etc/vsftpd\PYGZus{}user\PYGZus{}conf/mike
+\PYG{n+nv}{local\PYGZus{}max\PYGZus{}rate}\PYG{o}{=}100000
+\end{Verbatim}

@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+iptables -A OUTPUT -p tcp --dport 80 -j ACCEPT
+\PYG{c}{\PYGZsh{}允许从本机发出的目标端口号为80的tcp包}
+\end{Verbatim}

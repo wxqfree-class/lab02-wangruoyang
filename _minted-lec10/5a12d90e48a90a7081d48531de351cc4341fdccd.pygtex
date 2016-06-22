@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+listen\PYGZus{}address \PYG{c}{\PYGZsh{}监听IP地址(默认未设置，表示监听所有接口IP)}
+\PYG{n+nv}{listen\PYGZus{}port}\PYG{o}{=}21 \PYG{c}{\PYGZsh{}监听端口号(默认值)}
+\end{Verbatim}

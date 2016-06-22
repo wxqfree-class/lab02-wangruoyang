@@ -1,0 +1,16 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+host ftp.xyz.net 192.168.1.200 \PYG{c}{\PYGZsh{}无法解析！}
+\PYG{n+nb}{cd} /var/named/chroot/etc
+vim named.conf \PYG{c}{\PYGZsh{}添加下面几行}
+options \PYG{o}{\PYGZob{}}
+        listen-on port 53 \PYG{o}{\PYGZob{}} any; \PYG{o}{\PYGZcb{}};
+        directory       \PYG{l+s+s2}{"/var/named"};
+  forward only; \PYG{c}{\PYGZsh{}仅转发，也可为first(先转发)}
+  forwarders \PYG{o}{\PYGZob{}} 192.168.2.200; \PYG{o}{\PYGZcb{}}; \PYG{c}{\PYGZsh{}配置转发器}
+        allow-query     \PYG{o}{\PYGZob{}} any; \PYG{o}{\PYGZcb{}};
+        recursion yes;
+\PYG{o}{\PYGZcb{}};
+
+service named restart \PYG{c}{\PYGZsh{}重启named服务}
+host ftp.xyz.net 192.168.1.200 \PYG{c}{\PYGZsh{}解析成功！}
+\end{Verbatim}

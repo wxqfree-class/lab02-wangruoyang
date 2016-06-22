@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+mkdir /cwb\PYGZus{}data
+chown -R neo:cwb /cwb\PYGZus{}data \PYG{c}{\PYGZsh{}设置共享目录所有者和属主}
+chmod -R 770 /cwb\PYGZus{}data     \PYG{c}{\PYGZsh{}设置权限}
+vim /etc/samba/smb.conf
+...
+\PYG{o}{[}cwb\PYG{o}{]}
+\PYG{n+nv}{path} \PYG{o}{=} /cmb\PYGZus{}data
+force \PYG{n+nv}{user} \PYG{o}{=} neo           \PYG{c}{\PYGZsh{}设置默认用户}
+force \PYG{n+nv}{group} \PYG{o}{=} cwb          \PYG{c}{\PYGZsh{}设置默认组名}
+\PYG{c}{\PYGZsh{}所有访问该共享目录的用户都将拥有默认用户和组的权限}
+\PYG{c}{\PYGZsh{}上述设置可以有效地简化权限设置}
+\end{Verbatim}

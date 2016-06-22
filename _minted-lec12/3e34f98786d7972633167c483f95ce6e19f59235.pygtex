@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+iptables -L INPUT
+\PYG{c}{\PYGZsh{}列出filter表的INPUT链中的所有规则}
+iptables -L \PYG{c}{\PYGZsh{}列出filter表的所有规则}
+iptables -t nat -L \PYG{c}{\PYGZsh{}列出nat表的所有规则}
+\end{Verbatim}

@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+route -n    \PYG{c}{\PYGZsh{}查看路由表(-n 不进行域名解析)}
+netstat -rn \PYG{c}{\PYGZsh{}查看路由表}
+\end{Verbatim}

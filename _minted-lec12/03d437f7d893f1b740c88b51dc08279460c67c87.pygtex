@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+iptables -A OUTPUT -o eth1 -p tcp \PYG{l+s+se}{\PYGZbs{}}
+--dport 31337 --sport 31337 -j DROP
+iptables -A FORWARD -o eth1 -p tcp \PYG{l+s+se}{\PYGZbs{}}
+--dport 31337 --sport 31337 -j DROP
+\end{Verbatim}

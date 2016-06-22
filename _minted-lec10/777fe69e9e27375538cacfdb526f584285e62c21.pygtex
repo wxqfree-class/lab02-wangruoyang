@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}(1)创建虚拟用户数据文件}
+vim /etc/vsftpd/login.txt
+kehu01  \PYG{c}{\PYGZsh{}奇数行为虚拟用户名}
+abc123  \PYG{c}{\PYGZsh{}偶数行为虚拟用户密码}
+kehu02
+123abc
+\PYG{c}{\PYGZsh{}(2)将login.txt转换为数据库文件login.db}
+yum install db4-utils
+\PYG{n+nb}{cd} /etc/vsftpd
+db\PYGZus{}load -T -t \PYG{n+nb}{hash} -f login.txt login.db
+\PYG{c}{\PYGZsh{}(3)限制数据库文件的访问权限}
+chmod 600 login.db
+\end{Verbatim}

@@ -1,4 +1,4 @@
-% Created 2016-02-28 日 20:45
+% Created 2016-06-20 一 08:25
 \documentclass[xcolor=svgnames,presentation]{beamer}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -865,7 +865,7 @@ uname -r
 \label{sec-3-2-1-2-1}%
 \begin{itemize}
 
-\item 单根目录：每个分区都有一个根目录
+\item 多根目录：每个分区都有一个根目录
 \label{sec-3-2-1-2-1-1}%
 \end{itemize} % ends low level
 
@@ -873,7 +873,7 @@ uname -r
 \label{sec-3-2-1-2-2}%
 \begin{itemize}
 
-\item 多根目录：整个系统只有一个根目录
+\item 单根目录：整个系统只有一个根目录
 \label{sec-3-2-1-2-2-1}%
 
 \item 所有分区都挂载在目录树上的某个目录(称为挂载点)下面
@@ -1559,7 +1559,7 @@ tail -3 /etc/passwd
 su
 tail -f /var/log/messages  #跟踪文件结尾追加的行
                            #按Ctrl-c结束
-systemctrl restart network.service
+service network restart
 \end{minted}
 \end{itemize} % ends low level
 \end{frame}

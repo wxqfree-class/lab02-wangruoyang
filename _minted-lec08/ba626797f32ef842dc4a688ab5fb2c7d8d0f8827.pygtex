@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+sysctl -a | grep ip\PYGZus{}forward
+\end{Verbatim}

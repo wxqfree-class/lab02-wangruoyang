@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+TimeOut \PYG{c}{\PYGZsh{}连接请求超时时间}
+KeepAlive \PYG{c}{\PYGZsh{}是否启用持久连接}
+MaxKeepAliveRequests \PYG{c}{\PYGZsh{}单个持久连接所允许的最大请求数}
+KeepAliveTimeout \PYG{c}{\PYGZsh{}持久连接中等待下一次请求的最长时间}
+\end{Verbatim}

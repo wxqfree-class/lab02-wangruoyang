@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+<Location /server-status>
+    SetHandler server-status
+    Order deny,allow
+    Deny from all
+    Allow from 192.168.0.1
+</Location>
+\end{Verbatim}

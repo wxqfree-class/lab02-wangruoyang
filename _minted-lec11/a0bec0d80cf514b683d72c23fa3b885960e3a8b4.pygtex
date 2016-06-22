@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+<IfModule prefork.c>
+StartServers       8 \PYG{c}{\PYGZsh{}启动时的服务器进程数}
+MinSpareServers    5 \PYG{c}{\PYGZsh{}最小的空闲子进程数}
+MaxSpareServers   20 \PYG{c}{\PYGZsh{}最大的空闲子进程数}
+ServerLimit      256 \PYG{c}{\PYGZsh{}所允许的MaxClients最大值}
+MaxClients       256 \PYG{c}{\PYGZsh{}所允许的最大服务器进程数}
+MaxRequestsPerChild  4000 \PYG{c}{\PYGZsh{}每个进程可以处理的最大请求数}
+</IfModule>
+\end{Verbatim}

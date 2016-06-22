@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+<Location /inner> \PYG{c}{\PYGZsh{}网站中以/inner开头的URL}
+    SetHandler server-status
+    Order deny,allow
+    Deny from all
+    Allow from 192.168.0.1
+</Location>
+\end{Verbatim}

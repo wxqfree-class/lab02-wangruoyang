@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+192.168.1.10              \PYG{c}{\PYGZsh{}指定主机ip}
+192.168.1.0/24            \PYG{c}{\PYGZsh{}指定网段}
+192.168.1.*               \PYG{c}{\PYGZsh{}同上}
+192.168.1.0/255.255.255.0 \PYG{c}{\PYGZsh{}同上}
+client1.abc.com           \PYG{c}{\PYGZsh{}指定主机域名}
+*.abc.com                 \PYG{c}{\PYGZsh{}指定域}
+\PYG{l+s+s1}{'*'}                       \PYG{c}{\PYGZsh{}任何主机}
+\end{Verbatim}

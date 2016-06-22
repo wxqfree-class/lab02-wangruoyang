@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+service iptables \PYG{o}{\PYGZob{}}start|stop|restart|status|panic|save\PYG{o}{\PYGZcb{}}
+\PYG{c}{\PYGZsh{}panic：丢弃所有防火墙规则,所有表中的策略都被设为DROP}
+\end{Verbatim}

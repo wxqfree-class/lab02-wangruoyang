@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}1. 配置域名解析，为方便可以编辑hosts文件}
+vim /etc/hosts
+192.168.56.200  www.abc.com
+192.168.56.200  www.xyz.net
+\PYG{c}{\PYGZsh{}2. 为每个网站创建根目录}
+mkdir -p /var/www/abc.com
+mkdir -p /var/www/xyz.net
+\PYG{c}{\PYGZsh{}3. 在每个网站根目录下准备index.html文件}
+\PYG{c}{\PYGZsh{}4. 编辑httpd.conf文件}
+......
+Listen 80
+......
+\end{Verbatim}

@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+yum install dhcp
+chkconfig --level 3 dhrelay on
+vim /etc/sysconfig/dhcrelay
+\PYG{n+nv}{DHCRELAYARGS}\PYG{o}{=}\PYG{l+s+s2}{""} \PYG{c}{\PYGZsh{}运行参数}
+\PYG{n+nv}{INTERFACES}\PYG{o}{=}\PYG{l+s+s2}{""}   \PYG{c}{\PYGZsh{}监听接口，如"eth0 eth1"}
+\PYG{n+nv}{DHCPSERVERS}\PYG{o}{=}\PYG{l+s+s2}{"192.168.2.200"} \PYG{c}{\PYGZsh{}指定dhcp服务器}
+\PYG{c}{\PYGZsh{}注意：dhcp中继代理本身必须有静态ip地址并能与dhcp服务器通信}
+service dhrelay start
+\end{Verbatim}

@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+vim var/named/192.168.2.rev \PYG{c}{\PYGZsh{}在最后面添加几行记录}
+        IN      NS      ns1.jx.abc.com.
+200     IN      PTR     ns1.jx.abc.com.
+200     IN      PTR     www.jx.abc.com.
+200     IN      PTR     ftp.jx.abc.com.
+\end{Verbatim}

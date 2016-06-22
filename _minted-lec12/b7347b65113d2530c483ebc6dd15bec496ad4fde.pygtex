@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+http\PYGZus{}access allow manager localhost
+http\PYGZus{}access deny manager
+http\PYGZus{}access deny !Safe\PYGZus{}ports
+http\PYGZus{}access deny CONNECT !SSL\PYGZus{}ports
+\end{Verbatim}

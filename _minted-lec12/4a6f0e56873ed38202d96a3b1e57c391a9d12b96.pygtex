@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+iptables -A FORWARD -i eth0 -j ACCEPT
+iptables -A FORWARD -o eth0 -j ACCEPT
+\end{Verbatim}

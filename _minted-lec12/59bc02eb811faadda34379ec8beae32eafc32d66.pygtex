@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+htpasswd -c /etc/squid/passwd mike \PYG{c}{\PYGZsh{}添加首个用户}
+htpasswd /etc/squid/passwd mary \PYG{c}{\PYGZsh{}添加后续用户}
+
+service squid restart
+\end{Verbatim}

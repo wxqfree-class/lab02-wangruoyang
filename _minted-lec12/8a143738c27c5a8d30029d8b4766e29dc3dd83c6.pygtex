@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+iptables -A INPUT -p icmp --icmp-type 8 -j ACCEPT
+\PYG{c}{\PYGZsh{}允许目标地址为本机且类型值为8(echo request)的icmp包}
+\PYG{c}{\PYGZsh{}可以写类型值或类型名}
+iptables -p icmp -h \PYG{c}{\PYGZsh{}可查看icmp选项列表}
+\end{Verbatim}

@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+Require user usr1 usr2 ...  \PYG{c}{\PYGZsh{}为指定用户授权}
+Require group grp1 grp2 ... \PYG{c}{\PYGZsh{}为指定组授权}
+Require valid-user \PYG{c}{\PYGZsh{}为认证密码文件中所有用户授权}
+\end{Verbatim}

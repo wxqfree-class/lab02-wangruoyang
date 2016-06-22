@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{cd} /var/named/chroot/etc
+vim named.conf \PYG{c}{\PYGZsh{}添加allow-transfer语句}
+zone \PYG{l+s+s2}{"abc.com"} IN \PYG{o}{\PYGZob{}}
+        \PYG{n+nb}{type }master;
+        file \PYG{l+s+s2}{"abc.com.zone"};
+        allow-transfer \PYG{o}{\PYGZob{}} 192.168.2.200; \PYG{o}{\PYGZcb{}};
+\PYG{o}{\PYGZcb{}};
+zone \PYG{l+s+s2}{"1.168.192.in-addr.arpa"} IN \PYG{o}{\PYGZob{}}
+        \PYG{n+nb}{type }master;
+        file \PYG{l+s+s2}{"192.168.1.rev"};
+        allow-transfer \PYG{o}{\PYGZob{}} 192.168.2.200; \PYG{o}{\PYGZcb{}};
+\PYG{o}{\PYGZcb{}};
+\end{Verbatim}

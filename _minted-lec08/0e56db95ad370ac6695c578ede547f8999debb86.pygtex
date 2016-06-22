@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+ALL:ALL:echo \PYG{l+s+s1}{'\PYGZpc{}c try to connect \PYGZpc{}d - blocked'} \PYG{l+s+se}{\PYGZbs{}}
+>>/var/log/tcpwrappers.log  \PYG{c}{\PYGZsh{}默认拒绝所有访问}
+\end{Verbatim}

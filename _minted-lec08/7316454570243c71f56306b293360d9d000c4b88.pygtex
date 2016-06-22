@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+vim /etc/sysconfig/network-scripts/keys-ipsec0
+\PYG{n+nv}{IKE\PYGZus{}PSK}\PYG{o}{=}Abc\PYGZus{}123
+chmod 600 /etc/sysconfig/network-scripts/keys-ipsec0
+\end{Verbatim}

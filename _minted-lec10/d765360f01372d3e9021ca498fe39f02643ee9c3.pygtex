@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+cat /var/lib/nfs/etab \PYG{c}{\PYGZsh{}服务器端查看共享目录及其共享选项}
+showmount -e 192.168.1.200 \PYG{c}{\PYGZsh{}查看服务器共享目录列表}
+\PYG{c}{\PYGZsh{}客户端挂载共享目录}
+mkdir /mnt/public
+mount -t nfs 192.168.1.200:/home/public /mnt/public
+mount
+\end{Verbatim}

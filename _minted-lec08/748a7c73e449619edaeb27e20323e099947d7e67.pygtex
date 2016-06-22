@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+ldd /usr/sbin/sshd | grep libwrap \PYG{c}{\PYGZsh{}查看sshd是否链接libwrap库}
+\end{Verbatim}

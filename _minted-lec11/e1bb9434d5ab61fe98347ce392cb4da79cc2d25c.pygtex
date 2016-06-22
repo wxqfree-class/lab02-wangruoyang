@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+Listen 443
+<VirtualHost 192.168.56.201:443>
+SSLEngine on
+SSLCertificateFile /etc/pki/tls/certs/abcsrv.crt
+SSLCertificateKeyFile /etc/pki/tls/private/abcsrv.key
+......
+</VirtualHost>
+<VirtualHost 192.168.56.202:443>
+SSLEngine on
+SSLCertificateFile /etc/pki/tls/certs/xyzsrv.crt
+SSLCertificateKeyFile /etc/pki/tls/private/xyzsrv.key
+......
+</VirtualHost>
+\end{Verbatim}

@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+iptables -P INPUT DROP
+iptables -P FORWARD DROP
+iptables -P OUTPUT DROP
+iptables -t nat -P PREROUTING ACCEPT
+iptables -t nat -P OUTPUT ACCEPT
+iptables -t nat -P POSTROUTING ACCEPT
+\end{Verbatim}

@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+vim /var/named/chroot/etc/named.conf
+options \PYG{o}{\PYGZob{}}
+        listen-on port 53 \PYG{o}{\PYGZob{}} any; \PYG{o}{\PYGZcb{}};
+        directory       \PYG{l+s+s2}{"/var/named"};
+        allow-query     \PYG{o}{\PYGZob{}} any; \PYG{o}{\PYGZcb{}};
+        allow-query-cache \PYG{o}{\PYGZob{}} any; \PYG{o}{\PYGZcb{}};
+\PYG{o}{\PYGZcb{}};
+\PYG{c}{\PYGZsh{}定义内网用户访问控制列表}
+acl \PYG{l+s+s2}{"inside\PYGZus{}hosts"} \PYG{o}{\PYGZob{}}
+        127.0.0.1;192.168.56.0/24;10.0.0.0/24;
+\PYG{o}{\PYGZcb{}};
+\end{Verbatim}

@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+useradd -d /home/ftpsite -s /sbin/nologin virtual
+\PYG{c}{\PYGZsh{}可将要下载的内容复制到/home/ftpsite目录}
+\end{Verbatim}

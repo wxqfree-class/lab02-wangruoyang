@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+hostname           \PYG{c}{\PYGZsh{}显示主机名}
+hostname myserver  \PYG{c}{\PYGZsh{}设置主机名(立即生效，但非永久)}
+vim /etc/sysconfig/network \PYG{c}{\PYGZsh{}永久设置主机名(重启后生效)}
+\end{Verbatim}

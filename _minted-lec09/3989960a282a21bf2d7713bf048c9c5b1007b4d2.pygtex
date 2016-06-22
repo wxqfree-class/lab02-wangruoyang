@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{cd} /var/named/chroot/etc
+cp -p named.caching-nameserver.conf named.conf
+vim named.conf \PYG{c}{\PYGZsh{}在最后添加下面几行}
+options \PYG{o}{\PYGZob{}}
+        listen-on port 53 \PYG{o}{\PYGZob{}} any; \PYG{o}{\PYGZcb{}}; \PYG{c}{\PYGZsh{}监听所有接口}
+        directory \PYG{l+s+s2}{"/var/named"};
+        allow-query \PYG{o}{\PYGZob{}} any; \PYG{o}{\PYGZcb{}}; \PYG{c}{\PYGZsh{}允许所有客户端}
+        recursion yes; \PYG{c}{\PYGZsh{}允许递归查询}
+\PYG{o}{\PYGZcb{}};
+include \PYG{l+s+s2}{"/etc/named.rfc1912.zones"}; \PYG{c}{\PYGZsh{}包含区域文件}
+\end{Verbatim}

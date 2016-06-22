@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+sshd:ALL         \PYG{c}{\PYGZsh{}允许从任何系统连接sshd}
+in.telnet:LOCAL  \PYG{c}{\PYGZsh{}允许从本域连接telnet}
+in.telnet:192.168.56.* 127.0.0.1 \PYG{c}{\PYGZsh{}允许指定ip连接telnet}
+\PYG{c}{\PYGZsh{}允许172.16网段中除172.16.251.105之外所有主机访问telnet}
+in.telnetd: 172.16. EXCEPT 172.16.251.105
+\PYG{c}{\PYGZsh{}仅允许192.168.56.1访问telnet服务}
+in.telnetd:ALL EXCEPT 192.168.56.1:deny
+\end{Verbatim}

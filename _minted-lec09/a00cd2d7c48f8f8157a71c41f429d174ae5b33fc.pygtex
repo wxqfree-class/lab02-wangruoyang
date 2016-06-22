@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+logging \PYG{o}{\PYGZob{}}
+        channel default\PYGZus{}debug \PYG{o}{\PYGZob{}} \PYG{c}{\PYGZsh{}定义日志通道}
+                file \PYG{l+s+s2}{"data/named.run"}; \PYG{c}{\PYGZsh{}默认日志文件}
+                severity dynamic; \PYG{c}{\PYGZsh{}默认日志等级}
+        \PYG{o}{\PYGZcb{}};
+\PYG{o}{\PYGZcb{}};
+view localhost\PYGZus{}resolver \PYG{o}{\PYGZob{}} \PYG{c}{\PYGZsh{}定义视图}
+        match-clients      \PYG{o}{\PYGZob{}} localhost; \PYG{o}{\PYGZcb{}}; \PYG{c}{\PYGZsh{}匹配客户端请求的源地址}
+        match-destinations \PYG{o}{\PYGZob{}} localhost; \PYG{o}{\PYGZcb{}}; \PYG{c}{\PYGZsh{}匹配客户端请求的目标地址}
+        recursion yes; \PYG{c}{\PYGZsh{}允许递归查询}
+        include \PYG{l+s+s2}{"/etc/named.rfc1912.zones"}; \PYG{c}{\PYGZsh{}包含标准区域文件}
+\PYG{o}{\PYGZcb{}};
+\end{Verbatim}

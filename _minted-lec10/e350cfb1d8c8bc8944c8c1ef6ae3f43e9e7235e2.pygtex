@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+service portmap start \PYG{c}{\PYGZsh{}客户端也要启动pormap服务！}
+service nfs start
+\end{Verbatim}

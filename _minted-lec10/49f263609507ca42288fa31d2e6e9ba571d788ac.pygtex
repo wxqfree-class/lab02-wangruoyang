@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{tcp\PYGZus{}wrappers}\PYG{o}{=}YES \PYG{c}{\PYGZsh{}使用tcp\PYGZus{}wrappers进行客户端访问控制}
+
+vim /etc/hosts.allow
+vsftpd:192.168.0.:allow \PYG{c}{\PYGZsh{}允许指定网段客户端访问}
+vsftpd:ALL:deny         \PYG{c}{\PYGZsh{}拒绝其他客户端访问}
+\end{Verbatim}

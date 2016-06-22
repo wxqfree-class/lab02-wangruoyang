@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+NameVirtualHost 192.168.56.200
+NameVirtualHost 200.1.1.200
+<VirtualHost 192.168.56.200 200.1.1.200>
+    ServerName www.abc.com
+    ServerAlias webserver
+    DocumentRoot /var/www/abc.com
+</VirtualHost>
+\end{Verbatim}

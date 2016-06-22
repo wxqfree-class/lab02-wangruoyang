@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+yum install perl-DBI perl-DBD-MySQL mysql mysql-server
+service mysqld start
+\PYG{c}{\PYGZsh{}管理员账户为root，默认密码为空}
+\end{Verbatim}

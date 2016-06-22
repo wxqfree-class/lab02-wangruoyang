@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+smbclient -L //192.168.0.200/public -U neo
+Password:
+smb: \PYG{l+s+se}{\PYGZbs{}>} ls
+smb: \PYG{l+s+se}{\PYGZbs{}>} get \PYG{n+nb}{test}
+\end{Verbatim}

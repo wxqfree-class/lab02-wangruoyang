@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="15cm" height="15cm" viewBox="109 45 284 294" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <rect style="fill: #ffffff" x="114" y="47" width="261" height="31" rx="4" ry="4"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke-linejoin: round; stroke: #000000" x="114" y="47" width="261" height="31" rx="4" ry="4"/>
+  </g>
+  <text font-size="13.5465" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="244.5" y="67.025">
+    <tspan x="244.5" y="67.025">来自客户端的访问</tspan>
+  </text>
+  <g>
+    <rect style="fill: #ffffff" x="111.7" y="296.9" width="114.3" height="41.1" rx="4" ry="4"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke-linejoin: round; stroke: #000000" x="111.7" y="296.9" width="114.3" height="41.1" rx="4" ry="4"/>
+  </g>
+  <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="168.85" y="317.45">
+    <tspan x="168.85" y="317.45"></tspan>
+  </text>
+  <text font-size="13.5465" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="168.85" y="313.508">
+    <tspan x="168.85" y="313.508">由TCP Wrappers</tspan>
+    <tspan x="168.85" y="330.442">控制的网络服务</tspan>
+  </text>
+  <g>
+    <rect style="fill: #ffffff" x="267.7" y="295.9" width="114.3" height="41.1" rx="4" ry="4"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke-linejoin: round; stroke: #000000" x="267.7" y="295.9" width="114.3" height="41.1" rx="4" ry="4"/>
+  </g>
+  <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="324.85" y="316.45">
+    <tspan x="324.85" y="316.45"></tspan>
+  </text>
+  <text font-size="13.5465" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="324.85" y="312.508">
+    <tspan x="324.85" y="312.508">由xinetd</tspan>
+    <tspan x="324.85" y="329.442">控制的网络服务</tspan>
+  </text>
+  <g>
+    <rect style="fill: #ffffff" x="117" y="166" width="103" height="29"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="117" y="166" width="103" height="29"/>
+  </g>
+  <text font-size="13.5465" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="168.5" y="185.2">
+    <tspan x="168.5" y="185.2">TCP Wrappers</tspan>
+  </text>
+  <g>
+    <rect style="fill: #ffffff" x="116.7" y="106.9" width="103" height="29"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="116.7" y="106.9" width="103" height="29"/>
+  </g>
+  <text font-size="13.5465" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="168.2" y="125.925">
+    <tspan x="168.2" y="125.925">防火墙</tspan>
+  </text>
+  <g>
+    <rect style="fill: #ffffff" x="273.4" y="238.8" width="103" height="29"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="273.4" y="238.8" width="103" height="29"/>
+  </g>
+  <text font-size="13.5465" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="324.9" y="258">
+    <tspan x="324.9" y="258">xinetd</tspan>
+  </text>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="167" y1="78" x2="167.796" y2="97.1723"/>
+    <polygon style="fill: #000000" points="168.107,104.666 162.697,94.8819 167.796,97.1723 172.688,94.467 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="168.107,104.666 162.697,94.8819 167.796,97.1723 172.688,94.467 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="167.237" y1="134.941" x2="168.034" y2="154.113"/>
+    <polygon style="fill: #000000" points="168.345,161.606 162.934,151.823 168.034,154.113 172.926,151.408 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="168.345,161.606 162.934,151.823 168.034,154.113 172.926,151.408 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="342" y1="239" x2="342" y2="88.7361"/>
+    <polygon style="fill: #000000" points="342,81.2361 347,91.2361 342,88.7361 337,91.2361 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="342,81.2361 347,91.2361 342,88.7361 337,91.2361 "/>
+  </g>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="220.7" y1="121.4" x2="341" y2="121"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="220.703" y1="180.303" x2="341.003" y2="179.903"/>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="168.5" y1="195" x2="168.817" y2="287.164"/>
+    <polygon style="fill: #000000" points="168.842,294.664 163.808,284.681 168.817,287.164 173.808,284.647 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="168.842,294.664 163.808,284.681 168.817,287.164 173.808,284.647 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="324.9" y1="267.8" x2="324.867" y2="286.164"/>
+    <polygon style="fill: #000000" points="324.854,293.664 319.872,283.655 324.867,286.164 329.872,283.673 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="324.854,293.664 319.872,283.655 324.867,286.164 329.872,283.673 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="170,219 297,219 297,227.264 "/>
+    <polygon style="fill: #000000" points="297,234.764 292,224.764 297,227.264 302,224.764 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="297,234.764 292,224.764 297,227.264 302,224.764 "/>
+  </g>
+  <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="110" y="154">
+    <tspan x="110" y="154">允许请求</tspan>
+  </text>
+  <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="109.7" y="213.25">
+    <tspan x="109.7" y="213.25">允许请求</tspan>
+  </text>
+  <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="267.4" y="282.15">
+    <tspan x="267.4" y="282.15">允许请求</tspan>
+  </text>
+  <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="342.1" y="154.05">
+    <tspan x="342.1" y="154.05">拒绝请求</tspan>
+  </text>
+</svg>

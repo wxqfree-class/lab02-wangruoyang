@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+vim /etc/sysconfig/network-scripts/ifcfg-eth0
+\PYG{n+nv}{DEVICE}\PYG{o}{=}eth0              \PYG{c}{\PYGZsh{}该网卡设备名称}
+\PYG{n+nv}{ONBOOT}\PYG{o}{=}yes               \PYG{c}{\PYGZsh{}计算机启动时是否启用该网卡}
+\PYG{n+nv}{BOOTPROTO}\PYG{o}{=}static         \PYG{c}{\PYGZsh{}启动协议(dhcp|static|none)}
+\PYG{n+nv}{IPADDR}\PYG{o}{=}192.168.56.200    \PYG{c}{\PYGZsh{} IP地址}
+\PYG{n+nv}{NETMASK}\PYG{o}{=}255.255.255.0    \PYG{c}{\PYGZsh{}子网掩码}
+\PYG{n+nv}{HWADDR}\PYG{o}{=}00:0c:29:ec:a8:50 \PYG{c}{\PYGZsh{}物理地址(MAC)}
+\PYG{n+nv}{GATEWAY}\PYG{o}{=}192.168.0.1      \PYG{c}{\PYGZsh{}默认网关地址}
+\PYG{n+nv}{TYPE}\PYG{o}{=}Ethernet            \PYG{c}{\PYGZsh{}网卡类型}
+\end{Verbatim}

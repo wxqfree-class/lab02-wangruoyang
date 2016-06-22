@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{cd} /var/named/chroot/var/named
+vim abc.com.zone   \PYG{c}{\PYGZsh{}在最后面添加子域委派记录}
+jx      IN      NS      ns1.jx.abc.com.
+ns1.jx  IN      A       192.168.2.200
+\end{Verbatim}

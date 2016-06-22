@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+iptables -A INPUT -p tcp -j ACCEPT
+\PYG{c}{\PYGZsh{}-p可以匹配协议类型tcp,udp,icmp或all}
+\PYG{c}{\PYGZsh{}-p ! tcp表示匹配tcp之外的其他协议}
+\end{Verbatim}

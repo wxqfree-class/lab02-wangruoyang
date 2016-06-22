@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+chkconfig --level 3 dhcpd on
+service dhcpd start
+\end{Verbatim}
